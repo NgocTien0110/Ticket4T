@@ -1,0 +1,72 @@
+.password-container {
+    position: relative;
+}
+
+.fa-eye {
+    position: absolute;
+    top: 14px;
+    right: 8px;
+    cursor: pointer;
+    color: lightgray;
+}
+#anhBgLogin {
+    width: 100%;
+    height: 675px;
+    background: url(../images/AnhBgLogin.jpg);
+    background-size: cover;
+    background-color: red;
+    display: flex;
+    align-items: center;
+}
+
+#formLogin {
+    background-color: white;
+    height: 400px;
+    width: 450px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+#loganLogin {
+    position: absolute;
+    font-size: 47px;
+    font-weight: bold;
+    color: white;
+
+}
+
+#topForm {
+    flex-basis: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 52.5px;
+}
+
+#topForm a:first-child {
+    color: var(--color--secondary);
+}
+
+#topForm a:nth-last-child(1) {
+    color: black;
+}
+
+#bodyForm {
+    flex-basis: 80%;
+    padding-left: 25px;
+    display: flex;
+}
+
+button.btn.btn-dark {
+    background-color: var(--color--secondary);
+    width: 160px;
+}
+
+button.btn.btn-dark:hover {
+    background-color: var(--color--secondary);
+}
+
+.floatLeft {
+    float: left;
+}
