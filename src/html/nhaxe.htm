@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danh sách nhà xe</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css">
@@ -19,7 +19,7 @@
 <body>
     <nav class="navbar navbar-expand-md bg-header navbar-dark py-0">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="">
                 <img src="../images/logo.png" alt="" width="30%">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -52,75 +52,175 @@
     </nav>
 
     <div class="page-site">
-        <header class="page-header">
+        <header class="page-header container">
             <h1 class="page-title">DANH SÁCH NHÀ XE</h1>
         </header>
 
         <main class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <div id="nhaxe1">
-                        <div class="thumbnail">
-                            <a href="#"><img src="../images/nhaxe/HaMy.jpg" alt="Nhà xe Hà My" style="height: 440px; width: 580px" class="img-fluid"></a>
-                        </div>
-                        <div class="intro">
-                            <h3>Nhà xe Hà My</h3>
-                            <p>
-                                Hiện nay, các tỉnh miền Tây Nam Bộ, trong đó có Bạc Liêu, đang là một điểm du lịch hấp dẫn du khách gần xa với cảnh sông nước êm đềm...
-                            </p>
+                    <div id="nhaxe1" class="nhaxe">
+                        <a href="#" class="thumbnail">
+                            <div class="image-container">
+                                <img src="../images/nhaxe/HaMy.jpg" alt="Nhà xe Hà My" style="height: 440px; width: 580px" class="img-fluid rounded-top-2 thumbIMG">
+                                <div class="hover-block rounded-top-2"></div>
+                            </div>
+                        </a>
+                        
+
+                        <div class="description rounded-bottom-2">
+                            <div class="intro">
+                                <a href="#"><h3>Nhà xe Hà My</h3></a>
+                                
+                                <p>
+                                    Hiện nay, các tỉnh miền Tây Nam Bộ, trong đó có Bạc Liêu, đang là một điểm du lịch hấp dẫn du khách gần xa với cảnh sông nước êm đềm...
+                                </p>
+                            </div>                        
+                            <div class="review">
+                                <h3>Đánh giá</h3>
+
+
+                                <div class="review-star">
+                                    <a href="#">
+                                        <i class="bi bi-star-fill icon"></i>
+                                        <i class="bi bi-star-fill icon"></i>
+                                        <i class="bi bi-star-fill icon"></i>
+                                        <i class="bi bi-star-fill icon"></i>
+                                        <i class="bi bi-star-fill icon"></i>
+                                    </a>
+                                
+                                    <a href="#" class="review-count">(13)</a>
+                                </div>
+
+                            </div>
                         </div>
                         
-                        <div class="review"></div>
+                        
                     </div>
                 </div>
                 
                 <div class="col-md-6">
-                    <div id="nhaxe2">
-                        <div class="thumbnail">
-                            <a href="#"><img src="../images/nhaxe/AnhTuanBacLieu.jpg" alt="Nha xe Anh Tuấn Bạc Liêu" style="height: 440px; width: 580px" class="img-fluid"></a>
+                    <div id="nhaxe1" class="nhaxe">
+                        <a href="#" class="thumbnail">
+                            <div class="image-container">
+                                <img src="../images/nhaxe/AnhTuanBacLieu.jpg" alt="Nhà xe Anh Tuấn Bạc Liêu" style="height: 440px; width: 580px" class="img-fluid rounded-top-2 thumbIMG">
+                                <div class="hover-block rounded-top-2"></div>
+                            </div>
+                        </a>
+                        
+
+                        <div class="description rounded-bottom-2">
+                            <div class="intro">
+                                <a href="#"><h3>Nhà xe Anh Tuấn Bạc Liêu</h3></a>
+                                
+                                <p>
+                                    Hiện nay, các tỉnh miền Tây Nam Bộ, trong đó có Bạc Liêu, đang là một điểm du lịch hấp dẫn du khách gần xa với cảnh sông nước êm đềm...
+                                </p>
+                            </div>                        
+                            <div class="review">
+                                <h3>Đánh giá</h3>
+
+
+                                <div class="review-star">
+                                    <a href="#">
+                                        <i class="bi bi-star-fill icon"></i>
+                                        <i class="bi bi-star-fill icon"></i>
+                                        <i class="bi bi-star-fill icon"></i>
+                                        <i class="bi bi-star-fill icon"></i>
+                                        <i class="bi bi-star-fill icon"></i>
+                                    </a>
+                                
+                                    <a href="#" class="review-count">(13)</a>
+                                </div>
+
+                            </div>
                         </div>
-                        <div class="intro">
-                            <h3>Nhà xe Anh Tuấn Bạc Liêu</h3>
-                            <p>
-                                Trên tuyến xe khách từ Bạc Liêu đến Sài Gòn và ngược lại, nhà xe Anh Tuấn Bạc Liêu là cái tên chắc chắn không hề lạ lẵm. Trải qua nhiều năm...
-                            </p>
-                        </div>
-                        <div class="review"></div>    
+                        
+                        
                     </div>
                 </div>
             </div>
             
             <div class="row">
                 <div class="col-md-6">
-                    <div id="nhaxe3">
-                        <div class="thumbnail">
-                            <a href="#"><img src="../images/nhaxe/XuanTung.jpg" alt="Nhà xe Xuân Tùng" style="height: 440px; width: 580px" class="img-fluid"></a>
-                        </div>
-                        <div class="intro">
-                            <h3>Nhà xe Xuân Tùng</h3>
-                            <p>
-                                Ngày càng nhiều khách du lịch đổ về Đà Nẵng để tận hưởng những kì nghỉ tuyệt vời. Và Để có được một hanhgf trình an toàn, xe Xuân Tùng là lựa chọn di chuyển của nhiều...
-                            </p>
-                        </div>
+                    <div id="nhaxe1" class="nhaxe">
+                        <a href="#" class="thumbnail">
+                            <div class="image-container">
+                                <img src="../images/nhaxe/XuanTung.jpg" alt="Nhà xe Xuân Tùng" style="height: 440px; width: 580px" class="img-fluid rounded-top-2 thumbIMG">
+                                <div class="hover-block rounded-top-2"></div>
+                            </div>
+                        </a>
+                        
 
-                        <div class="review"></div>
+                        <div class="description rounded-bottom-2">
+                            <div class="intro">
+                                <a href="#"><h3>Nhà xe Xuân Tùng</h3></a>
+                                
+                                <p>
+                                    Hiện nay, các tỉnh miền Tây Nam Bộ, trong đó có Bạc Liêu, đang là một điểm du lịch hấp dẫn du khách gần xa với cảnh sông nước êm đềm...
+                                </p>
+                            </div>                        
+                            <div class="review">
+                                <h3>Đánh giá</h3>
+
+
+                                <div class="review-star">
+                                    <a href="#">
+                                        <i class="bi bi-star-fill icon"></i>
+                                        <i class="bi bi-star-fill icon"></i>
+                                        <i class="bi bi-star-fill icon"></i>
+                                        <i class="bi bi-star-fill icon"></i>
+                                        <i class="bi bi-star-fill icon"></i>
+                                    </a>
+                                
+                                    <a href="#" class="review-count">(13)</a>
+                                </div>
+
+                            </div>
+                        </div>
+                        
+                        
                     </div>
                 </div>
                
                 <div class="col-md-6">
-                    <div id="nhaxe4">
-                        <div class="thumbnail">
-                            <a href="#"><img src="../images/nhaxe/PhatThuy.jpg" alt="Nhà xe Phát Thủy" style="height: 440px; width: 580px" class="img-fluid"></a>
-                        </div>
+                    <div id="nhaxe1" class="nhaxe">
+                        <a href="#" class="thumbnail">
+                            <div class="image-container">
+                                <img src="../images/nhaxe/PhatThuy.jpg" alt="Nhà xe Phát Thủy" style="height: 440px; width: 580px" class="img-fluid rounded-top-2 thumbIMG">
+                                <div class="hover-block rounded-top-2"></div>
+                            </div>
+                        </a>
+                        
 
-                        <div class="intro">
-                            <h3>Nhà xe Phát Thủy</h3>
-                            <p>
-                                Nói về tuyến đường TPHCM - Bạc Liêu và ngược lại, không thể không kể đến nhà xe Phát Thủy. Nhà xe này hỗ trợ đưa rước khách hàng...
-                            </p>
+                        <div class="description rounded-bottom-2">
+                            <div class="intro">
+                                <a href="#"><h3>Nhà xe Phát Thủy</h3></a>
+                                
+                                <p>
+                                    Hiện nay, các tỉnh miền Tây Nam Bộ, trong đó có Bạc Liêu, đang là một điểm du lịch hấp dẫn du khách gần xa với cảnh sông nước êm đềm...
+                                </p>
+                            </div>                        
+                            <div class="review">
+                                <h3>Đánh giá</h3>
+
+
+                                <div class="review-star">
+                                    <a href="#">
+                                        <i class="bi bi-star-fill icon"></i>
+                                        <i class="bi bi-star-fill icon"></i>
+                                        <i class="bi bi-star-fill icon"></i>
+                                        <i class="bi bi-star-fill icon"></i>
+                                        <i class="bi bi-star-fill icon"></i>
+                                    </a>
+                                
+                                    <a href="#" class="review-count">(13)</a>
+                                </div>
+
+                            </div>
                         </div>
                         
-                        <div class="review"></div>
+                        
                     </div>
                 </div>
               
