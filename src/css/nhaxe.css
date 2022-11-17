@@ -41,7 +41,7 @@
 }
 
 .description .intro{
-    padding-left: 5px;
+    padding: 0 5px;
 }
 
 
@@ -88,6 +88,6 @@
     background-color: rgba(100, 100, 100, 0.3);
 }
 
-.row{
+.nhaxe{
     padding: 10px;
 }

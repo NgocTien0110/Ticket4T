@@ -1,0 +1,30 @@
+/* .row{
+    margin: 10px;
+} */
+
+.container .loai-xe{
+    display: flex;
+}
+
+.container .loai-xe p{
+    padding: 0 2px;
+}
+
+.bold-secondary{
+    color: var(--color--secondary);
+
+    font-weight: bold;
+    font-size: 20px;
+    
+    /* text-shadow: 1px 1px black; */
+}
+
+
+.chi-nhanh-details .sdt-container{
+    display: flex;
+}
+
+.chi-nhanh-details .sdt-container > .bold-secondary{
+    line-height: 24px;
+    padding-left: 3px;
+}
