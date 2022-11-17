@@ -46,6 +46,7 @@
 
 #topForm a:first-child {
     color: var(--color--secondary);
+    border-bottom: 1px solid var(--color--secondary);
 }
 
 #topForm a:nth-last-child(1) {
@@ -64,9 +65,19 @@ button.btn.btn-dark {
 }
 
 button.btn.btn-dark:hover {
-    background-color: var(--color--secondary);
+    background-color: #1c7ef7;
+}
+
+#forgotPassword {
+    color:var(--color--secondary);
+    float: right;
+}
+
+#forgotPassword:hover {
+    color: #1c7ef7;
 }
 
 .floatLeft {
     float: left;
 }
+
