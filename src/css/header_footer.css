@@ -36,6 +36,7 @@ a{
 }
 .nav-item:hover{
     background-color: var(--color--secondary);
+    border-radius: 15px;
 }
 .navbar-toggler
 {
