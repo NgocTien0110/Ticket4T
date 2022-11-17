@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Đăng nhập</title>
+    <title>Đăng ký</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,7 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../css/header_footer.css">
-    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/register.css">
 </head>
 
 <body>
@@ -53,16 +53,16 @@
     </header>
 
     <main>
-        <div id="anhBgLogin">
+        <div id="anhBgRegister">
             <div class="container">
                 <div class="row">
                     <div class="col-md-5 text-center">
-                        <div id="formLogin">
+                        <div id="formRegister">
                             <div id="topForm">
-                                <a href="#">
+                                <a href="./login.htm">
                                     <h4>Đăng nhập</h4>
                                 </a>
-                                <a href="./register.htm">
+                                <a href="#">
                                     <h4>Đăng ký</h4>
                                 </a>
                             </div>
@@ -85,10 +85,20 @@
                                         <i class="far fa-eye" id="togglePassword"></i>
                                     </div>
                                     <br>
-                                    <a id="forgotPassword" href="#">Quên mật khẩu?</a>
+                                    <br>
+                                    <label for="password2" style="font-size: 1.3em; float:left">Xác nhận mật
+                                        khẩu</label>
+                                    <br>
+                                    <div class="password-container">
+                                        <input class="floatLeft" type="password" id="password2" name="password2"
+                                            size="50" placeholder="Nhập lại mật khẩu" required>
+                                        <i class="far fa-eye" id="togglePassword2"></i>
+                                    </div>
+                                    <a id="accAvailable" href="./login.htm">Đã có tài khoản?</a>
+                                    <br>
                                     <br>
                                     <button class="btn btn-dark fw-bold"><i class="fa-regular fa-user"></i> ĐĂNG
-                                        NHẬP</button>
+                                        KÝ</button>
                                 </form>
                             </div>
 
@@ -96,7 +106,7 @@
                     </div>
                     <div class="col-md-3"></div>
                     <div class="col-md-4 d-none d-md-block text-center">
-                        <div id="sloganLogin">
+                        <div id="sloganRegister">
                             <p>Ticket4T</p>
                             <p>Hân hạnh tài trợ</p>
                             <p>chuyến đi của bạn</p>
