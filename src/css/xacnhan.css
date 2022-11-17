@@ -1,4 +1,8 @@
 
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
 .steps {
     display: flex;
     justify-content: space-between;

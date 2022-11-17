@@ -1,3 +1,7 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
 .bg-form
 {
     background-color: var(--color--tertiary);
