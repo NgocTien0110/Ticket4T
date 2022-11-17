@@ -52,5 +52,11 @@
   }
   
   .trip-info {
-   
   }
+
+  /* nền tảng kết nối */
+#nen-tang-ket-noi {
+  background-color: var(--color-3);
+}
+
+
