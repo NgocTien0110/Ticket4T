@@ -61,10 +61,13 @@
 button.btn.btn-dark {
     background-color: var(--color--secondary);
     width: 160px;
+    border-radius: 15px;
+    border-color: var(--color--secondary);
 }
 
 button.btn.btn-dark:hover {
     background-color: #1c7ef7;
+    border-color: var(--color--secondary);
 }
 
 #accAvailable {
