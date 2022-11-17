@@ -7,27 +7,27 @@
     top: 14px;
     right: 8px;
     cursor: pointer;
-    color: lightgray;
+    color: gray;
 }
-#anhBgLogin {
+#anhBgRegister {
     width: 100%;
     height: 675px;
-    background: url(../images/AnhBgLogin.jpg);
+    background: url(../images/AnhBgRegister.jpg);
     background-size: cover;
     display: flex;
     align-items: center;
 }
 
-#formLogin {
+#formRegister {
     background-color: white;
-    height: 315px;
+    height: 400px;
     width: 450px;
     border-radius: 12px;
     display: flex;
     flex-direction: column;
 }
 
-#sloganLogin {
+#sloganRegister {
     font-size: 47px;
     font-weight: bold;
     color: white;
@@ -43,12 +43,13 @@
 }
 
 #topForm a:first-child {
-    color: var(--color--secondary);
-    border-bottom: 1px solid var(--color--secondary);
+    color: black;
 }
 
 #topForm a:nth-last-child(1) {
-    color: black;
+
+    color: var(--color--secondary);
+    border-bottom: 1px solid var(--color--secondary);
 }
 
 #bodyForm {
@@ -59,9 +60,9 @@
 
 button.btn.btn-dark {
     background-color: var(--color--secondary);
-    border-color: var(--color--secondary);
     width: 160px;
     border-radius: 15px;
+    border-color: var(--color--secondary);
 }
 
 button.btn.btn-dark:hover {
@@ -69,12 +70,12 @@ button.btn.btn-dark:hover {
     border-color: var(--color--secondary);
 }
 
-#forgotPassword {
+#accAvailable {
     color:var(--color--secondary);
     float: right;
 }
 
-#forgotPassword:hover {
+#accAvailable:hover {
     color: #1c7ef7;
 }
 
