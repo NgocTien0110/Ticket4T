@@ -1,3 +1,6 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
 .bodyInfo {
     background-color: var(--color--quaternary);
     padding-top: 10px;
@@ -113,10 +116,6 @@ a:hover {
 
 .botRightBody {
     margin-top: 20px;
-}
-
-input {
-    border-radius: 5px;
 }
 
 .GioiTinhForm {

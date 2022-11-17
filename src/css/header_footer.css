@@ -9,6 +9,10 @@
     padding:0;
     box-sizing:border-box;
 }
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
 a{
     text-decoration:none;
 }
@@ -32,6 +36,7 @@ a{
 }
 .nav-item:hover{
     background-color: var(--color--secondary);
+    border-radius: 15px;
 }
 .navbar-toggler
 {
