@@ -56,7 +56,7 @@
         <div class="container">
             <div class="accordion" id="accordionExample">
                 <div class="steps my-4">
-                    <progress id="progress" value=0 max=100></progress>
+                    <progress id="progress" value=100 max=100></progress>
                     <div class="step-item">
                         <button class="step-button text-center" type="button" data-toggle="collapse"
                             data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -68,7 +68,7 @@
                     </div>
                     <div class="step-item">
                         <button class="step-button text-center collapsed" type="button" data-toggle="collapse"
-                            data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                             2
                         </button>
                         <div class="step-title">
@@ -77,7 +77,7 @@
                     </div>
                     <div class="step-item">
                         <button class="step-button text-center collapsed" type="button" data-toggle="collapse"
-                            data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
                             3
                         </button>
                         <div class="step-title">
@@ -85,54 +85,74 @@
                         </div>
                     </div>
                 </div>
-                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                    data-parent="#accordionExample">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="h3 text-center">Xác nhận đơn hàng</div>
-                            <div class="row d-md-flex flex-column justify-content-center align-items-md-center">
-                                <div class="col-6 my-4">
-                                    <div class="date d-flex justify-content-between">
-                                        <div class="go d-flex flex-column align-items-center ms-sm-5 ms-5">
-                                            <i class="bi bi-calendar mb-2"></i>
-                                            <span>14/11/2022</span>
-                                        </div>
-                                        <div class="arrive d-flex flex-column align-items-center me-sm-5 me-5">
-                                            <i class="bi bi-calendar mb-2"></i>
-                                            <span>15/11/2022</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6 my-4">
-                                    <div class="locate d-flex justify-content-between">
-                                        <div class="go d-flex flex-column align-items-center ms-sm-5 ms-5">
-                                            <span>VP Tân Bình</span>
-                                            <i class="bi bi-geo-alt my-2 linee"></i>
-                                            <span>23:00</span>
-                                        </div>
-                                        <div class="line">
-                                            <span>8h</span>
-                                        </div>
-                                        <div class="arrive d-flex flex-column align-items-center me-sm-5 me-5">
-                                            <span>VP Đà Lạt</span>
-                                            <i class="bi bi-geo-alt-fill my-2"></i>
-                                            <span>07:00</span>
-                                        </div>
-                                    </div>
-                                </div>
+                <div id="collapseThree" class="collapse show" aria-labelledby="headingThree"
+                data-parent="#accordionExample">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="container">
+                            <div class="h3 text-center">Thông tin vé</div>
+                            <div class="d-block mx-5">
+                            <hr>
+                            <div class="name d-flex justify-content-between align-items-center">
+                                <span>Họ và tên: </span>
+                                <span>Nguyễn Văn A</span>
+                            </div>
+                            <div class="phone d-flex justify-content-between align-items-center">
+                                <span>Số điện thoại: </span>
+                                <span>034567890</span>
+                            </div>
+                            <div class="email d-flex justify-content-between align-items-center">
+                                <span>Email: </span>
+                                <span>nhom5ktpm4@clc.fitus.edu.vn</span>
+                            </div>
+                            <br>
+                            <div class="brand d-flex justify-content-between align-items-center">
+                                <span>Hãng xe: </span>
+                                <span>Tiến Oanh</span>
+                            </div>
+                            <div class="route d-flex justify-content-between align-items-center">
+                                <span>Tuyến đường: </span>
+                                <span>TP.HCM - Đà Lạt</span>
+                            </div>
+                            <div class="departure d-flex justify-content-between align-items-center">
+                                <span>Điểm đi: </span>
+                                <span>VP.Tân Bình</span>
+                            </div>
+                            <div class="time d-flex justify-content-between align-items-center">
+                                <span>Thời gian: </span>
+                                <span>21:00 23-11-2022</span>
+                            </div>
+                            <div class="price d-flex justify-content-between align-items-center">
+                                <span>Giá vé: </span>
+                                <span>500.000đ</span>
+                            </div>
+                            <div class="seat d-flex justify-content-between align-items-center">
+                                <span>Số ghế: </span>
+                                <span>A1 B1</span>
+                            </div>
+                            <div class="quantity d-flex justify-content-between align-items-center">
+                                <span>Số lượng vé: </span>
+                                <span>2</span>
+                            </div>
+                            <div class="total d-flex justify-content-between align-items-center h3 mt-4">
+                                <span>Tổng tiền: </span>
+                                <span>1.000.000đ</span>
                             </div>
 
                         </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
-        </div>
     </main>
     <div class="button d-flex justify-content-around my-4">
-        <div class="btn btn-lg px-5 back">&lt Quay lại</div>
         <a href="../html/thongtinkhachhang.htm">
-            <div class="btn btn-lg px-5 continue">Tiếp tục &gt;</div>
-        </a>
+            <div class="btn btn-lg px-5 back">&lt Quay lại</div>
+            </a>
+            <a href="../html/thanhtoan.htm">
+                <div class="btn btn-success btn-lg px-5 continue">Thanh toán</div>
+            </a>
     </div>
     <footer>
         <footer class="bg-light text-center text-lg-start">
