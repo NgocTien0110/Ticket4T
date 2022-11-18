@@ -28,3 +28,39 @@
     line-height: 24px;
     padding-left: 3px;
 }
+
+.container .review .container{
+    content: "";
+    background-color: var(--color--tertiary);
+    
+    margin-bottom: 10px;
+}
+
+.container .review .container .star-review .total{
+    background-color: var(--color--secondary);
+
+    color: white;
+
+    padding: 3px 3px;
+}
+
+.container .review .container .star-review a:not(:first-child){
+    background-color: white;
+
+    border: 1px solid var(--color--secondary);
+    padding: 2px;
+
+    padding: 5px 10px;
+    margin: auto 10px;
+
+}
+
+.container .review .container .star-review a:first-child{
+    padding: 2px;
+    border: 1px solid var(--color--secondary);
+    background-color: var(--color--secondary);
+
+    padding: 5px 10px;
+    margin-right: 15px;
+    margin-left: 10px;
+}
