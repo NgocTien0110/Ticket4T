@@ -86,22 +86,19 @@ a:hover {
     display: flex;
     flex-direction: column;
     min-height: 195px;
-    border: 1px solid #9B9B9B;
     border-radius: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .maDonHang {
     flex-basis: 20%;
-    border-bottom: 1px solid #9B9B9B;
-    padding-left: 5px;
+    padding-left: 15px;
     font-size: larger;
     font-weight: 500;
 }
 .infoDetailTicket {
     flex-basis: 60%;
-    border-bottom: 1px solid #9B9B9B;
-    padding: 5px;
+    padding: 15px;
     display: flex;
     justify-content: space-between;
     font-size: large;
@@ -113,7 +110,7 @@ a:hover {
     font-weight: 500;
     display: flex;
     justify-content: end;
-    padding-right: 5px;
+    padding-right: 15px;
 }
 
 .idDonHang, .soTien {
@@ -137,8 +134,12 @@ a:hover {
     gap: 15px;
 }
 
-.infoChuyenDi :nth-child(2) {
+.infoChuyenDi p:nth-child(2) {
     color: #9B9B9B;
+}
+
+.infoChuyenDi p:nth-last-child(1) {
+  margin-bottom: 0px;
 }
 
 .rightInFoDetail {
@@ -152,7 +153,7 @@ a:hover {
     justify-content: center;
     gap: 3px;
     align-items: center;
-    font-size: larger;
+    font-size: large;
 }
 
 a.btn.btn-dark {
@@ -171,4 +172,13 @@ a.btn.btn-dark {
 a.btn.btn-dark:hover {
     background-color: #1c7ef7;
     border-color: var(--color--secondary);
+}
+
+.botRightBody {
+    display: flex;
+    justify-content: center;
+}
+
+.fontSizeLarger {
+    font-size: 1.4em;
 }

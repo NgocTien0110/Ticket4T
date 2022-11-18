@@ -7,3 +7,7 @@
     border-top-left-radius: 2rem;
     border-top-right-radius: 2rem;
 }
+
+.rounded-top-bottom-1{
+    border-radius: 1rem;
+}
