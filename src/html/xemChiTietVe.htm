@@ -15,7 +15,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../css/header_footer.css">
-    <link rel="stylesheet" href="../css/myTicket.css">
+    <link rel="stylesheet" href="../css/xemChiTietVe.css">
 </head>
 
 <body>
@@ -85,80 +85,52 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-9 rightBody">
-                        <div class="topRightBody">
-                            <span>Vừa đặt</span>
-                            <span>Đã thanh toán</span>
-                            <span>Đã hủy</span>
-                        </div>
-                        <div class="bodyRightBody">
-                            <div class="infoTicket shadow-sm">
-                                <div class="maDonHang shadow-sm fontSizeLarger">Mã đơn hàng: <span
-                                        class="idDonHang">T1004529</span>
-                                </div>
-                                <div class="infoDetailTicket shadow-sm">
-                                    <div class="leftInfoDetail">
-                                        <img src="../images/cauvangDaNang.jpg" alt="DaNang">
-                                        <div class="infoChuyenDi">
-                                            <p>Sài gòn <i class="fa-solid fa-arrow-right"></i> Đà Nẵng</p>
-                                            <p>Nhà xe Hà My</p>
-                                            <p><span class="bi bi-ticket-detailed"></span> 2 vé</p>
-                                        </div>
-                                    </div>
-                                    <div class="rightInFoDetail">
-                                        <div class="ngayDiChuyenDi"><i class="fa-solid fa-calendar-days"></i>
-                                            04/11/2022</div>
-                                        <a href="./xemChiTietVe.htm" class="btn btn-dark">Xem chi tiết</a>
-                                    </div>
-                                </div>
-                                <div class="tongSoTien fontSizeLarger">
-                                    Tổng số tiền: <span class="soTien">600.000đ</span>
+                    <div class="col-md-9 rightBody p-5">
+                        <div class="ttLienLac">
+                            <div class="leftTTLienLac">
+                                <div id="maVe">Mã vé #<span>T1004529</span></div>
+                                <br>
+                                <div class="ttNguoiDung">
+                                    <div class="fontSizeLarger"><i class="fa-solid fa-circle-info"></i> Thông tin liên
+                                        lạc</div>
+                                    <ul>
+                                        <li>Họ tên: <span>Nhom5</span></li>
+                                        <li>Số điện thoại: <span>034567890</span></li>
+                                        <li>Email: <span>nhom5ktpm4@clc.fitus.edu.vn</span></li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="infoTicket shadow-sm">
-                                <div class="maDonHang shadow-sm fontSizeLarger">Mã đơn hàng: <span
-                                        class="idDonHang">T1004535</span>
-                                </div>
-                                <div class="infoDetailTicket shadow-sm">
-                                    <div class="leftInfoDetail">
-                                        <img src="../images/HoGuom.jpg" alt="DaNang">
-                                        <div class="infoChuyenDi">
-                                            <p>Sài gòn <i class="fa-solid fa-arrow-right"></i> Hà Nội</p>
-                                            <p>Nhà xe Hà My</p>
-                                            <p><span class="bi bi-ticket-detailed"></span> 1 vé</p>
-                                        </div>
-                                    </div>
-                                    <div class="rightInFoDetail">
-                                        <div class="ngayDiChuyenDi"><i class="fa-solid fa-calendar-days"></i>
-                                            05/11/2022</div>
-                                        <a href="./xemChiTietVe.htm" class="btn btn-dark">Xem chi tiết</a>
-                                    </div>
-                                </div>
-                                <div class="tongSoTien fontSizeLarger">
-                                    Tổng số tiền: <span class="soTien">1.590.000đ</span>
-                                </div>
+                            <div class="rightTTLienLac">
+                                <img src="../images/cauvangDaNang.jpg" alt="anhDuLich" class="img-fluid">
                             </div>
                         </div>
-                        <div class="botRightBody">
-                            <nav aria-label="Page navigation">
-                                <ul class="pagination">
-                                    <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
-                                        </a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Next">
-                                            <span aria-hidden="true">&raquo;</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
+                        <hr>
+                        <div class="tinhTrangVe">
+                            <span class="fontSizeLarger"><i class="bi bi-ticket-perforated"></i> Tình trạng vé</span>
+                            <ul>
+                                <li id="liTinhTrangVe">Vừa đặt</li>
+                            </ul>
+                        </div>
+                        <hr>
+                        <div class="ttChuyenDi">
+                            <span class="fontSizeLarger"><i class="fa-solid fa-location-dot"></i> Thông tin chuyến
+                                đi</span>
+                            <ul>
+                                <li>Tên chuyến đi: <span>Sài gòn</span></li>
+                                <li>Tên nhà xe: <span>Hà My</span></li>
+                                <li>Ngày đặt vé: <span>03/11/2022</span></li>
+                                <li>Ngày khởi hành: <span>04/11/2022</span></li>
+                            </ul>
+                        </div>
+                        <hr>
+                        <div class="ttDonGia">
+                            <span class="fontSizeLarger"><i class="bi bi-cash"></i> Thông tin đơn giá</span>
+                            <ul>
+                                <li>Giá vé: <span>300.000đ</span></li>
+                                <li id="soVeDat">Số vé đặt: <span>2</span></li>
+                                <hr id="horiSoTien">
+                                <li>Tổng số tiền: <span style="color:var(--color--secondary)">600.000đ</span></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
