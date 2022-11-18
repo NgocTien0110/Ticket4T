@@ -9,9 +9,7 @@
     padding:0;
     box-sizing:border-box;
 }
-body {
-    font-family: 'Roboto', sans-serif;
-}
+
 
 a{
     text-decoration:none;
@@ -60,5 +58,48 @@ a{
 .follow>span>i:hover{
     color: var(--color--tertiary);
     cursor: pointer;
-}   
- 
+} 
+.dropdown-menu li>a{
+    color: black;
+} 
+.item a{
+    font-size: 16px;
+} 
+.item:hover{
+    background-color: var(--color--secondary);
+}
+.item{
+    padding: 20px 0;
+    border-radius: 15px;
+}
+.hamburger{
+    display: none;
+}
+@media screen and (max-width: 767px){
+    .hamburger{
+        display: block;
+    }
+  .dropdown{
+    display: none;
+  }
+}
+.taikhoan{
+    width: 100%;
+}
+.user{
+    width: 100%;
+    text-align: center;
+    padding: 13px 0;
+    border-radius: 15px;
+}
+.user:hover{
+    background-color: var(--color--secondary);
+}
+.dropdown-item:focus{
+    background-color: rgba(0,0,0,.1);
+    color: black;
+}
+.item>a{
+    color: white;
+    font-size: 16px;
+}
