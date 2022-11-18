@@ -6,3 +6,29 @@ body {
 {
     background-color: var(--color--tertiary);
 }
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: white;
+    height: 35px;
+    border-radius: 5px;
+}
+.wrapper span{
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.wrapper span.minus, .wrapper span.plus{
+    cursor: pointer;
+    font-size: 25px;
+    color: var(--color--quaternary);
+    background-color: var(--color--secondary);
+    border-radius: 5px;
+}
+.wrapper span.minus:hover, .wrapper span.plus:hover{
+    background-color: #4488dc;
+}
