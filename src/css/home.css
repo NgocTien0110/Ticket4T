@@ -5,6 +5,17 @@
     --color-4: #112d4e;
   }
   
+.text-4 {
+  color: var(--color-4);
+  font-weight: bold;
+}
+
+.text-3 {
+  color: var(--color-3);
+  font-weight: bold;
+}
+
+
   .header {
     background-color: var(--color-4);
     color: var(--color-4);
