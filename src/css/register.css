@@ -24,11 +24,12 @@ body {
 
 #formRegister {
     background-color: white;
-    height: 400px;
-    width: 450px;
+    width: 100%;
     border-radius: 12px;
     display: flex;
     flex-direction: column;
+
+    padding: 25px 25px 25px 0;
 }
 
 #sloganRegister {
@@ -87,3 +88,16 @@ button.btn.btn-dark:hover {
     float: left;
 }
 
+
+.submit-button{
+    margin-top: 10px;
+    background-color: var(--color--secondary);
+
+    color: white;
+    font-weight: bold;
+}
+
+
+.form-group{
+    padding-top: 10px;
+}

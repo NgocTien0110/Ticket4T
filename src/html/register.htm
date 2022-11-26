@@ -59,56 +59,47 @@
         <div id="anhBgRegister">
             <div class="container">
                 <div class="row">
+                    <div class="col-md-1"></div>
+
                     <div class="col-md-5 text-center">
                         <div id="formRegister">
-                            <div id="topForm">
-                                <a href="./login.htm">
-                                    <h4>Đăng nhập</h4>
-                                </a>
-                                <a href="#">
-                                    <h4>Đăng ký</h4>
-                                </a>
-                            </div>
-                            <div id="bodyForm">
-                                <form action="index.html" id="login-form">
-                                    <label for="email" style="font-size: 1.3em; float:left">
-                                        Địa chỉ Email
-                                    </label>
-                                    <br>
-                                    <input class="floatLeft" type="email" id="email" name="email"
-                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" size="48"
-                                        placeholder="Nhập Email" required>
-                                    <br>
-                                    <br>
-                                    <label for="password" style="font-size: 1.3em; float:left">Mật khẩu</label>
-                                    <br>
-                                    <div class="password-container">
-                                        <input class="floatLeft" type="password" id="password" name="password" size="48"
-                                            placeholder="Nhập mật khẩu" required>
-                                        <i class="far fa-eye" id="togglePassword"></i>
+                           
+                            <div id="bodyForm" style="display: flex; justify-content: center; flex-direction: column;">
+                                <div id="topForm">
+                                    <a href="./login.htm">
+                                        <h4>Đăng nhập</h4>
+                                    </a>
+                                    <a href="#">
+                                        <h4>Đăng ký</h4>
+                                    </a>
+                                </div>
+
+                                <form>
+                                    <div class="form-group">
+                                      <label for="exampleInputEmail1" style="float: left">Địa chỉ Email</label>
+                                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập Email">
                                     </div>
-                                    <br>
-                                    <br>
-                                    <label for="password2" style="font-size: 1.3em; float:left">Xác nhận mật
-                                        khẩu</label>
-                                    <br>
-                                    <div class="password-container">
-                                        <input class="floatLeft" type="password" id="password2" name="password2"
-                                            size="48" placeholder="Nhập lại mật khẩu" required>
-                                        <i class="far fa-eye" id="togglePassword2"></i>
+                                    <div class="form-group">
+                                      <label for="exampleInputPassword1" style="float: left">Mật khẩu</label>
+                                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Nhập mật khẩu">
                                     </div>
-                                    <a id="accAvailable" href="./login.htm">Đã có tài khoản?</a>
-                                    <br>
-                                    <br>
-                                    <button class="btn btn-dark fw-bold"><i class="fa-regular fa-user"></i> ĐĂNG
-                                        KÝ</button>
-                                </form>
+                    
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1" style="float: left">Xác nhận mật khẩu</label>
+                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Nhập lại mật khẩu">
+                                      </div>
+                                    
+                                    <button type="submit" class="btn btn-primary submit-button" >
+                                        <i class="bi bi-person-plus"></i>
+                                        Đăng ký
+                                    </button>
+                                </form>                            
                             </div>
 
                         </div>
                     </div>
-                    <div class="col-md-3"></div>
-                    <div class="col-md-4 d-none d-md-block text-center">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-5 d-none d-md-block text-center">
                         <div id="sloganRegister">
                             <p>Ticket4T</p>
                             <p>Hân hạnh tài trợ</p>
