@@ -25,7 +25,7 @@
     <header>
         <nav class="navbar navbar-expand-md bg-header navbar-dark py-0">
             <div class="container">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="#">
                     <img src="../images/logo.png" alt="" width="80">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -47,71 +47,13 @@
                                 Về chúng tôi
                             </a>
                         </li>
-                        <li class="nav-item dropdown mx-2">
-                            <a class="nav-link text-center" href="#" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-person"></i>
-                                <div class="taikhoan">
-                                    Nhóm 5
-                                    <i class="bi bi-caret-down-fill"></i>
-
-                                </div>
+                        <li class="nav-item text-white">
+                            <a class="nav-link text-center mx-2" href="login.htm">
+                                <i class="bi bi-person icon"></i>
+                                Đăng nhập
                             </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="infoTaiKhoan.htm"><i class="bi bi-person-circle"></i>
-                                        Thông tin tài
-                                        khoản</a></li>
-                                <li><a class="dropdown-item" href="myTicket.htm"><i class="bi bi-ticket-perforated"></i>
-                                        Vé của
-                                        tôi</a></li>
-                                <li><a class="dropdown-item text-danger" href="index.html"><i
-                                            class="bi bi-box-arrow-left"></i>
-                                        Đăng xuất</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-items text-center text-white hamburger">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingThree">
-                                    <button class="accordion-button collapsed mx-auto" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
-                                        aria-controls="collapseThree">
-                                        <div class="user">
-                                            <i class="bi bi-person"></i>
-                                            <div class="taikhoan text-center">
-                                                Nhóm 5
-                                                <i class="bi bi-caret-down-fill"></i>
-                                            </div>
-
-                                        </div>
-                            </div>
-                            </button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse mt-3"
-                                aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <div class="drop">
-                                        <div class="item"><a class="" href="infoTaiKhoan.htm"><i
-                                                    class="bi bi-person-circle"></i> Thông
-                                                tin tài
-                                                khoản</a>
-                                        </div>
-                                        <div class="item"><a class="mt-3" href="myTicket.htm"><i
-                                                    class="bi bi-ticket-perforated"></i> Vé
-                                                của
-                                                tôi</a>
-                                        </div>
-                                        <div class="item"><a class="mt-3 mb-3" href="index.html"><i
-                                                    class="bi bi-box-arrow-left"></i>
-                                                Đăng xuất</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
+                    </ul>
                 </div>
-                </li>
-                </ul>
-            </div>
             </div>
         </nav>
     </header>
@@ -148,13 +90,13 @@
                         </div>
                     </div>
                 </div>
-                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
+                <div id="collapseTwo" class="collapse show form1" aria-labelledby="headingTwo"
                     data-parent="#accordionExample">
-                    <div class="card bg-form">
+                    <div class="card bg-form mx-auto"style="width: 50%;">
                         <div class="card-body">
                             <form>
                                 <div class="h3 text-center">Thông tin khách hàng</div>
-                                <div class="mb-3">
+                                <div class="mb-3 form-group">
                                     <label for="InputName" class="form-label">Họ và tên khách hàng <span
                                             class="text-danger">*</span></label>
                                     <input type="text" placeholder="Họ và tên" class="form-control" id="InputName">
@@ -171,7 +113,7 @@
                                     <input type="email" placeholder="Nhập Email" class="form-control"
                                         id="exampleInputEmail1">
                                 </div>
-                                <div class="mb-3">
+                                <div class="mb-3 ticket">
                                     <label for="exampleInputTicket" class="form-label">Số lượng vé <span
                                             class="text-danger">*</span></label>
                                     <div class="wrapper">
@@ -208,10 +150,10 @@
                 </div>
                 <div class="button d-flex justify-content-around my-4">
                     <a href="../html/xacnhan.htm">
-                        <div class="btn btn-lg px-5 back">&lt Quay lại</div>
+                        <div class="btn btn-lg px-md-5 px-3 back">&lt Quay lại</div>
                     </a>
                     <a href="../html/thanhtoan.htm">
-                        <div class="btn btn-lg px-5 continue">Tiếp tục &gt;</div>
+                        <div class="btn btn-lg px-md-5 px-3 continue">Tiếp tục &gt;</div>
                     </a>
                 </div>
             </div>
@@ -290,7 +232,7 @@
             </div>
             <div class="footer2 bg-footer">
                 <div class="container p-4">
-                    <div class="d-flex justify-content-center">
+                    <div class="d-flex flex-column align-items-center flex-md-row justify-content-center">
                         <img src="https://cdn.haitrieu.com/wp-content/uploads/2021/12/logo-hcmus-new.png" alt="KHTN"
                             width="100" class="mx-5">
                         <img src="../images/fit.png" alt="FIT" width="100">

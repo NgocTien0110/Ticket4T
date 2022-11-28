@@ -10,10 +10,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 40%;
     background-color: white;
-    height: 35px;
+    height: 30px;
     border-radius: 5px;
+    margin:0 auto;
 }
 .wrapper span{
     width: 100%;
@@ -24,11 +25,15 @@ body {
 
 .wrapper span.minus, .wrapper span.plus{
     cursor: pointer;
-    font-size: 25px;
+    font-size: 20px;
     color: var(--color--quaternary);
     background-color: var(--color--secondary);
     border-radius: 5px;
 }
 .wrapper span.minus:hover, .wrapper span.plus:hover{
     background-color: #4488dc;
+}
+
+.ticket{
+    text-align: center;
 }
