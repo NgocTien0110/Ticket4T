@@ -24,11 +24,12 @@ body {
 
 #formLogin {
     background-color: white;
-    height: 315px;
     width: 100%;
     border-radius: 12px;
     display: flex;
     flex-direction: column;
+
+    padding: 25px 25px 25px 0;
 }
 
 #sloganLogin {
@@ -84,4 +85,17 @@ button.btn.btn-dark:hover {
 
 .floatLeft {
     float: left;
+}
+
+.submit-button{
+    margin-top: 10px;
+    background-color: var(--color--secondary);
+
+    color: white;
+    font-weight: bold;
+}
+
+
+.form-group{
+    padding-top: 10px;
 }

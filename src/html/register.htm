@@ -22,7 +22,7 @@
     <header>
         <nav class="navbar navbar-expand-md bg-header navbar-dark py-0">
             <div class="container">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="index.html">
                     <img src="../images/logo.png" alt="" width="80">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -39,13 +39,13 @@
                             </a>
                         </li>
                         <li class="nav-item text-white">
-                            <a class="nav-link text-center ml-2" href="#">
+                            <a class="nav-link text-center ml-2" href="about.htm">
                                 <i class="bi bi-telephone icon"></i>
                                 Về chúng tôi
                             </a>
                         </li>
                         <li class="nav-item text-white">
-                            <a class="nav-link text-center mx-2" href="#">
+                            <a class="nav-link text-center mx-2" href="login.htm">
                                 <i class="bi bi-person icon"></i>
                                 Đăng nhập
                             </a>
@@ -63,7 +63,7 @@
 
                     <div class="col-md-5 text-center">
                         <div id="formRegister">
-                           
+
                             <div id="bodyForm" style="display: flex; justify-content: center; flex-direction: column;">
                                 <div id="topForm">
                                     <a href="./login.htm">
@@ -74,26 +74,29 @@
                                     </a>
                                 </div>
 
-                                <form>
+                                <form action="indexAuthentication.htm" id="register-form">
                                     <div class="form-group">
-                                      <label for="exampleInputEmail1" style="float: left">Địa chỉ Email</label>
-                                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập Email">
+                                        <label for="email" style="float: left">Địa chỉ Email</label>
+                                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                                            placeholder="Nhập Email">
                                     </div>
                                     <div class="form-group">
-                                      <label for="exampleInputPassword1" style="float: left">Mật khẩu</label>
-                                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Nhập mật khẩu">
+                                        <label for="password" style="float: left">Mật khẩu</label>
+                                        <input type="password" class="form-control" id="password"
+                                            placeholder="Nhập mật khẩu">
                                     </div>
-                    
+
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1" style="float: left">Xác nhận mật khẩu</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Nhập lại mật khẩu">
-                                      </div>
-                                    
-                                    <button type="submit" class="btn btn-primary submit-button" >
+                                        <label for="passwordAgain" style="float: left">Xác nhận mật khẩu</label>
+                                        <input type="password" class="form-control" id="passwordAgain"
+                                            placeholder="Nhập lại mật khẩu">
+                                    </div>
+
+                                    <button type="submit" class="btn btn-dark submit-button">
                                         <i class="bi bi-person-plus"></i>
                                         Đăng ký
                                     </button>
-                                </form>                            
+                                </form>
                             </div>
 
                         </div>
