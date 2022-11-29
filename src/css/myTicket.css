@@ -15,10 +15,6 @@ p a:hover {
     text-decoration: underline;
 }
 
-a:hover {
-    color: black;
-}
-
 .infoAcc {
     display: flex;
     align-items: center;
@@ -73,7 +69,7 @@ a:hover {
     border-bottom: 1px solid gainsboro;
 }
 
-.topRightBody span:first-child {
+.topRightBody a:first-child {
     color: var(--color--secondary);
     border-bottom: 2px solid var(--color--secondary);
 }

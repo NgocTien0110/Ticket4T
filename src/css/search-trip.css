@@ -22,3 +22,8 @@
   .bg-color-2 {
     background-color: #dbe2ef;
   }
+
+.d-flex .btn-info:hover, button:hover,#btn-search:hover {
+    background-color: #1c7ef7;
+    border-color: var(--color--secondary);
+  }
