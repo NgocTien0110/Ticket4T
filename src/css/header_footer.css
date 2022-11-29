@@ -1,3 +1,7 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
 :root{
     --color--primary: #112D4E;
     --color--secondary: #3F72AF;
