@@ -21,39 +21,99 @@
 
 <body>
     <div class="page-site " >
-        <nav class="navbar navbar-expand-md bg-header navbar-dark py-0">
-            <div class="container">
-                <a class="navbar-brand" href="index.html">
-                    <img src="./images/logo.png" alt="" width="30%">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item text-white">
-                            <a class="nav-link text-center px-4" href="nhaxe.htm">
-                                <i class="bi bi-truck icon d-inline"></i>
-                                Nhà xe
-                            </a>
-                        </li>
-                        <li class="nav-item text-white">
-                            <a class="nav-link text-center ml-2" href="about.htm">
-                                <i class="bi bi-telephone icon"></i>
-                                Về chúng tôi
-                            </a>
-                        </li>
-                        <li class="nav-item text-white">
-                            <a class="nav-link text-center mx-2" href="login.htm">
-                                <i class="bi bi-person icon"></i>
-                                Đăng nhập
-                            </a>
-                    </ul>
+        <header>
+            <nav class="navbar navbar-expand-md bg-header navbar-dark py-0">
+                <div class="container">
+                    <a class="navbar-brand" href="indexAuthentication.htm">
+                        <img src="./images/logo.png" alt="" width="80">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item text-white">
+                                <a class="nav-link text-center px-4" href="nhaxe.htm">
+                                    <i class="bi bi-truck icon d-inline"></i>
+                                    Nhà xe
+                                </a>
+                            </li>
+                            <li class="nav-item text-white">
+                                <a class="nav-link text-center ml-2" href="about.htm">
+                                    <i class="bi bi-telephone icon"></i>
+                                    Về chúng tôi
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown mx-2">
+                                <a class="nav-link text-center" href="#" id="navbarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-person"></i>
+                                    <div class="taikhoan">
+                                        Nhóm 5
+                                        <i class="bi bi-caret-down-fill"></i>
+    
+                                    </div>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="infoTaiKhoan.htm"><i class="bi bi-person-circle"></i>
+                                            Thông tin tài
+                                            khoản</a></li>
+                                    <li><a class="dropdown-item" href="myTicket.htm"><i class="bi bi-ticket-perforated"></i>
+                                            Vé của
+                                            tôi</a></li>
+                                    <li><a class="dropdown-item text-danger" href="index.html"><i
+                                                class="bi bi-box-arrow-left"></i>
+                                            Đăng xuất</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-items text-center text-white hamburger">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed mx-auto" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+                                            aria-controls="collapseThree">
+                                            <div class="user">
+                                                <i class="bi bi-person"></i>
+                                                <div class="taikhoan text-center">
+                                                    Nhóm 5
+                                                    <i class="bi bi-caret-down-fill"></i>
+                                                </div>
+    
+                                            </div>
+                                        </div>
+                                        </button>
+                                    </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse mt-3"
+                                    aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <div class="drop">
+                                            <div class="item"><a class="" href="infoTaiKhoan.htm"><i
+                                                        class="bi bi-person-circle"></i> Thông
+                                                    tin tài
+                                                    khoản</a>
+                                            </div>
+                                            <div class="item"><a class="mt-3" href="myTicket.htm"><i
+                                                        class="bi bi-ticket-perforated"></i> Vé
+                                                    của
+                                                    tôi</a>
+                                            </div>
+                                            <div class="item"><a class="mt-3 mb-3" href="index.html"><i
+                                                        class="bi bi-box-arrow-left"></i>
+                                                    Đăng xuất</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                </div>
+                                    </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </header>
 
         <main class="container" >
             <div class="row">
@@ -190,6 +250,38 @@
                             <div id="collapseFour" class="accordion-collapse collapse"
                                 data-bs-parent="#nhaxe-accordion">
                                 <div class="accordion-body">
+                                    <div class="card login-review">
+                                        <div class="card-body p-4">
+                                            <div class="d-flex">
+                                                <img class="img-fluid rounded-circle comment-avatar me-3"
+                                                    src="./images/avatar-nhom/nqt.jpg" alt="avatar" style="width: 60px; height: 60px; object-fit: cover;"/>
+                                                <div class="w-100">
+                                                    <h5>Thêm đánh giá</h5>
+                                                    <div class="rate-star">
+                                                        <i class="bi bi-star btn" title="Bad"></i>
+                                                        <i class="bi bi-star btn" title="Poor"></i>
+                                                        <i class="bi bi-star btn" title="OK"></i>
+                                                        <i class="bi bi-star btn" title="Good"></i>
+                                                        <i class="bi bi-star btn" title="Excellent"></i>
+                                                    </div>
+                                                    
+                                                    <form>
+                                                        <div class="form-group">
+                                                            <textarea class="form-control" id="textAreaExample" rows="4"></textarea>
+                                                        </div>
+                                                        <div class="d-flex justify-content-end mt-3">
+                                                            <button type="button" class="btn btn-secondary" style="margin-right: 10px">Gửi</button>
+                                                            <button type="button" class="btn btn-danger">Hủy</button>
+                                                        </div>
+                                                    </form>
+
+                                                    
+                                            
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     </div>
                                     <div class="container">
                                         <div class="row star-review justify-content-center">
@@ -438,9 +530,6 @@
         </footer>
         
     </div>
-
-
-    
 </body>
 
 </html>
