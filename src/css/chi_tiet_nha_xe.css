@@ -129,3 +129,16 @@ body {
     border: 1px 1px solid black;
 }
 
+.review-box-button-group > .send-button{
+    background-color: var(--color--secondary);
+}
+
+.review-box-button-group > .send-button:hover{
+    background-color: #1c7ef7;
+    border-color: var(--color--secondary);
+}
+
+.review-box-button-group > .cancel-button:hover{
+    background-color: #e80202;
+    border-color: #ff2323;
+}
