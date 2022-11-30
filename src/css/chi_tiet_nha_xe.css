@@ -73,6 +73,11 @@ body {
     align-items: center;
 }
 
+.comment-avatar img{
+    width: 60px; 
+    height: 60px;
+}
+
 .comment-container{
     background-color: var(--color--tertiary);
     border: 0px;
@@ -80,7 +85,6 @@ body {
 
 .comment-container .comment{
     position: relative;
-
     padding: 10px 10px 0 50px;
 }
 
@@ -116,10 +120,12 @@ body {
     align-items: center;
 }
 
-.thumbnail img{
-    border-radius: 0.9rem;
+.thumbnail{
+    margin-bottom: 10px;
 }
 
-.chi-tiet{
-    padding-top: 40px;
+#nhaxe-accordion {
+    margin-top: 10px; 
+    border: 1px 1px solid black;
 }
+

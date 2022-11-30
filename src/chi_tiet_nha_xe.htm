@@ -20,8 +20,8 @@
 </head>
 
 <body>
-    <div class="page-site" style="position: relative; scroll-snap-type: y proximity; overflow-y: auto; height: 100vh; scroll-behavior: smooth;" >
-        <nav class="navbar navbar-expand-md bg-header navbar-dark py-0" style=" scroll-snap-align: start;">
+    <div class="page-site " >
+        <nav class="navbar navbar-expand-md bg-header navbar-dark py-0">
             <div class="container">
                 <a class="navbar-brand" href="index.html">
                     <img src="./images/logo.png" alt="" width="30%">
@@ -56,22 +56,18 @@
         </nav>
 
         <main class="container" >
-            <div class="row gx-5" style=" margin-bottom: 50px; scroll-snap-align: start; ">
-                <div class="col-xl thumbnail" >
-                    <div class="page-header container">
-                        <h1 class="page-title primary-title-50">Nhà xe Hà My</h1>
+            <div class="row">
+                <div class="col-xl" style="overflow: auto;">
+                    <div class="thumbnail">
+                        <div class="page-header container">
+                            <h1 class="page-title primary-title-50">Nhà xe Hà My</h1>
+                        </div>
+
+                        <img src="./images/nhaxe/HaMy.jpg" alt="Nhà xe Hà My" class="img-fluid rounded-top-bottom-1"
+                            style="width: 100%; height: 100%;">
                     </div>
-
-                    <img src="./images/nhaxe/HaMy.jpg" alt="Nhà xe Hà My" class="img-fluid"
-                        style="width: 100%; height:100%;">
-                </div>
-            </div>
-
-            <div class="row gx-5" style="scroll-snap-align: start;">
-                <div class="col chi-tiet">
-                    <div><h1>Thông tin nhà xe</h1></div>
-                    <div class="accordion details" id="#nhaxe-accordion"
-                        style="padding-top: 10px; border: 1px 1px solid black;">
+                    
+                    <div class="accordion details" id="#nhaxe-accordion">
                         <div class="accordion-item intro">
                             <div class="accordion-header intro-title" id="headingOne">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
@@ -209,8 +205,7 @@
                                     <div class="card comment-container ">
                                         <div class="row g-0 comment">
                                             <div class="col-auto comment-avatar">
-                                                <img src="./images/nhan-xet/HaiTu.jpg" class="img-fluid rounded-circle"
-                                                    alt="Avatar" style="width: 60px; height: 60px;">
+                                                <img src="./images/nhan-xet/HaiTu.jpg" class="img-fluid rounded-circle" alt="Avatar">
                                             </div>
 
                                             <div class="col-auto">
@@ -241,9 +236,7 @@
 
                                         <div class="row g-0 comment">
                                             <div class="col-auto comment-avatar">
-                                                <img src="./images/nhan-xet/SonTung.jpg"
-                                                    class="img-fluid rounded-circle" alt="Avatar"
-                                                    style="width: 60px; height: 60px;">
+                                                <img src="./images/nhan-xet/SonTung.jpg" class="img-fluid rounded-circle" alt="Avatar">
                                             </div>
 
                                             <div class="col-auto">
@@ -276,8 +269,7 @@
 
                                         <div class="row g-0 comment">
                                             <div class="col-auto comment-avatar">
-                                                <img src="./images/nhan-xet/tbt.jpg" class="img-fluid rounded-circle"
-                                                    alt="Avatar" style="width: 60px; height: 60px;">
+                                                <img src="./images/nhan-xet/tbt.jpg" class="img-fluid rounded-circle" alt="Avatar">
                                             </div>
 
                                             <div class="col-auto">
@@ -329,17 +321,22 @@
 
 
                             </div>
-
-
                         </div>
                     </div>
+
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 10px;">
+                <div class="col-xl chi-tiet">
+                    
                 </div>
 
                 
             </div>
         </main>
 
-        <footer class="bg-light text-center text-lg-start" style="scroll-snap-align: start;">
+        <footer class="bg-light text-center text-lg-start">
             <div class="footer1 bg-footer mb-0">
                 <div class="container p-4">
                     <div class="row">
