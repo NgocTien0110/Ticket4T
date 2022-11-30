@@ -11,3 +11,17 @@
 .rounded-top-bottom-1{
     border-radius: 1rem;
 }
+
+.primary-title-50{
+    font-weight: bold;
+    color: var(--color--primary);
+    font-size: 50px;
+    text-shadow: 1px 1px black;
+}
+
+.primary-title-30{
+    font-weight: bold;
+    color: var(--color--primary);
+    font-size: 30px;
+    text-shadow: 1px 1px black;
+}

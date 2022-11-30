@@ -20,53 +20,56 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md bg-header navbar-dark py-0">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="./images/logo.png" alt="" width="30%">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item text-white">
-                        <a class="nav-link text-center px-4" href="nhaxe.htm">
-                            <i class="bi bi-truck icon d-inline"></i>
-                            Nhà xe
-                        </a>
-                    </li>
-                    <li class="nav-item text-white">
-                        <a class="nav-link text-center ml-2" href="about.htm">
-                            <i class="bi bi-telephone icon"></i>
-                            Về chúng tôi
-                        </a>
-                    </li>
-                    <li class="nav-item text-white">
-                        <a class="nav-link text-center mx-2" href="login.htm">
-                            <i class="bi bi-person icon"></i>
-                            Đăng nhập
-                        </a>
-                </ul>
+    <div class="page-site" style="position: relative; scroll-snap-type: y proximity; overflow-y: auto; height: 100vh; scroll-behavior: smooth;" >
+        <nav class="navbar navbar-expand-md bg-header navbar-dark py-0" style=" scroll-snap-align: start;">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="./images/logo.png" alt="" width="30%">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item text-white">
+                            <a class="nav-link text-center px-4" href="nhaxe.htm">
+                                <i class="bi bi-truck icon d-inline"></i>
+                                Nhà xe
+                            </a>
+                        </li>
+                        <li class="nav-item text-white">
+                            <a class="nav-link text-center ml-2" href="about.htm">
+                                <i class="bi bi-telephone icon"></i>
+                                Về chúng tôi
+                            </a>
+                        </li>
+                        <li class="nav-item text-white">
+                            <a class="nav-link text-center mx-2" href="login.htm">
+                                <i class="bi bi-person icon"></i>
+                                Đăng nhập
+                            </a>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <div class="page-site">
-        <div class="page-header container">
-            <h1 class="page-title">Nhà xe Hà My</h1>
-        </div>
-
-        <main class="container">
-            <div class="row">
-                <div class="col-xl">
-                    <div class="thumbnail">
-                        <img src="./images/nhaxe/HaMy.jpg" alt="Nhà xe Hà My" class="img-fluid"
-                            style="width: 100%; height:100%;">
+        <main class="container" >
+            <div class="row gx-5" style=" margin-bottom: 50px; scroll-snap-align: start; ">
+                <div class="col-xl thumbnail" >
+                    <div class="page-header container">
+                        <h1 class="page-title primary-title-50">Nhà xe Hà My</h1>
                     </div>
 
+                    <img src="./images/nhaxe/HaMy.jpg" alt="Nhà xe Hà My" class="img-fluid"
+                        style="width: 100%; height:100%;">
+                </div>
+            </div>
+
+            <div class="row gx-5" style="scroll-snap-align: start;">
+                <div class="col chi-tiet">
+                    <div><h1>Thông tin nhà xe</h1></div>
                     <div class="accordion details" id="#nhaxe-accordion"
                         style="padding-top: 10px; border: 1px 1px solid black;">
                         <div class="accordion-item intro">
@@ -331,109 +334,115 @@
                         </div>
                     </div>
                 </div>
+
+                
             </div>
         </main>
+
+        <footer class="bg-light text-center text-lg-start" style="scroll-snap-align: start;">
+            <div class="footer1 bg-footer mb-0">
+                <div class="container p-4">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-4 col-md-4 mb-md-0">
+                            <h5 class="text-uppercase text-color">Tuyến đường</h5>
+    
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="#!" class="text-dark ">Xe đi Đà Lạt từ Sài Gòn</a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="text-dark">Xe đi Đà Nẵng từ Sài Gòn</a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="text-dark">Xe đi Hà Nội từ Sài Gòn</a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="text-dark">Xe đi Cần Thơ từ Sài Gòn</a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="text-dark">Xe đi Đồng Nai từ Sài Gòn</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 mb-md-0">
+                            <h5 class="text-uppercase text-color">Nhà xe</h5>
+    
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="#!" class="text-dark ">Nhà xe Phương Trang</a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="text-dark">Nhà xe Phi Long</a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="text-dark">Nhà xe Thành Bưởi</a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="text-dark">Nhà xe Cao Lâm</a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="text-dark">Nhà xe Trung Nga</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 mb-md-0">
+                            <h5 class="text-uppercase text-color">Bến xe</h5>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="#!" class="text-dark ">Bến xe Miền Đông</a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="text-dark">Bến xe liên tỉnh Đà Lạt</a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="text-dark">Bến xe Mỹ Đình</a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="text-dark">Bến xe miền Tây</a>
+                                </li>
+                                <li>
+                                    <img src="./images/tb.png" alt="" width="150px">
+                                    <img src="./images/dk.png" alt="" width="150px">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer2 bg-footer">
+                <div class="container p-4">
+                    <div class="d-flex justify-content-center">
+                        <img src="https://cdn.haitrieu.com/wp-content/uploads/2021/12/logo-hcmus-new.png" alt="KHTN"
+                            width="10%" class="mx-5">
+                        <img src="./images/fit.png" alt="FIT" width="10%">
+                    </div>
+                    <div class="text-center p-2 text-dark">
+                        <span>Địa chỉ: 227 Nguyễn Văn Cừ, Quận 5, Thành Phố Hồ Chí Minh</span> <br>
+                        <span>Phone: +84 34 567 890 | E-mail: nhom5ktpm4@clc.fitus.edu.vn</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer3 bg-header">
+                <div class="container p-3">
+                    <div class="d-md-flex justify-content-center">
+                        <div class="text-center text-white mx-5">
+                            <span>Bản quyền © 2022 thuộc về nhóm 5 - Phát triển ứng dụng Web</span>
+                        </div>
+                        <div class="follow text-center text-white">
+                            <span>Follow us:</span>
+                            <span><i class="bi bi-facebook mx-2"></i></span>
+                            <span><i class="bi bi-instagram mx-2"></i></span>
+                            <span><i class="bi bi-youtube mx-2"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
     </div>
 
-    <footer class="bg-light text-center text-lg-start">
-        <div class="footer1 bg-footer mb-0">
-            <div class="container p-4">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-4 col-md-4 mb-md-0">
-                        <h5 class="text-uppercase text-color">Tuyến đường</h5>
 
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="#!" class="text-dark ">Xe đi Đà Lạt từ Sài Gòn</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-dark">Xe đi Đà Nẵng từ Sài Gòn</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-dark">Xe đi Hà Nội từ Sài Gòn</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-dark">Xe đi Cần Thơ từ Sài Gòn</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-dark">Xe đi Đồng Nai từ Sài Gòn</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4 mb-md-0">
-                        <h5 class="text-uppercase text-color">Nhà xe</h5>
-
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="#!" class="text-dark ">Nhà xe Phương Trang</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-dark">Nhà xe Phi Long</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-dark">Nhà xe Thành Bưởi</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-dark">Nhà xe Cao Lâm</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-dark">Nhà xe Trung Nga</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4 mb-md-0">
-                        <h5 class="text-uppercase text-color">Bến xe</h5>
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="#!" class="text-dark ">Bến xe Miền Đông</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-dark">Bến xe liên tỉnh Đà Lạt</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-dark">Bến xe Mỹ Đình</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-dark">Bến xe miền Tây</a>
-                            </li>
-                            <li>
-                                <img src="./images/tb.png" alt="" width="150px">
-                                <img src="./images/dk.png" alt="" width="150px">
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer2 bg-footer">
-            <div class="container p-4">
-                <div class="d-flex justify-content-center">
-                    <img src="https://cdn.haitrieu.com/wp-content/uploads/2021/12/logo-hcmus-new.png" alt="KHTN"
-                        width="10%" class="mx-5">
-                    <img src="./images/fit.png" alt="FIT" width="10%">
-                </div>
-                <div class="text-center p-2 text-dark">
-                    <span>Địa chỉ: 227 Nguyễn Văn Cừ, Quận 5, Thành Phố Hồ Chí Minh</span> <br>
-                    <span>Phone: +84 34 567 890 | E-mail: nhom5ktpm4@clc.fitus.edu.vn</span>
-                </div>
-            </div>
-        </div>
-        <div class="footer3 bg-header">
-            <div class="container p-3">
-                <div class="d-md-flex justify-content-center">
-                    <div class="text-center text-white mx-5">
-                        <span>Bản quyền © 2022 thuộc về nhóm 5 - Phát triển ứng dụng Web</span>
-                    </div>
-                    <div class="follow text-center text-white">
-                        <span>Follow us:</span>
-                        <span><i class="bi bi-facebook mx-2"></i></span>
-                        <span><i class="bi bi-instagram mx-2"></i></span>
-                        <span><i class="bi bi-youtube mx-2"></i></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    
 </body>
 
 </html>

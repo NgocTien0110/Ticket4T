@@ -108,3 +108,18 @@ body {
     text-shadow: 1px 2px black;
     color: rgb(224, 174, 9);
 }
+
+.nha-xe-container{
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+}
+
+.thumbnail img{
+    border-radius: 0.9rem;
+}
+
+.chi-tiet{
+    padding-top: 40px;
+}
