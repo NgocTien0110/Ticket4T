@@ -70,12 +70,6 @@ ul {
     list-style: none;
 }
 
-.rightTTLienLac img {
-    width: 348px;
-    height: 184px;
-    border-radius: 5px;
-}
-
 .ttLienLac {
     display: flex;
     justify-content: space-between;

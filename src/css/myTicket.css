@@ -95,8 +95,6 @@ p a:hover {
 .infoDetailTicket {
     flex-basis: 60%;
     padding: 15px;
-    display: flex;
-    justify-content: space-between;
     font-size: large;
 }
 
