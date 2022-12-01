@@ -52,18 +52,21 @@ body {
 
 }
 
-.container .review .container .star-review {
+/* .container .review .container .star-review {
     padding: 10px;
-}
+} */
 
 .container .review .container .star-review a:first-child{
-    padding: 2px;
     border: 1px solid var(--color--secondary);
     background-color: var(--color--secondary);
 
     padding: 5px 10px;
     margin-right: 15px;
     margin-left: 10px;
+}
+
+.comment-name{
+    margin-bottom: 0;
 }
 
 .comment-avatar{
@@ -89,25 +92,25 @@ body {
 }
 
 
-.comment-container .comment:after{
+/* .comment-container .comment:after{
     position: absolute;
     content: "";
     background: black;
 
-    top: 2%;
-    height: 1px;
+    top: %;
+    height: 3px;
     width: 90%;
-    background-color: black;
+    background-color: var(--color--secondary);
     z-index: 1;
 
     left: 0;
 
     bottom: 10px;
-}
+} */
 
 .comment-star-container .comment-star{
     font-size: 15px;
-    line-height: 5px;
+    /* line-height: 5px; */
 
     text-shadow: 1px 2px black;
     color: rgb(224, 174, 9);

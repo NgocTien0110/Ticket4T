@@ -35,7 +35,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item text-white">
-                                <a class="nav-link text-center px-4" href="nha_xe_logged.htm">
+                                <a class="nav-link text-center px-4" href="nhaxe.htm">
                                     <i class="bi bi-truck icon d-inline"></i>
                                     Nhà xe
                                 </a>
@@ -134,7 +134,7 @@
                         <div class="accordion-header intro-title" id="headingOne">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"
-                                style="background-color: var(--color--quaternary); color: black;">
+                                style="background-color: var(--color--quaternary);">
                                 <h3>Giới thiệu chi tiết về nhà xe Hà My</h3>
                             </button>
                         </div>
@@ -160,7 +160,7 @@
                         <div class="accordion-header tuyen-duong-title">
                             <button class="accordion-button collapsed type=" button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"
-                                style="background-color: var(--color--quaternary); color: black;">
+                                style="background-color: var(--color--quaternary);">
                                 <h3>Lộ trình tuyến đường, thời gian dừng đón, trả khách và giá vé, loại xe của nhà
                                     xe Hà My</h3>
                             </button>
@@ -207,7 +207,7 @@
                         <div class="accordion-header chi-nhanh-title">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"
-                                style="background-color: var(--color--quaternary); color: black;">
+                                style="background-color: var(--color--quaternary);">
                                 <h3>Địa chỉ và thông tin liên hệ đặt vé xe Hà My</h3>
                             </button>
                         </div>
@@ -242,15 +242,26 @@
 
                     <div class="review accordion-item">
                         <div class="accordion-header review-title">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            <button class="accordion-button show" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"
-                                style="background-color: var(--color--quaternary); color: black;">
+                                style="background-color: var(--color--quaternary);">
                                 <h3>Đánh giá</h3>
                             </button>
                         </div>
 
                         <div id="collapseFour" class="accordion-collapse show" data-bs-parent="#nhaxe-accordion">
                             <div class="accordion-body">
+                                <div class="container" style="padding-bottom: 10px;">
+                                    <div class="row star-review justify-content-center">
+                                        <a href="#" class="col-auto"><i class="bi bi-star-fill total"> 4.4/5</i></a>
+                                        <a href="#" class="col-auto">Tất cả (14)</i></a>
+                                        <a href="#" class="col-auto">5 <i class="bi bi-star-fill"> (8)</i></a>
+                                        <a href="#" class="col-auto">4 <i class="bi bi-star-fill"> (3)</i></a>
+                                        <a href="#" class="col-auto">3 <i class="bi bi-star-fill"> (2)</i></a>
+                                        <a href="#" class="col-auto">2 <i class="bi bi-star-fill"> (1)</i></a>
+                                        <a href="#" class="col-auto">1 <i class="bi bi-star-fill"> (0)</i></a>
+                                    </div>
+                                </div>
                                 <div class="card login-review">
                                     <div class="card-body p-4">
                                         <div class="d-flex">
@@ -258,7 +269,8 @@
                                                 src="./images/avatar-nhom/nqt.jpg" alt="avatar"
                                                 style="width: 60px; height: 60px; object-fit: cover;" />
                                             <div class="w-100">
-                                                <h5>Thêm đánh giá</h5>
+                                                <h5>Nguyễn Quốc Tuấn</h5>
+
                                                 <div class="rate-star">
                                                     <i class="bi bi-star btn" title="Bad"></i>
                                                     <i class="bi bi-star btn" title="Poor"></i>
@@ -272,23 +284,15 @@
                                                         <textarea class="form-control" id="textAreaExample"
                                                             rows="4"></textarea>
                                                     </div>
-                                                    
-                                                    <form >
-                                                        <div class="form-group">
-                                                            <textarea class="form-control" id="textAreaExample" rows="4"></textarea>
-                                                        </div>
-                                                        <div class="d-flex justify-content-end mt-3 review-box-button-group">
-                                                            <button type="button" class="btn btn-secondary send-button" style="margin-right: 10px">Gửi</button>
-                                                            <button type="button" class="btn btn-danger cancel-button">Hủy</button>
-                                                        </div>
-                                                    </form>
+                                                    <div
+                                                        class="d-flex justify-content-end mt-3 review-box-button-group">
+                                                        <button type="button" class="btn btn-secondary send-button"
+                                                            style="margin-right: 10px">Gửi</button>
+                                                        <button type="button"
+                                                            class="btn btn-danger cancel-button">Hủy</button>
+                                                    </div>
+                                                </form>
 
-                                                    
-                                            
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
 
 
                                             </div>
@@ -296,21 +300,11 @@
                                     </div>
                                 </div>
 
-                            </div>
-                            <div class="container">
-                                <div class="row star-review justify-content-center">
-                                    <a href="#" class="col-auto"><i class="bi bi-star-fill total"> 4.4/5</i></a>
-                                    <a href="#" class="col-auto">Tất cả (14)</i></a>
-                                    <a href="#" class="col-auto">5 <i class="bi bi-star-fill"> (8)</i></a>
-                                    <a href="#" class="col-auto">4 <i class="bi bi-star-fill"> (3)</i></a>
-                                    <a href="#" class="col-auto">3 <i class="bi bi-star-fill"> (2)</i></a>
-                                    <a href="#" class="col-auto">2 <i class="bi bi-star-fill"> (1)</i></a>
-                                    <a href="#" class="col-auto">1 <i class="bi bi-star-fill"> (0)</i></a>
-                                </div>
                             </div>
 
                             <div class="card comment-container ">
                                 <div class="row g-0 comment">
+                                    <hr>
                                     <div class="col-auto comment-avatar">
                                         <img src="./images/nhan-xet/HaiTu.jpg" class="img-fluid rounded-circle"
                                             alt="Avatar">
@@ -318,7 +312,7 @@
 
                                     <div class="col-auto">
                                         <div class="card-body">
-                                            <h5 class="card-title">Hải Tú</h5>
+                                            <h5 class="card-title comment-name">Hải Tú</h5>
 
                                             <div class="comment-star-container ">
                                                 <a href="#" class="col-auto"><i
@@ -333,6 +327,8 @@
                                                         class="bi bi-star-fill comment-star"></i></a>
                                             </div>
 
+                                            <div>21/01/2021</div>
+
                                         </div>
                                     </div>
 
@@ -343,6 +339,7 @@
                                 </div>
 
                                 <div class="row g-0 comment">
+                                    <hr>
                                     <div class="col-auto comment-avatar">
                                         <img src="./images/nhan-xet/SonTung.jpg" class="img-fluid rounded-circle"
                                             alt="Avatar">
@@ -350,7 +347,7 @@
 
                                     <div class="col-auto">
                                         <div class="card-body">
-                                            <h5 class="card-title">Sơn Tùng</h5>
+                                            <h5 class="card-title comment-name">Sơn Tùng</h5>
 
                                             <div class="comment-star-container">
                                                 <a href="#" class="col-auto"><i
@@ -364,6 +361,8 @@
                                                 <a href="#" class="col-auto"><i
                                                         class="bi bi-star-fill comment-star"></i></a>
                                             </div>
+
+                                            <div>22/01/2021</div>
 
                                         </div>
                                     </div>
@@ -377,6 +376,7 @@
                                 </div>
 
                                 <div class="row g-0 comment">
+                                    <hr>
                                     <div class="col-auto comment-avatar">
                                         <img src="./images/nhan-xet/tbt.jpg" class="img-fluid rounded-circle"
                                             alt="Avatar">
@@ -384,7 +384,7 @@
 
                                     <div class="col-auto">
                                         <div class="card-body">
-                                            <h5 class="card-title">Bảo Trâm</h5>
+                                            <h5 class="card-title comment-name">Bảo Trâm</h5>
 
                                             <div class="comment-star-container">
                                                 <a href="#" class="col-auto"><i
@@ -398,6 +398,8 @@
                                                 <a href="#" class="col-auto"><i
                                                         class="bi bi-star-fill comment-star"></i></a>
                                             </div>
+
+                                            <div>21/01/2021</div>
 
                                         </div>
                                     </div>
@@ -432,15 +434,6 @@
                     </div>
                 </div>
             </div>
-
-        </div>
-        </div>
-
-        <div class="row" style="margin-top: 10px;">
-            <div class="col-xl chi-tiet">
-
-            </div>
-
 
         </div>
     </main>
@@ -545,7 +538,6 @@
         </div>
     </footer>
 
-    </div>
 </body>
 
 </html>
