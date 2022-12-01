@@ -5,17 +5,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <title>Thông tin tài khoản</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS v5.2.1 -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header - Footer</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="./css/header_footer.css">
-    <link rel="stylesheet" href="./css/infoTaiKhoan.css">
+    <link rel="stylesheet" href="./css/about.css">
 </head>
 
 <body>
@@ -39,7 +39,7 @@
                             </a>
                         </li>
                         <li class="nav-item text-white">
-                            <a class="nav-link text-center ml-2" href="about_logged.htm">
+                            <a class="nav-link text-center ml-2" href="about.htm">
                                 <i class="bi bi-telephone icon"></i>
                                 Về chúng tôi
                             </a>
@@ -112,94 +112,64 @@
             </div>
         </nav>
     </header>
+    <main class="container">
+        <div class="row justify-content-center">
+            <div class="col-auto" style="padding-top: 10px;">
+                <img src="./images/AnhBgLogin.jpg" alt="Thumbnail" class="img-fluid rounded-top-bottom-1"
+                    style="width: 400px; height: 320px;">
+            </div>
 
-    <main>
-        <div class="bodyInfo">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <p><a href="./indexAuthentication.htm">Trang chủ </a> > <a href="./infoTaiKhoan.htm">Thông tin
-                                tài khoản</a>
-                        </p>
-                        <div class="infoAcc">
-                            <img src="./images/avatar.jpg" alt="AnhDaiDien" class="img-fluid" id="avatarInfoAcc">
-                            <div class="infoNameAcc">
-                                <div style="font-size:larger">Tài khoản của</div>
-                                <h4 style="color: var(--color--secondary)">Nhom5</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row bodyInfoDetail">
-                    <div class="col-md-3 leftBody">
-                        <div class="leftInfoAcc">
-                            <a class="linkLeftInfoAcc" href="./infoTaiKhoan.htm">
-                                <i class="fa-solid fa-user"></i> Thông tin tài khoản
-                            </a>
-                        </div>
-                        <div class="leftInfoAcc">
-                            <a href="./myTicket.htm" class="linkLeftInfoAcc">
-                                <span class="bi bi-ticket-detailed"></span>
-                                Vé của tôi
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-9 rightBody">
-
-                        <form action="#" class="formRightBody">
-                            <h2 id="thongtincn">Thông tin cá nhân</h2>
-                            <div class="topRightBody">
-                                <div class="leftOfTopRightBody">
-                                    <img src="./images/avatar.jpg" alt="AnhDaiDien" class="img-fluid">
-                                </div>
-                                <div class="rightOfTopRightBody">
-                                    <div class="HoTenForm form-group">
-                                        <label for="HoTen">Họ và tên</label>
-                                        <input style="width:250px; height:30px" type="text" name="HoTen" id="HoTen"
-                                            value="Nhom5" class="form-control">
-                                    </div>
-                                    <div class="EmailForm form-group">
-                                        <label for="Email">Email</label>
-                                        <input style="width:284px; height:30px" type="email" name="Email" id="Email"
-                                            value="nhom5ktpm4@clc.fitus.edu.vn"
-                                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="botRightBody text-center">
-                                <div class="NgaySinhForm form-group">
-                                    <label for="NgaySinh">Ngày Sinh</label>
-                                    <input style="height:30px; width:380px" type="text" name="NgaySinh" id="NgaySinh"
-                                        value="" class="form-control">
-                                    <i class="fa-solid fa-calendar-days"></i>
-                                </div>
-                                <div class="GioiTinhForm form-group">
-                                    <div class="leftGioiTinhForm">
-                                        <label for="GioiTinh">Giới tính</label>
-                                    </div>
-                                    <div class="rightGioiTinhForm form-group">
-                                        <div class="radioNam">
-                                            <input type="radio" name="GioiTinh" id="Nam" value="Nam" checked>
-                                            <label for="Nam">Nam</label>
-                                        </div>
-                                        <div class="radioNu">
-                                            <input type="radio" name="GioiTinh" id="Nu" value="Nu">
-                                            <label for="Nu">Nữ</label>
-                                        </div>
-                                        <div class="radioKhac">
-                                            <input type="radio" name="GioiTinh" id="Khac" value="Khac">
-                                            <label for="Khac">Khác</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                            <button class="btn btn-dark fw-bold">Lưu thay đổi</button>
-                        </form>
-                    </div>
+            <div class="col-auto about-container">
+                <div class="about-text" style="width: 500px;">
+                    <h1 class="about-title">Chúng tôi</h1>
+                    <p>Góp phần cho hành trình của bạn hạnh phúc hơn</p>
+                    <p>Mỗi chúng ta đều có những chuyến đi khởi đầu cho những hành trình thú vị và hạnh phúc, thay đổi
+                        cuộc đời của chính mình. Sứ mệnh mà Ticket4T hướng đến không chỉ gói gọn trong những chuyến đi,
+                        mà còn là hành trình cuộc đời của mỗi người.</p>
+                    <p>Ticket4T mong muốn đồng hành và góp phần cho mỗi hành trình ấy hạnh phúc trọn vẹn hơn. Đó có thể
+                        là những chuyến đi có giá tiết kiệm hơn, tạo điều kiện cho nhiều người được đi du lịch hơn, hay
+                        nhiều người được tiếp cận với những dịch vụ tốt hơn, có nhiều trải nghiệm hạnh phúc và ý nghĩa
+                        hơn.</p>
                 </div>
             </div>
         </div>
+
+        <div class="row justify-content-center team">
+            <div class="col-12 text-center team-text">Team</div>
+            <div class="col-auto member">
+                <img class="rounded team-avt" src="./images/avatar-nhom/nqt.jpg" alt="Nguyễn Quốc Tuấn"
+                    style="width: 180px; height: 180px;">
+                <div>
+                    <p>20127659</p>
+                    <p>Nguyễn Quốc Tuấn</p>
+                </div>
+            </div>
+            <div class="col-auto member">
+                <img class="rounded team-avt" src="./images/avatar-nhom/tgt.jpg" alt="Trương Gia Tiến"
+                    style="width: 180px; height: 180px">
+                <div>
+                    <p>20127643</p>
+                    <p>Trương Gia Tiến</p>
+                </div>
+            </div>
+            <div class="col-auto member">
+                <img class="rounded team-avt" src="./images/avatar-nhom/dct.jpg" alt="Dương chí Thông"
+                    style="width: 180px; height: 180px">
+                <div>
+                    <p>20127634</p>
+                    <p>Dương Chí Thông</p>
+                </div>
+            </div>
+            <div class="col-auto member">
+                <img class="rounded team-avt" src="./images/avatar-nhom/dnt.jpg" alt="Đặng Ngọc Tiến"
+                    style="width: 180px; height: 180px">
+                <div>
+                    <p>20127641</p>
+                    <p>Đặng Ngọc Tiến</p>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <footer class="bg-light text-center text-lg-start">
@@ -276,8 +246,8 @@
             <div class="container p-4">
                 <div class="d-flex justify-content-center">
                     <img src="https://cdn.haitrieu.com/wp-content/uploads/2021/12/logo-hcmus-new.png" alt="KHTN"
-                        width="100" class="mx-5">
-                    <img src="./images/fit.png" alt="FIT" width="100">
+                        width="10%" class="mx-5">
+                    <img src="./images/fit.png" alt="FIT" width="10%">
                 </div>
                 <div class="text-center p-2 text-dark">
                     <span>Địa chỉ: 227 Nguyễn Văn Cừ, Quận 5, Thành Phố Hồ Chí Minh</span> <br>
@@ -301,15 +271,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- Bootstrap JavaScript Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-        </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-        </script>
 </body>
 
 </html>
