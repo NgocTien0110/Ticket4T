@@ -157,19 +157,19 @@
                                 <div class="mb-3 form-group">
                                     <label for="InputName" class="form-label">Họ và tên khách hàng <span
                                             class="text-danger">*</span></label>
-                                    <input type="text" placeholder="Họ và tên" class="form-control" id="InputName">
+                                    <input type="text" placeholder="Họ và tên" class="form-control" id="InputName" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="InputPhone" class="form-label">Số điện thoại <span
                                             class="text-danger">*</span></label>
                                     <input type="text" placeholder="Nhập số điện thoại" class="form-control"
-                                        id="InputPhone">
+                                        id="InputPhone" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Email <span
                                             class="text-danger">*</span></label>
                                     <input type="email" placeholder="Nhập Email" class="form-control"
-                                        id="exampleInputEmail1">
+                                        id="exampleInputEmail1" required>
                                 </div>
                                 <div class="mb-3 ticket">
                                     <label for="exampleInputTicket" class="form-label">Số lượng vé <span
@@ -181,7 +181,7 @@
                                     </div>
                                 </div>
                                 <div class="mb-3 form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
                                     <label class="form-check-label" for="exampleCheck1">Chấp nhận
                                         <a class="text-danger" href="#dieukhoan">điều khoản đặt vé </a> của
                                         Ticket4T</label>
@@ -211,7 +211,7 @@
                         <div class="btn btn-lg px-md-5 px-3 back">&lt Quay lại</div>
                     </a>
                     <a href="./thanhtoan.htm">
-                        <div class="btn btn-lg px-md-5 px-3 continue">Tiếp tục &gt;</div>
+                        <button class="btn btn-lg px-md-5 px-3 continue" type="submit">Tiếp tục &gt;</button>
                     </a>
                 </div>
             </div>

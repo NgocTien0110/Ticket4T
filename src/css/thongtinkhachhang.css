@@ -37,3 +37,14 @@ body {
 .ticket{
     text-align: center;
 }
+
+.backk{
+    background-color: white;
+    color: black;
+    border-radius: 50px;
+    border: 1px solid var(--color--secondary);
+}
+.btn.backk:hover{
+    background-color: rgb(162, 158, 158);
+    color: white;
+}
