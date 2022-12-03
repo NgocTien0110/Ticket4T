@@ -111,9 +111,14 @@ a:hover {
     color: var(--color--secondary);
 }
 
-.HoTenForm, .EmailForm, .NgaySinhForm {
+.HoTenForm, .EmailForm, .NgaySinhForm{
     display: flex;
     gap: 25px;
+}
+
+.SDTForm {
+    display: flex;
+    gap: 10px
 }
 
 .botRightBody {
@@ -142,6 +147,6 @@ button.btn.btn-dark:hover {
     border-color: var(--color--secondary);
 }
 
-.GioiTinhForm, .EmailForm {
+.GioiTinhForm, .EmailForm, .SDTForm {
     margin-top: 25px;
 }
