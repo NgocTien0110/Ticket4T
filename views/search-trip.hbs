@@ -1,0 +1,361 @@
+{{>header}}
+<main>
+    <section class="container">
+        <div id="search-banner-trip " class="container rounded-4 bg-color-2 mt-3">
+            <div class="row">
+                <div class="col-lg-4 pb-0 p-4 ">
+                    <div class="border-item d-flex flex-row">
+                        <i class=" fas fa-map-marker-alt fa-2x"></i>
+                        <select class="form-select mx-2 fs-4 p-0 select-search">
+                            <option hidden>Điểm xuất phát</option>
+                            <option value="1">Bình Thuận</option>
+                            <option value="2">Hà Nội</option>
+                            <option value="3">Lào Cai</option>
+                        </select>
+                    </div>
+                    <hr style="margin-right:10px;">
+                </div>
+
+                <div class="col-lg-4 pb-0 p-4 ">
+                    <div class="border-item d-flex flex-row">
+                        <i class="fas fa-map-marker-alt fa-2x"></i>
+                        <select class="form-select mx-2 fs-4 p-0 select-search">
+                            <option hidden>Điểm đến</option>
+                            <option value="1">Bình Thuận</option>
+                            <option value="2">Hà Nội</option>
+                            <option value="3">Lào Cai</option>
+                        </select>
+                    </div>
+                    <hr style="margin-right:10px;">
+                </div>
+
+                <div class="col-lg-3 pb-0 p-4 ">
+                    <div class="border-item d-flex flex-row">
+                        <i class="fa-solid fa-calendar-days fa-2x"></i>
+                        <!-- datetimepicker -->
+                        <input type="date" class="form-control mx-2 fs-4 p-0 select-search" style="background: #dbe2ef;"
+                            id="datetimepicker" placeholder="Ngày đi">
+                    </div>
+                    <hr style="margin-right:10px;">
+                </div>
+
+                <div class="col-lg-1">
+                    <div class=" mt-3 ">
+                        <a href="search-trip.html">
+                            <button id="btn-search" type="button"
+                                class="col-12 btn btn-lg px-lg-4 px-md-5 my-sm-3 mt-md-0">
+                                <i class="fa-solid fa-magnifying-glass "></i>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="row py-5">
+            <div class="col-lg-3 ">
+                <div class=" d-flex justify-content-between">
+                    <h4 class="">
+                        Bộ lọc
+                    </h4>
+                    <a href="#" class="align-self-center"> Xóa lọc</a>
+                </div>
+
+                <div class="border mt-1 p-3">
+                    <!-- giá vé  -->
+                    <div class="mb-4">
+                        <label for="customRange3" class="form-label">Giá vé</label>
+                        <input type="range" class="form-range " min="0" max="5" step="0.5" id="customRange3">
+                        <div class="d-flex justify-content-between">
+                            <p>0đ</p>
+                            <p>2,000,000đ</p>
+                        </div>
+                    </div>
+
+                    <!-- nhà xe  -->
+                    <div class="mb-4">
+                        <label for="" class="mb-2">Nhà xe</label>
+                        <div class="form-check">
+                            <input class="form-check-input me-3" type="checkbox" value="" id="nha-xe-1" checked>
+                            <label class="form-check-label" for="nha-xe-1">
+                                Xe Phương Trang (1)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input me-3" type="checkbox" value="" id="nha-xe-2">
+                            <label class="form-check-label" for="nha-xe-2">
+                                Xe Thành Bưởi (4)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input me-3" type="checkbox" value="" id="nha-xe-3">
+                            <label class="form-check-label" for="nha-xe-3">
+                                Xe Phi Long (6)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input me-3" type="checkbox" value="" id="nha-xe-4">
+                            <label class="form-check-label" for="nha-xe-4">
+                                Xe Cao Long (9)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input me-3" type="checkbox" value="" id="nha-xe-5">
+                            <label class="form-check-label" for="nha-xe-5">
+                                Xe Trung Nga (5)
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- loại xe  -->
+                    <div class="mb-4">
+                        <label for="" class="mb-2">Loại xe</label>
+                        <div class="form-check">
+                            <input class="form-check-input me-3" type="checkbox" value="" id="nha-xe-1">
+                            <label class="form-check-label" for="nha-xe-1">
+                                Ghế ngồi (6)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input me-3" type="checkbox" value="" id="nha-xe-1" checked>
+                            <label class="form-check-label" for="nha-xe-1">
+                                Giường nằm (3)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input me-3" type="checkbox" value="" id="nha-xe-1">
+                            <label class="form-check-label" for="nha-xe-1">
+                                Giường nằm đôi (2)
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-lg-9 ">
+                <div class="">
+                    <div class=" d-flex justify-content-between my-3">
+                        <h4 class="">
+                            Sắp xếp theo:
+                        </h4>
+                        <p class="fs-5 py-1 px-2 rounded-2 btn btn-info bg-color-3 text-white">Giờ đi sớm nhất</p>
+                        <a href="#" class="text-black">
+                            <p class="fs-5">Giờ đi muộn nhất</p>
+                        </a>
+                        <a href="#" class="text-black">
+                            <p class="fs-5">Giá tăng dần</p>
+                        </a>
+                        <a href="#" class="text-black">
+                            <p class="fs-5">Giá giảm dần</p>
+                        </a>
+                    </div>
+                    <hr>
+                </div>
+
+                <div class="my-3">
+                    <div class="card mb-3">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <a href="trip-info.html">
+                                    <img src="./images/slider-nha-xe/Nha-xe-Phuong-Trang.jpg"
+                                        class="img-fluid rounded-2" style="max-width:auto; height:100%;"
+                                        alt="tuyen xe 1">
+                                </a>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body pb-0 d-flex flex-column justify-content-between">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex">
+                                            <a href="trip-info.html">
+                                                <h4 class="card-title  text-3">Phương Trang</h4>
+                                            </a>
+                                            <div class="p-2 ms-2 bg-color-2 rounded-2">
+                                                <span><i class="fa-solid fa-star text-warning"></i>4.8 (1800)</span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex ">
+                                            <h4 class="color-3 fw-bold">230,000 đ</h4>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <p class="fw-light">Giường nằm 38 chỗ </p>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 d-flex flex-column">
+                                            <div class="d-inline-flex justify-content-between">
+                                                <div class="d-inline-flex">
+                                                    <i class="fa-solid fa-location-dot me-3"></i>
+                                                    <p class="me-5 fw-bold">00:00</p>
+                                                    <p> Bến xe Miền Đông</p>
+                                                </div>
+                                                <a href="xacnhan.htm"> <button
+                                                        class="p-1 px-4 bg-color-3 text-white rounded-2 border-0">Đặt
+                                                        vé</button></a>
+                                            </div>
+                                            <div class="d-inline-flex">
+                                                <p class="ms-4">4h</p>
+
+                                            </div>
+                                            <div class="d-inline-flex justify-content-between">
+                                                <div class="d-flex">
+                                                    <i class="fa-solid fa-location-dot me-3"></i>
+                                                    <p class="me-5 fw-bold">04:00</p>
+                                                    <p> PV Phan Thiết</p>
+                                                </div>
+                                                <a href="trip-info.html">Xem thông tin chi tiết</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <a href="trip-info.html">
+                                    <img src="./images/slider-nha-xe/Nha-xe-Phuong-Trang.jpg"
+                                        class="img-fluid rounded-2" style="max-width:auto; height:100%;"
+                                        alt="tuyen xe 1">
+                                </a>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body pb-0 d-flex flex-column justify-content-between">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex">
+                                            <a href="trip-info.html">
+                                                <h4 class="card-title  text-3">Phương Trang</h4>
+                                            </a>
+                                            <div class="p-2 ms-2 bg-color-2 rounded-2">
+                                                <span><i class="fa-solid fa-star text-warning"></i>4.8 (1800)</span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex ">
+                                            <h4 class="color-3 fw-bold">230,000 đ</h4>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <p class="fw-light">Giường nằm 38 chỗ </p>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 d-flex flex-column">
+                                            <div class="d-inline-flex justify-content-between">
+                                                <div class="d-inline-flex">
+                                                    <i class="fa-solid fa-location-dot me-3"></i>
+                                                    <p class="me-5 fw-bold">08:00</p>
+                                                    <p> Bến xe Miền Đông</p>
+                                                </div>
+                                                <a href="xacnhan.htm"> <button
+                                                        class="p-1 px-4 bg-color-3 text-white rounded-2 border-0">Đặt
+                                                        vé</button></a>
+                                            </div>
+                                            <div class="d-inline-flex">
+                                                <p class="ms-4">4h</p>
+
+                                            </div>
+                                            <div class="d-inline-flex justify-content-between">
+                                                <div class="d-flex">
+                                                    <i class="fa-solid fa-location-dot me-3"></i>
+                                                    <p class="me-5 fw-bold">12:00</p>
+                                                    <p> PV Phan Thiết</p>
+                                                </div>
+                                                <a href="trip-info.html">Xem thông tin chi tiết</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <a href="trip-info.html">
+                                    <img src="./images/slider-nha-xe/Nha-xe-Phuong-Trang.jpg"
+                                        class="img-fluid rounded-2" style="max-width:auto; height:100%;"
+                                        alt="tuyen xe 1">
+                                </a>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body pb-0 d-flex flex-column justify-content-between">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex">
+                                            <a href="trip-info.html">
+                                                <h4 class="card-title  text-3">Phương Trang</h4>
+                                            </a>
+                                            <div class="p-2 ms-2 bg-color-2 rounded-2">
+                                                <span><i class="fa-solid fa-star text-warning"></i>4.8 (1800)</span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex ">
+                                            <h4 class="color-3 fw-bold">230,000 đ</h4>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <p class="fw-light">Giường nằm 38 chỗ </p>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 d-flex flex-column">
+                                            <div class="d-inline-flex justify-content-between">
+                                                <div class="d-inline-flex">
+                                                    <i class="fa-solid fa-location-dot me-3"></i>
+                                                    <p class="me-5 fw-bold">13:00</p>
+                                                    <p> Bến xe Miền Đông</p>
+                                                </div>
+                                                <a href="xacnhan.htm"> <button
+                                                        class="p-1 px-4 bg-color-3 text-white rounded-2 border-0">Đặt
+                                                        vé</button></a>
+                                            </div>
+                                            <div class="d-inline-flex">
+                                                <p class="ms-4">4h</p>
+
+                                            </div>
+                                            <div class="d-inline-flex justify-content-between">
+                                                <div class="d-flex">
+                                                    <i class="fa-solid fa-location-dot me-3"></i>
+                                                    <p class="me-5 fw-bold">17:00</p>
+                                                    <p> PV Phan Thiết</p>
+                                                </div>
+                                                <a href="trip-info.html">Xem thông tin chi tiết</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <nav aria-label="Page navigation">
+                    <ul class="pagination  justify-content-center  ">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+        </div>
+
+    </section>
+</main>
+{{>footer}}

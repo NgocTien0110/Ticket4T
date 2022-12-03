@@ -1,0 +1,85 @@
+{{>header_authen}}
+<main>
+    <div class="container">
+        <div class="accordion" id="accordionExample">
+            <div class="steps my-4">
+                <progress id="progress" value=0 max=100></progress>
+                <div class="step-item">
+                    <button class="step-button text-center" type="button" data-toggle="collapse"
+                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        1
+                    </button>
+                    <div class="step-title">
+                        Xác nhận
+                    </div>
+                </div>
+                <div class="step-item">
+                    <button class="step-button text-center collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        2
+                    </button>
+                    <div class="step-title">
+                        Thông tin khách hàng
+                    </div>
+                </div>
+                <div class="step-item">
+                    <button class="step-button text-center collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        3
+                    </button>
+                    <div class="step-title">
+                        Thanh toán
+                    </div>
+                </div>
+            </div>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="h3 text-center">Xác nhận vé</div>
+                        <div class="row d-md-flex flex-column justify-content-center align-items-md-center">
+                            <div class="col-6 my-4">
+                                <div class="date d-flex justify-content-between">
+                                    <div class="go d-flex flex-column align-items-center ms-sm-5 ms-5">
+                                        <i class="bi bi-calendar mb-2"></i>
+                                        <span>14/11/2022</span>
+                                    </div>
+                                    <div class="arrive d-flex flex-column align-items-center me-sm-5 me-5">
+                                        <i class="bi bi-calendar mb-2"></i>
+                                        <span>15/11/2022</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 my-4">
+                                <div class="locate d-flex justify-content-between">
+                                    <div class="go d-flex flex-column align-items-center ms-sm-5 ms-5">
+                                        <span>VP Tân Bình</span>
+                                        <i class="bi bi-geo-alt my-2 linee"></i>
+                                        <span>23:00</span>
+                                    </div>
+                                    <div class="line">
+                                        <span>8h</span>
+                                    </div>
+                                    <div class="arrive d-flex flex-column align-items-center me-sm-5 me-5">
+                                        <span>VP Đà Lạt</span>
+                                        <i class="bi bi-geo-alt-fill my-2"></i>
+                                        <span>07:00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<div class="button d-flex justify-content-around my-4">
+    <a href="trip-info.html">
+        <div class="btn btn-lg px-5 back">&lt Quay lại</div>
+    </a>
+    <a href="./thongtinkhachhang.htm">
+        <div class="btn btn-lg px-5 continue">Tiếp tục &gt;</div>
+    </a>
+</div>
+{{>footer}}

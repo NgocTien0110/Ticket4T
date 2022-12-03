@@ -1,0 +1,26 @@
+{
+  "name": "ticket4t",
+  "version": "1.0.0",
+  "description": "Đồ án phát triển ứng dụng web 20ktpm4 - Nhóm 5",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NgocTien0110/Ticket4T.git"
+  },
+  "author": "nhom5",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NgocTien0110/Ticket4T/issues"
+  },
+  "homepage": "https://github.com/NgocTien0110/Ticket4T#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.6",
+    "pg": "^8.8.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.26.0"
+  }
+}
