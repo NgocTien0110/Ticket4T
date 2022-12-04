@@ -62,51 +62,52 @@
                                         <hr>
                                         <div class="name d-flex justify-content-between align-items-center">
                                             <span>Họ và tên: </span>
-                                            <span class="fw-bolder">Nguyễn Văn A</span>
+                                            <span class="fw-bolder">{{name}}</span>
                                         </div>
                                         <div class="phone d-flex justify-content-between align-items-center mt-2">
                                             <span>Số điện thoại: </span>
-                                            <span class="fw-bolder">034567890</span>
+                                            <span class="fw-bolder">{{phone}}</span>
                                         </div>
                                         <div class="email d-flex justify-content-between align-items-center mt-2">
                                             <span>Email: </span>
-                                            <span class="fw-bolder">nhom5ktpm4@clc.fitus.edu.vn</span>
+                                            <span class="fw-bolder">{{email}}</span>
                                         </div>
                                         <br>
+                                        {{#with chuyenxe}}
+
                                         <div class="brand d-flex justify-content-between align-items-center mt-2">
                                             <span>Hãng xe: </span>
-                                            <span class="fw-bolder">Tiến Oanh</span>
+                                            {{#with NhaXe}}
+                                            <span class="fw-bolder">{{name}}</span>
+                                            {{/with}}
                                         </div>
                                         <div class="route d-flex justify-content-between align-items-center mt-2">
                                             <span>Tuyến đường: </span>
-                                            <span class="fw-bolder">TP.HCM - Đà Lạt</span>
+                                            <span class="fw-bolder">{{startProvince}} - {{endProvince}}</span>
                                         </div>
                                         <div class="departure d-flex justify-content-between align-items-center mt-2">
                                             <span>Điểm đi: </span>
-                                            <span class="fw-bolder">VP.Tân Bình</span>
+                                            <span class="fw-bolder">{{startLocation}}</span>
                                         </div>
                                         <div class="time d-flex justify-content-between align-items-center mt-2">
                                             <span>Thời gian: </span>
-                                            <span class="fw-bolder">21:00 23-11-2022</span>
+                                            <span class="fw-bolder">{{{time startTime}}} {{{date startTime}}}</span>
                                         </div>
                                         <div class="price d-flex justify-content-between align-items-center mt-2">
                                             <span>Giá vé: </span>
-                                            <span class="fw-bolder">500.000đ</span>
-                                        </div>
-                                        <div class="seat d-flex justify-content-between align-items-center mt-2">
-                                            <span>Số ghế: </span>
-                                            <span class="fw-bolder">A1 B1</span>
+                                            <span class="fw-bolder">{{price}}đ</span>
                                         </div>
                                         <div class="quantity d-flex justify-content-between align-items-center mt-2">
                                             <span>Số lượng vé: </span>
-                                            <span class="fw-bolder">2</span>
+                                            <span class="fw-bolder">{{../ticket}}</span>
                                         </div>
                                         <div
                                             class="total d-flex justify-content-between align-items-center h3 mt-4 fw-bolder">
                                             <span>Tổng tiền: </span>
-                                            <span>1.000.000đ</span>
+                                            <span>{{{totalPrice price ../ticket}}}</span>
                                         </div>
 
+                                    {{/with}}
                                     </div>
                                 </div>
                             </div>

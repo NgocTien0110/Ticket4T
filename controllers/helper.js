@@ -44,5 +44,8 @@ helper.totalTime=(time1,time2)=>{
 
     
 }
+helper.totalPrice=(price,quantity)=>{
+    return price*quantity;
+}
 
 module.exports=helper;

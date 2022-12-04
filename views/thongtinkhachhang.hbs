@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="/css/xacnhan.css">
     <link rel="stylesheet" href="/css/thongtinkhachhang.css">
 
-
 </head>
 
 {{>header_authen}}
@@ -56,31 +55,31 @@
                 data-parent="#accordionExample">
                 <div class="card bg-form mx-auto" style="width: 50%;">
                     <div class="card-body">
-                        <form>
+                        <form action="/search-trip/{{id}}/thanh-toan/thanhtoan" method="GET">
                             <div class="h3 text-center">Thông tin khách hàng</div>
                             <div class="mb-3 form-group">
                                 <label for="InputName" class="form-label">Họ và tên khách hàng <span
                                         class="text-danger">*</span></label>
-                                <input type="text" placeholder="Họ và tên" class="form-control" id="InputName" required>
+                                <input type="text" placeholder="Họ và tên" class="form-control" id="InputName" name="name" required>
                             </div>
                             <div class="mb-3">
                                 <label for="InputPhone" class="form-label">Số điện thoại <span
                                         class="text-danger">*</span></label>
-                                <input type="text" placeholder="Nhập số điện thoại" class="form-control" id="InputPhone"
+                                <input type="text" placeholder="Nhập số điện thoại" class="form-control" id="InputPhone" name="phone"
                                     required>
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Email <span
                                         class="text-danger">*</span></label>
                                 <input type="email" placeholder="Nhập Email" class="form-control"
-                                    id="exampleInputEmail1" required>
+                                    id="exampleInputEmail1" name="email" required>
                             </div>
                             <div class="mb-3 ticket">
                                 <label for="exampleInputTicket" class="form-label">Số lượng vé <span
                                         class="text-danger">*</span></label>
                                 <div class="wrapper">
                                     <span class="minus"><i class="bi bi-dash"></i></span>
-                                    <span class="ticket">01</span>
+                                    <input type="number" class="ticket" value="1" min="1" name="ticket" readonly/>
                                     <span class="plus"><i class="bi bi-plus"></i></span>
                                 </div>
                             </div>
@@ -91,10 +90,10 @@
                                     Ticket4T</label>
                             </div>
                             <div class="button d-flex justify-content-around my-4">
-                                <a href="./xacnhan.htm">
+                                <a href="/search-trip/{{id}}/thanh-toan/xacnhan">
                                     <div class="btn btn-lg px-md-5 px-3 back">&lt Quay lại</div>
                                 </a>
-                                <a href="./thanhtoan.htm">
+                                <a href="/search-trip/{{id}}/thanh-toan/thanhtoan">
                                     <button class="btn btn-lg px-md-5 px-3 continue" type="submit">Tiếp tục
                                         &gt;</button>
                                 </a>
@@ -123,4 +122,6 @@
         </div>
     </div>
 </main>
+<script src="/javascript/thongtinkhachhang.js"></script>
+
 {{>footer}}

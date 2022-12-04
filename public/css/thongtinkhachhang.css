@@ -29,6 +29,7 @@ body {
     color: var(--color--quaternary);
     background-color: var(--color--secondary);
     border-radius: 5px;
+    padding: 0 20px;
 }
 .wrapper span.minus:hover, .wrapper span.plus:hover{
     background-color: #4488dc;
@@ -47,4 +48,13 @@ body {
 .btn.backk:hover{
     background-color: rgb(162, 158, 158);
     color: white;
+}
+input.ticket{
+    border: none;
+    cursor: auto;
+    text-align: center; 
+    width: 100px;
+}
+input.ticket:focus{
+    outline: none;
 }
