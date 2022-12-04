@@ -18,8 +18,8 @@ module.exports = (sequelize, DataTypes) => {
   NhaXe.init({
     name: DataTypes.STRING,
     description: DataTypes.TEXT,
-    phoneNo: DataTypes.STRING,
-    address: DataTypes.STRING,
+    phoneNo: DataTypes.ARRAY(DataTypes.STRING),
+    address: DataTypes.ARRAY(DataTypes.STRING),
     imageCarCom: DataTypes.STRING
   }, {
     sequelize,
