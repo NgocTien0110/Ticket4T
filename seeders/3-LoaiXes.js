@@ -13,15 +13,15 @@ module.exports = {
      * }], {});
      */
     const items = [
-      { name: "ghế ngồi" },
-      { name: "giường nằm" },
-      { name: "giường nằm đôi" },
-      { name: "limousine" },
+      { name: "Ghế ngồi" },
+      { name: "Giường nằm" },
+      { name: "Giường nằm đôi" },
+      { name: "Limousine" },
     ];
 
     items.forEach((item) => {
-      item.createAt = Sequelize.literal("NOW()");
-      item.updateAt = Sequelize.literal("NOW()");
+      item.createdAt = Sequelize.literal("NOW()");
+      item.updatedAt = Sequelize.literal("NOW()");
     });
     await queryInterface.bulkInsert("LoaiXes", items, {});
   },

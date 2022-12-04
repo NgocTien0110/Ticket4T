@@ -16,10 +16,13 @@ module.exports = {
         type: Sequelize.TEXT
       },
       phoneNo: {
-        type: Sequelize.STRING
+        type: Sequelize.ARRAY(DataTypes.STRING)
       },
       address: {
-        type: Sequelize.STRING
+        type: Sequelize.ARRAY(DataTypes.STRING)
+      },
+      stars: {
+        type: Sequelize.FLOAT
       },
       imageCarCom: {
         type: Sequelize.STRING
