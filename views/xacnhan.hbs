@@ -11,8 +11,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="/css/header_footer.css">
-    <link rel="stylesheet" href="/css/xacnhan.css">
+    <link type="text/css" rel="stylesheet" href="/css/header_footer.css">
+    <link type="text/css" rel="stylesheet" href="/css/xacnhan.css">
 
 </head>
 
@@ -50,37 +50,43 @@
                     </div>
                 </div>
             </div>
+            {{#with chuyenxe}}
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card">
                     <div class="card-body">
                         <div class="h3 text-center">Xác nhận vé</div>
                         <div class="row d-md-flex flex-column justify-content-center align-items-md-center">
                             <div class="col-6 my-4">
+                                <div class="h3 text-center fw-bold">
+                                    <span>{{{startProvince}}} - {{{endProvince}}}</span>
+
+                                </div>
                                 <div class="date d-flex justify-content-between">
                                     <div class="go d-flex flex-column align-items-center ms-sm-5 ms-5">
                                         <i class="bi bi-calendar mb-2"></i>
-                                        <span>14/11/2022</span>
+                                        <span>{{{date startTime}}}</span>
+                                       
                                     </div>
                                     <div class="arrive d-flex flex-column align-items-center me-sm-5 me-5">
                                         <i class="bi bi-calendar mb-2"></i>
-                                        <span>15/11/2022</span>
+                                        <span>{{{date endTime}}}</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6 my-4">
+                            <div class="col-6 my-4 mt-2">
                                 <div class="locate d-flex justify-content-between">
-                                    <div class="go d-flex flex-column align-items-center ms-sm-5 ms-5">
-                                        <span>VP Tân Bình</span>
+                                    <div class="go d-flex flex-column align-items-center ms-sm-5 ms-5 mt-2">
+                                        <span>{{{startLocation}}}</span>
                                         <i class="bi bi-geo-alt my-2 linee"></i>
-                                        <span>23:00</span>
+                                        <span>{{{time startTime}}}</span>
                                     </div>
-                                    <div class="line">
-                                        <span>8h</span>
+                                    <div class="line mt-4">
+                                        <span>{{{totalTime endTime startTime}}}</span>
                                     </div>
-                                    <div class="arrive d-flex flex-column align-items-center me-sm-5 me-5">
-                                        <span>VP Đà Lạt</span>
+                                    <div class="arrive d-flex flex-column align-items-center me-sm-5 me-5 mt-2">
+                                        <span>{{{endLocation}}}</span>
                                         <i class="bi bi-geo-alt-fill my-2"></i>
-                                        <span>07:00</span>
+                                        <span>{{{time endTime}}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -89,6 +95,7 @@
                     </div>
                 </div>
             </div>
+            {{/with}}
         </div>
     </div>
 </main>
@@ -96,7 +103,7 @@
     <a href="trip-info.html">
         <div class="btn btn-lg px-5 back">&lt Quay lại</div>
     </a>
-    <a href="./thongtinkhachhang.htm">
+    <a href="/thongtinkhachhang">
         <div class="btn btn-lg px-5 continue">Tiếp tục &gt;</div>
     </a>
 </div>
