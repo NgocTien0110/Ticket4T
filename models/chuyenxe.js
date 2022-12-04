@@ -14,10 +14,6 @@ module.exports = (sequelize, DataTypes) => {
       ChuyenXe.belongsTo(models.NhaXe, { foreignKey: 'carId' });
       ChuyenXe.belongsTo(models.LoaiXe, { foreignKey: 'cateCarId' });
       ChuyenXe.hasMany(models.VeDaDat, { foreignKey: 'jourId' });
-      ChuyenXe.belongsToMany(models.AnhChuyenXe, {
-        through: 'imageJourneys',
-        foreignKey: 'jourId'
-      })
     }
   }
   ChuyenXe.init({

@@ -27,6 +27,9 @@ module.exports = {
       imageCarCom: {
         type: Sequelize.STRING
       },
+      imageJours: {
+        type: Sequelize.ARRAY(DataTypes.STRING)
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
