@@ -9,6 +9,12 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      startProvince: {
+        type: Sequelize.STRING
+      },
+      endProvince: {
+        type: Sequelize.STRING
+      },
       startLocation: {
         type: Sequelize.STRING
       },

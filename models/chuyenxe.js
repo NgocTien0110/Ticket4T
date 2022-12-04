@@ -21,6 +21,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   ChuyenXe.init({
+    startProvince: DataTypes.STRING,
+    endProvince: DataTypes.STRING,
     startLocation: DataTypes.STRING,
     endLocation: DataTypes.STRING,
     startTime: DataTypes.DATE,
