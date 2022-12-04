@@ -19,7 +19,7 @@ module.exports = {
         imagePath: [
           "/images/chuyenxe/minh-phuong-1",
           "/images/chuyenxe/minh-phuong-2",
-          "/images/chuyenxe/minh-phuong-2",
+          "/images/chuyenxe/minh-phuong-3",
         ],
       },
       {
@@ -27,7 +27,7 @@ module.exports = {
         imagePath: [
           "/images/chuyenxe/phuong-trang-1",
           "/images/chuyenxe/phuong-trang-2",
-          "/images/chuyenxe/phuong-trang-2",
+          "/images/chuyenxe/phuong-trang-3",
         ],
       },
       {
@@ -35,7 +35,7 @@ module.exports = {
         imagePath: [
           "/images/chuyenxe/ha-my-1",
           "/images/chuyenxe/ha-my-2",
-          "/images/chuyenxe/ha-my-2",
+          "/images/chuyenxe/ha-my-3",
         ],
       },
       {
@@ -43,7 +43,7 @@ module.exports = {
         imagePath: [
           "/images/chuyenxe/hoang-anh-1",
           "/images/chuyenxe/hoang-anh-2",
-          "/images/chuyenxe/hoang-anh-2",
+          "/images/chuyenxe/hoang-anh-3",
         ],
       },
       {
@@ -51,10 +51,15 @@ module.exports = {
         imagePath: [
           "/images/chuyenxe/tien-dat-1",
           "/images/chuyenxe/tien-dat-2",
-          "/images/chuyenxe/tien-dat-2",
+          "/images/chuyenxe/tien-dat-3",
         ],
       },
     ];
+
+    items.forEach((item) => {
+      item.createdAt = Sequelize.literal("NOW()");
+      item.updatedAt = Sequelize.literal("NOW()");
+    });
   },
 
   async down(queryInterface, Sequelize) {
