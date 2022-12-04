@@ -20,6 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.TEXT,
     phoneNo: DataTypes.ARRAY(DataTypes.STRING),
     address: DataTypes.ARRAY(DataTypes.STRING),
+    stars: DataTypes.FLOAT,
     imageCarCom: DataTypes.STRING
   }, {
     sequelize,

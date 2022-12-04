@@ -2,7 +2,7 @@
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     const items = [
       {
         stars: 3.5,
@@ -20,7 +20,7 @@ module.exports = {
         stars: 1.5,
         comment: 'Quá tệ, mặc dù chất lượng xe khá tốt nhưng chất lượng phục vụ lại không được như vậy, hơn thế nữa tài xế còn chạy rất ẩu, coi thường tính mạng của hành khách và những người trên xe',
         carId: 2,
-        accId: 3,
+        accId: 4,
       },
       {
         stars: 2,
@@ -43,8 +43,8 @@ module.exports = {
       {
         stars: 5,
         comment: 'Mình hay lên Đà Lạt bằng xe Xuân Hải lắm, nhà xe làm ăn uy tín. Luôn đưa đón đúng giờ, không lúc nào để mình phải chờ đợi, cũng có thể do mình đi nhiều lần quá rồi nên biết rõ khung giờ nhà xe xuất phát, cứ đến là xe chuẩn bị khởi hành. Nhân viên nhiệt tình, vui vẻ, giá vé phải chăng. Phù hợp với những bạn muốn đi du lịch tiết kiệm',
-        carId: 4,
-        accId: 7,
+        carId: 3,
+        accId: 1,
       },
       {
         stars: 5,
@@ -74,7 +74,7 @@ module.exports = {
     await queryInterface.bulkInsert('Reviews', items, {});
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     await queryInterface.bulkDelete('Reviews', null, {});
   }
 };
