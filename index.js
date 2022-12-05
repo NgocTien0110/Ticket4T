@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const expressHbs = require('express-handlebars');
-const helper=require('./controllers/helper');
+const helper = require('./controllers/helper');
 
 app.engine('hbs', expressHbs.engine({
     extname: 'hbs',
@@ -25,6 +25,7 @@ app.use(express.static(__dirname + '/public')); //Mặc định web tĩnh ở tr
 
 app.use('/', require('./routes/indexRoute'))
 app.use('/search-trip', require('./routes/xacnhanRoute'))
+app.use('/tai-khoan', require('./routes/taikhoanRoute'))
 
 
 app.get('/createTables', (req, res) => {
