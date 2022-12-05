@@ -12,7 +12,8 @@ app.engine('hbs', expressHbs.engine({
         date: helper.date,
         time: helper.time,
         totalTime: helper.totalTime,
-        totalPrice: helper.totalPrice
+        totalPrice: helper.totalPrice,
+        generateStarList : helper.generateStarList
     },
     runtimeOptions: { //Để cho phép hbs truy cập đc vào database
         allowProtoPropertiesByDefault: true
@@ -26,6 +27,7 @@ app.use(express.static(__dirname + '/public')); //Mặc định web tĩnh ở tr
 app.use('/', require('./routes/indexRoute'))
 app.use('/search-trip', require('./routes/xacnhanRoute'))
 
+app.use('/nhaxe', require('./routes/nhaxeRoute'))
 
 app.get('/createTables', (req, res) => {
     let models = require('./models');

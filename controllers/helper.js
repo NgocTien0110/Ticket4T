@@ -47,5 +47,26 @@ helper.totalTime=(time1,time2)=>{
 helper.totalPrice=(price,quantity)=>{
     return price*quantity;
 }
+helper.generateStarList = (stars) => {
+    let str = '', count = 0, decPart = stars % 1, intPart = Math.trunc(stars);
+
+    for(i = 1; i <= intPart; ++i, ++count){
+        str += '<i class="bi bi-star-fill icon"></i>';
+    }
+
+    if(decPart >= 0.25 && decPart <= 0.5){
+        str += '<i class="bi bi-star-half icon"></i>';
+        ++count;
+    }
+    else if(decPart > 0.5){
+        str += '<i class="bi bi-star-fill icon"></i>';
+        ++count;
+    }
+
+    for(i = count; i < 5; ++i)
+        str += '<i class="bi bi-star icon"></i>';
+
+    return str;
+}
 
 module.exports=helper;
