@@ -55,4 +55,22 @@ helper.totalPrice = (price, quantity) => {
     return total;
 }
 
+helper.starNhanXet=(stars)=>{
+    let str = '';
+    let star = Math.round(stars);
+    let halfStar = stars - star;
+    let i;
+    for(i=1;i<star;i++){
+        str+='<i class="fas fa-star"></i>';
+    }
+    if(halfStar>0){
+        str+='<i class="fas fa-star-half-alt"></i>';
+        i++;
+    }
+    for(;i<=5;i++){
+        str+='<i class="far fa-star"></i>';
+    }
+    return str;
+}
+
 module.exports = helper;

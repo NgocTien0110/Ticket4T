@@ -105,172 +105,37 @@
 
         <div id="popular-trip-content" class="">
             <!-- popular trip content -->
-            <!-- dòng 1 -->
             <div class="row gx-5">
+          
+            {{#each chuyenxes}}
                 <!-- item 1  -->
                 <div class="col-lg-6">
                     <div class="card mb-3 popular-trip-item" ">
               <div class=" row g-0">
                         <div class="col-md-4">
                             <a href="trip-info.html">
-                                <img src="/images/tuyen-duong-pho-bien/DaLat.jpg" class="img-fluid rounded-2"
-                                    style="max-width:auto; height:100%;" alt="tuyen xe 1">
+                                <img src="{{locationImage}}" class="img-fluid rounded-2"
+                                    style="object-fit: cover; height: 9rem; width: 36rem;" alt="{{startProvince}} - {{endProvince}}">
                             </a>
                         </div>
                         <div class="col-md-8">
                             <div class="card-body pb-0 d-flex flex-column justify-content-between">
                                 <a href="trip-info.html">
-                                    <h3 class="card-title py-2 text-3">Sài Gòn - Đà Lạt</h3>
+                                    <h3 class="card-title py-2 text-3">{{startProvince}} - {{endProvince}}</h3>
                                 </a>
                                 <!-- <p class="card-text">Sai Gon - Da Lat</p> -->
                                 <div class="d-flex flex-row justify-content-between align-item-end mt-3 trip-info">
-                                    <p class="card-text fs-5"> <i class="fa-solid fa-location-dot"></i> 100 km</p>
-                                    <p class="card-text fs-5"> <i class="fa-regular fa-clock"></i> 8h</p>
-                                    <p class="card-text fs-4 text-4">300,000<span>đ</span></p>
+                                    {{!-- <p class="card-text fs-5"> <i class="fa-solid fa-location-dot"></i> 100 km</p> --}}
+                                    <p class="card-text fs-5"> <i class="fa-regular fa-clock"></i> {{{totalTime endTime startTime}}}</p>
+                                    <p class="card-text fs-4 text-4"><span>{{price}} đ</span></p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>          
+        {{/each}}
 
-            <!-- item 2 -->
-            <div class="col-lg-6">
-                <div class="card mb-3 popular-trip-item">
-                    <div class=" row g-0">
-                        <div class="col-md-4">
-                            <a href="trip-info.html">
-                                <img src="/images/tuyen-duong-pho-bien/CanTho.jpg" class="img-fluid rounded-2"
-                                    style="max-width:auto; height:100%;" alt="tuyen xe 1">
-                            </a>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body pb-0 d-flex flex-column justify-content-between">
-                                <a href="trip-info.html">
-                                    <h3 class="card-title py-2 text-3">Sài Gòn - Cần Thơ</h3>
-                                </a>
-                                <!-- <p class="card-text">Sai Gon - Da Lat</p> -->
-                                <div class="d-flex flex-row justify-content-between align-item-end mt-3 trip-info">
-                                    <p class="card-text fs-5"> <i class="fa-solid fa-location-dot"></i> 640 km</p>
-                                    <p class="card-text fs-5"> <i class="fa-regular fa-clock"></i> 18h</p>
-                                    <p class="card-text fs-4 text-4">600,000<span>đ</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- dòng 2 -->
-        <div class="row gx-5">
-            <!-- item 1  -->
-            <div class="col-lg-6">
-                <div class="card mb-3 popular-trip-item" ">
-          <div class=" row g-0">
-                    <div class="col-md-4">
-                        <a href="trip-info.html">
-                            <img src="/images/tuyen-duong-pho-bien/cauvangDaNang.jpg" class="img-fluid rounded-2"
-                                style="max-width:auto; height:100%; " alt="tuyen xe 1">
-                        </a>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body pb-0 d-flex flex-column justify-content-between">
-                            <a href="trip-info.html">
-                                <h3 class="card-title py-2 text-4">Sài Gòn - Đà Nẵng</h3>
-                            </a>
-                            <!-- <p class="card-text">Sai Gon - Da Lat</p> -->
-                            <div class="d-flex flex-row justify-content-between align-item-end mt-3 trip-info">
-                                <p class="card-text fs-5"> <i class="fa-solid fa-location-dot"></i> 410 km</p>
-                                <p class="card-text fs-5"> <i class="fa-regular fa-clock"></i> 12h</p>
-                                <p class="card-text fs-4 text-4">400,000<span>đ</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- item 2 -->
-        <div class="col-lg-6">
-            <div class="card mb-3 popular-trip-item">
-                <div class=" row g-0">
-                    <div class="col-md-4">
-                        <a href="trip-info.html">
-                            <img src="/images/tuyen-duong-pho-bien/saigon.jpg" class="img-fluid rounded-2"
-                                style="max-width:auto; height:100%;" alt="tuyen xe 1">
-                        </a>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body pb-0 d-flex flex-column justify-content-between">
-                            <a href="trip-info.html">
-                                <h3 class="card-title py-2 text-4">Sài Gòn - Cà Mau</h3>
-                            </a>
-                            <!-- <p class="card-text">Sai Gon - Da Lat</p> -->
-                            <div class="d-flex flex-row justify-content-between align-item-end mt-3 trip-info">
-                                <p class="card-text fs-5"> <i class="fa-solid fa-location-dot"></i> 210 km</p>
-                                <p class="card-text fs-5"> <i class="fa-regular fa-clock"></i> 6h</p>
-                                <p class="card-text fs-4 text-4">250,000<span>đ</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-        <!-- dòng 3 -->
-        <div class="row gx-5">
-            <!-- item 1  -->
-            <div class="col-lg-6">
-                <div class="card mb-3 popular-trip-item">
-                    <div class=" row g-0">
-                        <div class="col-md-4">
-                            <a href="trip-info.html">
-                                <img src="/images/tuyen-duong-pho-bien/HoGuom.jpg" class="img-fluid rounded-2"
-                                    style="max-width:auto; height:100%;" alt="tuyen xe 1">
-                            </a>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body pb-0 d-flex flex-column justify-content-between">
-                                <a href="trip-info.html">
-                                    <h3 class="card-title py-2 text-3">Sài Gòn - Hà Nội</h3>
-                                </a>
-                                <!-- <p class="card-text">Sai Gon - Da Lat</p> -->
-                                <div class="d-flex flex-row justify-content-between align-item-end mt-3 trip-info">
-                                    <p class="card-text fs-5"> <i class="fa-solid fa-location-dot"></i> 1000 km</p>
-                                    <p class="card-text fs-5"> <i class="fa-regular fa-clock"></i> 20h</p>
-                                    <p class="card-text fs-4 text-4">1300,000<span>đ</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- item 2 -->
-            <div class="col-lg-6">
-                <div class="card mb-3 popular-trip-item">
-                    <div class=" row g-0">
-                        <div class="col-md-4">
-                            <a href="trip-info.html">
-                                <img src="/images/tuyen-duong-pho-bien/DaLat.jpg" class="img-fluid rounded-2"
-                                    style="max-width:auto; height:100%;" alt="tuyen xe 1">
-                            </a>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body pb-0 d-flex flex-column justify-content-between">
-                                <a href="trip-info.html">
-                                    <h3 class="card-title py-2 text-3">Đà Nẵng - Sài Gòn</h3>
-                                </a>
-                                <!-- <p class="card-text">Sai Gon - Da Lat</p> -->
-                                <div class="d-flex flex-row justify-content-between align-item-end mt-3 trip-info">
-                                    <p class="card-text fs-5"> <i class="fa-solid fa-location-dot"></i> 340 km</p>
-                                    <p class="card-text fs-5"> <i class="fa-regular fa-clock"></i> 9h</p>
-                                    <p class="card-text fs-4 text-4">300,000<span>đ</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
         </div>
     </section>
@@ -287,32 +152,32 @@
         <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true"
-                    aria-label="First slide"></li>
-                <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="Second slide"></li>
-                <li data-bs-target="#carouselId" data-bs-slide-to="2" aria-label="Third slide"></li>
+                    aria-label=""></li>  
+                <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label=""></li>           
+                <li data-bs-target="#carouselId" data-bs-slide-to="2" aria-label=""></li>
+                <li data-bs-target="#carouselId" data-bs-slide-to="3" aria-label=""></li>
+                <li data-bs-target="#carouselId" data-bs-slide-to="4" aria-label=""></li>
             </ol>
             <div class="carousel-inner" role="listbox">
+                {{!-- {{#each nhaXeDefault}}
                 <div class="carousel-item active">
-                    <img src="/images/slider-nha-xe/Nha-xe-Phuong-Trang.jpg" height="500" class="w-100 d-block"
-                        alt="First slide">
+                    <img src="{{imageJours.[0]}}" height="500" class="w-100 d-block"
+                        alt="Nhà xe {{name}}dsfdsf">
                     <div class="carousel-caption d-none d-md-block">
-                        <h3 class="fw-bold">NHÀ XE PHƯƠNG TRANG</h3>
+                        <h3 class="fw-bold">Nhà xe {{name}}</h3>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <img src="/images/slider-nha-xe/nha-xe-thanh-buoi.jpg" height="500" class="w-100 d-block"
-                        alt="Second slide">
+                {{/each}} --}}
+                 {{#each nhaxes}}
+                <div class="carousel-item {{#if @first}} active {{/if}}">
+                    <img src="{{imageJours.[0]}}" height="500" class="w-100 d-block"
+                        alt="{{imageJours.[0]}}">
                     <div class="carousel-caption d-none d-md-block">
-                        <h3 class="fw-bold">NHÀ XE THÀNH BƯỞI</h3>
+                        <h3 class="fw-bold">Nhà xe {{name}}</h3>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <img src="/images/slider-nha-xe/xe-phi-long.jpg" height="500" class="w-100 d-block"
-                        alt="Third slide">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h3 class="fw-bold">NHÀ XE PHI LONG</h3>
-                    </div>
-                </div>
+                {{/each}}
+
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -439,78 +304,30 @@
         </div>
 
         <div class="row justify-content-between">
+            {{#each comments}}
             <div class="col-lg-4 my-3">
                 <div class="card p-3 card-nhan-xet text-white" style="height: 20rem;">
                     <div class="row">
                         <div class="col-4 ">
-                            <img src="/images/nhan-xet/HaiTu.jpg" style="height: 7rem; width: 7rem; object-fit: cover;"
+                            {{#with TaiKhoan}}
+                            <img src="{{imageAccount}}" style="height: 7rem; width: 7rem; object-fit: cover;"
                                 class="img-fluid rounded-circle" alt="">
                         </div>
                         <div class="col-8 p-3">
-                            <h2 class="fw-bold pt-2">Chị Tú</h2>
-                            <p class="fw-semibold">Nhân viên công chức</p>
+                            <h3 class="fw-bold pt-2">{{fullName}}</h3>
+                            {{/with}}
+                            <p class="fw-semibold">Sinh viên</p>
                         </div>
                     </div>
-                    <p class="text-center py-3">Xe chạy ổn nhân viên không thân thiện thái độ nói chuyện chưa được
-                        hài
-                        lòng, nếu muốn khách đến với mình nhiều thì cần phải xem thái độ phục vụ của nhân viên</p>
+                    <p class="text-center py-3">{{comment}}</p>
                     <div class="icon-start position-absolute bottom-0 start-50 translate-middle-x text-warning pb-2">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
+                        {{{ starNhanXet stars }}}
                     </div>
                 </div>
             </div>
+            {{/each}}
 
-            <div class="col-lg-4 my-3">
-                <div class="card p-3 card-nhan-xet text-white" style="height: 20rem;">
-                    <div class="row">
-                        <div class="col-4 ">
-                            <img src="/images/nhan-xet/SonTung.jpg"
-                                style="height: 7rem; width: 7rem; object-fit: cover;" class="img-fluid rounded-circle"
-                                alt="">
-                        </div>
-                        <div class="col-8 p-3">
-                            <h2 class="fw-bold pt-2">Anh Tùng</h2>
-                            <p class="fw-semibold">Ca sĩ</p>
-                        </div>
-                    </div>
-                    <p class="text-center py-3">Trải nghiệm cực kì tuyệt vời. Đặt vé trên app khá rẻ và tiện lợi. Xe
-                        sạch sẽ cực kì, mình chưa từng thấy xe nào mà có giá thơm như vậy. </p>
-                    <div class="icon-start position-absolute bottom-0 start-50 translate-middle-x text-warning pb-2">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 my-3">
-                <div class="card p-3 card-nhan-xet text-white" style="height: 20rem;">
-                    <div class="row">
-                        <div class="col-4 ">
-                            <img src="/images/nhan-xet/Mono.jpg" style="height: 7rem; width: 7rem; object-fit: cover;"
-                                class="img-fluid rounded-circle" alt="">
-                        </div>
-                        <div class="col-8 p-3">
-                            <h3 class="fw-bold pt-2">Anh Hoàng</h3>
-                            <p class="fw-semibold">Sinh Viên</p>
-                        </div>
-                    </div>
-                    <p class="text-center py-3">Xe có trang bị đầy đủ tiện ích. Rất đáng để trải nghiệm</p>
-                    <div class="icon-start position-absolute bottom-0 start-50 translate-middle-x text-warning pb-2">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                </div>
-            </div>
+           
         </div>
     </section>
 </main>

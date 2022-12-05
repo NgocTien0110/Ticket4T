@@ -11,9 +11,9 @@ module.exports = {
         address: ['số 20 Phạm Hùng, Mỹ Đình, Từ Liêm, Hà Nội.', 'quốc lộ 6, đường Trần Phú, phường Phú Lãm, quận Hà Đông, Hà Nội'],
         imageCarCom: '/images/nhaxe/nxHaMy.png',
         imageJours: [
-          "/images/chuyenxe/ha-my-1",
-          "/images/chuyenxe/ha-my-2",
-          "/images/chuyenxe/ha-my-3",
+          "/images/chuyenxe/ha-my-1.jpg",
+          "/images/chuyenxe/ha-my-2.jpg",
+          "/images/chuyenxe/ha-my-3.jpg",
         ]
       },
       {
@@ -23,9 +23,9 @@ module.exports = {
         address: ['201 Tôn Đức Thắng, phường Hòa Minh, quận Liên Chiểu, thành phố Đà Nẵng', '292 Đinh Bộ Lĩnh, phường 26, quận Bình Thạnh, thành phố Hồ Chí Minh'],
         imageCarCom: '/images/nhaxe/nxMinhPhuong.png',
         imageJours: [
-          "/images/chuyenxe/minh-phuong-1",
-          "/images/chuyenxe/minh-phuong-2",
-          "/images/chuyenxe/minh-phuong-3",
+          "/images/chuyenxe/minh-phuong-1.jpg",
+          "/images/chuyenxe/minh-phuong-2.jpg",
+          "/images/chuyenxe/minh-phuong-3.jpg",
         ],
       },
       {
@@ -35,9 +35,9 @@ module.exports = {
         address: ['Số 219, Đường Ngọc Hồi, Văn Điển, Thanh Trì, Hà Nội cách Bệnh Viện Nội Tiết', 'Số nhà 73 đường Giáp Bát (cách bến xe Giáp Bát 500m)'],
         imageCarCom: '/images/nhaxe/nxPhatThuy.png',
         imageJours: [
-          "/images/chuyenxe/phat-thuy-1",
-          "/images/chuyenxe/phat-thuy-2",
-          "/images/chuyenxe/phat-thuy-3",
+          "/images/chuyenxe/phat-thuy-1.jpg",
+          "/images/chuyenxe/phat-thuy-2.jpg",
+          "/images/chuyenxe/phat-thuy-3.jpg",
         ],
       },
       {
@@ -47,9 +47,9 @@ module.exports = {
         address: ['26 Lê Thánh Tôn, Nghĩa Chánh Nam, Quảng Ngãi', '13/21 Phi Nôm , Huyện Đức Trọng, Tỉnh Lâm Đồng'],
         imageCarCom: '/images/nhaxe/nxHoangAnh.png',
         imageJours: [
-          "/images/chuyenxe/hoang-anh-1",
-          "/images/chuyenxe/hoang-anh-2",
-          "/images/chuyenxe/hoang-anh-3",
+          "/images/chuyenxe/hoang-anh-1.jpg",
+          "/images/chuyenxe/hoang-anh-2.jpg",
+          "/images/chuyenxe/hoang-anh-3.jpg",
         ],
       },
       {
@@ -59,9 +59,9 @@ module.exports = {
         address: ['26 Kim Đồng, Phường 2, Đông Hà, Quảng Trị', 'Số 20 đường Phạm Hùng – Mỹ Đình – Từ Liêm – Hà Nội'],
         imageCarCom: '/images/nhaxe/nxTienDatThanh.png',
         imageJours: [
-          "/images/chuyenxe/tien-dat-1",
-          "/images/chuyenxe/tien-dat-2",
-          "/images/chuyenxe/tien-dat-3",
+          "/images/chuyenxe/tien-dat-1.jpg",
+          "/images/chuyenxe/tien-dat-2.jpg",
+          "/images/chuyenxe/tien-dat-3.jpg",
         ],
       }
     ];
