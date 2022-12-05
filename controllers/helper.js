@@ -45,7 +45,9 @@ helper.totalTime=(time1,time2)=>{
     
 }
 helper.totalPrice=(price,quantity)=>{
-    return price*quantity;
+    let total=price*quantity;
+    total=total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    return total;
 }
 
 module.exports=helper;
