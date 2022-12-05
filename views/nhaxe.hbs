@@ -27,7 +27,7 @@
             {{#each carCom}}
             <div class="col-md-6">
                 <div class="nhaxe">
-                    <a href="/nhaxe/{{id}}&{{name}}" class="thumbnail">
+                    <a href="/nhaxe/{{id}}" class="thumbnail">
                         <div class="image-container">
                             <img src="{{imageCarCom}}" alt="{{name}}" style="height: 440px; width: 580px"
                                 class="img-fluid rounded-top-2 thumbIMG">
@@ -37,7 +37,7 @@
 
                     <div class="description rounded-bottom-2">
                         <div class="intro">
-                            <a href="/nhaxe/{{id}}&{{name}}">
+                            <a href="/nhaxe/{{id}}">
                                 <h3>Nhà xe {{name}}</h3>
                             </a>
 
@@ -49,9 +49,9 @@
                             <h3>Đánh giá</h3>
 
                             <div class="review-star">
-                                <a href="/nhaxe/{{id}}&{{name}}" class="review-count">{{stars}}</a>
+                                <a href="/nhaxe/{{id}}" class="review-count">{{stars}}</a>
 
-                                <a href="/nhaxe/{{id}}&{{name}}">
+                                <a href="/nhaxe/{{id}}">
                                    {{{generateStarList stars}}}
                                 </a>
                             </div>

@@ -19,15 +19,16 @@
 <main>
     <div class="bodyInfo">
         <div class="container">
+            {{#with infoAcc}}
             <div class="row">
                 <div class="col-md-12">
-                    <p><a href="./index.html">Trang chủ </a> > <a href="./myTicket.htm">Vé của tôi</a>
+                    <p><a href="/">Trang chủ </a> > <a href="/tai-khoan/{{id}}/ve-cua-toi/">Vé của tôi</a>
                     </p>
                     <div class="infoAcc">
-                        <img src="/images/avatar.jpg" alt="AnhDaiDien" class="img-fluid" id="avatarInfoAcc">
+                        <img src="{{imageAccount}}" alt="AnhDaiDien" class="img-fluid" id="avatarInfoAcc">
                         <div class="infoNameAcc">
                             <div style="font-size:larger">Tài khoản của</div>
-                            <h4 style="color: var(--color--secondary)">Nhom5</h4>
+                            <h4 style="color: var(--color--secondary)">{{fullName}}</h4>
                         </div>
                     </div>
                 </div>
@@ -35,12 +36,12 @@
             <div class="row bodyInfoDetail">
                 <div class="col-md-3 leftBody">
                     <div class="leftInfoAcc">
-                        <a class="linkLeftInfoAcc" href="./infoTaiKhoan.htm">
+                        <a class="linkLeftInfoAcc" href="/tai-khoan/{{id}}/thong-tin">
                             <i class="fa-solid fa-user"></i> Thông tin tài khoản
                         </a>
                     </div>
                     <div class="leftInfoAcc">
-                        <a href="./myTicket.htm" class="linkLeftInfoAcc">
+                        <a href="/tai-khoan/{{id}}/ve-cua-toi" class="linkLeftInfoAcc">
                             <span class="bi bi-ticket-detailed"></span>
                             Vé của tôi
                         </a>
@@ -53,30 +54,34 @@
                         <a href="#"><span>Đã hủy</span> </a>
                     </div>
                     <div class="bodyRightBody">
+                        {{#each VeDaDats}}
                         <div class="infoTicket shadow-sm">
                             <div class="maDonHang shadow-sm fontSizeLarger">Mã đơn hàng: <span
-                                    class="idDonHang">T1004529</span>
+                                    class="idDonHang">T{{id}}</span>
                             </div>
                             <div class="infoDetailTicket shadow-sm d-flex justify-content-between">
                                 <div class="leftInfoDetail">
-                                    <img src="/images/tuyen-duong-pho-bien/cauvangDaNang.jpg" alt="DaNang">
+                                    <img src="{{ChuyenXe.locationImage}}" alt="{{ChuyenXe.endProvince}}">
                                     <div class="infoChuyenDi">
-                                        <p>Sài gòn <i class="fa-solid fa-arrow-right"></i> Đà Nẵng</p>
-                                        <p>Nhà xe Hà My</p>
-                                        <p><span class="bi bi-ticket-detailed"></span> 2 vé</p>
+                                        <p>{{ChuyenXe.startProvince}} <i class="fa-solid fa-arrow-right"></i>
+                                            {{ChuyenXe.endProvince}}</p>
+                                        <p>Nhà xe {{ChuyenXe.NhaXe.name}}</p>
+                                        <p><span class="bi bi-ticket-detailed"></span> {{numSeats}} vé</p>
                                     </div>
                                 </div>
                                 <div class="rightInFoDetail">
                                     <div class="ngayDiChuyenDi"><i class="fa-solid fa-calendar-days"></i>
-                                        04/11/2022</div>
-                                    <a href="./xemChiTietVe.htm" class="btn btn-dark">Xem chi tiết</a>
+                                        {{date ChuyenXe.startTime}}</div>
+                                    <a href="/tai-khoan/{{../id}}/ve-cua-toi/{{id}}" class="btn btn-dark">Xem
+                                        chi tiết</a>
                                 </div>
                             </div>
                             <div class="tongSoTien fontSizeLarger">
-                                Tổng số tiền: <span class="soTien">600.000đ</span>
+                                Tổng số tiền: <span class="soTien">{{totalPrice ChuyenXe.price numSeats}}đ</span>
                             </div>
                         </div>
-                        <div class="infoTicket shadow-sm">
+                        {{/each}}
+                        {{!-- <div class="infoTicket shadow-sm">
                             <div class="maDonHang shadow-sm fontSizeLarger">Mã đơn hàng: <span
                                     class="idDonHang">T1004535</span>
                             </div>
@@ -98,7 +103,7 @@
                             <div class="tongSoTien fontSizeLarger">
                                 Tổng số tiền: <span class="soTien">1.590.000đ</span>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="botRightBody">
                         <nav aria-label="Page navigation">
@@ -123,6 +128,7 @@
                     </div>
                 </div>
             </div>
+            {{/with}}
         </div>
     </div>
 </main>

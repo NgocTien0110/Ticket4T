@@ -18,7 +18,10 @@ module.exports = (sequelize, DataTypes) => {
   VeDaDat.init({
     numSeats: DataTypes.INTEGER,
     totalPrice: DataTypes.DECIMAL,
-    status: DataTypes.STRING
+    status: DataTypes.STRING,
+    fullName: DataTypes.STRING,
+    phoneNum: DataTypes.STRING,
+    email: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'VeDaDat',

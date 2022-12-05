@@ -18,6 +18,15 @@ module.exports = {
       status: {
         type: Sequelize.STRING
       },
+      email: {
+        type: Sequelize.STRING
+      },
+      phoneNum: {
+        type: Sequelize.STRING
+      },
+      fullName: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

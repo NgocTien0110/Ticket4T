@@ -19,16 +19,17 @@
 <main>
     <div class="bodyInfo">
         <div class="container">
+            {{#with infoAcc}}
             <div class="row">
                 <div class="col-md-12">
-                    <p><a href="./indexAuthentication.htm">Trang chủ </a> > <a href="./infoTaiKhoan.htm">Thông tin
+                    <p><a href="/">Trang chủ </a> > <a href="/tai-khoan/{{id}}/thong-tin">Thông tin
                             tài khoản</a>
                     </p>
                     <div class="infoAcc">
-                        <img src="/images/avatar.jpg" alt="AnhDaiDien" class="img-fluid" id="avatarInfoAcc">
+                        <img src="{{imageAccount}}" alt="AnhDaiDien" class="img-fluid" id="avatarInfoAcc">
                         <div class="infoNameAcc">
                             <div style="font-size:larger">Tài khoản của</div>
-                            <h4 style="color: var(--color--secondary)">Nhom5</h4>
+                            <h4 style="color: var(--color--secondary)">{{fullName}}</h4>
                         </div>
                     </div>
                 </div>
@@ -36,12 +37,12 @@
             <div class="row bodyInfoDetail">
                 <div class="col-md-3 leftBody">
                     <div class="leftInfoAcc">
-                        <a class="linkLeftInfoAcc" href="./infoTaiKhoan.htm">
+                        <a class="linkLeftInfoAcc" href="/tai-khoan/{{id}}/thong-tin">
                             <i class="fa-solid fa-user"></i> Thông tin tài khoản
                         </a>
                     </div>
                     <div class="leftInfoAcc">
-                        <a href="./myTicket.htm" class="linkLeftInfoAcc">
+                        <a href="/tai-khoan/{{id}}/ve-cua-toi" class="linkLeftInfoAcc">
                             <span class="bi bi-ticket-detailed"></span>
                             Vé của tôi
                         </a>
@@ -49,28 +50,28 @@
                 </div>
                 <div class="col-md-9 rightBody">
 
-                    <form action="#" class="formRightBody">
+                    <form action="/tai-khoan/{{id}}/thong-tin" class="formRightBody">
                         <h2 id="thongtincn">Thông tin cá nhân</h2>
                         <div class="topRightBody">
                             <div class="leftOfTopRightBody">
-                                <img src="/images/avatar.jpg" alt="AnhDaiDien" class="img-fluid">
+                                <img src="{{imageAccount}}" alt="AnhDaiDien" class="img-fluid">
                             </div>
                             <div class="rightOfTopRightBody">
                                 <div class="HoTenForm form-group">
                                     <label for="HoTen">Họ và tên</label>
                                     <input style="width:250px; height:30px" type="text" name="HoTen" id="HoTen"
-                                        value="Nhom5" class="form-control">
+                                        value="{{fullName}}" class="form-control">
                                 </div>
                                 <div class="EmailForm form-group">
                                     <label for="Email">Email</label>
                                     <input style="width:284px; height:30px" type="email" name="Email" id="Email"
-                                        value="nhom5ktpm4@clc.fitus.edu.vn"
-                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="form-control">
+                                        value="{{email}}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                                        class="form-control">
                                 </div>
                                 <div class="SDTForm form-group">
                                     <label for="SDT">Số điện thoại</label>
                                     <input style="width:235px; height:30px" type="text" name="SDT" id="SDT"
-                                        value="034567890" class="form-control">
+                                        value="{{phoneNum}}" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -78,7 +79,7 @@
                             <div class="NgaySinhForm form-group">
                                 <label for="NgaySinh">Ngày Sinh</label>
                                 <input style="height:30px; width:380px" type="text" name="NgaySinh" id="NgaySinh"
-                                    value="" class="form-control">
+                                    value="{{date dob}}" class="form-control">
                                 <i class="fa-solid fa-calendar-days"></i>
                             </div>
                             <div class="GioiTinhForm form-group">
@@ -94,10 +95,6 @@
                                         <input type="radio" name="GioiTinh" id="Nu" value="Nu">
                                         <label for="Nu">Nữ</label>
                                     </div>
-                                    <div class="radioKhac">
-                                        <input type="radio" name="GioiTinh" id="Khac" value="Khac">
-                                        <label for="Khac">Khác</label>
-                                    </div>
                                 </div>
                             </div>
                             <br>
@@ -106,6 +103,7 @@
                     </form>
                 </div>
             </div>
+            {{/with}}
         </div>
     </div>
 </main>
