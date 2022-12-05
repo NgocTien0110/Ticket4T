@@ -28,18 +28,22 @@ controller.showMyTicket = async (req, res) => {
 
 controller.showDetailsTicket = async (req, res) => {
     let accId = req.params.accId;
-    let jourId = req.params.jourId;
+    let ticketId = req.params.ticketId;
 
     res.locals.infoAcc = await models.TaiKhoan.findOne({
         where: {
             id: accId
         },
         include: [{
-            model: models.VeDaDat, include: [{ model: models.ChuyenXe, include: [models.NhaXe] }]
+            model: models.VeDaDat,
+            include: [{ model: models.ChuyenXe, include: [models.NhaXe] }],
+            where: {
+                id: ticketId
+            }
         }]
     })
 
-    res.render('myTicket')
+    res.render('xemChiTietVe')
 }
 
 module.exports = controller;

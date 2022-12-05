@@ -12,7 +12,8 @@ app.engine('hbs', expressHbs.engine({
         date: helper.date,
         time: helper.time,
         totalTime: helper.totalTime,
-        totalPrice: helper.totalPrice
+        totalPrice: helper.totalPrice,
+        formatPrice: helper.formatPrice
     },
     runtimeOptions: { //Để cho phép hbs truy cập đc vào database
         allowProtoPropertiesByDefault: true
