@@ -1,12 +1,16 @@
 const controller = {}
 const models = require('../models')
+const express = require("express");
+
 controller.show = async (req, res) => {
     res.locals.name = req.query.name;
     res.locals.phone = req.query.phone;
     res.locals.email = req.query.email;
     res.locals.ticket = req.query.ticket;
+
     let id = req.params['id'];
     res.locals.id = id;
+
     res.locals.chuyenxe = await models.ChuyenXe.findOne({
         where: {
             id: id
@@ -19,6 +23,8 @@ controller.show = async (req, res) => {
         ]
     }
     )
+
     res.render('thanhtoan');
 }
+
 module.exports = controller
