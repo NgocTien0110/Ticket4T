@@ -58,17 +58,18 @@ helper.totalPrice = (price, quantity) => {
 helper.starNhanXet=(stars)=>{
     let str = '';
     let star = Math.round(stars);
-    let halfStar = stars - star;
+    let halfStar = star - stars;
+    console.log(halfStar);
     let i;
     for(i=1;i<star;i++){
-        str+='<i class="fas fa-star"></i>';
+        str += '<i class="fa-solid fa-star"></i>';
     }
     if(halfStar>0){
-        str+='<i class="fas fa-star-half-alt"></i>';
+        str += '<i class="fa-regular fa-star-half-stroke"></i>';
         i++;
     }
     for(;i<=5;i++){
-        str+='<i class="far fa-star"></i>';
+        str += '<i class="fa-regular fa-star"></i>';
     }
     return str;
 }

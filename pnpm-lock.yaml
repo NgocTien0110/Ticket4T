@@ -1,15 +1,21 @@
 lockfileVersion: 5.4
 
 specifiers:
+  body-parser: ^1.20.1
   express: ^4.18.2
   express-handlebars: ^6.0.6
+  express-handlebars-paginate: ^1.0.3
+  handlebars: ^4.7.7
   pg: ^8.8.0
   pg-hstore: ^2.3.4
   sequelize: ^6.26.0
 
 dependencies:
+  body-parser: 1.20.1
   express: 4.18.2
   express-handlebars: 6.0.6
+  express-handlebars-paginate: 1.0.3
+  handlebars: 4.7.7
   pg: 8.8.0
   pg-hstore: 2.3.4
   sequelize: 6.26.0_pg-hstore@2.3.4+pg@8.8.0
@@ -167,6 +173,10 @@ packages:
   /etag/1.8.1:
     resolution: {integrity: sha512-aIL5Fx7mawVa300al2BnEE4iNvo1qETxLrPI/o05L7z6go7fCw1J6EQmbK4FmJ2AS7kgVF/KEZWufBfdClMcPg==}
     engines: {node: '>= 0.6'}
+    dev: false
+
+  /express-handlebars-paginate/1.0.3:
+    resolution: {integrity: sha512-dj1d8ntEfneIU+gs//7s8KYpn7w6RQxovQ0ThSqO5ziqbhhlMaGex+vQgVHqCLYxWFXNrN2EEoMmQjJS07lBgg==}
     dev: false
 
   /express-handlebars/6.0.6:

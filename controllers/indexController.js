@@ -2,7 +2,10 @@ const controller = {}; //Để {} vì là object có thể chứa thêm các hà
 const models = require("../models");
 
 controller.show = async (req, res) => {
-  res.locals.chuyenxes = await models.ChuyenXe.findAll();
+  res.locals.chuyenxes = await models.ChuyenXe.findAll({
+    limit: 6,
+  }
+  );
   res.locals.nhaxes = await models.NhaXe.findAll();
   res.locals.comments = await models.Review.findAll({
     include: [
@@ -11,6 +14,8 @@ controller.show = async (req, res) => {
         attributes: ["fullName", "imageAccount"],
       },
     ],
+    order: [["stars", "DESC"]],
+    limit: 3,
   });
   // console.log(res.locals.comments);
   res.render("index");

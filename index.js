@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const expressHbs = require('express-handlebars');
+const paginateHelper = require('express-handlebars-paginate');
 const helper = require('./controllers/helper');
 
 app.engine('hbs', expressHbs.engine({
@@ -16,7 +17,8 @@ app.engine('hbs', expressHbs.engine({
         generateStarList : helper.generateStarList,
         formatPrice: helper.formatPrice,
         starNhanXet: helper.starNhanXet,
-        generateStarListFont2: helper.generateStarListFont2
+        generateStarListFont2: helper.generateStarListFont2,
+        createPagination: paginateHelper.createPagination,
     },
     runtimeOptions: { //Để cho phép hbs truy cập đc vào database
         allowProtoPropertiesByDefault: true
