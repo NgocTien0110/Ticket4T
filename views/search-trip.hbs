@@ -32,12 +32,13 @@
                 <div class="col-lg-4 pb-0 p-4 ">
                     <div class="border-item d-flex flex-row">
                         <i class=" fas fa-map-marker-alt fa-2x"></i>
-                        <select class="form-select mx-2 fs-4 p-0 select-search">
-                            <option hidden>Điểm xuất phát</option>
-                            <option value="1">Bình Thuận</option>
-                            <option value="2">Hà Nội</option>
-                            <option value="3">Lào Cai</option>
-                        </select>
+                       <input class="form-control mx-2 fs-4 p-0 select-search" name="start" style="background: #dbe2ef;" 
+                        list="datalistOptions" id="start" placeholder="{{dataSearch.start}}" required>
+                        <datalist id="datalistOptions">
+                            {{#each chuyenxes}}
+                            <option value="{{startProvince}}">
+                            {{/each}}
+                        </datalist>
                     </div>
                     <hr style="margin-right:10px;">
                 </div>
@@ -45,22 +46,23 @@
                 <div class="col-lg-4 pb-0 p-4 ">
                     <div class="border-item d-flex flex-row">
                         <i class="fas fa-map-marker-alt fa-2x"></i>
-                        <select class="form-select mx-2 fs-4 p-0 select-search">
-                            <option hidden>Điểm đến</option>
-                            <option value="1">Bình Thuận</option>
-                            <option value="2">Hà Nội</option>
-                            <option value="3">Lào Cai</option>
-                        </select>
+                        <input class="form-control mx-2 fs-4 p-0 select-search" name="end" style="background: #dbe2ef;" 
+                        list="datalistOptions" id="end" placeholder="{{dataSearch.end}}" required>
+                        <datalist id="datalistOptions">
+                            {{#each chuyenxes}}
+                            <option value="{{startProvince}}">
+                            {{/each}}
+                        </datalist>
                     </div>
                     <hr style="margin-right:10px;">
                 </div>
 
                 <div class="col-lg-3 pb-0 p-4 ">
                     <div class="border-item d-flex flex-row">
-                        <i class="fa-solid fa-calendar-days fa-2x"></i>
+                         <i class="fa-solid fa-calendar-days fa-2x"></i>
                         <!-- datetimepicker -->
-                        <input type="date" class="form-control mx-2 fs-4 p-0 select-search" style="background: #dbe2ef;"
-                            id="datetimepicker" placeholder="Ngày đi">
+                        <input type="date" name="data" class="form-control mx-2 fs-4 p-0 select-search" style="background: #dbe2ef;"
+                            id="datetimepicker" placeholder="{{dataSearch.date}}" required>
                     </div>
                     <hr style="margin-right:10px;">
                 </div>
@@ -103,59 +105,27 @@
                     <!-- nhà xe  -->
                     <div class="mb-4">
                         <label for="" class="mb-2">Nhà xe</label>
+                        {{#each nhaxes}}
                         <div class="form-check">
-                            <input class="form-check-input me-3" type="checkbox" value="" id="nha-xe-1" checked>
+                            <input class="form-check-input me-3" type="checkbox" value="" id="nha-xe-1">
                             <label class="form-check-label" for="nha-xe-1">
-                                Xe Phương Trang (1)
+                                Xe {{name}}
                             </label>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input me-3" type="checkbox" value="" id="nha-xe-2">
-                            <label class="form-check-label" for="nha-xe-2">
-                                Xe Thành Bưởi (4)
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input me-3" type="checkbox" value="" id="nha-xe-3">
-                            <label class="form-check-label" for="nha-xe-3">
-                                Xe Phi Long (6)
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input me-3" type="checkbox" value="" id="nha-xe-4">
-                            <label class="form-check-label" for="nha-xe-4">
-                                Xe Cao Long (9)
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input me-3" type="checkbox" value="" id="nha-xe-5">
-                            <label class="form-check-label" for="nha-xe-5">
-                                Xe Trung Nga (5)
-                            </label>
-                        </div>
+                        {{/each}}
                     </div>
 
                     <!-- loại xe  -->
                     <div class="mb-4">
                         <label for="" class="mb-2">Loại xe</label>
+                        {{#each loaixes}}
                         <div class="form-check">
                             <input class="form-check-input me-3" type="checkbox" value="" id="nha-xe-1">
                             <label class="form-check-label" for="nha-xe-1">
-                                Ghế ngồi (6)
+                                {{name}}
                             </label>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input me-3" type="checkbox" value="" id="nha-xe-1" checked>
-                            <label class="form-check-label" for="nha-xe-1">
-                                Giường nằm (3)
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input me-3" type="checkbox" value="" id="nha-xe-1">
-                            <label class="form-check-label" for="nha-xe-1">
-                                Giường nằm đôi (2)
-                            </label>
-                        </div>
+                        {{/each}}
                     </div>
 
                 </div>

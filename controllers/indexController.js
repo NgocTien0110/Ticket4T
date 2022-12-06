@@ -12,7 +12,7 @@ controller.show = async (req, res) => {
       },
     ],
   });
-  console.log(res.locals.comments);
+  // console.log(res.locals.comments);
   res.render("index");
 };
 

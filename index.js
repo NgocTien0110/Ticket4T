@@ -28,7 +28,7 @@ app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public')); //Mặc định web tĩnh ở trong thư mục public
 
 app.use('/', require('./routes/indexRoute'))
-app.use('/search-trip', require('./routes/xacnhanRoute'))
+app.use("/search-trip", require("./routes/search-tripRoute"));
 app.use('/tai-khoan', require('./routes/taikhoanRoute'))
 
 app.use('/nhaxe', require('./routes/nhaxeRoute'))

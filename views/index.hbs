@@ -43,16 +43,18 @@
 
         <div id="search-banner-trip"
             class="container  position-absolute bottom-0 start-50 translate-middle-x rounded-4 ">
+                <form action="/search-trip" method="get">
             <div class="row">
                 <div class="col-lg-4 pb-0 p-4 ">
                     <div class="border-item d-flex flex-row">
                         <i class=" fas fa-map-marker-alt fa-2x"></i>
-                        <select class="form-select mx-2 fs-4 p-0 select-search">
-                            <option selected>Điểm xuất phát</option>
-                            <option value="1">Bình Thuận</option>
-                            <option value="2">Hà Nội</option>
-                            <option value="3">Lào Cai</option>
-                        </select>
+                        <input class="form-control mx-2 fs-4 p-0 select-search" name="start" style="background: #dbe2ef;" 
+                        list="datalistOptions" id="start" placeholder="Điểm đi" required>
+                        <datalist id="datalistOptions">
+                            {{#each chuyenxes}}
+                            <option value="{{startProvince}}">
+                            {{/each}}
+                        </datalist>
                     </div>
                     <hr style="margin-right:10px;">
                 </div>
@@ -60,12 +62,13 @@
                 <div class="col-lg-4 pb-0 p-4 ">
                     <div class="border-item d-flex flex-row">
                         <i class="fas fa-map-marker-alt fa-2x"></i>
-                        <select class="form-select mx-2 fs-4 p-0 select-search">
-                            <option selected>Điểm đến</option>
-                            <option value="1">Bình Thuận</option>
-                            <option value="2">Hà Nội</option>
-                            <option value="3">Lào Cai</option>
-                        </select>
+                        <input class="form-control mx-2 fs-4 p-0 select-search" name="end" style="background: #dbe2ef;" 
+                        list="datalistOptions" id="end" placeholder="Điểm đến" required>
+                        <datalist id="datalistOptions">
+                            {{#each chuyenxes}}
+                            <option value="{{startProvince}}">
+                            {{/each}}
+                        </datalist>
                     </div>
                     <hr style="margin-right:10px;">
                 </div>
@@ -74,16 +77,15 @@
                     <div class="border-item d-flex flex-row">
                         <i class="fa-solid fa-calendar-days fa-2x"></i>
                         <!-- datetimepicker -->
-                        <input type="date" class="form-control mx-2 fs-4 p-0 select-search" style="background: #dbe2ef;"
-                            id="datetimepicker" placeholder="Ngày đi">
+                        <input type="date" name="data" class="form-control mx-2 fs-4 p-0 select-search" style="background: #dbe2ef;"
+                            id="datetimepicker" placeholder="Ngày đi" required>
                     </div>
                     <hr style="margin-right:10px;">
                 </div>
 
                 <div class="col-lg-1 ">
                     <div class=" mt-3 ">
-                        <a href="search-trip.html">
-                            <button id="btn-search" type="button"
+                            <button id="btn-search" type="submit" value="submit"
                                 class="col-12 btn btn-lg px-lg-4 px-md-5 my-sm-3 mt-md-0">
                                 <i class="fa-solid fa-magnifying-glass "></i>
                             </button>
@@ -91,6 +93,7 @@
                     </div>
                 </div>
             </div>
+        </form>
         </div>
     </section>
 
@@ -127,7 +130,7 @@
                                 <div class="d-flex flex-row justify-content-between align-item-end mt-3 trip-info">
                                     {{!-- <p class="card-text fs-5"> <i class="fa-solid fa-location-dot"></i> 100 km</p> --}}
                                     <p class="card-text fs-5"> <i class="fa-regular fa-clock"></i> {{{totalTime endTime startTime}}}</p>
-                                    <p class="card-text fs-4 text-4"><span>{{price}} đ</span></p>
+                                    <p class="card-text fs-4 text-4"><span>{{ formatPrice price }} đ</span></p>
                                 </div>
                             </div>
                         </div>
