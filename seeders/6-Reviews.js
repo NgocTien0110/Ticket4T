@@ -26,7 +26,7 @@ module.exports = {
         stars: 2,
         comment: 'Tôi không thể nói gì hơn ngoài 2 từ \"khủng khiếp\", tôi chưa từng đi qua nhà xe nào có chất lượng tệ đến như vậy, cạch mặt từ đây',
         carId: 2,
-        accId: 4,
+        accId: 7,
       },
       {
         stars: 4.5,

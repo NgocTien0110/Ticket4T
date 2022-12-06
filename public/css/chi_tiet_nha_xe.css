@@ -92,27 +92,10 @@ body {
 }
 
 
-/* .comment-container .comment:after{
-    position: absolute;
-    content: "";
-    background: black;
-
-    top: %;
-    height: 3px;
-    width: 90%;
-    background-color: var(--color--secondary);
-    z-index: 1;
-
-    left: 0;
-
-    bottom: 10px;
-} */
-
 .comment-star-container .comment-star{
     font-size: 15px;
-    /* line-height: 5px; */
 
-    text-shadow: 1px 2px black;
+    text-shadow: 1px 1px black;
     color: rgb(224, 174, 9);
 }
 

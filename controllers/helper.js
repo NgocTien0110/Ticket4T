@@ -94,4 +94,26 @@ helper.generateStarList = (stars) => {
     return str;
 }
 
+helper.generateStarListFont2 = (stars) => {
+    let str = '', count = 0, decPart = stars % 1, intPart = Math.trunc(stars);
+
+    for(i = 1; i <= intPart; ++i, ++count){
+        str += '<i class="bi bi-star-fill comment-star"></i>';
+    }
+
+    if(decPart >= 0.25 && decPart <= 0.5){
+        str += '<i class="bi bi-star-half comment-star"></i>';
+        ++count;
+    }
+    else if(decPart > 0.5){
+        str += '<i class="bi bi-star-fill comment-star"></i>';
+        ++count;
+    }
+
+    for(i = count; i < 5; ++i)
+        str += '<i class="bi bi-star comment-star"></i>';
+
+    return str;
+}
+
 module.exports = helper;
