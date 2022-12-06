@@ -108,18 +108,16 @@
         </div>
 
         <div class="accordion-item chi-nhanh">
-          <div class="accordion-header
-                                        chi-nhanh-title">
-            <button class="accordion-button
-                                            collapsed" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="background-color:
-                                            var(--color--quaternary);">
+          <div class="accordion-header chi-nhanh-title">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"
+              style="background-color: var(--color--quaternary);">
               <h3>Địa chỉ và thông tin liên hệ đặt vé xe {{name}}</h3>
             </button>
           </div>
 
-          <div id="collapseThree" class="accordion-collapse collapse
-                                        chi-nhanh-details" data-bs-parent="#nhaxe-accordion">
+          <div id="collapseThree" class="accordion-collapse collapse chi-nhanh-details"
+            data-bs-parent="#nhaxe-accordion">
             <div class="accordion-body">
               <div>
                 <h3>Chi nhánh Bạc Liêu</h3>
@@ -146,7 +144,7 @@
 
         </div>
 
-        <div class="review accordion-item">
+        <div class="review accordion-item" id="review-section">
           <div class="accordion-header review-title">
             <button class="accordion-button show" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour"
               aria-expanded="false" aria-controls="collapseFour" style="background-color:
@@ -160,17 +158,23 @@
               <div class="container" style="padding-bottom: 10px;">
                 <div class="row star-review justify-content-center">
                   <a href="#" class="col-auto"><i class="bi bi-star-fill total">{{stars}}/5</i></a>
-                  <a href="#" class="col-auto">Tất cả (14)</i></a>
-                  <a href="#" class="col-auto">5<i class="bi bi-star-fill">(8)</i></a>
-                  <a href="#" class="col-auto">4<i class="bi bi-star-fill">(3)</i></a>
-                  <a href="#" class="col-auto">3<i class="bi bi-star-fill">(2)</i></a>
-                  <a href="#" class="col-auto">2<i class="bi bi-star-fill">(1)</i></a>
-                  <a href="#" class="col-auto">1<i class="bi bi-star-fill">(0)</i></a>
+                  <a href="/nhaxe/{{id}}#review-section" class="col-auto">Tất cả
+                    ({{../chiTietNhaXeReview.length}})</i></a>
+                  <a href="/nhaxe/{{id}}?star=1#review-section" class="col-auto">1<i
+                      class="bi bi-star-fill">({{../oneStar}})</i></a>
+                  <a href="/nhaxe/{{id}}?star=2#review-section" class="col-auto">2<i
+                      class="bi bi-star-fill">({{../twoStar}})</i></a>
+                  <a href="/nhaxe/{{id}}?star=3#review-section" class="col-auto">3<i
+                      class="bi bi-star-fill">({{../threeStar}})</i></a>
+                  <a href="/nhaxe/{{id}}?star=4#review-section" class="col-auto">4<i
+                      class="bi bi-star-fill">({{../fourStar}})</i></a>
+                  <a href="/nhaxe/{{id}}?star=5#review-section" class="col-auto">5<i
+                      class="bi bi-star-fill">({{../fiveStar}})</i></a>
                 </div>
               </div>
 
               <div class="card comment-container ">
-                {{#each Reviews}}
+                {{#each ../chiTietNhaXeReview}}
                 <div class="row g-0 comment">
                   <hr>
                   <div class="col-auto comment-avatar">
@@ -187,12 +191,12 @@
                       <div class="comment-star-container">
                         {{{generateStarListFont2 stars}}}
                       </div>
-                      <div>{{date createdAt}}</div>
+                      <div>{{date ./createdAt}}</div>
                     </div>
                   </div>
 
                   <div>
-                    <p>{{comment}}</p>
+                    <p>{{../comment}}</p>
                   </div>
 
                 </div>
