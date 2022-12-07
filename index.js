@@ -14,7 +14,7 @@ app.engine('hbs', expressHbs.engine({
         time: helper.time,
         totalTime: helper.totalTime,
         totalPrice: helper.totalPrice,
-        generateStarList : helper.generateStarList,
+        generateStarList: helper.generateStarList,
         formatPrice: helper.formatPrice,
         starNhanXet: helper.starNhanXet,
         generateStarListFont2: helper.generateStarListFont2,
@@ -32,8 +32,10 @@ app.use(express.static(__dirname + '/public')); //Mặc định web tĩnh ở tr
 app.use('/', require('./routes/indexRoute'))
 app.use("/search-trip", require("./routes/search-tripRoute"));
 app.use('/tai-khoan', require('./routes/taikhoanRoute'))
-
-app.use('/nhaxe', require('./routes/nhaxeRoute'))
+app.use('/login', require('./routes/loginRoute'))
+app.use('/register', require('./routes/registerRoute'))
+app.use('/reset-password', require('./routes/resetPasswordRoute'))
+app.use('/nha-xe', require('./routes/nhaxeRoute'))
 
 app.get('/createTables', (req, res) => {
     let models = require('./models');
