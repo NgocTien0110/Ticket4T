@@ -52,10 +52,6 @@ body {
 
 }
 
-/* .container .review .container .star-review {
-    padding: 10px;
-} */
-
 .container .review .container .star-review a:first-child{
     border: 1px solid var(--color--secondary);
     background-color: var(--color--secondary);
@@ -127,4 +123,8 @@ body {
 .review-box-button-group > .cancel-button:hover{
     background-color: #e80202;
     border-color: #ff2323;
+}
+
+.container .review .container .star-review .star-category:hover{
+    background-color: #e2e1ec;
 }

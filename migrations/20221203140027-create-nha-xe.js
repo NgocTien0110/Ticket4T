@@ -1,4 +1,7 @@
 'use strict';
+
+const { DataTypes } = require('sequelize');
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -19,6 +22,9 @@ module.exports = {
         type: Sequelize.ARRAY(DataTypes.STRING)
       },
       address: {
+        type: Sequelize.ARRAY(DataTypes.STRING)
+      },
+      mainRoute: {
         type: Sequelize.ARRAY(DataTypes.STRING)
       },
       stars: {

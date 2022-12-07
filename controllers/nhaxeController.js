@@ -1,9 +1,13 @@
 const controller = {} //Để {} vì là object có thể chứa thêm các hàm khác
 const models=require('../models');
 const { Op } = require("sequelize");
+var Sequelize = require("sequelize");
 
 controller.show = async (req, res) => {
-    res.locals.carCom = await models.NhaXe.findAll();
+    res.locals.carCom = await models.NhaXe.findAll({
+        include: [{model: models.Review,
+                    group: 'carId'}]
+    });
 
     res.render('nhaxe');
 } 
@@ -19,11 +23,17 @@ controller.showDetails = async(req, res) => {
         where: {
             id: defaultCarID
         },
-        // include: [{
-        //     model: models.Review,
-        //     include: [{model: models.TaiKhoan, attributes: ['fullName', 'imageAccount']}],
-        //     // where: {stars: {[Op.lt]: star + 1, [Op.gte]: star, [Op.gt]: star - 1}}
-        // }],
+        include: [
+            {
+                model: models.Review,
+                attributes: ['id']
+            },
+            {
+                model: models.ChuyenXe,
+                attributes: ['startTime'],
+                group:  [Sequelize.fn('date_trunc', 'HOUR',Sequelize.col('startTime'))],
+            }
+        ],
         attributes:  {exclude: ['createdAt', 'updatedAt', 'imageJours']}
     });
 
