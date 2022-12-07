@@ -33,7 +33,7 @@
             <button class="accordion-button
                                             collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style="background-color:
-                                            var(--color--quaternary);">
+                                            var(--color--quaternary);" id="description-section">
               <h3>Giới thiệu chi tiết về nhà xe {{name}}</h3>
             </button>
           </div>
@@ -61,14 +61,35 @@
                 <h3 class="tuyen-duong-details-title">Tuyến
                   đường đi {{mainRoute.[0]}} - {{mainRoute.[1]}}</h2>
                   <ul>
-                    <li>Thời gian khởi hành: {{#each ChuyenXes}}-{{time startTime}} {{/each}}</li>
-                    <li>Thời gian di chuyển: 7
-                      tiếng</li>
+                    <li>Thời gian khởi hành: {{#each startTime}} -{{this}} {{/each}}</li>
                     <li>Số chuyến trong ngày:
-                      Khoảng {{ChuyenXes.length}} chuyến/ngày</li>
+                      Khoảng {{numOfTrip}} chuyến/ngày</li>
                     <li>Địa điểm: Văn phòng {{mainRoute.[0]}}, Văn phòng {{mainRoute.[1]}}</li>
-                    <li>Giá vé tham khảo:
-                      170.000 VNĐ/người/ghế</li>
+                    <li>Giá vé tham khảo: {{ticketPrice.[0]}} - {{ticketPrice.[1]}} VNĐ/người/ghế</li>
+                  </ul>
+              </div>
+
+              <div>
+                <h3 class="tuyen-duong-details-title">Tuyến
+                  đường đi {{mainRoute.[1]}} - {{mainRoute.[2]}}</h2>
+                  <ul>
+                    <li>Thời gian khởi hành: {{#each startTime}} -{{this}} {{/each}}</li>
+                    <li>Số chuyến trong ngày:
+                      Khoảng {{numOfTrip}} chuyến/ngày</li>
+                    <li>Địa điểm: Văn phòng {{mainRoute.[1]}}, Văn phòng {{mainRoute.[2]}}</li>
+                    <li>Giá vé tham khảo: {{ticketPrice.[1]}} VNĐ/người/ghế</li>
+                  </ul>
+              </div>
+
+              <div>
+                <h3 class="tuyen-duong-details-title">Tuyến
+                  đường đi {{mainRoute.[0]}} - {{mainRoute.[1]}}</h2>
+                  <ul>
+                    <li>Thời gian khởi hành: {{#each startTime}} -{{this}} {{/each}}</li>
+                    <li>Số chuyến trong ngày:
+                      Khoảng {{numOfTrip}} chuyến/ngày</li>
+                    <li>Địa điểm: Văn phòng {{mainRoute.[0]}}, Văn phòng {{mainRoute.[2]}}</li>
+                    <li>Giá vé tham khảo: {{ticketPrice.[0]}} VNĐ/người/ghế</li>
                   </ul>
               </div>
             </div>

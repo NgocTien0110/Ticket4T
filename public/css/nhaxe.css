@@ -48,6 +48,11 @@ body {
     padding: 0 5px;
 }
 
+.intro p:hover{
+    background-color: #cac9d5;
+
+    border-radius: 0.5rem;
+}
 
 .nhaxe{
     display: inline-block;

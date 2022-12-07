@@ -21,6 +21,9 @@ module.exports = (sequelize, DataTypes) => {
     phoneNo: DataTypes.ARRAY(DataTypes.STRING),
     address: DataTypes.ARRAY(DataTypes.STRING),
     mainRoute: DataTypes.ARRAY(DataTypes.STRING),
+    startTime: DataTypes.ARRAY(DataTypes.STRING),
+    numOfTrip: DataTypes.STRING,
+    ticketPrice: DataTypes.ARRAY(DataTypes.STRING),
     stars: DataTypes.FLOAT,
     imageCarCom: DataTypes.STRING,
     imageJours: DataTypes.ARRAY(DataTypes.STRING)

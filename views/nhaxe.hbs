@@ -37,27 +37,27 @@
 
                     <div class="description rounded-bottom-2">
                         <div class="intro">
-                            <a href="/nha-xe/{{id}}">
+                            <a href="/nha-xe/{{id}}" class="intro-block">
                                 <h3>Nhà xe {{name}}</h3>
                             </a>
 
-                            <p style="overflow: hidden; text-overflow: ellipsis; height: 100px;">
-                                {{description}}
-                            </p>
+                            <a href="/nha-xe/{{id}}#description-section" class="intro-block" style="color: black;">
+                                <p style="overflow: hidden; text-overflow: ellipsis; height: 100px;">
+                                    {{description}}
+                                </p>
+                            </a>
                         </div>
+
+
                         <div class="review">
                             <h3>Đánh giá</h3>
-
                             <div class="review-star">
                                 <a href="/nha-xe/{{id}}" class="review-count">{{stars}}</a>
-
-
                                 <a href="/nha-xe/{{id}}#review-section">
                                     {{{generateStarList stars}}}
                                     ({{Reviews.length}})
                                 </a>
                             </div>
-
                         </div>
                     </div>
                 </div>

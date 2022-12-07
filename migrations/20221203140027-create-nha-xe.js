@@ -27,6 +27,15 @@ module.exports = {
       mainRoute: {
         type: Sequelize.ARRAY(DataTypes.STRING)
       },
+      startTime: {
+        type: Sequelize.ARRAY(DataTypes.STRING)
+      },
+      numOfTrip: {
+        type: Sequelize.STRING
+      },
+      ticketPrice: {
+        type: Sequelize.ARRAY(DataTypes.STRING)
+      },
       stars: {
         type: Sequelize.FLOAT
       },

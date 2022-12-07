@@ -10,6 +10,9 @@ module.exports = {
         phoneNo: ['0978 556 578', '0967 138 168', '0984 935 777'],
         address: ['26 Kim Đồng, Phường 2, Đông Hà, Quảng Trị', 'Số 05 Mai Thúc Loan , Thị xã Cửa Lò , Tỉnh Nghệ An','Số 20 đường Phạm Hùng – Mỹ Đình – Từ Liêm – Hà Nội'],
         mainRoute: ['Quảng Trị', 'Nghệ An', 'Hà Nội'],
+        startTime: ['22:00', '06:15'],
+        numOfTrip: '4',
+        ticketPrice: ['100.000', '200.000'],
         imageCarCom: '/images/nhaxe/nxHaMy.png',
         imageJours: [
           "/images/chuyenxe/ha-my-1.jpg",
@@ -23,6 +26,9 @@ module.exports = {
         phoneNo: ['0902 843 799', '088 6060 605', '0981 787 785'],
         address: ['201 Tôn Đức Thắng, phường Hòa Minh, quận Liên Chiểu, thành phố Đà Nẵng', '292 Đinh Bộ Lĩnh, phường 26, quận Bình Thạnh, thành phố Hồ Chí Minh', '51 Nguyễn Đức Cảnh, TP Buôn Mê Thuột, Đắk Lắk'],
         mainRoute: ['Đà Nẵng', 'Sài Gòn', 'Đắc Lắk'],
+        startTime: ['06:00', '01:00'],
+        numOfTrip: '3',
+        ticketPrice: ['100.000', '150.000'],
         imageCarCom: '/images/nhaxe/nxMinhPhuong.png',
         imageJours: [
           "/images/chuyenxe/minh-phuong-1.jpg",
@@ -36,6 +42,9 @@ module.exports = {
         phoneNo: ['0912 040 545', '0961 619 333', '1900 272 708'],
         address: ['Số 219, Đường Ngọc Hồi, Văn Điển, Thanh Trì, Hà Nội cách Bệnh Viện Nội Tiết', 'Số 2 Cầu Mây, thị trấn Sapa, tỉnh Lào Cai','Số nhà 73 đường Giáp Bát (cách bến xe Giáp Bát 500m)'],
         mainRoute: ['Hà Nội', 'Lào Cai', 'Điện Biên'],
+        startTime: ['07:00', '10:00', '13:05', '15:00'],
+        numOfTrip: '5',
+        ticketPrice: ['100.000', '250.000'],
         imageCarCom: '/images/nhaxe/nxPhatThuy.png',
         imageJours: [
           "/images/chuyenxe/phat-thuy-1.jpg",
@@ -49,6 +58,9 @@ module.exports = {
         phoneNo: ['0911 555 911', '0263 3659 659', '0964 161 888'],
         address: ['26 Lê Thánh Tôn, Nghĩa Chánh Nam, Quảng Ngãi', '13/21 Phi Nôm , Huyện Đức Trọng, Tỉnh Lâm Đồng', '272 Đề Thám, Phạm Ngũ Lão, Quận 1, TP.HCM'],
         mainRoute: ['Quảng Ngãi', 'Lâm Đồng', 'Sài Gòn'],
+        startTime: ['00:30', '22:40'],
+        numOfTrip: '2',
+        ticketPrice: ['120.000', '250.000'],
         imageCarCom: '/images/nhaxe/nxHoangAnh.png',
         imageJours: [
           "/images/chuyenxe/hoang-anh-1.jpg",
@@ -62,6 +74,9 @@ module.exports = {
         phoneNo: ['0905 789 633', '0905 789 633', '0943 727 766'],
         address: ['450 Cao Thắng nối dài, P. 12 - Quận 10', '91B, Nguyễn Văn Linh P. Hưng Lợi - Ninh Kiều - Cần Thơ', 'Số 426 Lý Thường Kiệt, Phường 6, tỉnh Cà Mau'],
         mainRoute: ['Sài gòn', 'Cần Thơ', 'Cà Mau'],
+        startTime: ['22:00', '22:40', '23:00'],
+        numOfTrip: '3',
+        ticketPrice: ['150.000', '250.000'],
         imageCarCom: '/images/nhaxe/nxTienDatThanh.png',
         imageJours: [
           "/images/chuyenxe/tien-dat-1.jpg",

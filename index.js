@@ -36,6 +36,8 @@ app.use('/login', require('./routes/loginRoute'))
 app.use('/register', require('./routes/registerRoute'))
 app.use('/reset-password', require('./routes/resetPasswordRoute'))
 app.use('/nha-xe', require('./routes/nhaxeRoute'))
+app.use('/about', require('./routes/aboutRoute'))
+
 
 app.get('/createTables', (req, res) => {
     let models = require('./models');

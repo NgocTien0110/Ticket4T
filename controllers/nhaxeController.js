@@ -27,11 +27,6 @@ controller.showDetails = async(req, res) => {
             {
                 model: models.Review,
                 attributes: ['id']
-            },
-            {
-                model: models.ChuyenXe,
-                attributes: ['startTime'],
-                group:  [Sequelize.fn('date_trunc', 'HOUR',Sequelize.col('startTime'))],
             }
         ],
         attributes:  {exclude: ['createdAt', 'updatedAt', 'imageJours']}
@@ -97,7 +92,22 @@ controller.showDetails = async(req, res) => {
     res.render('chi_tiet_nha_xe', {oneStar, twoStar, threeStar, fourStar, fiveStar});
 }
 
-// controller.filterByStar = async(req, res) => {
+
+module.exports = controller;
+
+
+
+    // res.locals.chiTietNhaXeReview = await models.Review.findAll({
+    //     where: {
+    //         carId: defaultCarID
+    //     },
+    //     include: [{ 
+    //         model: models.TaiKhoan, where: {id: accId}}]
+    // });
+
+    // console.log(res.locals.chiTietNhaXeReview)
+
+    // controller.filterByStar = async(req, res) => {
 //     const star = req.query.star;
 //     const defaultCarID = req.params.id;
 //     const starUpper = star++;
@@ -112,16 +122,3 @@ controller.showDetails = async(req, res) => {
 //     res.render('chi_tiet_nha_xe');
 
 // }
-module.exports = controller;
-
-
-
-    // res.locals.chiTietNhaXeReview = await models.Review.findAll({
-    //     where: {
-    //         carId: defaultCarID
-    //     },
-    //     include: [{ 
-    //         model: models.TaiKhoan, where: {id: accId}}]
-    // });
-
-    // console.log(res.locals.chiTietNhaXeReview)
