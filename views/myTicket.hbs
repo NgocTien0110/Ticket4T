@@ -47,14 +47,30 @@
                         </a>
                     </div>
                 </div>
+
                 <div class="col-md-9 rightBody">
                     <div class="topRightBody">
-                        <a href="/tai-khoan/{{id}}/ve-cua-toi"><span>Vừa đặt</span></a>
-                        <a href="/tai-khoan/{{id}}/ve-cua-toi?statusTicket=Đã thanh toán"><span>Đã thanh
-                                toán</span></a>
-                        <a href="/tai-khoan/{{id}}/ve-cua-toi?statusTicket=Đã hủy"><span>Đã hủy</span> </a>
+                        {{#if ../statusVuaDat}}
+                        <a id="statusMau" href="/tai-khoan/{{id}}/ve-cua-toi">Vừa đặt</a>
+                        <a href="/tai-khoan/{{id}}/ve-cua-toi?statusTicket=Đã thanh toán">Đã thanh
+                            toán</a>
+                        <a href="/tai-khoan/{{id}}/ve-cua-toi?statusTicket=Đã hủy">Đã hủy</a>
+                        {{else if ../statusThanhToan}}
+                        <a href="/tai-khoan/{{id}}/ve-cua-toi">Vừa đặt</a>
+                        <a id="statusMau" href="/tai-khoan/{{id}}/ve-cua-toi?statusTicket=Đã thanh toán">Đã thanh
+                            toán</a>
+                        <a href="/tai-khoan/{{id}}/ve-cua-toi?statusTicket=Đã hủy">Đã hủy</a>
+                        {{else}}
+                        <a href="/tai-khoan/{{id}}/ve-cua-toi">Vừa đặt</a>
+                        <a href="/tai-khoan/{{id}}/ve-cua-toi?statusTicket=Đã thanh toán">Đã thanh
+                            toán</a>
+                        <a id="statusMau" href="/tai-khoan/{{id}}/ve-cua-toi?statusTicket=Đã hủy">Đã hủy</a>
+                        {{/if}}
                     </div>
+                    {{/with}}
                     <div class="bodyRightBody">
+                        {{#with veDaDat}}
+                        {{#if VeDaDats.length}}
                         {{#each VeDaDats}}
                         <div class="infoTicket shadow-sm">
                             <div class="maDonHang shadow-sm fontSizeLarger">Mã đơn hàng: <span
@@ -82,8 +98,10 @@
                             </div>
                         </div>
                         {{/each}}
-
+                        {{/if}}
+                        {{/with}}
                     </div>
+                    {{#if veDaDat.VeDaDats.length}}
                     <div class="botRightBody">
                         <nav aria-label="Page navigation">
                             <ul class="pagination">
@@ -105,9 +123,18 @@
                             </ul>
                         </nav>
                     </div>
+                    {{else}}
+                    <div class="row">
+                        <div class="col-4"></div>
+                        <div class="col-4 text-center">
+                            <img src="/images/image-15.png" alt="KhongVe">
+                            <h3>Bạn chưa có chuyến nào</h3>
+                        </div>
+                        <div class="col-4"></div>
+                    </div>
+                    {{/if}}
                 </div>
             </div>
-            {{/with}}
         </div>
     </div>
 </main>

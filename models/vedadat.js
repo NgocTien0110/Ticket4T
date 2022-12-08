@@ -17,8 +17,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   VeDaDat.init({
     numSeats: DataTypes.INTEGER,
-    totalPrice: DataTypes.DECIMAL,
-    status: DataTypes.STRING,
+    statusTicket: DataTypes.STRING,
     fullName: DataTypes.STRING,
     phoneNum: DataTypes.STRING,
     email: DataTypes.STRING,

@@ -69,7 +69,7 @@ p a:hover {
     border-bottom: 1px solid gainsboro;
 }
 
-.topRightBody a:first-child {
+#statusMau {
     color: var(--color--secondary);
     border-bottom: 2px solid var(--color--secondary);
 }

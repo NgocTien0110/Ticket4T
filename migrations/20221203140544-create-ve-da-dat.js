@@ -12,10 +12,7 @@ module.exports = {
       numSeats: {
         type: Sequelize.INTEGER
       },
-      totalPrice: {
-        type: Sequelize.DECIMAL
-      },
-      status: {
+      statusTicket: {
         type: Sequelize.STRING
       },
       email: {
