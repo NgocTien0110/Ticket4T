@@ -17,7 +17,7 @@ controller.show = async (req, res) => {
     order: [["stars", "DESC"]],
     limit: 3,
   });
-  // console.log(res.locals.comments);
+
   res.render("index");
 };
 

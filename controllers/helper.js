@@ -55,20 +55,20 @@ helper.totalPrice = (price, quantity) => {
     return total;
 }
 
-helper.starNhanXet=(stars)=>{
+helper.starNhanXet = (stars) => {
     let str = '';
     let star = Math.round(stars);
     let halfStar = star - stars;
     console.log(halfStar);
     let i;
-    for(i=1;i<star;i++){
+    for (i = 1; i < star; i++) {
         str += '<i class="fa-solid fa-star"></i>';
     }
-    if(halfStar>0){
+    if (halfStar > 0) {
         str += '<i class="fa-regular fa-star-half-stroke"></i>';
         i++;
     }
-    for(;i<=5;i++){
+    for (; i <= 5; i++) {
         str += '<i class="fa-regular fa-star"></i>';
     }
     return str;
@@ -76,20 +76,20 @@ helper.starNhanXet=(stars)=>{
 helper.generateStarList = (stars) => {
     let str = '', count = 0, decPart = stars % 1, intPart = Math.trunc(stars);
 
-    for(i = 1; i <= intPart; ++i, ++count){
+    for (i = 1; i <= intPart; ++i, ++count) {
         str += '<i class="bi bi-star-fill icon"></i>';
     }
 
-    if(decPart >= 0.25 && decPart <= 0.5){
+    if (decPart >= 0.25 && decPart <= 0.5) {
         str += '<i class="bi bi-star-half icon"></i>';
         ++count;
     }
-    else if(decPart > 0.5){
+    else if (decPart > 0.5) {
         str += '<i class="bi bi-star-fill icon"></i>';
         ++count;
     }
 
-    for(i = count; i < 5; ++i)
+    for (i = count; i < 5; ++i)
         str += '<i class="bi bi-star icon"></i>';
 
     return str;
@@ -98,20 +98,20 @@ helper.generateStarList = (stars) => {
 helper.generateStarListFont2 = (stars) => {
     let str = '', count = 0, decPart = stars % 1, intPart = Math.trunc(stars);
 
-    for(i = 1; i <= intPart; ++i, ++count){
+    for (i = 1; i <= intPart; ++i, ++count) {
         str += '<i class="bi bi-star-fill comment-star"></i>';
     }
 
-    if(decPart >= 0.25 && decPart <= 0.5){
+    if (decPart >= 0.25 && decPart <= 0.5) {
         str += '<i class="bi bi-star-half comment-star"></i>';
         ++count;
     }
-    else if(decPart > 0.5){
+    else if (decPart > 0.5) {
         str += '<i class="bi bi-star-fill comment-star"></i>';
         ++count;
     }
 
-    for(i = count; i < 5; ++i)
+    for (i = count; i < 5; ++i)
         str += '<i class="bi bi-star comment-star"></i>';
 
     return str;

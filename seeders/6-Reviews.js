@@ -5,7 +5,7 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     const items = [
       {
-        stars: 3.5,
+        stars: 3,
         comment: 'Chất lượng phục vụ khá tốt, tuy nhiên suốt dọc đường xe rung lắc khá nhiều làm cho tôi cảm thấy khó chịu',
         carId: 1,
         accId: 1,
@@ -17,7 +17,7 @@ module.exports = {
         accId: 2,
       },
       {
-        stars: 1.5,
+        stars: 1,
         comment: 'Quá tệ, mặc dù chất lượng xe khá tốt nhưng chất lượng phục vụ lại không được như vậy, hơn thế nữa tài xế còn chạy rất ẩu, coi thường tính mạng của hành khách và những người trên xe',
         carId: 2,
         accId: 4,
@@ -29,7 +29,7 @@ module.exports = {
         accId: 7,
       },
       {
-        stars: 4.5,
+        stars: 4,
         comment: 'Ngồi xe không dằn sốc, tôi là một người hay say xe, cứ người thấy mùi xe là tôi khum chịu được, nhưng khi vào trong xe, tôi cảm thấy bình thường, không khí trong xe dễ chịu, bác tài lái xe êm, như tìm được chân lý',
         carId: 3,
         accId: 5,
@@ -53,7 +53,7 @@ module.exports = {
         accId: 8,
       },
       {
-        stars: 2.5,
+        stars: 2,
         comment: 'Chất lượng dịch vụ cũng tạm được, đáng để trải nghiệm',
         carId: 5,
         accId: 9,

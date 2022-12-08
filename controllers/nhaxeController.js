@@ -1,23 +1,24 @@
 const controller = {} //Để {} vì là object có thể chứa thêm các hàm khác
-const models=require('../models');
+const models = require('../models');
 const { Op } = require("sequelize");
-var Sequelize = require("sequelize");
 
 controller.show = async (req, res) => {
     res.locals.carCom = await models.NhaXe.findAll({
-        include: [{model: models.Review,
-                    group: 'carId'}]
+        include: [{
+            model: models.Review,
+            group: 'carId'
+        }]
     });
 
     res.render('nhaxe');
-} 
+}
 
-controller.showDetails = async(req, res) => {
+controller.showDetails = async (req, res) => {
     const defaultCarID = req.params.id;
 
     let star = req.query.star;
     star = parseInt(star);
-    
+
     // lấy nhà xe, review của nhà xe đó và tên user, ảnh avt user của từng review
     res.locals.chiTietNhaXe = await models.NhaXe.findOne({
         where: {
@@ -29,96 +30,69 @@ controller.showDetails = async(req, res) => {
                 attributes: ['id']
             }
         ],
-        attributes:  {exclude: ['createdAt', 'updatedAt', 'imageJours']}
+        attributes: { exclude: ['createdAt', 'updatedAt', 'imageJours'] }
     });
 
     console.log(star);
-    if(star == 1 || star == 2 || star == 3 || star == 4 || star == 5){
+    if (star == 1 || star == 2 || star == 3 || star == 4 || star == 5) {
         res.locals.chiTietNhaXeReview = await models.Review.findAll({
-        where: {
-            carId: defaultCarID,
-            stars: {[Op.gte]: star, [Op.lt]: star + 1}
-        },
-        include: [{ 
-            model: models.TaiKhoan}]
+            where: {
+                carId: defaultCarID,
+                stars: { [Op.gte]: star, [Op.lt]: star + 1 }
+            },
+            include: [{
+                model: models.TaiKhoan
+            }]
         });
     }
-    else{
+    else {
         res.locals.chiTietNhaXeReview = await models.Review.findAll({
-        where: {
-            carId: defaultCarID,
-        },
-        include: [{ 
-            model: models.TaiKhoan}]
+            where: {
+                carId: defaultCarID,
+            },
+            include: [{
+                model: models.TaiKhoan
+            }]
         });
     }
-    
+
 
     const oneStar = await models.Review.count({
-        where:{
+        where: {
             carId: defaultCarID,
-            stars: {[Op.gte]: 1, [Op.lt]: 2}
+            stars: { [Op.eq]: 1 }
         }
     })
 
     const twoStar = await models.Review.count({
-        where:{
+        where: {
             carId: defaultCarID,
-            stars: {[Op.gte]: 2, [Op.lt]: 3}
+            stars: { [Op.eq]: 2 }
         }
     })
 
     const threeStar = await models.Review.count({
-        where:{
+        where: {
             carId: defaultCarID,
-            stars: {[Op.gte]: 3, [Op.lt]: 4}
+            stars: { [Op.eq]: 3 }
         }
     })
 
     const fourStar = await models.Review.count({
-        where:{
+        where: {
             carId: defaultCarID,
-            stars: {[Op.gte]: 4, [Op.lt]: 5}
+            stars: { [Op.eq]: 4 }
         }
     })
 
     const fiveStar = await models.Review.count({
-        where:{
+        where: {
             carId: defaultCarID,
-            stars: {[Op.eq]: 5}
+            stars: { [Op.eq]: 5 }
         }
     })
 
-    res.render('chi_tiet_nha_xe', {oneStar, twoStar, threeStar, fourStar, fiveStar});
+    res.render('chi_tiet_nha_xe', { oneStar, twoStar, threeStar, fourStar, fiveStar });
 }
 
-
 module.exports = controller;
-
-
-
-    // res.locals.chiTietNhaXeReview = await models.Review.findAll({
-    //     where: {
-    //         carId: defaultCarID
-    //     },
-    //     include: [{ 
-    //         model: models.TaiKhoan, where: {id: accId}}]
-    // });
-
-    // console.log(res.locals.chiTietNhaXeReview)
-
-    // controller.filterByStar = async(req, res) => {
-//     const star = req.query.star;
-//     const defaultCarID = req.params.id;
-//     const starUpper = star++;
-
-//     res.locals.carComReview = await models.Review.findAll({
-//         where: {carId: defaultCarID},
-//         include: [{model: models.TaiKhoan, attributes: ['fullName', 'imageAccount']}],
-//         // where: {stars: {[Op.lt]: starUpper, [Op.gte]: star}}
-//     });
-
-//     console.log(star)
-//     res.render('chi_tiet_nha_xe');
-
-// }
