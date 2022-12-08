@@ -10,24 +10,16 @@ controller.show = async (req, res) => {
     include: [
       {
         model: models.NhaXe,
-        attributes: ["name", "imageCarCom"],
-        include: [
-          {
-            model: models.Review,
-            attributes: ["stars"],
-          },
-        ],
+        include: [models.Review],
       },
       {
         model: models.LoaiXe,
-        attributes: ["name"],
       },
     ],
     limit: limit,
     // offset: offset,
   });
 
-    
   // let count = await models.ChuyenXe.findAndCountAll()
 
   // res.locals.pagination = {
@@ -40,8 +32,9 @@ controller.show = async (req, res) => {
 
   res.locals.nhaxes = await models.NhaXe.findAll();
   res.locals.loaixes = await models.LoaiXe.findAll();
-  console.log(res.locals.chuyenxes);
+  // console.log(res.locals.chuyenxes);
   res.render("search-trip", { dataSearch });
 };
+
 
 module.exports = controller;

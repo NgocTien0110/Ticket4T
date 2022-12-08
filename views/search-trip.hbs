@@ -12,16 +12,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
     <!-- phần header  -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/search-trip.css">
-    <link rel="stylesheet" href="/css/header_footer.css">
-    <link rel="stylesheet" href="/css/home.css">
+    <link type="text/css" rel="stylesheet" href="/css/search-trip.css">
+    <link type="text/css" rel="stylesheet" href="/css/header_footer.css">
+    <link type="text/css" rel="stylesheet" href="/css/home.css">
 
     <!-- flatpickr -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
@@ -40,7 +40,7 @@
                         list="datalistOptions" id="start" placeholder="{{dataSearch.start}}" required>
                         <datalist id="datalistOptions">
                             {{#each chuyenxes}}
-                            <option value="{{startProvince}}">
+                            <option value="{{ startProvince }}">
                             {{/each}}
                         </datalist>
                     </div>
@@ -54,7 +54,7 @@
                         list="datalistOptions" id="end" placeholder="{{dataSearch.end}}" required>
                         <datalist id="datalistOptions">
                             {{#each chuyenxes}}
-                            <option value="{{startProvince}}">
+                            <option value="{{ endProvince }}">
                             {{/each}}
                         </datalist>
                     </div>
@@ -163,7 +163,7 @@
                     <div class="card mb-3">
                         <div class="row">
                             <div class="col-md-4">                        
-                                <a href="trip-info.html">
+                                <a href="/search-trip/{{id}}">
                                     <img src="{{ NhaXe.imageCarCom }}" class="img-fluid rounded-2"
                                         style="max-width:auto; height:100%;" alt="tuyen xe 1">
                                 </a>                                                           
@@ -172,14 +172,12 @@
                                 <div class="card-body pb-0 d-flex flex-column justify-content-between">
                                     <div class="d-flex justify-content-between">
                                         <div class="d-flex">                                    
-                                            <a href="trip-info.html">
+                                            <a href="/search-trip/{{id}}">
                                                 <h4 class="card-title  text-3">{{NhaXe.name}}</h4>
                                             </a>                                    
                                             <div class="p-2 ms-2 bg-color-2 rounded-2">
-                                                <span><i class="fa-solid fa-star text-warning"></i>4.8 (1800)</span>
-                                                {{!-- {{#with NhaXe}}
-                                                <span><i class="fa-solid fa-star text-warning"></i>{{ Review.stars }} ({{ Review.length }})</span>
-                                                {{/with}} --}}
+                                                {{!-- <span><i class="fa-solid fa-star text-warning"></i>4.8 (1800)</span> --}}
+                                                <span><i class="fa-solid fa-star text-warning"></i>{{ NhaXe.stars }} ({{ NhaXe.Reviews.length }})</span>
                                             </div>
                                         </div>
                                         <div class="d-flex ">
@@ -197,7 +195,7 @@
                                                     <p class="me-5 fw-bold">{{time startTime}}</p>
                                                     <p> {{ startLocation }}</p>
                                                 </div>
-                                                <a href="xacnhan.htm"> <button
+                                                <a href="/search-trip/{{id}}/thanh-toan/xacnhan"> <button
                                                         class="p-1 px-4 bg-color-3 text-white rounded-2 border-0">Đặt
                                                         vé</button></a>
                                             </div>
@@ -211,7 +209,7 @@
                                                     <p class="me-5 fw-bold">{{time endTime}}</p>
                                                     <p> {{ endLocation }}</p>
                                                 </div>
-                                                <a href="trip-info.html">Xem thông tin chi tiết</a>
+                                                <a href="/search-trip/{{id}}">Xem thông tin chi tiết</a>
                                             </div>
                                         </div>
                                     </div>

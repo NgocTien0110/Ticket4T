@@ -59,7 +59,7 @@ helper.starNhanXet = (stars) => {
     let str = '';
     let star = Math.round(stars);
     let halfStar = star - stars;
-    console.log(halfStar);
+    // console.log(halfStar);
     let i;
     for (i = 1; i < star; i++) {
         str += '<i class="fa-solid fa-star"></i>';

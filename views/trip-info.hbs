@@ -15,15 +15,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
     <!-- phần header  -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/trip-info.css">
-    <link rel="stylesheet" href="/css/header_footer.css">
+    <link type="text/css" rel="stylesheet" href="/css/trip-info.css">
+    <link type="text/css" rel="stylesheet" href="/css/header_footer.css">
 
 </head>
 
@@ -32,11 +32,11 @@
     <section class="container ">
         <div class="row py-4 d-flex">
             <h1 class="fw-bold color-4 col-lg-8 col-sm-12">
-                Sài Gòn - Đà Lạt (Tiến Oanh)
+                {{ trip.startProvince }} - {{ trip.endProvince}} ({{ trip.NhaXe.name }})
             </h1>
             <div class="d-inline-flex p-2 col-lg-4 justify-content-lg-end col-sm-12 justify-content-sm-center">
-                <p class="p-2 mx-2 border border-dark color-3 fs-5 ">Số lượng ghế: 5</p>
-                <p class="p-2 border border-dark color-3 fs-5 ">Loại xe: Ghế ngồi</p>
+                <p class="p-2 mx-2 border border-dark color-3 fs-5 ">Số lượng ghế: {{ trip.totalNumSeats }}</p>
+                <p class="p-2 border border-dark color-3 fs-5 ">Loại xe: {{ trip.LoaiXe.name }}</p>
             </div>
         </div>
 
@@ -73,26 +73,26 @@
             <div class="col-6 text-center  ">
                 <div class="p-3 mt-3 d-inline-flex bg-footer rounded-2 fs-4 color-3">
                     <i class="fa-solid fa-calendar-days p-1"></i>
-                    <span class="">18/11/2022</span>
+                    <span class="">{{ date trip.startTime }}</span>
                 </div>
             </div>
             <div class="col-6 text-center">
                 <div class="p-3 mt-3 d-inline-flex bg-footer rounded-2 fs-4 color-3">
                     <i class="fa-solid fa-calendar-days p-1"></i>
-                    <span>19/11/2022</span>
+                    <span>{{ date trip.endTime }}</span>
                 </div>
             </div>
         </div>
 
         <div class="row d-flex justify-content-center">
             <div class="col-4 text-center my-3 fs-5">
-                <span>PV Tân Bình</span>
+                <span>{{ trip.startLocation}}</span>
             </div>
             <div class="col-2 text-center my-3 fs-5 ">
-                <span>8h</span>
+                <span>{{ totalTime trip.startTime trip.endTime }}</span>
             </div>
             <div class="col-4 text-center my-3 fs-5">
-                <span>PV Đà Lạt</span>
+                <span>{{ trip.endLocation }}</span>
 
             </div>
         </div>
@@ -109,21 +109,21 @@
 
         <div class="row">
             <div class="col-6 text-center my-3 fs-5 ">
-                <span>23:00</span>
+                <span>{{ time trip.startTime }}</span>
             </div>
             <div class="col-6 text-center my-3 fs-5">
-                <span>07:00</span>
+                <span>{{ time trip.endTime }}</span>
             </div>
         </div>
 
         <div class="row">
             <div class="col-6 text-center  ">
                 <div class="p-3 mt-3 d-inline-flex border-color-4 rounded-2 fs-4 color-3 fw-bold">
-                    <span>1,000,000 đ</span>
+                    <span>{{ formatPrice trip.price }} đ</span>
                 </div>
             </div>
             <div class="col-6 text-center">
-                <a href="xacnhan.htm">
+                <a href="/search-trip/{{trip.id}}/thanh-toan/xacnhan">
                     <div class="p-3 px-5 mt-3 d-inline-flex bg-color-4 rounded-2 fs-3 fw-bold text-white btn btn-dark">
                         <i class="fa-solid fa-ticket my-2 px-3"></i>
                         <span>Đặt vé</span>
@@ -159,6 +159,5 @@
             <li>Trẻ em dưới 16 tuổi hoặc dưới 120 cm được miễn phí vé nếu ngồi cùng ghế/giường với bố mẹ</li>
         </ul>
     </section>
-
 </main>
 {{>footer}}
