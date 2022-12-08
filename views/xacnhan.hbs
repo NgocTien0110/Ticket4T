@@ -54,43 +54,57 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="h3 text-center">Xác nhận vé</div>
-                        <div class="row d-md-flex flex-column justify-content-center align-items-md-center">
-                            <div class="col-6 my-4">
-                                <div class="h3 text-center fw-bold">
-                                    <span>{{{startProvince}}} - {{{endProvince}}}</span>
 
-                                </div>
-                                <div class="date d-flex justify-content-between">
-                                    <div class="go d-flex flex-column align-items-center ms-sm-5 ms-5">
-                                        <i class="bi bi-calendar mb-2"></i>
-                                        <span>{{{date startTime}}}</span>
-
-                                    </div>
-                                    <div class="arrive d-flex flex-column align-items-center me-sm-5 me-5">
-                                        <i class="bi bi-calendar mb-2"></i>
-                                        <span>{{{date endTime}}}</span>
-                                    </div>
+                        <div class="row">
+                            <div class="col-6 text-center">
+                                <div class="p-2 mt-3 d-inline-flex bg-footer rounded-2 color-3">
+                                    <i class="fa-solid fa-calendar-days p-1"></i>
+                                    <span class="">{{date startTime}}</span>
                                 </div>
                             </div>
-                            <div class="col-6 my-4 mt-2">
-                                <div class="locate d-flex justify-content-between">
-                                    <div class="go d-flex flex-column align-items-center ms-sm-5 ms-5 mt-2">
-                                        <span>{{{startLocation}}}</span>
-                                        <i class="bi bi-geo-alt my-2 linee"></i>
-                                        <span>{{{time startTime}}}</span>
-                                    </div>
-                                    <div class="line mt-4">
-                                        <span>{{{totalTime endTime startTime}}}</span>
-                                    </div>
-                                    <div class="arrive d-flex flex-column align-items-center me-sm-5 me-5 mt-2">
-                                        <span>{{{endLocation}}}</span>
-                                        <i class="bi bi-geo-alt-fill my-2"></i>
-                                        <span>{{{time endTime}}}</span>
-                                    </div>
+                            <div class="col-6 text-center">
+                                <div class="p-2 mt-3 d-inline-flex bg-footer rounded-2 color-3">
+                                    <i class="fa-solid fa-calendar-days p-1"></i>
+                                    <span>{{ date endTime }}</span>
                                 </div>
                             </div>
                         </div>
 
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-4 text-center my-3 fs-5">
+                                <span>{{startLocation}}</span>
+                            </div>
+                            <div class="col-2 text-center my-3 fs-5">
+                                <span>{{ totalTime startTime endTime }}</span>
+                            </div>
+                            <div class="col-4 text-center my-3 fs-5">
+                                <span>{{endLocation }}</span>
+
+                            </div>
+                        </div>
+
+                        <div class="row position-relative">
+                            <div class="col-6 text-center my-1 ">
+                                <i class="fa-solid fa-location-dot fa-2x color-3"></i>
+                            </div>
+                            <div class="col-6 text-center my-1 ">
+                                <i class="fa-solid fa-location-dot fa-2x color-4"></i>
+                            </div>
+                            <div class="line position-absolute top-50 start-50 translate-middle"></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6 text-center my-3 fs-5 ">
+                                <span>{{ time startTime }}</span>
+                            </div>
+                            <div class="col-6 text-center my-3 fs-5">
+                                <span>{{ time endTime }}</span>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <span>Vé chặng thuộc chuyến {{time startTime}} {{date startTime}}
+                                {{startProvince}} - {{endProvince}}</span>
+                        </div>
                     </div>
                 </div>
             </div>
