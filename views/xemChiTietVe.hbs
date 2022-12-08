@@ -107,3 +107,13 @@
     </div>
 </main>
 {{>footer}}
+<script>
+    let statusTicket = document.querySelector("#liTinhTrangVe");
+
+    if (statusTicket.innerText.localeCompare("Đã thanh toán") == 0) {
+        statusTicket.style.color = "#00CC00"
+    }
+    else if (statusTicket.innerText.localeCompare("Đã hủy") == 0) {
+        statusTicket.style.color = "red"
+    }
+</script>

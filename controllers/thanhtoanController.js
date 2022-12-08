@@ -9,7 +9,13 @@ controller.show = async (req, res) => {
     res.locals.ticket = req.query.ticket;
 
     let id = req.params['id'];
-    res.locals.id = id;
+
+    let accId = req.params.accId;
+    res.locals.taikhoan = await models.TaiKhoan.findOne({
+        where: {
+            id: accId
+        }
+    })
 
     res.locals.chuyenxe = await models.ChuyenXe.findOne({
         where: {

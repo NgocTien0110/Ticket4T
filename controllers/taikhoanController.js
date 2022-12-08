@@ -38,7 +38,7 @@ controller.showDetailsTicket = async (req, res) => {
             model: models.VeDaDat,
             include: [{ model: models.ChuyenXe, include: [models.NhaXe] }],
             where: {
-                id: ticketId
+                id: ticketId,
             }
         }]
     })

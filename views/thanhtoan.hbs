@@ -60,7 +60,8 @@
                                     <div class="h3 text-center">Thông tin vé</div>
                                     <div class="d-block mx-5 fs-5">
                                         <hr>
-                                        <form action="/search-trip/{{id}}/thanh-toan/thanhcong" method="POST">
+                                        <form action="/search-trip/{{chuyenxe.id}}/thanh-toan/{{taikhoan.id}}/thanhcong"
+                                            method="POST">
                                             <div class="name d-flex justify-content-between align-items-center">
                                                 <span>Họ và tên: </span>
                                                 <input type="text" name="name" value="{{name}}" class="fw-bolder"
@@ -125,13 +126,12 @@
 
                                             {{/with}}
                                             <div class="button d-flex justify-content-around my-4">
-                                                <a href="/search-trip/{{id}}/thanh-toan/thongtinkhachhang">
+                                                <a
+                                                    href="/search-trip/{{chuyenxe.id}}/thanh-toan/{{taikhoan.id}}/thongtinkhachhang">
                                                     <div class="btn btn-lg px-5 back">&lt Quay lại</div>
                                                 </a>
-                                                <a href="/search-trip/{{id}}/thanh-toan/thanhcong">
-                                                    <button type="submit"
-                                                        class="btn btn-success btn-lg px-5 continue">Thanh toán</button>
-                                                </a>
+                                                <button type="submit" class="btn btn-success btn-lg px-5 continue">Thanh
+                                                    toán</button>
                                             </div>
                                         </form>
                                     </div>
@@ -142,27 +142,5 @@
                     </div>
                 </div>
             </div>
-
-            {{!-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-keyboard="false"
-                data-backdrop="static">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <img src="/images/thanhcong.png" alt="" width="150" class="d-block mx-auto">
-                            <div class="h3 text-center">Thanh toán thành công</div>
-                        </div>
-                        <div class="footer d-flex justify-content-center mb-2">
-                            <a href="./indexAuthentication.htm">
-                                <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Quay
-                                    lại trang chủ</button>
-                            </a>
-                            <a href="./myTicket.htm">
-                                <button type="button" class="btn btn-primary ms-2">Vé của tôi</button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
 </main>
 {{>footer}}

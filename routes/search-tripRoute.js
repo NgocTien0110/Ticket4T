@@ -8,17 +8,18 @@ const controller2 = require('../controllers/thongtinkhachhangController');
 const controller3 = require('../controllers/thanhtoanController');
 
 Router.get("/", controller.show);
-Router.get('/:id/thanh-toan/xacnhan', controller1.show);
-Router.get('/:id/thanh-toan/thongtinkhachhang', controller2.show);
-Router.get('/:id/thanh-toan/thanhtoan', controller3.show);
+Router.get('/:id/thanh-toan/:accId/xacnhan', controller1.show);
+Router.get('/:id/thanh-toan/:accId/thongtinkhachhang', controller2.show);
+Router.get('/:id/thanh-toan/:accId/thanhtoan', controller3.show);
 
 
 let bodyParser = require('body-parser');
 let urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-Router.post('/:id/thanh-toan/thanhcong', urlencodedParser, (req, res) => {
+Router.post('/:id/thanh-toan/:accId/thanhcong', urlencodedParser, (req, res) => {
     let k = req.body.totalprice;
     let totalprice = k.slice(0, -4).replace('.', '');
+    let accId = req.params.accId;
 
     models.VeDaDat.bulkCreate([{
         numSeats: req.body.ticket,
@@ -27,7 +28,7 @@ Router.post('/:id/thanh-toan/thanhcong', urlencodedParser, (req, res) => {
         phoneNum: req.body.phone,
         email: req.body.email,
         jourId: parseInt(req.params.id),
-        accId: 2, //sửa lại sau
+        accId: accId, //sửa lại sau
         fullName: req.body.name
     }]).then((product) => {
         res.render('thanhcong');

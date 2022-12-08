@@ -49,9 +49,10 @@
                 </div>
                 <div class="col-md-9 rightBody">
                     <div class="topRightBody">
-                        <a href="#"><span>Vừa đặt</span></a>
-                        <a href="#"><span>Đã thanh toán</span></a>
-                        <a href="#"><span>Đã hủy</span> </a>
+                        <a href="/tai-khoan/{{id}}/ve-cua-toi"><span>Vừa đặt</span></a>
+                        <a href="/tai-khoan/{{id}}/ve-cua-toi?statusTicket=Đã thanh toán"><span>Đã thanh
+                                toán</span></a>
+                        <a href="/tai-khoan/{{id}}/ve-cua-toi?statusTicket=Đã hủy"><span>Đã hủy</span> </a>
                     </div>
                     <div class="bodyRightBody">
                         {{#each VeDaDats}}
@@ -81,29 +82,7 @@
                             </div>
                         </div>
                         {{/each}}
-                        {{!-- <div class="infoTicket shadow-sm">
-                            <div class="maDonHang shadow-sm fontSizeLarger">Mã đơn hàng: <span
-                                    class="idDonHang">T1004535</span>
-                            </div>
-                            <div class="infoDetailTicket shadow-sm d-flex justify-content-between">
-                                <div class="leftInfoDetail">
-                                    <img src="/images/tuyen-duong-pho-bien/HoGuom.jpg" alt="HaNoi">
-                                    <div class="infoChuyenDi">
-                                        <p>Sài gòn <i class="fa-solid fa-arrow-right"></i> Hà Nội</p>
-                                        <p>Nhà xe Hà My</p>
-                                        <p><span class="bi bi-ticket-detailed"></span> 1 vé</p>
-                                    </div>
-                                </div>
-                                <div class="rightInFoDetail">
-                                    <div class="ngayDiChuyenDi"><i class="fa-solid fa-calendar-days"></i>
-                                        05/11/2022</div>
-                                    <a href="./xemChiTietVe.htm" class="btn btn-dark">Xem chi tiết</a>
-                                </div>
-                            </div>
-                            <div class="tongSoTien fontSizeLarger">
-                                Tổng số tiền: <span class="soTien">1.590.000đ</span>
-                            </div>
-                        </div> --}}
+
                     </div>
                     <div class="botRightBody">
                         <nav aria-label="Page navigation">
