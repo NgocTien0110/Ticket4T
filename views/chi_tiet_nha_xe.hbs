@@ -65,7 +65,8 @@
                     <li>Số chuyến trong ngày:
                       Khoảng {{numOfTrip}} chuyến/ngày</li>
                     <li>Địa điểm: Văn phòng {{mainRoute.[0]}}, Văn phòng {{mainRoute.[1]}}</li>
-                    <li>Giá vé tham khảo: {{ticketPrice.[0]}} - {{ticketPrice.[1]}} VNĐ/người/ghế</li>
+                    <li>Giá vé tham khảo: {{formatPrice ticketPrice.[0]}} - {{formatPrice ticketPrice.[1]}}
+                      VNĐ/người/ghế</li>
                   </ul>
               </div>
 
@@ -77,7 +78,7 @@
                     <li>Số chuyến trong ngày:
                       Khoảng {{numOfTrip}} chuyến/ngày</li>
                     <li>Địa điểm: Văn phòng {{mainRoute.[1]}}, Văn phòng {{mainRoute.[2]}}</li>
-                    <li>Giá vé tham khảo: {{ticketPrice.[1]}} VNĐ/người/ghế</li>
+                    <li>Giá vé tham khảo: {{formatPrice ticketPrice.[1]}} VNĐ/người/ghế</li>
                   </ul>
               </div>
 
@@ -89,7 +90,7 @@
                     <li>Số chuyến trong ngày:
                       Khoảng {{numOfTrip}} chuyến/ngày</li>
                     <li>Địa điểm: Văn phòng {{mainRoute.[0]}}, Văn phòng {{mainRoute.[2]}}</li>
-                    <li>Giá vé tham khảo: {{ticketPrice.[0]}} VNĐ/người/ghế</li>
+                    <li>Giá vé tham khảo: {{formatPrice ticketPrice.[0]}} VNĐ/người/ghế</li>
                   </ul>
               </div>
             </div>

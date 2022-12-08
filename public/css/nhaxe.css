@@ -100,3 +100,10 @@ body {
 .nhaxe{
     padding: 10px;
 }
+
+.cmt p {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+}

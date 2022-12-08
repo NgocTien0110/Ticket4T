@@ -79,3 +79,9 @@ body {
   background-color: var(--color-3);
 }
 
+.cmt p {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+}

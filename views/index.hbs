@@ -115,36 +115,38 @@
                 {{#each chuyenxes}}
                 <!-- item 1  -->
                 <div class="col-lg-6">
-                    <div class="card mb-3 popular-trip-item" ">
-              <div class=" row g-0">
-                        <div class="col-md-4">
-                            <a href="trip-info.html">
-                                <img src="{{locationImage}}" class="img-fluid rounded-2"
-                                    style="object-fit: cover; height: 9rem; width: 36rem;"
-                                    alt="{{startProvince}} - {{endProvince}}">
-                            </a>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body pb-0 d-flex flex-column justify-content-between">
+                    <div class="card mb-3 popular-trip-item">
+                        <div class=" row g-0">
+                            <div class="col-md-4">
                                 <a href="trip-info.html">
-                                    <h3 class="card-title py-2 text-3">{{startProvince}} - {{endProvince}}</h3>
+                                    <img src="{{locationImage}}" class="img-fluid rounded-2"
+                                        style="object-fit: cover; height: 9rem; width: 36rem;"
+                                        alt="{{startProvince}} - {{endProvince}}">
                                 </a>
-                                <!-- <p class="card-text">Sai Gon - Da Lat</p> -->
-                                <div class="d-flex flex-row justify-content-between align-item-end mt-3 trip-info">
-                                    {{!-- <p class="card-text fs-5"> <i class="fa-solid fa-location-dot"></i> 100 km</p>
-                                    --}}
-                                    <p class="card-text fs-5"> <i class="fa-regular fa-clock"></i> {{{totalTime endTime
-                                        startTime}}}</p>
-                                    <p class="card-text fs-4 text-4"><span>{{ formatPrice price }} đ</span></p>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body pb-0 d-flex flex-column justify-content-between">
+                                    <a href="trip-info.html">
+                                        <h3 class="card-title py-2 text-3">{{startProvince}} - {{endProvince}}</h3>
+                                    </a>
+                                    <!-- <p class="card-text">Sai Gon - Da Lat</p> -->
+                                    <div class="d-flex flex-row justify-content-between align-item-end mt-3 trip-info">
+                                        {{!-- <p class="card-text fs-5"> <i class="fa-solid fa-location-dot"></i> 100 km
+                                        </p>
+                                        --}}
+                                        <p class="card-text fs-5"> <i class="fa-regular fa-clock"></i> {{{totalTime
+                                            endTime
+                                            startTime}}}</p>
+                                        <p class="card-text fs-4 text-4"><span>{{ formatPrice price }} đ</span></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            {{/each}}
+                {{/each}}
 
-        </div>
+            </div>
         </div>
     </section>
 
@@ -265,15 +267,15 @@
             <div class="col-lg-3 px-4">
                 <img src="/images/nen-tang-ket-noi/FreeWifi.png" style="height: 15rem; width: auto;"
                     class="img-fluid rounded-2 mx-auto d-block" alt="">
-                <h2 class="text-white pt-3 fw-bold fs-3">2000+ nhà xe chất lượng cao</h2>
+                <h2 class="text-white pt-3 fw-bold fs-3 ps-3">5 nhà xe chất lượng cao</h2>
                 <hr>
-                <p class="text-white">5000+ tuyến đường trên toàn quốc, chủ động và đa dạng lựa chọn.</p>
+                <p class="text-white">15+ tuyến đường trên toàn quốc, chủ động và đa dạng lựa chọn.</p>
             </div>
 
             <div class="col-lg-3 px-4">
                 <img src="/images/nen-tang-ket-noi/Cổng sạc đt.png" style="height: 15rem; width: auto;"
                     class="img-fluid rounded-2 mx-auto d-block" alt="">
-                <h2 class="text-white pt-3 fw-bold fs-3">Đặt vé dễ dàng </h2>
+                <h2 class="text-white pt-3 fw-bold fs-3 ps-3">Đặt vé dễ dàng </h2>
                 <br>
                 <hr>
                 <p class="text-white">Đặt vé chỉ với 60s. Chọn xe yêu thích cực nhanh và thuận tiện.</p>
@@ -282,7 +284,7 @@
             <div class="col-lg-3 px-4">
                 <img src="/images/nen-tang-ket-noi/Giải trí.png" style="height: 15rem; width: auto;"
                     class="img-fluid rounded-2 mx-auto d-block" alt="">
-                <h2 class="text-white pt-3 fw-bold fs-3">Đảm bảo có vé </h2>
+                <h2 class="text-white pt-3 fw-bold fs-3 ps-3">Đảm bảo có vé </h2>
                 <br>
                 <hr>
                 <p class="text-white">Hoàn ngay 150% nếu không có vé, mang đến hành trình trọn vẹn.</p>
@@ -291,7 +293,7 @@
             <div class="col-lg-3 px-4">
                 <img src="/images/nen-tang-ket-noi/Chất lượng.png" style="height: 15rem; width: auto;"
                     class="img-fluid rounded-2 mx-auto d-block" alt="">
-                <h2 class="text-white pt-3 fw-bold fs-3">nhiều ưu đãi</h2>
+                <h2 class="text-white pt-3 fw-bold fs-3 ps-3">Nhiều ưu đãi</h2>
                 <br>
                 <hr>
                 <p class="text-white">Hàng ngàn ưu đãi cực chất độc quyền tại Ticket4T.</p>
@@ -322,10 +324,11 @@
                         <div class="col-8 p-3">
                             <h3 class="fw-bold pt-2">{{fullName}}</h3>
                             {{/with}}
-                            <p class="fw-semibold">Sinh viên</p>
                         </div>
                     </div>
-                    <p class="text-center py-3">{{comment}}</p>
+                    <div class="text-center py-3 cmt">
+                        <p>{{comment}}</p>
+                    </div>
                     <div class="icon-start position-absolute bottom-0 start-50 translate-middle-x text-warning pb-2">
                         {{{ starNhanXet stars }}}
                     </div>
