@@ -19,6 +19,10 @@ controller.showDetails = async (req, res) => {
     let star = req.query.star;
     star = parseInt(star);
 
+    let page = req.query.page || 1;
+    let limit = 2;
+
+    console.log(page);
     // lấy nhà xe, review của nhà xe đó và tên user, ảnh avt user của từng review
     res.locals.chiTietNhaXe = await models.NhaXe.findOne({
         where: {
@@ -33,30 +37,30 @@ controller.showDetails = async (req, res) => {
         attributes: { exclude: ['createdAt', 'updatedAt', 'imageJours'] }
     });
 
-    console.log(star);
-    if (star == 1 || star == 2 || star == 3 || star == 4 || star == 5) {
-        res.locals.chiTietNhaXeReview = await models.Review.findAll({
+    let review = {
             where: {
+                carId: defaultCarID,
+            },
+            include: [{
+                model: models.TaiKhoan
+            }]
+        };
+
+    if (star == 1 || star == 2 || star == 3 || star == 4 || star == 5)
+        review.where = {
                 carId: defaultCarID,
                 stars: { [Op.gte]: star, [Op.lt]: star + 1 }
-            },
-            include: [{
-                model: models.TaiKhoan
-            }]
-        });
-    }
-    else {
-        res.locals.chiTietNhaXeReview = await models.Review.findAll({
-            where: {
-                carId: defaultCarID,
-            },
-            include: [{
-                model: models.TaiKhoan
-            }]
-        });
-    }
+            };
+    // else {
+    //     review = await models.Review.findAll();
+    // }
+
+   
 
 
+    review.limit = limit;
+    review.offset = limit * (page - 1);
+    
     const oneStar = await models.Review.count({
         where: {
             carId: defaultCarID,
@@ -92,6 +96,7 @@ controller.showDetails = async (req, res) => {
         }
     })
 
+    res.locals.chiTietNhaXeReview = await models.Review.findAll(review);
     res.render('chi_tiet_nha_xe', { oneStar, twoStar, threeStar, fourStar, fiveStar });
 }
 
