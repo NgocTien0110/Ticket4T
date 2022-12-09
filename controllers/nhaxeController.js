@@ -96,20 +96,22 @@ controller.showDetails = async (req, res) => {
         }
     })
 
-    let {rows, count}= await models.Review.findAndCountAll(review);
-    let totalRows = count;
+    let {rows, count} = await models.Review.findAndCountAll(review);
     let previousPage = 1;
     let nextPage = 1;
     let totalPage = Math.round(parseInt(count) / limit);
+    const buttonType = ['previous', 'next'];
 
-    if(page > 1)
+    // if(page > 1)
         previousPage = page - 1;
-    if(page < totalPage)
+
+    // if(page < totalPage)
         nextPage = page + 1;
+
     console.log({page, nextPage, totalPage, reviewStarFilter})
 
     res.locals.chiTietNhaXeReview = rows;
-    res.locals.reviewPagination = {page, previousPage, nextPage, limit, reviewStarFilter, totalPage}
+    res.locals.reviewPagination = {page, previousPage, nextPage, reviewStarFilter, totalPage, buttonType}
 
     res.render('chi_tiet_nha_xe', { oneStar, twoStar, threeStar, fourStar, fiveStar });
 }

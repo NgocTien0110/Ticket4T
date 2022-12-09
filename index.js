@@ -20,6 +20,8 @@ app.engine('hbs', expressHbs.engine({
         generateStarListFont2: helper.generateStarListFont2,
         createPagination: paginateHelper.createPagination,
         simpleMath: helper.simpleMath,
+        createNextPreviousPagination: helper.createNextPreviousPagination,
+        createReviewPagination: helper.createReviewPagination,
     },
     runtimeOptions: { //Để cho phép hbs truy cập đc vào database
         allowProtoPropertiesByDefault: true

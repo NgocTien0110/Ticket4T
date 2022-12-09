@@ -129,4 +129,42 @@ helper.simpleMath = (a, b, expression) =>{
     return str;
 }
 
+helper.createNextPreviousPagination = (id, page, star, totalPage, type) =>{
+    let str = ''
+    page = parseInt(page);
+    totalPage = parseInt(totalPage);
+
+    if(page > totalPage || page < 1)
+        str = '<a class="page-link disabled" href="/nha-xe/';
+    else
+        str = '<a class="page-link" href="/nha-xe/';
+    str += id + '?page=' + page + '&star=' + star + '#review-section">';
+
+    if(type == "previous")
+        str += 'Previous</a>';
+    else
+        str += 'Next</a>';
+
+    return str;
+}
+
+helper.createReviewPagination = (id, current, star, totalPage) =>{
+    let top = '<li class="page-item\"><a class=\"page-link\" href=';
+    let pickedTop = '<li class="page-item active\"><a class=\"page-link\" href=';
+    let bot = '&star=' + star + '#review-section">';
+    let str = '';   
+    let href = '"/nha-xe/' + id + '?page='
+    current = parseInt(current);
+
+    for(i = 1; i <= totalPage; ++i){
+        if(current == i)
+            str += pickedTop
+        else
+            str += top
+        str +=  href + i + bot + i + '</a></li>';
+    }
+
+    return str;
+}
+
 module.exports = helper;
