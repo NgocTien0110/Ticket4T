@@ -17,12 +17,17 @@ controller.showDetails = async (req, res) => {
     const defaultCarID = req.params.id;
 
     let star = req.query.star;
-    star = parseInt(star);
+    
+    if(star == undefined)
+        star = 0;
+    else
+        star = parseInt(star);
+    let reviewStarFilter = star;
 
     let page = req.query.page || 1;
     let limit = 2;
+    page = parseInt(page);
 
-    console.log(page);
     // lấy nhà xe, review của nhà xe đó và tên user, ảnh avt user của từng review
     res.locals.chiTietNhaXe = await models.NhaXe.findOne({
         where: {
@@ -44,19 +49,14 @@ controller.showDetails = async (req, res) => {
             include: [{
                 model: models.TaiKhoan
             }]
-        };
+    };
 
-    if (star == 1 || star == 2 || star == 3 || star == 4 || star == 5)
+    if (star == 1 || star == 2 || star == 3 || star == 4 || star == 5){
         review.where = {
                 carId: defaultCarID,
                 stars: { [Op.gte]: star, [Op.lt]: star + 1 }
             };
-    // else {
-    //     review = await models.Review.findAll();
-    // }
-
-   
-
+    }
 
     review.limit = limit;
     review.offset = limit * (page - 1);
@@ -96,7 +96,21 @@ controller.showDetails = async (req, res) => {
         }
     })
 
-    res.locals.chiTietNhaXeReview = await models.Review.findAll(review);
+    let {rows, count}= await models.Review.findAndCountAll(review);
+    let totalRows = count;
+    let previousPage = 1;
+    let nextPage = 1;
+    let totalPage = Math.round(parseInt(count) / limit);
+
+    if(page > 1)
+        previousPage = page - 1;
+    if(page < totalPage)
+        nextPage = page + 1;
+    console.log({page, nextPage, totalPage, reviewStarFilter})
+
+    res.locals.chiTietNhaXeReview = rows;
+    res.locals.reviewPagination = {page, previousPage, nextPage, limit, reviewStarFilter, totalPage}
+
     res.render('chi_tiet_nha_xe', { oneStar, twoStar, threeStar, fourStar, fiveStar });
 }
 

@@ -117,4 +117,16 @@ helper.generateStarListFont2 = (stars) => {
     return str;
 }
 
+helper.simpleMath = (a, b, expression) =>{
+    let tmp1 = parseFloat(a);
+    let tmp2 = parseFloat(b);
+    let str = '';
+
+    if(expression == '+')
+        str = toString(a + b);
+    else if(expression == '-')
+        str = toString(a - b);
+    return str;
+}
+
 module.exports = helper;
