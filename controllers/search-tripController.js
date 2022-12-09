@@ -16,6 +16,10 @@ controller.show = async (req, res) => {
         model: models.LoaiXe,
       },
     ],
+    where: {
+      startProvince: dataSearch.start,
+      endProvince: dataSearch.end,
+    },
     limit: limit,
     // offset: offset,
   });
@@ -32,7 +36,7 @@ controller.show = async (req, res) => {
 
   res.locals.nhaxes = await models.NhaXe.findAll();
   res.locals.loaixes = await models.LoaiXe.findAll();
-  // console.log(res.locals.chuyenxes);
+  console.log(dataSearch);
   res.render("search-trip", { dataSearch });
 };
 
