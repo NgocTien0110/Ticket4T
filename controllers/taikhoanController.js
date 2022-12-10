@@ -2,6 +2,17 @@ const controller = {} //Để {} vì là object có thể chứa thêm các hàm
 const models = require('../models')
 const userController = require('../controllers/userController');
 
+controller.updatePassword = async (req, res) => {
+    let accId = req.session.user.id
+
+    res.locals.infoAcc = await models.TaiKhoan.findOne({
+        where: {
+            id: accId
+        }
+    })
+    res.render('updatePassword')
+}
+
 controller.showInfoAcc = async (req, res) => {
     let accId = req.session.user.id
     res.locals.infoAcc = await models.TaiKhoan.findOne({

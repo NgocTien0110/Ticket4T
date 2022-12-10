@@ -150,3 +150,18 @@ button.btn.btn-dark:hover {
 .GioiTinhForm, .EmailForm, .SDTForm {
     margin-top: 25px;
 }
+
+#changePassword, #changeInfoAcc {
+    color: var(--color--secondary);
+    display: flex;
+    justify-content: end;
+}
+
+#changePassword:hover, #changeInfoAcc:hover {
+    color: #1c7ef7;
+}
+
+#changeInfoAcc {
+    margin-top: 10px;
+    font-size: medium;
+}
