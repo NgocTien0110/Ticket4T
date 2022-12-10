@@ -164,10 +164,9 @@
                     </div>
                     <hr>
                 </div>
-
+                {{#if chuyenxes.length}}
                 <div class="my-3">
                     {{#each chuyenxes}}
-
                     <div class="card mb-3">
                         <div class="row">
                             <div class="col-md-4">
@@ -228,12 +227,19 @@
                             </div>
                         </div>
                     </div>
-
                     {{/each}}
-
-
                 </div>
-
+                {{else}}
+                <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-4 text-center">
+                        <img src="/images/image-15.png" alt="KhongCoChuyenXe">
+                        <h3>Không có chuyến xe này</h3>
+                    </div>
+                    <div class="col-4"></div>
+                </div>
+                {{/if}}
+                {{#if chuyenxes.length}}
                 <nav aria-label="Page navigation">
                     {{!-- {{{ createPagination pagination paginationClass="pagination justify-content-center"
                     leftText="&laquo;" rightText="&raquo;" }}} --}}
@@ -253,6 +259,7 @@
                         </li>
                     </ul>
                 </nav>
+                {{/if}}
 
             </div>
         </div>

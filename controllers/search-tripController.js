@@ -6,23 +6,47 @@ controller.show = async (req, res) => {
   // let page = req.query.page || 1;
   let limit = 3;
   // let offset = (page - 1) * limit;
-  res.locals.chuyenxes = await models.ChuyenXe.findAll({
-    include: [
-      {
-        model: models.NhaXe,
-        include: [models.Review],
+  if (dataSearch.date) {
+    let date = dataSearch.date.trim();
+    res.locals.chuyenxes = await models.ChuyenXe.findAll({
+      include: [
+        {
+          model: models.NhaXe,
+          include: [models.Review],
+        },
+        {
+          model: models.LoaiXe,
+        },
+      ],
+      where: {
+        startProvince: dataSearch.start,
+        endProvince: dataSearch.end,
+        startDate: date,
       },
-      {
-        model: models.LoaiXe,
+      limit: limit,
+      // offset: offset,
+    });
+  }
+  else {
+    res.locals.chuyenxes = await models.ChuyenXe.findAll({
+      include: [
+        {
+          model: models.NhaXe,
+          include: [models.Review],
+        },
+        {
+          model: models.LoaiXe,
+        },
+      ],
+      where: {
+        startProvince: dataSearch.start,
+        endProvince: dataSearch.end,
       },
-    ],
-    where: {
-      startProvince: dataSearch.start,
-      endProvince: dataSearch.end,
-    },
-    limit: limit,
-    // offset: offset,
-  });
+      limit: limit,
+      // offset: offset,
+    });
+  }
+
 
   // let count = await models.ChuyenXe.findAndCountAll()
 
