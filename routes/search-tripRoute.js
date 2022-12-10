@@ -14,12 +14,8 @@ Router.get("/:id/thanh-toan/:accId/xacnhan", controller1.show);
 Router.get("/:id/thanh-toan/:accId/thongtinkhachhang", controller2.show);
 Router.get("/:id/thanh-toan/:accId/thanhtoan", controller3.show);
 
-let bodyParser = require("body-parser");
-let urlencodedParser = bodyParser.urlencoded({ extended: false });
-
 Router.post(
   "/:id/thanh-toan/:accId/thanhcong",
-  urlencodedParser,
   (req, res) => {
     let k = req.body.totalprice;
     let totalprice = k.slice(0, -4).replace(".", "");

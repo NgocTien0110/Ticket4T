@@ -32,14 +32,38 @@ app.set('view engine', 'hbs');
 
 app.use(express.static(__dirname + '/public')); //Mặc định web tĩnh ở trong thư mục public
 
+//Use Body Parser
+let bodyParser = require('body-parser')
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
+
+//Use Cookie-parser
+let cookieParser = require('cookie-parser')
+app.use(cookieParser());
+
+//Use Session
+let session = require('express-session');
+app.use(session({
+    cookie: { httpOnly: true, maxAge: 30 * 24 * 60 * 60 * 1000 },
+    secret: 'S3cret',
+    resave: false,
+    saveUninitialized: false
+}))
+
+app.use((req, res, next) => {
+    res.locals.fullName = req.session.user ? req.session.user.fullName : '';
+    res.locals.isLoggedIn = req.session.user ? true : false;
+    next();
+})
+
 app.use('/', require('./routes/indexRoute'))
 app.use("/search-trip", require("./routes/search-tripRoute"));
 app.use('/tai-khoan', require('./routes/taikhoanRoute'))
-app.use('/login', require('./routes/loginRoute'))
-app.use('/register', require('./routes/registerRoute'))
+app.use('/users', require('./routes/userRoute'))
 app.use('/reset-password', require('./routes/resetPasswordRoute'))
 app.use('/nha-xe', require('./routes/nhaxeRoute'))
 app.use('/about', require('./routes/aboutRoute'))
+
 
 
 app.get('/createTables', (req, res) => {

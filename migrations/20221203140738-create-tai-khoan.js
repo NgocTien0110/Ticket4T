@@ -30,8 +30,8 @@ module.exports = {
       imageAccount: {
         type: Sequelize.STRING
       },
-      accountType: {
-        type: Sequelize.STRING
+      isAdmin: {
+        type: Sequelize.BOOLEAN
       },
       createdAt: {
         allowNull: false,
