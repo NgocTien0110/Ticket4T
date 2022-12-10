@@ -6,19 +6,17 @@ const Sequelize = require("sequelize");
 controller.show = async (req, res) => {
   res.locals.searchStart = await models.ChuyenXe.findAll({
     attributes: [
-      // [Sequelize.fn("DISTINCT", Sequelize.col("startProvince")),"start"],
       "startProvince",
     ],
     group: ["startProvince"],
   });
-   res.locals.searchEnd = await models.ChuyenXe.findAll({
-     attributes: [
-       // [Sequelize.fn("DISTINCT", Sequelize.col("startProvince")),"start"],
-       "endProvince",
-     ],
-     group: ["endProvince"],
-   });
-  
+  res.locals.searchEnd = await models.ChuyenXe.findAll({
+    attributes: [
+      "endProvince",
+    ],
+    group: ["endProvince"],
+  });
+
   res.locals.chuyenxes = await models.ChuyenXe.findAll({
     limit: 6,
   });

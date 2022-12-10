@@ -25,6 +25,7 @@
 
     <!-- flatpickr -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 
 {{>header}}
@@ -37,9 +38,9 @@
                         <div class="border-item d-flex flex-row">
                             <i class=" fas fa-map-marker-alt fa-2x"></i>
                             <input class="form-control mx-2 fs-4 p-0 select-search" name="start"
-                                style="background: #dbe2ef;" list="datalistOptions" id="start"
+                                style="background: #dbe2ef;" list="datalistOptions1" id="start"
                                 placeholder="{{dataSearch.start}}" required>
-                            <datalist id="datalistOptions">
+                            <datalist id="datalistOptions1">
                                 {{#each chuyenxes}}
                                 <option value="{{ startProvince }}">
                                     {{/each}}
