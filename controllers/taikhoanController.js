@@ -1,8 +1,9 @@
 const controller = {} //Để {} vì là object có thể chứa thêm các hàm khác
 const models = require('../models')
 const userController = require('../controllers/userController');
+let bcrypt = require('bcryptjs');
 
-controller.updatePassword = async (req, res) => {
+controller.showUpdatePassword = async (req, res) => {
     let accId = req.session.user.id
 
     res.locals.infoAcc = await models.TaiKhoan.findOne({
@@ -11,6 +12,54 @@ controller.updatePassword = async (req, res) => {
         }
     })
     res.render('updatePassword')
+}
+
+
+controller.updatePassword = async (req, res) => {
+    let accId = req.session.user.id
+    let oldPassword = req.body.oldPassword;
+    let newPassword = req.body.newPassword;
+    let confirmNewPassword = req.body.confirmNewPassword;
+
+    console.log(req.body)
+
+    let infoAcc = await models.TaiKhoan.findOne({
+        where: {
+            id: accId
+        }
+    });
+
+    userController
+        .getUserByEmail(infoAcc.email)
+        .then(user => {
+            if (user) {
+                if (userController.comparePassword(oldPassword, user.password)) {
+                    if (!newPassword.localeCompare(confirmNewPassword)) { //Cập nhật mật khẩu
+                        var salt = bcrypt.genSaltSync(10);
+                        newPassword = bcrypt.hashSync(newPassword, salt);
+
+                        infoAcc.update({
+                            password: newPassword
+                        })
+                        return res.render('updatePassword', {
+                            message: `Đổi mật khẩu thành công`,
+                            type: 'alert-success', infoAcc
+                        })
+                    } else {
+                        return res.render('updatePassword', {
+                            message: `Mật khẩu mới với xác nhận mật khẩu mới không trùng nhau!!!`,
+                            type: 'alert-danger', infoAcc
+                        })
+                    }
+
+                } else { //Mật khẩu hiện tại nhập sai   
+                    return res.render('updatePassword', {
+                        message: `Mật khẩu hiện tại bạn nhập sai. Vui lòng nhập lại !!!`,
+                        type: 'alert-danger', infoAcc
+                    })
+                }
+            }
+        })
 }
 
 controller.showInfoAcc = async (req, res) => {
@@ -50,13 +99,15 @@ controller.updateInfoAcc = async (req, res) => {
                 if (!user.email.localeCompare(infoAcc.email)) {
                     infoAcc.update({
                         fullName: fullName,
-                        email: email,
                         phoneNum: phoneNum,
                         dob: dob,
                         isMale: isMale
                     })
 
-                    return res.render('infoTaiKhoan', { infoAcc })
+                    return res.render('infoTaiKhoan', {
+                        message: `Cập nhật thông tin tài khoản thành công`,
+                        type: 'alert-success', infoAcc
+                    })
 
                 } else {
                     return res.render('infoTaiKhoan', {
@@ -73,7 +124,10 @@ controller.updateInfoAcc = async (req, res) => {
                     isMale: isMale
                 })
 
-                return res.render('infoTaiKhoan', { infoAcc })
+                return res.render('infoTaiKhoan', {
+                    message: `Cập nhật thông tin tài khoản thành công`,
+                    type: 'alert-success', infoAcc
+                })
             }
         })
 
