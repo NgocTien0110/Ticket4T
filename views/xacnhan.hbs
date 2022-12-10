@@ -59,13 +59,13 @@
                             <div class="col-6 text-center">
                                 <div class="p-2 mt-3 d-inline-flex bg-footer rounded-2 color-3">
                                     <i class="fa-solid fa-calendar-days p-1"></i>
-                                    <span class="">{{date startTime}}</span>
+                                    <span class="">{{date startDate}}</span>
                                 </div>
                             </div>
                             <div class="col-6 text-center">
                                 <div class="p-2 mt-3 d-inline-flex bg-footer rounded-2 color-3">
                                     <i class="fa-solid fa-calendar-days p-1"></i>
-                                    <span>{{ date endTime }}</span>
+                                    <span>{{date endDate}}</span>
                                 </div>
                             </div>
                         </div>
@@ -75,10 +75,10 @@
                                 <span>{{startLocation}}</span>
                             </div>
                             <div class="col-2 text-center my-3 fs-5">
-                                <span>{{ totalTime startTime endTime }}</span>
+                                <span>{{totalTime startDate endDate startTime endTime}}</span>
                             </div>
                             <div class="col-4 text-center my-3 fs-5">
-                                <span>{{endLocation }}</span>
+                                <span>{{endLocation}}</span>
 
                             </div>
                         </div>
@@ -95,14 +95,14 @@
 
                         <div class="row">
                             <div class="col-6 text-center my-3 fs-5 ">
-                                <span>{{ time startTime }}</span>
+                                <span>{{startTime}}</span>
                             </div>
                             <div class="col-6 text-center my-3 fs-5">
-                                <span>{{ time endTime }}</span>
+                                <span>{{endTime}}</span>
                             </div>
                         </div>
                         <div class="text-center">
-                            <span>Vé chặng thuộc chuyến {{time startTime}} {{date startTime}}
+                            <span>Vé chặng thuộc chuyến {{startTime}}
                                 {{startProvince}} - {{endProvince}}</span>
                         </div>
                     </div>

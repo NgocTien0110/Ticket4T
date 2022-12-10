@@ -36,7 +36,6 @@ controller.show = async (req, res) => {
 
   res.locals.nhaxes = await models.NhaXe.findAll();
   res.locals.loaixes = await models.LoaiXe.findAll();
-  console.log(dataSearch);
   res.render("search-trip", { dataSearch });
 };
 

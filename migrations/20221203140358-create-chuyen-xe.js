@@ -21,11 +21,17 @@ module.exports = {
       endLocation: {
         type: Sequelize.STRING
       },
+      startDate: {
+        type: Sequelize.STRING
+      },
+      endDate: {
+        type: Sequelize.STRING
+      },
       startTime: {
-        type: Sequelize.DATE
+        type: Sequelize.STRING
       },
       endTime: {
-        type: Sequelize.DATE
+        type: Sequelize.STRING
       },
       locationImage: {
         type: Sequelize.STRING

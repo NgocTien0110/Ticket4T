@@ -43,57 +43,59 @@
 
         <div id="search-banner-trip"
             class="container  position-absolute bottom-0 start-50 translate-middle-x rounded-4 ">
-                <form action="/search-trip" method="get">
-            <div class="row">
-                <div class="col-lg-4 pb-0 p-4 ">
-                    <div class="border-item d-flex flex-row">
-                        <i class=" fas fa-map-marker-alt fa-2x"></i>
-                        <input class="form-control mx-2 fs-4 p-0 select-search" name="start" style="background: #dbe2ef;" 
-                        list="datalistOptions" id="start" placeholder="Điểm đi" required>
-                        <datalist id="datalistOptions">
-                            {{#each searchStart}}
-                            <option value="{{startProvince}}">
-                            {{/each}}
-                        </datalist>
+            <form action="/search-trip" method="get">
+                <div class="row">
+                    <div class="col-lg-4 pb-0 p-4 ">
+                        <div class="border-item d-flex flex-row">
+                            <i class=" fas fa-map-marker-alt fa-2x"></i>
+                            <input class="form-control mx-2 fs-4 p-0 select-search" name="start"
+                                style="background: #dbe2ef;" list="datalistOptions" id="start" placeholder="Điểm đi"
+                                required>
+                            <datalist id="datalistOptions">
+                                {{#each searchStart}}
+                                <option value="{{startProvince}}">
+                                    {{/each}}
+                            </datalist>
+                        </div>
+                        <hr style="margin-right:10px;">
                     </div>
-                    <hr style="margin-right:10px;">
-                </div>
 
-                <div class="col-lg-4 pb-0 p-4 ">
-                    <div class="border-item d-flex flex-row">
-                        <i class="fas fa-map-marker-alt fa-2x"></i>
-                        <input class="form-control mx-2 fs-4 p-0 select-search" name="end" style="background: #dbe2ef;" 
-                        list="datalistOptions" id="end" placeholder="Điểm đến" required>
-                        <datalist id="datalistOptions">
-                            {{#each searchEnd}}
-                            <option value="{{endProvince}}">
-                            {{/each}}
-                        </datalist>
+                    <div class="col-lg-4 pb-0 p-4 ">
+                        <div class="border-item d-flex flex-row">
+                            <i class="fas fa-map-marker-alt fa-2x"></i>
+                            <input class="form-control mx-2 fs-4 p-0 select-search" name="end"
+                                style="background: #dbe2ef;" list="datalistOptions" id="end" placeholder="Điểm đến"
+                                required>
+                            <datalist id="datalistOptions">
+                                {{#each searchEnd}}
+                                <option value="{{endProvince}}">
+                                    {{/each}}
+                            </datalist>
+                        </div>
+                        <hr style="margin-right:10px;">
                     </div>
-                    <hr style="margin-right:10px;">
-                </div>
 
-                <div class="col-lg-3 pb-0 p-4 ">
-                    <div class="border-item d-flex flex-row">
-                        <i class="fa-solid fa-calendar-days fa-2x"></i>
-                        <!-- datetimepicker -->
-                        <input type="date" name="date" class="form-control mx-2 fs-4 p-0 select-search" style="background: #dbe2ef;"
-                            id="datetimepicker" placeholder="Ngày đi" required>
+                    <div class="col-lg-3 pb-0 p-4 ">
+                        <div class="border-item d-flex flex-row">
+                            <i class="fa-solid fa-calendar-days fa-2x"></i>
+                            <!-- datetimepicker -->
+                            <input type="date" name="date" class="form-control mx-2 fs-4 p-0 select-search"
+                                style="background: #dbe2ef;" id="datetimepicker" placeholder="Ngày đi" required>
+                        </div>
+                        <hr style="margin-right:10px;">
                     </div>
-                    <hr style="margin-right:10px;">
-                </div>
 
-                <div class="col-lg-1 ">
-                    <div class=" mt-3 ">
+                    <div class="col-lg-1 ">
+                        <div class=" mt-3 ">
                             <button id="btn-search" type="submit" value="submit"
                                 class="col-12 btn btn-lg px-lg-4 px-md-5 my-sm-3 mt-md-0">
                                 <i class="fa-solid fa-magnifying-glass "></i>
                             </button>
-                        </a>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </form>
+            </form>
         </div>
     </section>
 
@@ -109,37 +111,40 @@
         <div id="popular-trip-content" class="">
             <!-- popular trip content -->
             <div class="row gx-5">
-          
-            {{#each chuyenxes}}
+
+                {{#each chuyenxes}}
                 <!-- item 1  -->
                 <div class="col-lg-6">
-                    <div class="card mb-3 popular-trip-item" >
-              <div class=" row g-0">
-                        <div class="col-md-4">
-                            <a href="/search-trip?start={{ startProvince }}&end={{ endProvince }}">
-                                <img src="{{locationImage}}" class="img-fluid rounded-2"
-                                    style="object-fit: cover; height: 9rem; width: 36rem;" alt="{{startProvince}} - {{endProvince}}">
-                            </a>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body pb-0 d-flex flex-column justify-content-between">
+                    <div class="card mb-3 popular-trip-item">
+                        <div class=" row g-0">
+                            <div class="col-md-4">
                                 <a href="/search-trip?start={{ startProvince }}&end={{ endProvince }}">
-                                    <h3 class="card-title py-2 text-3">{{startProvince}} - {{endProvince}}</h3>
+                                    <img src="{{locationImage}}" class="img-fluid rounded-2"
+                                        style="object-fit: cover; height: 9rem; width: 36rem;"
+                                        alt="{{startProvince}} - {{endProvince}}">
                                 </a>
-                                <!-- <p class="card-text">Sai Gon - Da Lat</p> -->
-                                <div class="d-flex flex-row justify-content-between align-item-end mt-3 trip-info">
-                                    {{!-- <p class="card-text fs-5"> <i class="fa-solid fa-location-dot"></i> 100 km</p> --}}
-                                    <p class="card-text fs-5"> <i class="fa-regular fa-clock"></i> {{{totalTime endTime startTime}}}</p>
-                                    <p class="card-text fs-4 text-4"><span>{{ formatPrice price }} đ</span></p>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body pb-0 d-flex flex-column justify-content-between">
+                                    <a href="/search-trip?start={{ startProvince }}&end={{ endProvince }}">
+                                        <h3 class="card-title py-2 text-3">{{startProvince}} - {{endProvince}}</h3>
+                                    </a>
+                                    <!-- <p class="card-text">Sai Gon - Da Lat</p> -->
+                                    <div class="d-flex flex-row justify-content-between align-item-end mt-3 trip-info">
+                                        {{!-- <p class="card-text fs-5"> <i class="fa-solid fa-location-dot"></i> 100 km
+                                        </p> --}}
+                                        <p class="card-text fs-5"> <i class="fa-regular fa-clock"></i> {{{totalTime
+                                            startDate endDate startTime endTime}}}</p>
+                                        <p class="card-text fs-4 text-4"><span>{{ formatPrice price }} đ</span></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>          
-        {{/each}}
+                {{/each}}
 
-        </div>
+            </div>
         </div>
     </section>
 
@@ -154,18 +159,17 @@
 
         <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
             <ol class="carousel-indicators">
-                <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true"
-                    aria-label=""></li>  
-                <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label=""></li>           
+                <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true" aria-label="">
+                </li>
+                <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label=""></li>
                 <li data-bs-target="#carouselId" data-bs-slide-to="2" aria-label=""></li>
                 <li data-bs-target="#carouselId" data-bs-slide-to="3" aria-label=""></li>
                 <li data-bs-target="#carouselId" data-bs-slide-to="4" aria-label=""></li>
             </ol>
             <div class="carousel-inner" role="listbox">
-                 {{#each nhaxes}}
+                {{#each nhaxes}}
                 <div class="carousel-item {{#if @first}} active {{/if}}">
-                    <img src="{{imageJours.[0]}}" height="500" class="w-100 d-block"
-                        alt="{{imageJours.[0]}}">
+                    <img src="{{imageJours.[0]}}" height="500" class="w-100 d-block" alt="{{imageJours.[0]}}">
                     <div class="carousel-caption d-none d-md-block">
                         <h3 class="fw-bold">Nhà xe {{name}}</h3>
                     </div>
@@ -321,7 +325,7 @@
             </div>
             {{/each}}
 
-           
+
         </div>
     </section>
 </main>

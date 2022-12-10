@@ -1,36 +1,18 @@
 let helper = {};
-helper.date = (time) => {
-    //dd/mm/yyyy
-    let date = new Date(time);
-    let day = date.getDate();
-    let month = date.getMonth() + 1;
-    let year = date.getFullYear();
-    if (day < 10) {
-        day = '0' + day;
-    }
-    if (month < 10) {
-        month = '0' + month;
-    }
-    return day + '/' + month + '/' + year;
-}
-helper.time = (time) => {
-    //hh:mm
-    let date = new Date(time);
-    let hour = date.getHours();
-    let minute = date.getMinutes();
-    if (hour < 10) {
-        hour = '0' + hour;
-    }
-    if (minute < 10) {
-        minute = '0' + minute;
-    }
-    return hour + ':' + minute;
+helper.date = (date) => {
+    return date.split('-').join('/');
 }
 // tổng thời gian
-helper.totalTime = (time1, time2) => {
-    let date1 = new Date(time1);
-    let date2 = new Date(time2);
-    var time = date2.getTime() - date1.getTime();
+helper.totalTime = (date1, date2, time1, time2) => {
+    //dd-mm-yyyy -> yyyy-mm-dd
+    date1 = date1.split('-').reverse().join('-');
+    date2 = date2.split('-').reverse().join('-');
+    // chuyển về dạng date
+    let dateTime1 = date1 + ' ' + time1;
+    let dateTime2 = date2 + ' ' + time2;
+    dateTime1 = new Date(dateTime1);
+    dateTime2 = new Date(dateTime2);
+    var time = dateTime2.getTime() - dateTime1.getTime();
     var hour = Math.abs(Math.floor(time / (1000 * 60 * 60)));
     var minute = Math.abs(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)));
 
@@ -117,30 +99,30 @@ helper.generateStarListFont2 = (stars) => {
     return str;
 }
 
-helper.simpleMath = (a, b, expression) =>{
+helper.simpleMath = (a, b, expression) => {
     let tmp1 = parseFloat(a);
     let tmp2 = parseFloat(b);
     let str = '';
 
-    if(expression == '+')
+    if (expression == '+')
         str = toString(a + b);
-    else if(expression == '-')
+    else if (expression == '-')
         str = toString(a - b);
     return str;
 }
 
-helper.createNextPreviousPagination = (id, page, star, totalPage, type) =>{
+helper.createNextPreviousPagination = (id, page, star, totalPage, type) => {
     let str = ''
     page = parseInt(page);
     totalPage = parseInt(totalPage);
 
-    if(page > totalPage || page < 1)
+    if (page > totalPage || page < 1)
         str = '<a class="page-link disabled" href="/nha-xe/';
     else
         str = '<a class="page-link" href="/nha-xe/';
     str += id + '?page=' + page + '&star=' + star + '#review-section">';
 
-    if(type == "previous")
+    if (type == "previous")
         str += 'Previous</a>';
     else
         str += 'Next</a>';
@@ -148,20 +130,20 @@ helper.createNextPreviousPagination = (id, page, star, totalPage, type) =>{
     return str;
 }
 
-helper.createReviewPagination = (id, current, star, totalPage) =>{
+helper.createReviewPagination = (id, current, star, totalPage) => {
     let top = '<li class="page-item\"><a class=\"page-link\" href=';
     let pickedTop = '<li class="page-item active\"><a class=\"page-link\" href=';
     let bot = '&star=' + star + '#review-section">';
-    let str = '';   
+    let str = '';
     let href = '"/nha-xe/' + id + '?page='
     current = parseInt(current);
 
-    for(i = 1; i <= totalPage; ++i){
-        if(current == i)
+    for (i = 1; i <= totalPage; ++i) {
+        if (current == i)
             str += pickedTop
         else
             str += top
-        str +=  href + i + bot + i + '</a></li>';
+        str += href + i + bot + i + '</a></li>';
     }
 
     return str;
