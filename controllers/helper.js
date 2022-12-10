@@ -1,5 +1,7 @@
 let helper = {};
 helper.date = (date) => {
+    if (typeof date == 'object')
+        return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
     return date.split('-').join('/');
 }
 // tổng thời gian
