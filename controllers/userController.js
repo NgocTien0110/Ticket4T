@@ -4,10 +4,12 @@ let User = models.TaiKhoan;
 let bcrypt = require('bcryptjs');
 
 controller.showFormLogin = (req, res) => {
+    req.session.returnURL = req.query.returnURL;
     res.render('login');
 }
 
 controller.showFormRegister = (req, res) => {
+    req.session.returnURL = req.query.returnURL;
     res.render('register');
 }
 
@@ -21,7 +23,11 @@ controller.login = (req, res, next) => {
             if (user) {
                 if (controller.comparePassword(password, user.password)) {
                     req.session.user = user;
-                    return res.redirect('/')
+                    if (req.session.returnURL) {
+                        return res.redirect(req.session.returnURL)
+                    } else {
+                        return res.redirect('/')
+                    }
                 }
                 else {
                     return res.render('login', {
@@ -93,7 +99,11 @@ controller.register = (req, res, next) => {
                 .createUser(user)
                 .then(user => {
                     req.session.user = user;
-                    return res.redirect('/');
+                    if (req.session.returnURL) {
+                        return res.redirect(req.session.returnURL)
+                    } else {
+                        return res.redirect('/')
+                    }
                 })
 
         })
@@ -101,6 +111,14 @@ controller.register = (req, res, next) => {
 
 controller.comparePassword = (password, hash) => {
     return bcrypt.compareSync(password, hash);
+}
+
+controller.isLoggedIn = (req, res, next) => {
+    if (req.session.user) {
+        next();
+    } else {
+        res.redirect(`/users/login?returnURL=${req.originalUrl}`)
+    }
 }
 
 module.exports = controller;
