@@ -4,6 +4,13 @@ helper.date = (date) => {
         return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
     return date.split('-').join('/');
 }
+
+helper.date1 = (date) => {
+    if (typeof date == 'object')
+        return date.getFullYear(); + '/' + (date.getMonth() + 1) + '/' + date.getDate()
+    return date.split('-').join('/');
+}
+
 // tổng thời gian
 helper.totalTime = (date1, date2, time1, time2) => {
     //dd-mm-yyyy -> yyyy-mm-dd

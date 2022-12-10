@@ -1,5 +1,6 @@
 const controller = {} //Để {} vì là object có thể chứa thêm các hàm khác
 const models = require('../models')
+const userController = require('../controllers/userController');
 
 controller.showInfoAcc = async (req, res) => {
     let accId = req.session.user.id
@@ -9,6 +10,62 @@ controller.showInfoAcc = async (req, res) => {
         }
     })
     res.render('infoTaiKhoan')
+}
+
+controller.updateInfoAcc = async (req, res) => {
+    let accId = req.session.user.id
+    let fullName = req.body.fullName;
+    let email = req.body.email;
+    let phoneNum = req.body.phoneNum;
+    let dob = req.body.dob;
+    let sex = req.body.sex;
+    let isMale;
+
+    if (!sex.localeCompare("Nam")) {
+        isMale = true;
+    } else {
+        isMale = false;
+    }
+    let infoAcc = await models.TaiKhoan.findOne({
+        where: {
+            id: accId
+        }
+    });
+
+    userController
+        .getUserByEmail(email)
+        .then(user => {
+            if (user) {
+                if (!user.email.localeCompare(infoAcc.email)) {
+                    infoAcc.update({
+                        fullName: fullName,
+                        email: email,
+                        phoneNum: phoneNum,
+                        dob: dob,
+                        isMale: isMale
+                    })
+
+                    return res.render('infoTaiKhoan', { infoAcc })
+
+                } else {
+                    return res.render('infoTaiKhoan', {
+                        message: `Email ${user.email} đã tồn tại, vui lòng nhập email khác để cập nhật!!!`,
+                        type: 'alert-danger', infoAcc
+                    })
+                }
+            } else {
+                infoAcc.update({
+                    fullName: fullName,
+                    email: email,
+                    phoneNum: phoneNum,
+                    dob: dob,
+                    isMale: isMale
+                })
+
+                return res.render('infoTaiKhoan', { infoAcc })
+            }
+        })
+
 }
 
 controller.showMyTicket = async (req, res) => {

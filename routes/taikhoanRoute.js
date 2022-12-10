@@ -4,6 +4,7 @@ const userController = require('../controllers/userController');
 const controller = require('../controllers/taikhoanController');
 
 Router.get("/thong-tin/", userController.isLoggedIn, controller.showInfoAcc);
+Router.post("/thong-tin/", userController.isLoggedIn, controller.updateInfoAcc);
 Router.get("/ve-cua-toi/", userController.isLoggedIn, controller.showMyTicket);
 Router.get("/ve-cua-toi/:ticketId", userController.isLoggedIn, controller.showDetailsTicket);
 

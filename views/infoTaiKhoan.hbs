@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/css/header_footer.css">
     <link rel="stylesheet" href="/css/infoTaiKhoan.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 
 {{>header}}
@@ -50,8 +51,7 @@
                     </div>
                 </div>
                 <div class="col-md-9 rightBody">
-
-                    <form action="/tai-khoan/thong-tin" class="formRightBody">
+                    <form action="/tai-khoan/thong-tin" class="formRightBody" method="POST">
                         <h2 id="thongtincn">Thông tin cá nhân</h2>
                         <div class="topRightBody">
                             <div class="leftOfTopRightBody">
@@ -59,47 +59,62 @@
                             </div>
                             <div class="rightOfTopRightBody">
                                 <div class="HoTenForm form-group">
-                                    <label for="HoTen">Họ và tên</label>
-                                    <input style="width:250px; height:30px" type="text" name="HoTen" id="HoTen"
+                                    <label for="fullName">Họ và tên</label>
+                                    <input style="width:250px; height:30px" type="text" name="fullName" id="fullName"
                                         value="{{fullName}}" class="form-control">
                                 </div>
                                 <div class="EmailForm form-group">
-                                    <label for="Email">Email</label>
-                                    <input style="width:284px; height:30px" type="email" name="Email" id="Email"
+                                    <label for="email">Email</label>
+                                    <input style="width:284px; height:30px" type="email" name="email" id="email"
                                         value="{{email}}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                                        class="form-control">
+                                        class="form-control" required>
                                 </div>
                                 <div class="SDTForm form-group">
-                                    <label for="SDT">Số điện thoại</label>
-                                    <input style="width:235px; height:30px" type="text" name="SDT" id="SDT"
+                                    <label for="phoneNum">Số điện thoại</label>
+                                    <input style="width:235px; height:30px" type="text" name="phoneNum" id="phoneNum"
                                         value="{{phoneNum}}" class="form-control">
                                 </div>
                             </div>
                         </div>
                         <div class="botRightBody text-center">
                             <div class="NgaySinhForm form-group">
-                                <label for="NgaySinh">Ngày Sinh</label>
-                                <input style="height:30px; width:380px" type="text" name="NgaySinh" id="NgaySinh"
-                                    value="{{date dob}}" class="form-control">
-                                <i class="fa-solid fa-calendar-days"></i>
+                                <label for="dob">Ngày Sinh</label>
+                                <input style="height:30px; width:380px" type="date" name="dob" id="date-picker"
+                                    value="{{dob}}" class="form-control">
                             </div>
                             <div class="GioiTinhForm form-group">
                                 <div class="leftGioiTinhForm">
-                                    <label for="GioiTinh">Giới tính</label>
+                                    <label for="sex">Giới tính</label>
                                 </div>
                                 <div class="rightGioiTinhForm form-group">
+                                    {{#if isMale}}
                                     <div class="radioNam">
-                                        <input type="radio" name="GioiTinh" id="Nam" value="Nam" checked>
+                                        <input type="radio" name="sex" id="Nam" value="Nam" checked>
                                         <label for="Nam">Nam</label>
                                     </div>
                                     <div class="radioNu">
-                                        <input type="radio" name="GioiTinh" id="Nu" value="Nu">
+                                        <input type="radio" name="sex" id="Nu" value="Nữ">
                                         <label for="Nu">Nữ</label>
                                     </div>
+                                    {{else}}
+                                    <div class="radioNam">
+                                        <input type="radio" name="sex" id="Nam" value="Nam">
+                                        <label for="Nam">Nam</label>
+                                    </div>
+                                    <div class="radioNu">
+                                        <input type="radio" name="sex" id="Nu" value="Nữ" checked>
+                                        <label for="Nu">Nữ</label>
+                                    </div>
+                                    {{/if}}
                                 </div>
                             </div>
                             <br>
                         </div>
+                        {{#if ../message}}
+                        <div class="form-group alert {{../type}}">
+                            <strong>{{../message}}</strong>
+                        </div>
+                        {{/if}}
                         <button class="btn btn-dark fw-bold">Lưu thay đổi</button>
                     </form>
                 </div>

@@ -11,6 +11,7 @@ app.engine('hbs', expressHbs.engine({
     partialsDir: __dirname + '/views/partials',
     helpers: {
         date: helper.date,
+        date1: helper.date1,
         time: helper.time,
         totalTime: helper.totalTime,
         totalPrice: helper.totalPrice,

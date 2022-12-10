@@ -32,6 +32,7 @@ Router.get('/calcStars', async (req, res) => {
 Router.get('/syncPassword', async (req, res) => {
     let bcrypt = require('bcryptjs');
     let users = await models.TaiKhoan.findAll({});
+
     users.forEach(user => {
         var salt = bcrypt.genSaltSync(10);
         user.password = bcrypt.hashSync(user.password, salt);

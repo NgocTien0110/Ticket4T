@@ -22,10 +22,10 @@ module.exports = {
         type: Sequelize.STRING
       },
       dob: {
-        type: Sequelize.DATE
-      },
-      sex: {
         type: Sequelize.STRING
+      },
+      isMale: {
+        type: Sequelize.BOOLEAN
       },
       imageAccount: {
         type: Sequelize.STRING
