@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="/css/header_footer.css">
   <link rel="stylesheet" href="/css/chi_tiet_nha_xe.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 {{>header}}
@@ -153,6 +154,47 @@
                       class="bi bi-star-fill">({{../fiveStar}})</i></a>
                 </div>
               </div>
+
+              {{#if ../isLoggedIn}}
+              <div class="card login-review">
+                <div class="card-body p-4">
+                  <div class="d-flex">
+                    <img class="img-fluid rounded-circle comment-avatar me-3" src="/images/avatar-nhom/nqt.jpg"
+                      alt="avatar" style="width: 60px; height: 60px; object-fit: cover;" />
+                    <div class="w-100">
+                      <h5>{{../fullName}}</h5>
+
+                      <div class="rate-star">
+                        <i class="bi bi-star" title="Bad" type="button"></i>
+                        <i class="bi bi-star " title="Poor" type="button"></i>
+                        <i class="bi bi-star " title="OK" type="button"></i>
+                        <i class="bi bi-star " title="Good" type="button"></i>
+                        <i class="bi bi-star " title="Excellent" type="button"></i>
+                      </div>
+
+                      <form>
+                        <div class="form-group">
+                          <textarea class="form-control" id="textAreaExample" rows="4"
+                            placeholder="Viết đánh giá"></textarea>
+                        </div>
+                        <div class="d-flex justify-content-end mt-3 review-box-button-group">
+                          <button type="button" class="btn btn-secondary send-button"
+                            style="margin-right: 10px">Gửi</button>
+                          <button type="button" class="btn btn-danger cancel-button">Hủy</button>
+                        </div>
+                      </form>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {{else}}
+              <div class="ps-5">
+                <h3>Chỉ có thành viên mới có thể thêm đánh giá. Vui lòng <a href="/users/login">đăng nhập</a> hoặc
+                  <a href="/users/register">đăng ký</a>.
+                </h3>
+              </div>
+              {{/if}}
 
               <div class="card comment-container ">
                 {{#each ../chiTietNhaXeReview}}

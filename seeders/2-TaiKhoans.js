@@ -22,7 +22,7 @@ module.exports = {
         , dob: '2002-06-04', sex: 'Nữ', imageAccount: '/images/accImageDefault-Nu.jpg', isAdmin: false
       },
       {
-        email: 'admin4T@gmail.com', password: 'admin4T', phoneNum: '0345678920', fullName: 'Nhóm 5'
+        email: 'admin@gmail.com', password: 'admin', phoneNum: '0345678920', fullName: 'Nhóm 5'
         , dob: '2002-03-04', sex: 'Nam', imageAccount: '/images/accImageDefault-Nam.jpg', isAdmin: true
       },
       {

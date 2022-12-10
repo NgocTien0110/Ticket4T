@@ -2,7 +2,7 @@ const controller = {} //Để {} vì là object có thể chứa thêm các hàm
 const models = require('../models')
 
 controller.showInfoAcc = async (req, res) => {
-    let accId = req.params.accId;
+    let accId = req.session.user.id
     res.locals.infoAcc = await models.TaiKhoan.findOne({
         where: {
             id: accId
@@ -12,7 +12,7 @@ controller.showInfoAcc = async (req, res) => {
 }
 
 controller.showMyTicket = async (req, res) => {
-    let accId = req.params.accId;
+    let accId = req.session.user.id
     let statusTicket = req.query.statusTicket || 'Vừa đặt'
 
     let statusVuaDat = true;
@@ -55,7 +55,7 @@ controller.showMyTicket = async (req, res) => {
 }
 
 controller.showDetailsTicket = async (req, res) => {
-    let accId = req.params.accId;
+    let accId = req.session.user.id
     let ticketId = req.params.ticketId;
 
     res.locals.infoAcc = await models.TaiKhoan.findOne({

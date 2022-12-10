@@ -2,7 +2,6 @@ const controller = {} //Để {} vì là object có thể chứa thêm các hàm
 let models = require('../models')
 let User = models.TaiKhoan;
 let bcrypt = require('bcryptjs');
-const { response } = require('express');
 
 controller.showFormLogin = (req, res) => {
     res.render('login');
@@ -15,22 +14,23 @@ controller.showFormRegister = (req, res) => {
 controller.login = (req, res, next) => {
     let email = req.body.email
     let password = req.body.password
+
     controller
         .getUserByEmail(email)
         .then(user => {
             if (user) {
                 if (controller.comparePassword(password, user.password)) {
                     req.session.user = user;
-                    res.redirect('/')
+                    return res.redirect('/')
                 }
                 else {
-                    res.render('login', {
+                    return res.render('login', {
                         message: 'Mật khẩu nhập không đúng!!!',
                         type: 'alert-danger'
                     })
                 }
             }
-            res.render('login', {
+            return res.render('login', {
                 message: 'Email không tồn tại!!!',
                 type: 'alert-danger'
             })
@@ -93,7 +93,7 @@ controller.register = (req, res, next) => {
                 .createUser(user)
                 .then(user => {
                     req.session.user = user;
-                    res.redirect('/');
+                    return res.redirect('/');
                 })
 
         })

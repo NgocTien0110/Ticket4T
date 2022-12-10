@@ -10,16 +10,16 @@ const controller3 = require("../controllers/thanhtoanController");
 
 Router.get("/:id", tripInfoController.show);
 Router.get("/", controller.show);
-Router.get("/:id/thanh-toan/:accId/xacnhan", controller1.show);
-Router.get("/:id/thanh-toan/:accId/thongtinkhachhang", controller2.show);
-Router.get("/:id/thanh-toan/:accId/thanhtoan", controller3.show);
+Router.get("/:id/thanh-toan/xacnhan", controller1.show);
+Router.get("/:id/thanh-toan/thongtinkhachhang", controller2.show);
+Router.get("/:id/thanh-toan/thanhtoan", controller3.show);
 
 Router.post(
-  "/:id/thanh-toan/:accId/thanhcong",
+  "/:id/thanh-toan/thanhcong",
   (req, res) => {
     let k = req.body.totalprice;
     let totalprice = k.slice(0, -4).replace(".", "");
-    let accId = req.params.accId;
+    let accId = req.session.user.id;
 
     models.VeDaDat.bulkCreate([
       {

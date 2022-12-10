@@ -13,16 +13,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/css/header_footer.css">
     <link rel="stylesheet" href="/css/myTicket.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
-{{>header_authen}}
+{{>header}}
 <main>
     <div class="bodyInfo">
         <div class="container">
             {{#with infoAcc}}
             <div class="row">
                 <div class="col-md-12">
-                    <p><a href="/">Trang chủ </a> > <a href="/tai-khoan/{{id}}/ve-cua-toi/">Vé của tôi</a>
+                    <p><a href="/">Trang chủ </a> > <a href="/tai-khoan/ve-cua-toi/">Vé của tôi</a>
                     </p>
                     <div class="infoAcc">
                         <img src="{{imageAccount}}" alt="AnhDaiDien" class="img-fluid" id="avatarInfoAcc">
@@ -36,12 +37,12 @@
             <div class="row bodyInfoDetail">
                 <div class="col-md-3 leftBody">
                     <div class="leftInfoAcc">
-                        <a class="linkLeftInfoAcc" href="/tai-khoan/{{id}}/thong-tin">
+                        <a class="linkLeftInfoAcc" href="/tai-khoan/thong-tin">
                             <i class="fa-solid fa-user"></i> Thông tin tài khoản
                         </a>
                     </div>
                     <div class="leftInfoAcc">
-                        <a href="/tai-khoan/{{id}}/ve-cua-toi" class="linkLeftInfoAcc">
+                        <a href="/tai-khoan/ve-cua-toi" class="linkLeftInfoAcc">
                             <span class="bi bi-ticket-detailed"></span>
                             Vé của tôi
                         </a>
@@ -51,20 +52,20 @@
                 <div class="col-md-9 rightBody">
                     <div class="topRightBody">
                         {{#if ../statusVuaDat}}
-                        <a id="statusMau" href="/tai-khoan/{{id}}/ve-cua-toi">Vừa đặt</a>
-                        <a href="/tai-khoan/{{id}}/ve-cua-toi?statusTicket=Đã thanh toán">Đã thanh
+                        <a id="statusMau" href="/tai-khoan/ve-cua-toi">Vừa đặt</a>
+                        <a href="/tai-khoan/ve-cua-toi?statusTicket=Đã thanh toán">Đã thanh
                             toán</a>
-                        <a href="/tai-khoan/{{id}}/ve-cua-toi?statusTicket=Đã hủy">Đã hủy</a>
+                        <a href="/tai-khoan/ve-cua-toi?statusTicket=Đã hủy">Đã hủy</a>
                         {{else if ../statusThanhToan}}
                         <a href="/tai-khoan/{{id}}/ve-cua-toi">Vừa đặt</a>
-                        <a id="statusMau" href="/tai-khoan/{{id}}/ve-cua-toi?statusTicket=Đã thanh toán">Đã thanh
+                        <a id="statusMau" href="/tai-khoan/ve-cua-toi?statusTicket=Đã thanh toán">Đã thanh
                             toán</a>
-                        <a href="/tai-khoan/{{id}}/ve-cua-toi?statusTicket=Đã hủy">Đã hủy</a>
+                        <a href="/tai-khoan/ve-cua-toi?statusTicket=Đã hủy">Đã hủy</a>
                         {{else}}
-                        <a href="/tai-khoan/{{id}}/ve-cua-toi">Vừa đặt</a>
-                        <a href="/tai-khoan/{{id}}/ve-cua-toi?statusTicket=Đã thanh toán">Đã thanh
+                        <a href="/tai-khoan/ve-cua-toi">Vừa đặt</a>
+                        <a href="/tai-khoan/ve-cua-toi?statusTicket=Đã thanh toán">Đã thanh
                             toán</a>
-                        <a id="statusMau" href="/tai-khoan/{{id}}/ve-cua-toi?statusTicket=Đã hủy">Đã hủy</a>
+                        <a id="statusMau" href="/tai-khoan/ve-cua-toi?statusTicket=Đã hủy">Đã hủy</a>
                         {{/if}}
                     </div>
                     {{/with}}
@@ -89,7 +90,7 @@
                                 <div class="rightInFoDetail">
                                     <div class="ngayDiChuyenDi"><i class="fa-solid fa-calendar-days"></i>
                                         {{date ChuyenXe.startTime}}</div>
-                                    <a href="/tai-khoan/{{../id}}/ve-cua-toi/{{id}}" class="btn btn-dark">Xem
+                                    <a href="/tai-khoan/ve-cua-toi/{{id}}" class="btn btn-dark">Xem
                                         chi tiết</a>
                                 </div>
                             </div>

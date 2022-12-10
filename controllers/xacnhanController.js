@@ -3,7 +3,7 @@ const models = require('../models')
 controller.show = async (req, res) => {
     let id = req.params['id'];
 
-    let accId = req.params.accId;
+    let accId = req.session.user.id
     res.locals.taikhoan = await models.TaiKhoan.findOne({
         where: {
             id: accId
