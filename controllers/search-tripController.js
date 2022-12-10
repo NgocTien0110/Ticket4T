@@ -6,6 +6,18 @@ controller.show = async (req, res) => {
   // let page = req.query.page || 1;
   let limit = 3;
   // let offset = (page - 1) * limit;
+  res.locals.searchStart = await models.ChuyenXe.findAll({
+    attributes: [
+      "startProvince",
+    ],
+    group: ["startProvince"],
+  });
+  res.locals.searchEnd = await models.ChuyenXe.findAll({
+    attributes: [
+      "endProvince",
+    ],
+    group: ["endProvince"],
+  });
   if (dataSearch.date) {
     let date = dataSearch.date.trim();
     res.locals.chuyenxes = await models.ChuyenXe.findAll({

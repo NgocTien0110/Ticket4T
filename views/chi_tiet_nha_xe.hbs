@@ -162,23 +162,27 @@
                     <img class="img-fluid rounded-circle comment-avatar me-3" src="/images/avatar-nhom/nqt.jpg"
                       alt="avatar" style="width: 60px; height: 60px; object-fit: cover;" />
                     <div class="w-100">
-                      <h5>{{../fullName}}</h5>
+                      <h5 class="name">{{../fullName}}</h5>
+                      <form action="/nha-xe/{{id}}" method="POST" id="rating">
+                        <div class="stars">
+                          <input class="star star-5" id="star-5" type="radio" name="star" value="5" />
+                          <label class="star star-5" for="star-5"></label>
+                          <input class="star star-4" id="star-4" type="radio" name="star" value="4" />
+                          <label class="star star-4" for="star-4"></label>
+                          <input class="star star-3" id="star-3" type="radio" name="star" value="3" />
+                          <label class="star star-3" for="star-3"></label>
+                          <input class="star star-2" id="star-2" type="radio" name="star" value="2" />
+                          <label class="star star-2" for="star-2"></label>
+                          <input class="star star-1" id="star-1" type="radio" name="star" value="1" />
+                          <label class="star star-1" for="star-1"></label>
+                        </div>
 
-                      <div class="rate-star">
-                        <i class="bi bi-star" title="Bad" type="button"></i>
-                        <i class="bi bi-star " title="Poor" type="button"></i>
-                        <i class="bi bi-star " title="OK" type="button"></i>
-                        <i class="bi bi-star " title="Good" type="button"></i>
-                        <i class="bi bi-star " title="Excellent" type="button"></i>
-                      </div>
-
-                      <form>
                         <div class="form-group">
-                          <textarea class="form-control" id="textAreaExample" rows="4"
+                          <textarea class="form-control" id="textAreaExample" rows="4" name="cmt" form="rating"
                             placeholder="Viết đánh giá"></textarea>
                         </div>
                         <div class="d-flex justify-content-end mt-3 review-box-button-group">
-                          <button type="button" class="btn btn-secondary send-button"
+                          <button type="submit" class="btn btn-secondary send-button"
                             style="margin-right: 10px">Gửi</button>
                           <button type="button" class="btn btn-danger cancel-button">Hủy</button>
                         </div>
