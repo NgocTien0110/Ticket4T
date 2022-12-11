@@ -2,6 +2,10 @@ const controller = {} //Để {} vì là object có thể chứa thêm các hàm
 const models = require('../models');
 const { Op } = require("sequelize");
 
+function calcSum(total, item) {
+    return total + item.stars;
+}
+
 controller.show = async (req, res) => {
     res.locals.carCom = await models.NhaXe.findAll({
         include: [{
@@ -9,6 +13,26 @@ controller.show = async (req, res) => {
             group: 'carId'
         }]
     });
+
+
+    let nhaxeTable = await models.NhaXe.findAll({
+        include: [{ model: models.Review }]
+    });
+    nhaxeTable.forEach(nhaxe => {
+        let stars = 0;
+
+        let numOfComment = nhaxe.Reviews.length
+        if (numOfComment > 0) {
+            stars = nhaxe.Reviews.reduce(calcSum, 0) / numOfComment;
+
+            nhaxe.Reviews.reduce(calcSum, 0);
+        }
+        nhaxe.stars = stars;
+        nhaxe.update({
+            stars: stars.toFixed(1)
+        }, { where: { id: nhaxe.id } })
+    });
+    // res.json(nhaxeTable);
 
     res.render('nhaxe');
 }
@@ -108,7 +132,7 @@ controller.showDetails = async (req, res) => {
     // if(page < totalPage)
     nextPage = page + 1;
 
-    console.log({ page, nextPage, totalPage, reviewStarFilter })
+    // console.log({ page, nextPage, totalPage, reviewStarFilter })
 
     res.locals.chiTietNhaXeReview = rows;
     res.locals.reviewPagination = { page, previousPage, nextPage, reviewStarFilter, totalPage, buttonType }
