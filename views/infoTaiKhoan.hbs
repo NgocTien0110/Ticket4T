@@ -55,7 +55,11 @@
                         <h2 id="thongtincn">Thông tin cá nhân</h2>
                         <div class="topRightBody">
                             <div class="leftOfTopRightBody">
-                                <img src="{{imageAccount}}" alt="AnhDaiDien" class="img-fluid">
+                                <img src="{{imageAccount}}" alt="AnhDaiDien" class="img-fluid" id="avatarInfo">
+                                <div class="changeAvatar">
+                                    <label for="avatar"><i class="bi bi-camera-fill"></i></label>
+                                    <input type="file" name="avatar" id="avatar" style="display: none">
+                                </div>
                             </div>
                             <div class="rightOfTopRightBody">
                                 <div class="HoTenForm form-group">

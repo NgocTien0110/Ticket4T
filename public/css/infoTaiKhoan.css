@@ -1,6 +1,7 @@
 body {
     font-family: 'Roboto', sans-serif;
 }
+
 .bodyInfo {
     background-color: var(--color--quaternary);
     padding-top: 10px;
@@ -33,7 +34,7 @@ a:hover {
 }
 
 .infoNameAcc {
-    float:left;
+    float: left;
 }
 
 .bodyInfoDetail {
@@ -45,6 +46,7 @@ a:hover {
 .leftBody {
     font-size: large;
 }
+
 .leftBody div.leftInfoAcc:first-child {
     background-color: var(--color--tertiary);
 }
@@ -95,7 +97,8 @@ a:hover {
     flex-basis: 25%;
 }
 
-.rightOfTopRightBody, .botRightBody {
+.rightOfTopRightBody,
+.botRightBody {
     flex-basis: 75%;
     font-size: larger;
 }
@@ -106,12 +109,14 @@ a:hover {
 
 .fa-calendar-days {
     position: absolute;
-    top:5px;
+    top: 5px;
     right: 7px;
     color: var(--color--secondary);
 }
 
-.HoTenForm, .EmailForm, .NgaySinhForm{
+.HoTenForm,
+.EmailForm,
+.NgaySinhForm {
     display: flex;
     gap: 25px;
 }
@@ -147,21 +152,55 @@ button.btn.btn-dark:hover {
     border-color: var(--color--secondary);
 }
 
-.GioiTinhForm, .EmailForm, .SDTForm {
+.GioiTinhForm,
+.EmailForm,
+.SDTForm {
     margin-top: 25px;
 }
 
-#changePassword, #changeInfoAcc {
+#changePassword,
+#changeInfoAcc {
     color: var(--color--secondary);
     display: flex;
     justify-content: end;
 }
 
-#changePassword:hover, #changeInfoAcc:hover {
+#changePassword:hover,
+#changeInfoAcc:hover {
     color: #1c7ef7;
 }
 
 #changeInfoAcc {
     margin-top: 10px;
     font-size: medium;
+}
+
+.leftOfTopRightBody {
+    position: relative;
+}
+
+.changeAvatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    background-color: var(--color--tertiary);
+    color: var(--color--secondary);
+    border: none;
+    border-radius: 50%;
+    top: 65%;
+    right: 12px;
+    cursor: pointer;
+}
+
+.bi-camera-fill {
+    cursor: pointer;
+}
+
+#avatarInfo,
+#avatarInfoAcc {
+    object-fit: cover;
 }
