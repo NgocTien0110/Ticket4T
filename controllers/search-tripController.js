@@ -79,7 +79,16 @@ controller.show = async (req, res) => {
     include: [models.ChuyenXe],
   });
 
-  console.log(res.locals.chuyenxes);
+  res.locals.searchStart = await models.ChuyenXe.findAll({
+    attributes: ["startProvince"],
+    group: ["startProvince"],
+  });
+  res.locals.searchEnd = await models.ChuyenXe.findAll({
+    attributes: ["endProvince"],
+    group: ["endProvince"],
+  });
+
+  // console.log(res.locals.chuyenxes);
 
   res.render("search-trip", { dataSearch });
 };
