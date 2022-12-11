@@ -18,7 +18,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
 
-
     <!-- Custom CSS -->
     <link type="text/css" rel="stylesheet" href="/css/search-trip.css">
     <link type="text/css" rel="stylesheet" href="/css/header_footer.css">
@@ -26,12 +25,21 @@
 
     <!-- flatpickr -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+
+    <!-- jQuery  -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+
 </head>
 
 {{>header}}
 <main>
     <section class="container">
+        {{!-- search trip  --}}
         <div id="search-banner-trip " class="container rounded-4 bg-color-2 mt-3">
             <form action="/search-trip" method="get">
                 <div class="row">
@@ -39,12 +47,12 @@
                         <div class="border-item d-flex flex-row">
                             <i class=" fas fa-map-marker-alt fa-2x"></i>
                             <input class="form-control mx-2 fs-4 p-0 select-search" name="start"
-                                style="background: #dbe2ef;" list="datalistOptions1" id="start" placeholder="Điểm đi"
-                                required>
-                            <datalist id="datalistOptions1">
-                                {{#each searchStart}}
-                                <option value="{{startProvince}}">
-                                    {{/each}}
+                                style="background: #dbe2ef;" list="datalistOptions" id="start"
+                                placeholder="{{dataSearch.start}}" required>
+                            <datalist id="datalistOptions">
+                                {{#each chuyenxes}}
+                                    <option value="{{ startProvince }}">
+                                {{/each}}
                             </datalist>
                         </div>
                         <hr style="margin-right:10px;">
@@ -54,16 +62,17 @@
                         <div class="border-item d-flex flex-row">
                             <i class="fas fa-map-marker-alt fa-2x"></i>
                             <input class="form-control mx-2 fs-4 p-0 select-search" name="end"
-                                style="background: #dbe2ef;" list="datalistOptions" id="end" placeholder="Điểm đến"
-                                required>
+                                style="background: #dbe2ef;" list="datalistOptions" id="end"
+                                placeholder="{{dataSearch.end}}" required>
                             <datalist id="datalistOptions">
-                                {{#each searchEnd}}
-                                <option value="{{endProvince}}">
-                                    {{/each}}
+                                {{#each chuyenxes}}
+                                    <option value="{{ endProvince }}">
+                                {{/each}}
                             </datalist>
                         </div>
                         <hr style="margin-right:10px;">
                     </div>
+
                     <div class="col-lg-3 pb-0 p-4 ">
                         <div class="border-item d-flex flex-row">
                             <i class="fa-solid fa-calendar-days fa-2x"></i>
@@ -93,37 +102,47 @@
 
     <section class="container">
         <div class="row py-5">
+            {{!-- lọc chuyến xe  --}}
             <div class="col-lg-3 ">
                 <div class=" d-flex justify-content-between">
                     <h4 class="">
                         Bộ lọc
                     </h4>
-                    <a href="#" class="align-self-center"> Xóa lọc</a>
+                    <a href="/search-trip" class="align-self-center"> Xóa lọc</a>
                 </div>
 
                 <div class="border mt-1 p-3">
                     <form action="/search-trip" method="get">
                         <!-- giá vé  -->
                         <div class="mb-4">
-                            <label for="customRange3" class="form-label">Giá vé</label>
-                            <input type="range" class="form-range " min="0" max="2000000" step="100000"
-                                id="customRange3">
+                            {{!-- <label for="giave" class="form-label">Giá vé</label> --}}
+                            {{!-- <input type="range" class="form-range " min="0" max="2000000" step="100000"
+                                id="giave">
                             <div class="d-flex justify-content-between">
                                 <p>0đ</p>
-                                <p>2,000,000đ</p>
-                            </div>
+                                <p id="maxprice">2,000,000đ</p>
+                            </div> --}}
+                            <p>
+                                <label for="amount">Giá vé:</label>
+                                <input type="text" id="amount" readonly
+                                    style="border:0; color:#3f72af; font-weight:bold;">
+                            </p>
+
+                            <div id="slider-range" onclick="addPrice()"></div>
                         </div>
 
                         <!-- nhà xe  -->
-                        <div class="mb-4">
+                        <div class="mb-4 mt-3">
                             <label for="" class="mb-2">Nhà xe</label>
                             {{#each nhaxes}}
-                            <div class="form-check">
-                                <input class="form-check-input me-3" type="checkbox" value="" id="nha-xe-1">
-                                <label class="form-check-label" for="nha-xe-1">
-                                    Xe {{name}}
-                                </label>
-                            </div>
+                                <div class="form-check">
+                                    <input class="form-check-input me-3 " name="nhaxe" type="checkbox" value="{{id}}"
+                                        id="nhaxe{{id}}" onclick="addParam('nhaxe', {{id}})">
+                                    <label class="form-check-label " for="nhaxe{{id}}">
+                                        Xe {{name}}
+                                        {{!-- ({{ ChuyenXes.length }}) --}}
+                                    </label>
+                                </div>
                             {{/each}}
                         </div>
 
@@ -131,140 +150,285 @@
                         <div class="mb-4">
                             <label for="" class="mb-2">Loại xe</label>
                             {{#each loaixes}}
-                            <div class="form-check">
-                                <input class="form-check-input me-3" type="checkbox" value="" id="nha-xe-1">
-                                <label class="form-check-label" for="nha-xe-1">
-                                    {{name}}
-                                </label>
-                            </div>
+                                <div class="form-check">
+                                    <input class="form-check-input me-3" name="loaixe" type="checkbox" value="{{id}}"
+                                        id="loaixe{{id}}" onclick="addParam('loaixe', {{id}})">
+                                    <label class="form-check-label" for="loaixe{{id}}">
+                                        {{name}}
+                                        {{!-- ({{ ChuyenXes.length }}) --}}
+                                    </label>
+                                </div>
                             {{/each}}
                         </div>
 
-
-
+                        {{!-- <button type="submit" value="submit" onclick="selectParam()">Loc</button> --}}
                     </form>
                 </div>
             </div>
 
+            {{!-- sort chuyến xe  --}}
             <div class="col-lg-9 ">
-                <div class="">
-                    <div class=" d-flex justify-content-between my-3">
-                        <h4 class="">
-                            Sắp xếp theo:
-                        </h4>
-                        <p class="fs-5 py-1 px-2 rounded-2 btn btn-info bg-color-3 text-white">Giờ đi sớm nhất</p>
-                        <a href="#" class="text-black">
-                            <p class="fs-5">Giờ đi muộn nhất</p>
-                        </a>
-                        <a href="#" class="text-black">
-                            <p class="fs-5">Giá tăng dần</p>
-                        </a>
-                        <a href="#" class="text-black">
-                            <p class="fs-5">Giá giảm dần</p>
-                        </a>
+                <form action="/search-trip" method="get">
+                    <div class="btn-group " id="sort-trip" role="group" aria-label="Basic radio toggle button group">
+                        <h4 class="me-3"> Sắp xếp theo: </h4>
+                        <input type="radio" class="btn-check " name="sortTrip" id="sort-earliest" autocomplete="off"
+                            value="sort-earliest" onclick="addSort('earliest')">
+                        <label class="btn btn-outline-primary mx-2 rounded-pill" for="sort-earliest">Giờ đi sớm
+                            nhất</label>
+
+                        <input type="radio" class="btn-check" name="sortTrip" id="sort-latest" autocomplete="off"
+                            value="sort-latest" onclick="addSort('latest')">
+                        <label class="btn btn-outline-primary mx-2 rounded-pill" for="sort-latest">Giờ đi muộn
+                            nhất</label>
+
+                        <input type="radio" class="btn-check" name="sortTrip" id="sort-cheapest" autocomplete="off"
+                            value="sort-cheapest" onclick="addSort('cheapest')">
+                        <label class="btn btn-outline-primary mx-2 rounded-pill" for="sort-cheapest">Giá tăng
+                            dần</label>
+
+                        <input type="radio" class="btn-check" name="sortTrip" id="sort-expensive" autocomplete="off"
+                            value="sort-expensive" onclick="addSort('expensive')">
+                        <label class="btn btn-outline-primary mx-2 rounded-pill" for="sort-expensive">Giá giảm
+                            dần</label>
                     </div>
-                    <hr>
-                </div>
-                {{#if chuyenxes.length}}
+                </form>
+
+
                 <div class="my-3">
                     {{#each chuyenxes}}
-                    <div class="card mb-3">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <a href="/search-trip/{{id}}">
-                                    <img src="{{ NhaXe.imageCarCom }}" class="img-fluid rounded-2"
-                                        style="max-width:auto; height:100%;" alt="tuyen xe 1">
-                                </a>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body pb-0 d-flex flex-column justify-content-between">
-                                    <div class="d-flex justify-content-between">
+                        <div class="card mb-3">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <a href="/search-trip/{{id}}">
+                                        <img src="{{ NhaXe.imageCarCom }}" class="img-fluid rounded-2"
+                                            style="max-width:auto; height:100%;" alt="tuyen xe 1">
+                                    </a>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body pb-0 d-flex flex-column justify-content-between">
+                                        <div class="d-flex justify-content-between">
+                                            <div class="d-flex">
+                                                <a href="/search-trip/{{id}}">
+                                                    <h4 class="card-title  text-3">{{NhaXe.name}}</h4>
+                                                </a>
+                                                <div class="p-2 ms-2 bg-color-2 rounded-2">
+                                                    {{!-- <span><i class="fa-solid fa-star text-warning"></i>4.8 (1800)</span> --}}
+                                                    <span><i class="fa-solid fa-star text-warning"></i>{{ NhaXe.stars }}
+                                                        ({{ NhaXe.Reviews.length }})</span>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex ">
+                                                <h4 class="color-3 fw-bold">{{ formatPrice price }} đ</h4>
+                                            </div>
+                                        </div>
                                         <div class="d-flex">
-                                            <a href="/search-trip/{{id}}">
-                                                <h4 class="card-title  text-3">{{NhaXe.name}}</h4>
-                                            </a>
-                                            <div class="p-2 ms-2 bg-color-2 rounded-2">
-                                                {{!-- <span><i class="fa-solid fa-star text-warning"></i>4.8
-                                                    (1800)</span> --}}
-                                                <span><i class="fa-solid fa-star text-warning"></i>{{ NhaXe.stars }} ({{
-                                                    NhaXe.Reviews.length }})</span>
-                                            </div>
+                                            <p class="fw-light">{{ LoaiXe.name }} {{totalNumSeats}} chỗ </p>
                                         </div>
-                                        <div class="d-flex ">
-                                            <h4 class="color-3 fw-bold">{{ formatPrice price }} đ</h4>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex">
-                                        <p class="fw-light">{{ LoaiXe.name }} {{totalNumSeats}} chỗ </p>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-12 d-flex flex-column">
-                                            <div class="d-inline-flex justify-content-between">
+                                        <div class="row">
+                                            <div class="col-12 d-flex flex-column">
+                                                <div class="d-inline-flex justify-content-between">
+                                                    <div class="d-inline-flex">
+                                                        <i class="fa-solid fa-location-dot me-3"></i>
+                                                        <p class="me-5 fw-bold">{{startTime}}</p>
+                                                        <p> {{ startLocation }}</p>
+                                                    </div>
+                                                    <a href="/search-trip/{{id}}/thanh-toan/xacnhan"> <button
+                                                            class="p-1 px-4 bg-color-3 text-white rounded-2 border-0">Đặt
+                                                            vé</button></a>
+                                                </div>
                                                 <div class="d-inline-flex">
-                                                    <i class="fa-solid fa-location-dot me-3"></i>
-                                                    <p class="me-5 fw-bold">{{startTime}}</p>
-                                                    <p> {{ startLocation }}</p>
-                                                </div>
-                                                <a href="/search-trip/{{id}}/thanh-toan/xacnhan"> <button
-                                                        class="p-1 px-4 bg-color-3 text-white rounded-2 border-0">Đặt
-                                                        vé</button></a>
-                                            </div>
-                                            <div class="d-inline-flex">
-                                                <p class="ms-4">{{ totalTime startDate endDate startTime endTime }}</p>
+                                                    <p class="ms-4">{{ totalTime startTime endTime }}</p>
 
-                                            </div>
-                                            <div class="d-inline-flex justify-content-between">
-                                                <div class="d-flex">
-                                                    <i class="fa-solid fa-location-dot me-3"></i>
-                                                    <p class="me-5 fw-bold">{{endTime}}</p>
-                                                    <p> {{ endLocation }}</p>
                                                 </div>
-                                                <a href="/search-trip/{{id}}">Xem thông tin chi tiết</a>
+                                                <div class="d-inline-flex justify-content-between">
+                                                    <div class="d-flex">
+                                                        <i class="fa-solid fa-location-dot me-3"></i>
+                                                        <p class="me-5 fw-bold">{{endTime}}</p>
+                                                        <p> {{ endLocation }}</p>
+                                                    </div>
+                                                    <a href="/search-trip/{{id}}">Xem thông tin chi tiết</a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     {{/each}}
                 </div>
-                {{else}}
-                <div class="row">
-                    <div class="col-4"></div>
-                    <div class="col-4 text-center">
-                        <img src="/images/image-15.png" alt="KhongCoChuyenXe">
-                        <h3>Không có chuyến xe này</h3>
-                    </div>
-                    <div class="col-4"></div>
-                </div>
-                {{/if}}
-                {{#if chuyenxes.length}}
-                <nav aria-label="Page navigation">
-                    {{!-- {{{ createPagination pagination paginationClass="pagination justify-content-center"
-                    leftText="&laquo;" rightText="&raquo;" }}} --}}
-                    <ul class="pagination  justify-content-center  ">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                {{/if}}
-
             </div>
+
+            <nav aria-label="Page navigation" id="pagi">
+                {{{ createPagination pagination paginationClass="pagination justify-content-center" leftText="&laquo;" rightText="&raquo;" }}}
+                {{!-- <ul class="pagination  justify-content-center  ">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul> --}}
+            </nav>
+
+        </div>
         </div>
 
     </section>
+
+
+    <script>
+        let urlParams = new URLSearchParams(location.search);
+        console.log(urlParams.toString());
+        let params = {
+            nhaxe: [],
+            loaixe: [],
+            sort: null,
+            min: 0,
+            max: 2000000,
+        }
+
+        for (let key in params) {
+            if (urlParams.has(key)) {
+                params[key] = urlParams.get(key).split(',');
+                console.log(key);
+                console.log(params[key]);
+            }
+        }
+
+        function addParam(key, value) {
+            params[key].push(value);
+            urlParams.delete(key);
+            if (params[key].length > 0) {
+                urlParams.append(key, params[key]);
+            }
+            selectParam();
+        }
+
+        function addSort(value) {
+            console.log(value);
+            params.sort = value;
+            urlParams.delete('sort');
+            if (params.sort) {
+                urlParams.append('sort', params.sort);
+            }
+            selectParam();
+        }
+
+        function addPrice() {
+            let price = $("#amount").val();
+            let min = price.split(' ')[0].split('(')[1];
+            let max = price.split(' ')[2]
+            params.min = min;
+            params.max = max;
+            urlParams.delete('min');
+            urlParams.delete('max');
+            urlParams.append('min', params.min);
+            urlParams.append('max', params.max);
+
+            selectParam();
+            console.log(min);
+
+            console.log(max);
+
+        }
+
+
+
+
+        for (let nx in params.nhaxe) {
+            let control = $(`#nhaxe${params.nhaxe[nx]}`);
+            if (control) {
+                $(control).prop('checked', true);
+                $(control).prop('disabled', true);
+            }
+        }
+
+        for (let lx in params.loaixe) {
+            let control = $(`#loaixe${params.loaixe[lx]}`);
+            if (control) {
+                $(control).prop('checked', true);
+                $(control).prop('disabled', true);
+            }
+        }
+
+        let tripSort = $(`#sort-${params.sort}`);
+        if (tripSort) {
+            $(tripSort).prop('checked', true);
+        }
+
+        function selectParam() {
+            let url = `/search-trip?${urlParams.toString()}`;
+            location.href = url;
+        }
+
+
+        let pagi = document.getElementById('pagi');
+        pagi.querySelectorAll('li').forEach(item => {
+            item.classList.add('page-item');
+        })
+        pagi.querySelectorAll('a').forEach(item => {
+            item.classList.add('page-link');
+        })
+
+
+
+        $(function () {
+            $("#slider-range").slider({
+                range: true,
+                min: 0,
+                max: 2000000,
+                step: 50000,
+                values: [0, 2000000],
+                slide: function (event, ui) {
+                    $("#amount").val("(" + ui.values[0] + " - " + ui.values[1] + " VND" + " )");
+                }
+            });
+            if (params.min && params.max) {
+                $("#slider-range").slider("values", [params.min, params.max]);
+            }
+            else {
+                $("#slider-range").slider("values", [0, 2000000]);
+            }
+            $("#amount").val("(" + $("#slider-range").slider("values", 0) +
+                " - " + $("#slider-range").slider("values", 1) + " VND" + " )");
+        });
+
+
+
+    </script>
+
+
+    {{!-- $(function () {
+                    $("#slider-range").slider({
+                        range: true,
+                        min: 0,
+                        max: 2000000,
+                        step: 50000,
+                        values: [0, 2000000],
+                        slide: function (event, ui) {
+                            $("#amount").val("(" + ui.values[0] + " - " + ui.values[1] + " VND" + " )");
+                        }
+                    });
+                    
+                    $("#amount").val("(" + $("#slider-range").slider("values", 0) +
+                        " - " + $("#slider-range").slider("values", 1) + " VND" + " )");
+                }); --}}
+
+
+    {{!-- price = price.replace('(', '');
+            price = price.replace(')', '');
+            price = price.replace('VND', '');
+            price = price.replace(' ', '');
+            price = price.split('-');
+            urlParams.delete('price');
+            urlParams.append('price', price);--}}
 </main>
 {{>footer}}
