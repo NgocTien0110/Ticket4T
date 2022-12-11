@@ -51,14 +51,15 @@
                     </div>
                 </div>
                 <div class="col-md-9 rightBody">
-                    <form action="/tai-khoan/thong-tin" class="formRightBody" method="POST">
+                    <form action="/tai-khoan/thong-tin" class="formRightBody" method="POST"
+                        enctype="multipart/form-data">
                         <h2 id="thongtincn">Thông tin cá nhân</h2>
                         <div class="topRightBody">
                             <div class="leftOfTopRightBody">
                                 <img src="{{imageAccount}}" alt="AnhDaiDien" class="img-fluid" id="avatarInfo">
                                 <div class="changeAvatar">
                                     <label for="avatar"><i class="bi bi-camera-fill"></i></label>
-                                    <input type="file" name="avatar" id="avatar" style="display: none">
+                                    <input type="file" name="image" id="avatar" style="display: none">
                                 </div>
                             </div>
                             <div class="rightOfTopRightBody">
@@ -129,3 +130,18 @@
     </div>
 </main>
 {{>footer}}
+<script>
+    //preview avatar
+    let avt = document.querySelector('#avatar');
+    let avtInfo = document.querySelector('#avatarInfo');
+    let avtInfoAcc = document.querySelector('#avatarInfoAcc');
+    avt.addEventListener('change', () => {
+        let file = avt.files[0];
+        let reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+            avtInfo.src = reader.result;
+            avtInfoAcc.src = reader.result;
+        }
+    })
+</script>

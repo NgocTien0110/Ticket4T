@@ -23,8 +23,6 @@ app.engine('hbs', expressHbs.engine({
         simpleMath: helper.simpleMath,
         createNextPreviousPagination: helper.createNextPreviousPagination,
         createReviewPagination: helper.createReviewPagination,
-        createNextPrevTicketPagination: helper.createNextPrevTicketPagination,
-        createTicketPagination: helper.createTicketPagination,
     },
     runtimeOptions: { //Để cho phép hbs truy cập đc vào database
         allowProtoPropertiesByDefault: true
@@ -56,6 +54,7 @@ app.use(session({
 app.use((req, res, next) => {
     res.locals.fullName = req.session.user ? req.session.user.fullName : '';
     res.locals.isLoggedIn = req.session.user ? true : false;
+    res.locals.avatar = req.session.user ? req.session.user.imageAccount : '';
     next();
 })
 
