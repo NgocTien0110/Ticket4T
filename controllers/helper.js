@@ -125,6 +125,9 @@ helper.createNextPreviousPagination = (id, page, star, totalPage, type, pageType
     page = parseInt(page);
     totalPage = parseInt(totalPage);
 
+    if(totalPage == 0)
+        return str;
+
     if (page > totalPage || page < 1)
         str = '<a class="page-link disabled" href="/nha-xe/';
     else
