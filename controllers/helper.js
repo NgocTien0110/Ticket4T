@@ -120,7 +120,7 @@ helper.simpleMath = (a, b, expression) => {
     return str;
 }
 
-helper.createNextPreviousPagination = (id, page, star, totalPage, type) => {
+helper.createNextPreviousPagination = (id, page, star, totalPage, type, pageType) => {
     let str = ''
     page = parseInt(page);
     totalPage = parseInt(totalPage);
@@ -129,7 +129,12 @@ helper.createNextPreviousPagination = (id, page, star, totalPage, type) => {
         str = '<a class="page-link disabled" href="/nha-xe/';
     else
         str = '<a class="page-link" href="/nha-xe/';
-    str += id + '?page=' + page + '&star=' + star + '#review-section">';
+
+    if(pageType == 'review')
+        str += id + '?page=' + page + '&star=' + star + '#review-section">';
+    else if(pageType == 'nhaxe'){
+        str += '?page=' + page + '">';
+    }
 
     if (type == "previous")
         str += 'Previous</a>';

@@ -65,6 +65,32 @@
             {{/each}}
         </div>
 
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <nav class="pagination-container">
+                    <ul class="pagination justify-content-center .pagination-lg">
+                        <li class="page-item">
+                            {{!-- id, page, star, totalPage, type --}}
+                            {{{createNextPreviousPagination id nhaxePagination.previousPage
+                            nhaxePagination.previousPage nhaxePagination.totalPage
+                            nhaxePagination.buttonType.[0] nhaxePagination.pageType}}}
+                        </li>
+
+                        <li class="page-item">
+                            {{{createNextPreviousPagination id nhaxePagination.nextPage
+                            nhaxePagination.nextPage nhaxePagination.totalPage
+                            nhaxePagination.buttonType.[1] nhaxePagination.pageType}}}
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
     </main>
 </div>
+
+<script>
+    console.log(`${{ carCom }}`)
+</script>
 {{>footer}}

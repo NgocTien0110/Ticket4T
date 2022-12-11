@@ -1,18 +1,21 @@
 const controller = {} //Để {} vì là object có thể chứa thêm các hàm khác
 const models = require('../models');
-const { Op } = require("sequelize");
+const { Op, INTEGER } = require("sequelize");
 
 function calcSum(total, item) {
     return total + item.stars;
 }
 
 controller.show = async (req, res) => {
-    res.locals.carCom = await models.NhaXe.findAll({
+    let limit = 4, page = req.query.page || 1;
+    page = parseInt(page);
+
+    let carCom = {
         include: [{
             model: models.Review,
             group: 'carId'
         }]
-    });
+    };
 
 
     let nhaxeTable = await models.NhaXe.findAll({
@@ -32,8 +35,23 @@ controller.show = async (req, res) => {
             stars: stars.toFixed(1)
         }, { where: { id: nhaxe.id } })
     });
-    // res.json(nhaxeTable);
 
+    count = await models.NhaXe.count();
+    carCom.limit = limit;
+    carCom.offset = limit * (page - 1);
+
+    let rows = await models.NhaXe.findAll(carCom);
+    let previousPage = page - 1, nextPage = page + 1;
+    const buttonType = ['previous', 'next'], pageType = 'nhaxe';
+    let totalPage = count / limit;
+
+    if(totalPage % 1 != 0)
+        totalPage = totalPage + 1;
+    else
+        totalPage = Math.floor(totalPage);
+
+    res.locals.nhaxePagination = {previousPage, nextPage, page, totalPage, buttonType, pageType};
+    res.locals.carCom = rows;
     res.render('nhaxe');
 }
 
@@ -123,22 +141,23 @@ controller.showDetails = async (req, res) => {
     let { rows, count } = await models.Review.findAndCountAll(review);
     let previousPage = 1;
     let nextPage = 1;
-    let totalPage = Math.round(parseInt(count) / limit);
-    const buttonType = ['previous', 'next'];
+    let totalPage = parseInt(count) / limit;
+    const buttonType = ['previous', 'next'], pageType = 'review';
 
-    // if(page > 1)
+    if(totalPage % 1 != 0)
+        totalPage = totalPage + 1;
+    else
+        totalPage = Math.floor(totalPage);
+
     previousPage = page - 1;
-
-    // if(page < totalPage)
     nextPage = page + 1;
 
-    // console.log({ page, nextPage, totalPage, reviewStarFilter })
-
     res.locals.chiTietNhaXeReview = rows;
-    res.locals.reviewPagination = { page, previousPage, nextPage, reviewStarFilter, totalPage, buttonType }
+    res.locals.reviewPagination = { page, previousPage, nextPage, reviewStarFilter, totalPage, buttonType, pageType }
 
     res.render('chi_tiet_nha_xe', { oneStar, twoStar, threeStar, fourStar, fiveStar });
 }
+
 controller.rating = async (req, res) => {
     let id = req.params.id;
     let star = req.body.star;
