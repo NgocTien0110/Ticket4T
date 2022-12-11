@@ -2,6 +2,7 @@ const controller = {} //Để {} vì là object có thể chứa thêm các hàm
 const models = require('../models')
 const userController = require('../controllers/userController');
 let bcrypt = require('bcryptjs');
+const { where } = require('sequelize');
 
 controller.showUpdatePassword = async (req, res) => {
     let accId = req.session.user.id
@@ -153,14 +154,18 @@ controller.showMyTicket = async (req, res) => {
     res.locals.statusThanhToan = statusThanhToan;
     res.locals.statusDaHuy = statusDaHuy;
 
-
     res.locals.infoAcc = await models.TaiKhoan.findOne({
         where: {
             id: accId,
         },
     })
 
-    res.locals.veDaDat = await models.TaiKhoan.findOne({
+    let page = req.query.page || 1;
+    page = parseInt(page);
+    let limit = 5;
+    let offset = limit * (page - 1);
+
+    let vedadat = {
         where: {
             id: accId,
         },
@@ -169,10 +174,53 @@ controller.showMyTicket = async (req, res) => {
             include: [{ model: models.ChuyenXe, include: [models.NhaXe] }],
             where: {
                 statusTicket: statusTicket
-            }
-        }]
-    })
+            },
+            limit: limit,
+            offset: offset
+        }],
+    };
 
+    vedadat.limit = 2;
+    res.locals.veDaDat = await models.TaiKhoan.findOne(vedadat);
+
+    let totalTicket = await models.TaiKhoan.count({
+        where: {
+            id: accId
+        },
+        include: [{
+            model: models.VeDaDat,
+            where: {
+                statusTicket: statusTicket
+            },
+        }],
+    });
+
+    let nextPageStatus = true, previousPageStatus = true;
+    totalTicket = parseInt(totalTicket)
+    if(page + 1 >= totalTicket){
+        nextPageStatus = false;
+    }
+    if(page - 1 < 1)
+        previousPageStatus = false;
+    if(page == 1){
+        nextPageStatus = false;
+        previousPageStatus = false
+    }
+
+    let totalPage = totalTicket / limit;
+    if(totalPage % 1 != 0)
+        totalPage = Math.floor(totalPage) + 1;
+    else
+        totalPage = Math.floor(totalPage);
+
+    res.locals.nextPageStatus = nextPageStatus;
+    res.locals.previousPageStatus = previousPageStatus;
+    res.locals.currentPage = page;
+    res.locals.nextPage = page + 1;
+    res.locals.previousPage = page - 1;
+    res.locals.buttonType = ['Previous', 'Next'];
+    res.locals.ticketStatus = ['Vừa đặt', 'Đã thanh toán', 'Đã hủy'];
+    res.locals.totalPage = totalPage;
     res.render('myTicket')
 }
 

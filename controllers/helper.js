@@ -166,4 +166,42 @@ helper.createReviewPagination = (id, current, star, totalPage) => {
     return str;
 }
 
+helper.createNextPrevTicketPagination = (ticketStatus, newPage, pageStatus, buttonType) => {
+    let str = '<a class="page-link';
+    let end = '">' + buttonType + '</a>';
+
+    if(pageStatus == false)
+        return  str + " disabled\"" + end;
+
+    else 
+        str += "\"";
+
+    str += "href=\"/tai-khoan/ve-cua-toi?";
+    if(ticketStatus == 'Vừa đặt'){
+        str += "page=";
+    }
+    else
+        str += "statusTicket=" + ticketStatus + "&page=";
+
+    str += newPage + end;
+    return str;
+}
+
+helper.createTicketPagination = (ticketStatus, currentPage, totalPage) => {
+    let str = '';
+    for(i = 1; i <= totalPage; ++i){
+        let href = '/tai-khoan/ve-cua-toi?'
+        if(ticketStatus != 'Vừa đặt')
+            href += "statusTicket=" + ticketStatus + "&";
+        href += "page=" + i;
+        
+        str += '<li class="page-item';
+        if(i == currentPage)
+            str += " active";
+
+        str += '"><a class="page-link" ' + 'href="' + href + '"">' + i + '</a></li>';
+    }
+    return str;
+}
+
 module.exports = helper;

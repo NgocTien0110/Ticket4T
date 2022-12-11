@@ -107,20 +107,39 @@
                         <nav aria-label="Page navigation">
                             <ul class="pagination">
                                 <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </a>
+                                    {{#if statusVuaDat}}
+                                    {{{createNextPrevTicketPagination ticketStatus.[0] previousPage
+                                    previousPageStatus buttonType.[0]}}}
+                                    {{else if statusThanhToan}}
+                                    {{{createNextPrevTicketPagination ticketStatus.[1] previousPage
+                                    previousPageStatus buttonType.[0]}}}
+                                    {{else}}
+                                    {{{createNextPrevTicketPagination ticketStatus.[2] previousPage
+                                    previousPageStatus buttonType.[0]}}}
+                                    {{/if}}
                                 </li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                <li class="page-item"><a class="page-link" href="#">5</a></li>
+
+                                {{#if statusVuaDat}}
+                                {{{createTicketPagination ticketStatus.[0] currentPage totalPage}}}
+                                {{else if statusThanhToan}}
+                                {{{createTicketPagination ticketStatus.[1] currentPage totalPage}}}
+                                {{else}}
+                                {{{createTicketPagination ticketStatus.[2] currentPage totalPage}}}
+                                {{/if}}
+
                                 <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
+                                    {{#if statusVuaDat}}
+                                    {{{createNextPrevTicketPagination ticketStatus.[0] nextPage nextPageStatus
+                                    buttonType.[1]}}}
+                                    {{else if statusThanhToan}}
+                                    {{{createNextPrevTicketPagination ticketStatus.[1] nextPage nextPageStatus
+                                    buttonType.[1]}}}
+                                    {{else}}
+                                    {{{createNextPrevTicketPagination ticketStatus.[2] nextPage nextPageStatus
+                                    buttonType.[1]}}}
+                                    {{/if}}
                                 </li>
+
                             </ul>
                         </nav>
                     </div>
