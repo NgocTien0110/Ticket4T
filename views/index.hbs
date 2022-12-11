@@ -166,7 +166,8 @@
             <div class="carousel-inner" role="listbox">
                 {{#each nhaxes}}
                 <div class="carousel-item {{#if @first}} active {{/if}}">
-                    <img src="{{imageJours.[0]}}" height="500" class="w-100 d-block" alt="{{imageJours.[0]}}">
+                    <a href="/nha-xe/{{id}}"><img src="{{imageJours.[0]}}" height="500" class="w-100 d-block"
+                            alt="{{imageJours.[0]}}"></a>
                     <div class="carousel-caption d-none d-md-block">
                         <h3 class="fw-bold">Nhà xe {{name}}</h3>
                     </div>
