@@ -31,8 +31,8 @@ controller.show = async (req, res) => {
     ],
     order: [],
     where: {},
-    limit: limit,
-    offset: (page - 1) * limit,
+    // limit: limit,
+    // offset: (page - 1) * limit,
   };
 
   option.where.price = {
@@ -42,13 +42,13 @@ controller.show = async (req, res) => {
   if (sort) {
     option.order.push(orders[sort]);
   }
-
   if (dataSearch.start || dataSearch.end || dataSearch.date) {
     option.where.startProvince = dataSearch.start;
     option.where.endProvince = dataSearch.end;
-    // option.where.startTime = {
-    //   [sequelize.Op.gte]: dataSearch.date,
-    // };
+  }
+  if (dataSearch.startDate) {
+    let sDate = dataSearch.date.split(" ");
+    option.where.startDate = sDate[0];
   }
   if (req.query.nhaxe) {
     let arrNhaxe = req.query.nhaxe.split(",");

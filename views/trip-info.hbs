@@ -73,23 +73,23 @@
             <div class="col-6 text-center  ">
                 <div class="p-3 mt-3 d-inline-flex bg-footer rounded-2 fs-4 color-3">
                     <i class="fa-solid fa-calendar-days p-1"></i>
-                    <span class="">{{ date trip.startTime }}</span>
+                    <span class="">{{ trip.startDate }}</span>
                 </div>
             </div>
             <div class="col-6 text-center">
                 <div class="p-3 mt-3 d-inline-flex bg-footer rounded-2 fs-4 color-3">
                     <i class="fa-solid fa-calendar-days p-1"></i>
-                    <span>{{ date trip.endTime }}</span>
+                    <span>{{ trip.endDate }}</span>
                 </div>
             </div>
         </div>
 
         <div class="row d-flex justify-content-center">
             <div class="col-4 text-center my-3 fs-5">
-                <span>{{ trip.startLocation}}</span>
+                <span>{{ trip.startLocation }}</span>
             </div>
             <div class="col-2 text-center my-3 fs-5 ">
-                <span>{{ totalTime trip.startTime trip.endTime }}</span>
+                <span>{{{totalTime trip.startDate trip.endDate trip.startTime trip.endTime}}}</span>
             </div>
             <div class="col-4 text-center my-3 fs-5">
                 <span>{{ trip.endLocation }}</span>
@@ -109,10 +109,10 @@
 
         <div class="row">
             <div class="col-6 text-center my-3 fs-5 ">
-                <span>{{ time trip.startTime }}</span>
+                <span>{{ trip.startTime }}</span>
             </div>
             <div class="col-6 text-center my-3 fs-5">
-                <span>{{ time trip.endTime }}</span>
+                <span>{{ trip.endTime }}</span>
             </div>
         </div>
 
