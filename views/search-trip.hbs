@@ -38,6 +38,7 @@
 
 {{>header}}
 <main>
+   
     <section class="container">
         {{!-- search trip --}}
         <div id="search-banner-trip " class="container rounded-4 bg-color-2 mt-3">
@@ -224,7 +225,7 @@
                                         </div>
                                     </div>
                                     <div class="d-flex">
-                                        <p class="fw-light">{{ LoaiXe.name }} {{totalNumSeats}} chỗ </p>
+                                        <p class="fw-light">{{ LoaiXe.name }} {{totalNumSeats}} chỗ (Còn {{numSeats}} chỗ)</p>
                                     </div>
                                     <div class="row">
                                         <div class="col-12 d-flex flex-column">
@@ -262,7 +263,10 @@
                 </div>
             </div>
 
-            <nav aria-label="Page navigation" id="pagi">
+            {{!-- load more  --}}
+            
+
+          <nav aria-label="Page navigation" id="pagi">
                 {{{ createPagination pagination paginationClass="pagination justify-content-center" leftText="&laquo;"
                 rightText="&raquo;" }}}
                 {{!-- <ul class="pagination  justify-content-center  ">
@@ -345,8 +349,6 @@
         }
 
 
-
-
         for (let nx in params.nhaxe) {
             let control = $(`#nhaxe${params.nhaxe[nx]}`);
             if (control) {
@@ -405,34 +407,11 @@
                 " - " + $("#slider-range").slider("values", 1) + " VND" + " )");
         });
 
+        
+
 
 
     </script>
 
-
-    {{!-- $(function () {
-    $("#slider-range").slider({
-    range: true,
-    min: 0,
-    max: 2000000,
-    step: 50000,
-    values: [0, 2000000],
-    slide: function (event, ui) {
-    $("#amount").val("(" + ui.values[0] + " - " + ui.values[1] + " VND" + " )");
-    }
-    });
-
-    $("#amount").val("(" + $("#slider-range").slider("values", 0) +
-    " - " + $("#slider-range").slider("values", 1) + " VND" + " )");
-    }); --}}
-
-
-    {{!-- price = price.replace('(', '');
-    price = price.replace(')', '');
-    price = price.replace('VND', '');
-    price = price.replace(' ', '');
-    price = price.split('-');
-    urlParams.delete('price');
-    urlParams.append('price', price);--}}
 </main>
 {{>footer}}

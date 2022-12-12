@@ -31,8 +31,8 @@ controller.show = async (req, res) => {
     ],
     order: [],
     where: {},
-    // limit: limit,
-    // offset: (page - 1) * limit,
+    limit: limit,
+    offset: (page - 1) * limit,
   };
 
   option.where.price = {
@@ -64,12 +64,12 @@ controller.show = async (req, res) => {
   }
 
   let { rows, count } = await models.ChuyenXe.findAndCountAll(option);
-
   res.locals.chuyenxes = rows;
   res.locals.pagination = {
     page: page,
     limit: limit,
-    totalRows: count / 2,
+    totalRows: count/limit,
+    queryParams: req.query,
   };
 
   res.locals.nhaxes = await models.NhaXe.findAll({
@@ -87,8 +87,6 @@ controller.show = async (req, res) => {
     attributes: ["endProvince"],
     group: ["endProvince"],
   });
-
-  // console.log(res.locals.chuyenxes);
 
   res.render("search-trip", { dataSearch });
 };
