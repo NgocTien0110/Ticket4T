@@ -124,7 +124,13 @@
                             <strong>{{../message}}</strong>
                         </div>
                         {{/if}}
-                        <button class="btn btn-dark fw-bold mt-3">Lưu thay đổi</button>
+                        <button class="btn btn-dark fw-bold mt-3 lds-ring">
+                            <div class="ring" style="display: none"></div>
+                            <div class="ring" style="display: none"></div>
+                            <div class="ring" style="display: none"></div>
+                            <div class="ring" style="display: none"></div>
+                            Lưu thay đổi
+                        </button>
                     </form>
                 </div>
             </div>
@@ -147,4 +153,12 @@
             avtInfoAcc.src = reader.result;
         }
     })
+    let ring = document.querySelectorAll('.ring');
+    let btn = document.querySelector('.lds-ring');
+    btn.addEventListener('click', () => {
+        ring.forEach((item) => {
+            item.style.display = 'block';
+        })
+    })
+
 </script>
