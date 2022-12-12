@@ -22,8 +22,6 @@ controller.updatePassword = async (req, res) => {
     let newPassword = req.body.newPassword;
     let confirmNewPassword = req.body.confirmNewPassword;
 
-    console.log(req.body)
-
     let infoAcc = await models.TaiKhoan.findOne({
         where: {
             id: accId
@@ -104,7 +102,7 @@ controller.updateInfoAcc = async (req, res) => {
                         phoneNum: phoneNum,
                         dob: dob,
                         isMale: isMale,
-                        imageAccount: fileData ? fileData.path : infoAcc.imageAccount
+                        imageAccount: dataFile ? dataFile.path : infoAcc.imageAccount
 
                     })
                     req.session.user = infoAcc;
@@ -127,7 +125,7 @@ controller.updateInfoAcc = async (req, res) => {
                     phoneNum: phoneNum,
                     dob: dob,
                     isMale: isMale,
-                    imageAccount: fileData ? fileData.path : infoAcc.imageAccount
+                    imageAccount: dataFile ? dataFile.path : infoAcc.imageAccount
 
                 })
                 req.session.user = infoAcc;
