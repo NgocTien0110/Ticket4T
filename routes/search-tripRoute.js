@@ -28,7 +28,6 @@ Router.post(
         id: parseInt(req.params.id)
       }
     })
-    let numSeatsRemain = chuyenxe.numSeats - req.body.ticket;
 
     models.VeDaDat.bulkCreate([
       {
