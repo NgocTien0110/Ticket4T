@@ -4,7 +4,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <title>Trang chủ</title>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
+    <meta charset="UTF-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- font anwsome -->
@@ -22,8 +23,15 @@
     <link rel="stylesheet" href="/css/header_footer.css">
 
     <!-- flatpickr -->
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
+    <script src="https://npmcdn.com/flatpickr@4.6.13/dist/l10n/vn.js"></script>
+
+
+
 </head>
 
 {{>header}}
@@ -76,7 +84,7 @@
                         <div class="border-item d-flex flex-row">
                             <i class="fa-solid fa-calendar-days fa-2x"></i>
                             <!-- datetimepicker -->
-                            <input type="date" name="date" class="form-control mx-2 fs-4 p-0 select-search"
+                            <input type="date" name="date" class="form-control mx-2 fs-4 p-0 select-search datetime"
                                 style="background: #dbe2ef;" id="datetimepicker" placeholder="Ngày đi" required>
                         </div>
                         <hr style="margin-right:10px;">
@@ -327,5 +335,15 @@
         </div>
     </section>
 </main>
-
 {{>footer}}
+<script>
+    flatpickr("#datetimepicker", {
+        dateFormat: "d-m-Y",
+        locale: "vn",
+        disableMobile: "true",
+        // set today date
+        defaultDate: new Date()
+
+    });
+
+</script>
