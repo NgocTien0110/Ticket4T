@@ -23,6 +23,8 @@ app.engine('hbs', expressHbs.engine({
         simpleMath: helper.simpleMath,
         createNextPreviousPagination: helper.createNextPreviousPagination,
         createReviewPagination: helper.createReviewPagination,
+        createNextPrevTicketPagination: helper.createNextPrevTicketPagination,
+        createTicketPagination: helper.createTicketPagination
     },
     runtimeOptions: { //Để cho phép hbs truy cập đc vào database
         allowProtoPropertiesByDefault: true
