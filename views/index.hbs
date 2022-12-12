@@ -130,9 +130,10 @@
                                     <div class="d-flex flex-row justify-content-between align-item-end mt-3 trip-info">
                                         {{!-- <p class="card-text fs-5"> <i class="fa-solid fa-location-dot"></i> 100 km
                                         </p> --}}
-                                        <p class="card-text fs-5"> <i class="fa-regular fa-clock"></i> {{{totalTime
-                                            startDate endDate startTime endTime}}}</p>
-                                        <p class="card-text fs-4 text-4"><span>{{ formatPrice price }} đ</span></p>
+                                        <p class="card-text fs-5">Giá vé: Từ {{formatPrice min_price}}đ đến
+                                            {{formatPrice
+                                            max_price}}đ</p>
+
                                     </div>
                                 </div>
                             </div>

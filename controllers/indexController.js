@@ -17,9 +17,13 @@ controller.show = async (req, res) => {
     group: ["endProvince"],
   });
 
-  res.locals.chuyenxes = await models.ChuyenXe.findAll({
-    limit: 6,
-  });
+  await models.ChuyenXe.findAll({
+    attributes: ["startProvince", "endProvince", "locationImage", [Sequelize.fn('MIN', Sequelize.col('price')), "min_price"] , [Sequelize.fn('COUNT', Sequelize.col('id')), "count"], [Sequelize.fn('MAX', Sequelize.col('price')), "max_price"]],
+    group: ["startProvince", "endProvince","locationImage",],
+    order: [['count', 'DESC']],
+    raw: true,
+    limit: 6
+  }).then(function (result) {res.locals.chuyenxes = result});
 
   res.locals.nhaxes = await models.NhaXe.findAll();
   res.locals.comments = await models.Review.findAll({
