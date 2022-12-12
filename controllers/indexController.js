@@ -2,6 +2,7 @@ const controller = {}; //Để {} vì là object có thể chứa thêm các hà
 const { sequelize } = require("../models");
 const models = require("../models");
 const Sequelize = require("sequelize");
+const TODAY = new Date();
 
 controller.show = async (req, res) => {
   res.locals.searchStart = await models.ChuyenXe.findAll({
@@ -25,6 +26,8 @@ controller.show = async (req, res) => {
     limit: 6
   }).then(function (result) {res.locals.chuyenxes = result});
 
+  let dateStr = String(TODAY.getDate() + 1).padStart(2, '0') + "-" + String(TODAY.getMonth() + 1).padStart(2, '0') + "-" + TODAY.getFullYear();
+  res.locals.todayDate = dateStr;
   res.locals.nhaxes = await models.NhaXe.findAll();
   res.locals.comments = await models.Review.findAll({
     include: [
