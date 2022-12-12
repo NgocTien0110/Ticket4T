@@ -79,6 +79,7 @@
                                 <label for="exampleInputTicket" class="form-label">Số lượng vé <span
                                         class="text-danger">*</span></label>
                                 <div class="wrapper">
+                                    <input type="number" class="numSeat" value="{{chuyenxe.numSeats}}" hidden>
                                     <span class="minus"><i class="bi bi-dash"></i></span>
                                     <input type="number" class="ticket" value="1" min="1" name="ticket" readonly />
                                     <span class="plus"><i class="bi bi-plus"></i></span>
@@ -122,5 +123,4 @@
     </div>
 </main>
 <script src="/javascript/thongtinkhachhang.js"></script>
-
 {{>footer}}

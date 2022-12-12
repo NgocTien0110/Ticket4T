@@ -92,7 +92,8 @@ controller.register = (req, res, next) => {
             user = {
                 fullName: fullname,
                 email,
-                password
+                password,
+                imageAccount: '/images/default.jpg',
             }
 
             return controller

@@ -22,8 +22,6 @@ controller.updatePassword = async (req, res) => {
     let newPassword = req.body.newPassword;
     let confirmNewPassword = req.body.confirmNewPassword;
 
-    console.log(req.body)
-
     let infoAcc = await models.TaiKhoan.findOne({
         where: {
             id: accId
@@ -74,6 +72,7 @@ controller.showInfoAcc = async (req, res) => {
 }
 
 controller.updateInfoAcc = async (req, res) => {
+    let dataFile = req.file;
     let accId = req.session.user.id
     let fullName = req.body.fullName;
     let email = req.body.email;
@@ -102,8 +101,11 @@ controller.updateInfoAcc = async (req, res) => {
                         fullName: fullName,
                         phoneNum: phoneNum,
                         dob: dob,
-                        isMale: isMale
+                        isMale: isMale,
+                        imageAccount: dataFile ? dataFile.path : infoAcc.imageAccount
+
                     })
+                    req.session.user = infoAcc;
 
                     return res.render('infoTaiKhoan', {
                         message: `Cập nhật thông tin tài khoản thành công`,
@@ -122,8 +124,11 @@ controller.updateInfoAcc = async (req, res) => {
                     email: email,
                     phoneNum: phoneNum,
                     dob: dob,
-                    isMale: isMale
+                    isMale: isMale,
+                    imageAccount: dataFile ? dataFile.path : infoAcc.imageAccount
+
                 })
+                req.session.user = infoAcc;
 
                 return res.render('infoTaiKhoan', {
                     message: `Cập nhật thông tin tài khoản thành công`,
@@ -197,18 +202,18 @@ controller.showMyTicket = async (req, res) => {
 
     let nextPageStatus = true, previousPageStatus = true;
     totalTicket = parseInt(totalTicket)
-    if(page + 1 >= totalTicket){
+    if (page + 1 >= totalTicket) {
         nextPageStatus = false;
     }
-    if(page - 1 < 1)
+    if (page - 1 < 1)
         previousPageStatus = false;
-    if(page == 1){
+    if (page == 1) {
         nextPageStatus = false;
         previousPageStatus = false
     }
 
     let totalPage = totalTicket / limit;
-    if(totalPage % 1 != 0)
+    if (totalPage % 1 != 0)
         totalPage = Math.floor(totalPage) + 1;
     else
         totalPage = Math.floor(totalPage);

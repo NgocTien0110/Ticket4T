@@ -45,12 +45,12 @@ controller.show = async (req, res) => {
     const buttonType = ['previous', 'next'], pageType = 'nhaxe';
     let totalPage = count / limit;
 
-    if(totalPage % 1 != 0)
+    if (totalPage % 1 != 0)
         totalPage = totalPage + 1;
     else
         totalPage = Math.floor(totalPage);
 
-    res.locals.nhaxePagination = {previousPage, nextPage, page, totalPage, buttonType, pageType};
+    res.locals.nhaxePagination = { previousPage, nextPage, page, totalPage, buttonType, pageType };
     res.locals.carCom = rows;
     res.render('nhaxe');
 }
@@ -144,7 +144,7 @@ controller.showDetails = async (req, res) => {
     let totalPage = parseInt(count) / limit;
     const buttonType = ['previous', 'next'], pageType = 'review';
 
-    if(totalPage % 1 != 0)
+    if (totalPage % 1 != 0)
         totalPage = totalPage + 1;
     else
         totalPage = Math.floor(totalPage);

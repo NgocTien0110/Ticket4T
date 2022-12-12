@@ -38,8 +38,9 @@
 
 {{>header}}
 <main>
+   
     <section class="container">
-        {{!-- search trip  --}}
+        {{!-- search trip --}}
         <div id="search-banner-trip " class="container rounded-4 bg-color-2 mt-3">
             <form action="/search-trip" method="get">
                 <div class="row">
@@ -51,8 +52,8 @@
                                 placeholder="{{dataSearch.start}}" required>
                             <datalist id="datalistOptions">
                                 {{#each searchStart}}
-                                    <option value="{{ startProvince }}">
-                                {{/each}}
+                                <option value="{{ startProvince }}">
+                                    {{/each}}
                             </datalist>
                         </div>
                         <hr style="margin-right:10px;">
@@ -66,8 +67,8 @@
                                 placeholder="{{dataSearch.end}}" required>
                             <datalist id="datalistOptions">
                                 {{#each searchEnd}}
-                                    <option value="{{ endProvince }}">
-                                {{/each}}
+                                <option value="{{ endProvince }}">
+                                    {{/each}}
                             </datalist>
                         </div>
                         <hr style="margin-right:10px;">
@@ -102,13 +103,14 @@
 
     <section class="container">
         <div class="row py-5">
-            {{!-- lọc chuyến xe  --}}
+            {{!-- lọc chuyến xe --}}
             <div class="col-lg-3 ">
                 <div class=" d-flex justify-content-between">
                     <h4 class="">
                         Bộ lọc
                     </h4>
-                    <a href="/search-trip" class="align-self-center"> Xóa lọc</a>
+                    <a href="/search-trip?start={{dataSearch.start}}&end={{dataSearch.end}}&date={{dataSearch.date}}"
+                        class="align-self-center"> Xóa lọc</a>
                 </div>
 
                 <div class="border mt-1 p-3">
@@ -135,14 +137,14 @@
                         <div class="mb-4 mt-3">
                             <label for="" class="mb-2">Nhà xe</label>
                             {{#each nhaxes}}
-                                <div class="form-check">
-                                    <input class="form-check-input me-3 " name="nhaxe" type="checkbox" value="{{id}}"
-                                        id="nhaxe{{id}}" onclick="addParam('nhaxe', {{id}})">
-                                    <label class="form-check-label " for="nhaxe{{id}}">
-                                        Xe {{name}}
-                                        {{!-- ({{ ChuyenXes.length }}) --}}
-                                    </label>
-                                </div>
+                            <div class="form-check">
+                                <input class="form-check-input me-3 " name="nhaxe" type="checkbox" value="{{id}}"
+                                    id="nhaxe{{id}}" onclick="addParam('nhaxe', {{id}})">
+                                <label class="form-check-label " for="nhaxe{{id}}">
+                                    Xe {{name}}
+                                    {{!-- ({{ ChuyenXes.length }}) --}}
+                                </label>
+                            </div>
                             {{/each}}
                         </div>
 
@@ -150,14 +152,14 @@
                         <div class="mb-4">
                             <label for="" class="mb-2">Loại xe</label>
                             {{#each loaixes}}
-                                <div class="form-check">
-                                    <input class="form-check-input me-3" name="loaixe" type="checkbox" value="{{id}}"
-                                        id="loaixe{{id}}" onclick="addParam('loaixe', {{id}})">
-                                    <label class="form-check-label" for="loaixe{{id}}">
-                                        {{name}}
-                                        {{!-- ({{ ChuyenXes.length }}) --}}
-                                    </label>
-                                </div>
+                            <div class="form-check">
+                                <input class="form-check-input me-3" name="loaixe" type="checkbox" value="{{id}}"
+                                    id="loaixe{{id}}" onclick="addParam('loaixe', {{id}})">
+                                <label class="form-check-label" for="loaixe{{id}}">
+                                    {{name}}
+                                    {{!-- ({{ ChuyenXes.length }}) --}}
+                                </label>
+                            </div>
                             {{/each}}
                         </div>
 
@@ -166,7 +168,7 @@
                 </div>
             </div>
 
-            {{!-- sort chuyến xe  --}}
+            {{!-- sort chuyến xe --}}
             <div class="col-lg-9 ">
                 <form action="/search-trip" method="get">
                     <div class="btn-group " id="sort-trip" role="group" aria-label="Basic radio toggle button group">
@@ -196,72 +198,77 @@
 
                 <div class="my-3">
                     {{#each chuyenxes}}
-                        <div class="card mb-3">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <a href="/search-trip/{{id}}">
-                                        <img src="{{ NhaXe.imageCarCom }}" class="img-fluid rounded-2"
-                                            style="max-width:auto; height:100%;" alt="tuyen xe 1">
-                                    </a>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body pb-0 d-flex flex-column justify-content-between">
-                                        <div class="d-flex justify-content-between">
-                                            <div class="d-flex">
-                                                <a href="/search-trip/{{id}}">
-                                                    <h4 class="card-title  text-3">{{NhaXe.name}}</h4>
-                                                </a>
-                                                <div class="p-2 ms-2 bg-color-2 rounded-2">
-                                                    {{!-- <span><i class="fa-solid fa-star text-warning"></i>4.8 (1800)</span> --}}
-                                                    <span><i class="fa-solid fa-star text-warning"></i>{{ NhaXe.stars }}
-                                                        ({{ NhaXe.Reviews.length }})</span>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex ">
-                                                <h4 class="color-3 fw-bold">{{ formatPrice price }} đ</h4>
-                                            </div>
-                                        </div>
+                    <div class="card mb-3">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <a href="/search-trip/{{id}}">
+                                    <img src="{{ NhaXe.imageCarCom }}" class="img-fluid rounded-2"
+                                        style="max-width:auto; height:100%;" alt="tuyen xe 1">
+                                </a>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body pb-0 d-flex flex-column justify-content-between">
+                                    <div class="d-flex justify-content-between">
                                         <div class="d-flex">
-                                            <p class="fw-light">{{ LoaiXe.name }} {{totalNumSeats}} chỗ </p>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12 d-flex flex-column">
-                                                <div class="d-inline-flex justify-content-between">
-                                                    <div class="d-inline-flex">
-                                                        <i class="fa-solid fa-location-dot me-3"></i>
-                                                        <p class="me-5 fw-bold">{{startTime}}</p>
-                                                        <p> {{ startLocation }}</p>
-                                                    </div>
-                                                    <a href="/search-trip/{{id}}/thanh-toan/xacnhan"> <button
-                                                            class="p-1 px-4 bg-color-3 text-white rounded-2 border-0">Đặt
-                                                            vé</button></a>
-                                                </div>
-                                                <div class="d-inline-flex">
-                                                    <p class="ms-4">{{{totalTime startDate endDate startTime endTime}}}
-                                                    </p>
-
-                                                </div>
-                                                <div class="d-inline-flex justify-content-between">
-                                                    <div class="d-flex">
-                                                        <i class="fa-solid fa-location-dot me-3"></i>
-                                                        <p class="me-5 fw-bold">{{endTime}}</p>
-                                                        <p> {{ endLocation }}</p>
-                                                    </div>
-                                                    <a href="/search-trip/{{id}}">Xem thông tin chi tiết</a>
-                                                </div>
+                                            <a href="/search-trip/{{id}}">
+                                                <h4 class="card-title  text-3">{{NhaXe.name}}</h4>
+                                            </a>
+                                            <div class="p-2 ms-2 bg-color-2 rounded-2">
+                                                {{!-- <span><i class="fa-solid fa-star text-warning"></i>4.8
+                                                    (1800)</span> --}}
+                                                <span><i class="fa-solid fa-star text-warning"></i>{{ NhaXe.stars }}
+                                                    ({{ NhaXe.Reviews.length }})</span>
                                             </div>
                                         </div>
-
+                                        <div class="d-flex ">
+                                            <h4 class="color-3 fw-bold">{{ formatPrice price }} đ</h4>
+                                        </div>
                                     </div>
+                                    <div class="d-flex">
+                                        <p class="fw-light">{{ LoaiXe.name }} {{totalNumSeats}} chỗ (Còn {{numSeats}} chỗ)</p>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 d-flex flex-column">
+                                            <div class="d-inline-flex justify-content-between">
+                                                <div class="d-inline-flex">
+                                                    <i class="fa-solid fa-location-dot me-3"></i>
+                                                    <p class="me-5 fw-bold">{{startTime}}</p>
+                                                    <p> {{ startLocation }}</p>
+                                                </div>
+                                                <a href="/search-trip/{{id}}/thanh-toan/xacnhan"> <button
+                                                        class="p-1 px-4 bg-color-3 text-white rounded-2 border-0">Đặt
+                                                        vé</button></a>
+                                            </div>
+                                            <div class="d-inline-flex">
+                                                <p class="ms-4">{{{totalTime startDate endDate startTime endTime}}}
+                                                </p>
+
+                                            </div>
+                                            <div class="d-inline-flex justify-content-between">
+                                                <div class="d-flex">
+                                                    <i class="fa-solid fa-location-dot me-3"></i>
+                                                    <p class="me-5 fw-bold">{{endTime}}</p>
+                                                    <p> {{ endLocation }}</p>
+                                                </div>
+                                                <a href="/search-trip/{{id}}">Xem thông tin chi tiết</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
+                    </div>
                     {{/each}}
                 </div>
             </div>
 
-            <nav aria-label="Page navigation" id="pagi">
-                {{{ createPagination pagination paginationClass="pagination justify-content-center" leftText="&laquo;" rightText="&raquo;" }}}
+            {{!-- load more  --}}
+            
+
+          <nav aria-label="Page navigation" id="pagi">
+                {{{ createPagination pagination paginationClass="pagination justify-content-center" leftText="&laquo;"
+                rightText="&raquo;" }}}
                 {{!-- <ul class="pagination  justify-content-center  ">
                     <li class="page-item disabled">
                         <a class="page-link" href="#" aria-label="Previous">
@@ -342,8 +349,6 @@
         }
 
 
-
-
         for (let nx in params.nhaxe) {
             let control = $(`#nhaxe${params.nhaxe[nx]}`);
             if (control) {
@@ -402,34 +407,11 @@
                 " - " + $("#slider-range").slider("values", 1) + " VND" + " )");
         });
 
+        
+
 
 
     </script>
 
-
-    {{!-- $(function () {
-                    $("#slider-range").slider({
-                        range: true,
-                        min: 0,
-                        max: 2000000,
-                        step: 50000,
-                        values: [0, 2000000],
-                        slide: function (event, ui) {
-                            $("#amount").val("(" + ui.values[0] + " - " + ui.values[1] + " VND" + " )");
-                        }
-                    });
-                    
-                    $("#amount").val("(" + $("#slider-range").slider("values", 0) +
-                        " - " + $("#slider-range").slider("values", 1) + " VND" + " )");
-                }); --}}
-
-
-    {{!-- price = price.replace('(', '');
-            price = price.replace(')', '');
-            price = price.replace('VND', '');
-            price = price.replace(' ', '');
-            price = price.split('-');
-            urlParams.delete('price');
-            urlParams.append('price', price);--}}
 </main>
 {{>footer}}

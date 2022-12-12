@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="/css/infoTaiKhoan.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
 </head>
 
 {{>header}}
@@ -51,14 +54,15 @@
                     </div>
                 </div>
                 <div class="col-md-9 rightBody">
-                    <form action="/tai-khoan/thong-tin" class="formRightBody" method="POST">
+                    <form action="/tai-khoan/thong-tin" class="formRightBody" method="POST"
+                        enctype="multipart/form-data">
                         <h2 id="thongtincn">Thông tin cá nhân</h2>
                         <div class="topRightBody">
                             <div class="leftOfTopRightBody">
                                 <img src="{{imageAccount}}" alt="AnhDaiDien" class="img-fluid" id="avatarInfo">
                                 <div class="changeAvatar">
                                     <label for="avatar"><i class="bi bi-camera-fill"></i></label>
-                                    <input type="file" name="avatar" id="avatar" style="display: none">
+                                    <input type="file" name="image" id="avatar" style="display: none">
                                 </div>
                             </div>
                             <div class="rightOfTopRightBody">
@@ -120,7 +124,13 @@
                             <strong>{{../message}}</strong>
                         </div>
                         {{/if}}
-                        <button class="btn btn-dark fw-bold mt-3">Lưu thay đổi</button>
+                        <button class="btn btn-dark fw-bold mt-3 lds-ring">
+                            <div class="ring" style="display: none"></div>
+                            <div class="ring" style="display: none"></div>
+                            <div class="ring" style="display: none"></div>
+                            <div class="ring" style="display: none"></div>
+                            Lưu thay đổi
+                        </button>
                     </form>
                 </div>
             </div>
@@ -129,3 +139,26 @@
     </div>
 </main>
 {{>footer}}
+<script>
+    //preview avatar
+    let avt = document.querySelector('#avatar');
+    let avtInfo = document.querySelector('#avatarInfo');
+    let avtInfoAcc = document.querySelector('#avatarInfoAcc');
+    avt.addEventListener('change', () => {
+        let file = avt.files[0];
+        let reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+            avtInfo.src = reader.result;
+            avtInfoAcc.src = reader.result;
+        }
+    })
+    let ring = document.querySelectorAll('.ring');
+    let btn = document.querySelector('.lds-ring');
+    btn.addEventListener('click', () => {
+        ring.forEach((item) => {
+            item.style.display = 'block';
+        })
+    })
+
+</script>

@@ -59,15 +59,11 @@ body {
   
   
   /* popular trips  */
-  #popular-trip {
-  }
   
   .popular-trip-item {
     background-color: var(--color-2);
   }
   
-  .trip-info {
-  }
 
   /* nền tảng kết nối */
 #nen-tang-ket-noi {
@@ -79,7 +75,7 @@ body {
   background-color: var(--color-3);
 }
 
-.cmt p {
+#cmt {
   display: -webkit-box;
   -webkit-line-clamp: 5;
   overflow: hidden;
