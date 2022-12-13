@@ -204,4 +204,36 @@ helper.createTicketPagination = (ticketStatus, currentPage, totalPage) => {
     return str;
 }
 
+// pagination for search-trip
+helper.SearchTripPagination = (page, limit, totalRows, queryParams) => {
+    let str = '';
+    let totalPage = Math.ceil(totalRows / limit);
+    let href = '/search-trip?page=';
+
+    if (totalPage == 0)
+        return str;
+    
+    str += '<li class="page-item';
+    if (page == 1)
+        str += ' disabled"><a class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>';
+    else
+        str += '"><a class="page-link" href="' + href + (page - 1) + queryParams + '" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>';
+    
+    for (i = 1; i <= totalPage; ++i) {
+        str += '<li class="page-item';
+        if (i == page)
+            str += ' active';
+        str += '"><a class="page-link" href="' + href + i + queryParams + '">' + i + '</a></li>';
+    }
+
+    str += '<li class="page-item';
+    if (page == totalPage)
+        str += ' disabled"><a class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>';
+    else
+        str += '"><a class="page-link" href="' + href + (page + 1) + queryParams + '" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>';
+    
+    return str;   
+}
+
+
 module.exports = helper;

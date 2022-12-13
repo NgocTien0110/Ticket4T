@@ -7,6 +7,7 @@ controller.show = async (req, res) => {
   let sort = req.query.sort || "earliest";
   let minPrice = req.query.min || 0;
   let maxPrice = req.query.max || 2000000;
+  console.log(dataSearch.date);
   let orders = {
     earliest: ["startTime", "ASC"],
     latest: ["startTime", "DESC"],
@@ -35,6 +36,7 @@ controller.show = async (req, res) => {
     offset: (page - 1) * limit,
   };
 
+
   option.where.price = {
     [sequelize.Op.between]: [minPrice, maxPrice],
   };
@@ -45,10 +47,7 @@ controller.show = async (req, res) => {
   if (dataSearch.start || dataSearch.end || dataSearch.date) {
     option.where.startProvince = dataSearch.start;
     option.where.endProvince = dataSearch.end;
-  }
-  if (dataSearch.startDate) {
-    let sDate = dataSearch.date.split(" ");
-    option.where.startDate = sDate[0];
+    option.where.startDate = dataSearch.date;
   }
   if (req.query.nhaxe) {
     let arrNhaxe = req.query.nhaxe.split(",");
@@ -63,15 +62,28 @@ controller.show = async (req, res) => {
     };
   }
 
-  let { rows, count } = await models.ChuyenXe.findAndCountAll(option);
-  res.locals.chuyenxes = rows;
-  res.locals.pagination = {
+  // dùng cái này để count số lượng chuyến xe
+  let option2 = Object.assign({}, option);
+  delete option2.limit;
+  delete option2.offset;
+  let   count  = await models.ChuyenXe.findAll(option2);
+  let totalPage = count.length; 
+  
+  // lấy param để phân trang
+  let para = "";
+  for (let key in req.query) {
+    if (key != "page") para += "&" + key + "=" + req.query[key];
+  }
+  // console.log(para);
+  let pagi = {
     page: page,
     limit: limit,
-    totalRows: count/limit,
-    queryParams: req.query,
+    totalRows: totalPage,
+    queryParams: para,
   };
-
+  res.locals.pagis = pagi;
+  
+  res.locals.chuyenxes = await models.ChuyenXe.findAll(option);
   res.locals.nhaxes = await models.NhaXe.findAll({
     include: [models.ChuyenXe],
   });
@@ -79,6 +91,7 @@ controller.show = async (req, res) => {
     include: [models.ChuyenXe],
   });
 
+  // hiển thị ra thanh search start và end
   res.locals.searchStart = await models.ChuyenXe.findAll({
     attributes: ["startProvince"],
     group: ["startProvince"],
@@ -90,5 +103,7 @@ controller.show = async (req, res) => {
 
   res.render("search-trip", { dataSearch });
 };
+
+
 
 module.exports = controller;

@@ -24,7 +24,8 @@ app.engine('hbs', expressHbs.engine({
         createNextPreviousPagination: helper.createNextPreviousPagination,
         createReviewPagination: helper.createReviewPagination,
         createNextPrevTicketPagination: helper.createNextPrevTicketPagination,
-        createTicketPagination: helper.createTicketPagination
+        createTicketPagination: helper.createTicketPagination,
+        SearchTripPagination: helper.SearchTripPagination
     },
     runtimeOptions: { //Để cho phép hbs truy cập đc vào database
         allowProtoPropertiesByDefault: true
