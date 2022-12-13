@@ -17,7 +17,7 @@ module.exports = {
         "startTime": "23:05",
         "endTime": "06:05",
         "locationImage": "/images/locationImages/nghe-an.jpg",
-        "policy": "An toàn Covid-19\nYêu cầu đeo khẩu trang khi lên xe\nYêu cầu khi lên xe\nCó mặt tại văn phòng/quầy vé/bến xe trước 30 phút để làm thủ tục lên xe\nĐổi vé giấy trước khi lên xe\nXuất trình SMS/Email đặt vé trước khi lên xe\nKhông mang đồ ăn, thức ăn có mùi lên xe\nKhông hút thuốc, uống rượu, sử dụng chất kích thích trên xe\nKhông mang các vật dễ cháy nổ lên xeKhông vứt rác trên xe\nKhông làm ồn, gây mất trật tự trên xe\nKhông mang giày, dép trên xe\nHành lý xách tay\nTổng trọng lượng hành lý không vượt quá 20 kg\nTrẻ em và phụ nữ có thai\nTrẻ em dưới 3 tuổi hoặc dưới 120 cm được miễn phí vé nếu ngồi cùng ghế/giường với bố mẹ\nĐộng vật cảnh/Thú cưng\nĐộng vật cảnh phải đảm bảo có sức khỏe tốt, thân thiện với con người, đã được tiêm phòng đầy đủ, không có mùi khó chịu, không gây ảnh hưởng đến hành khách và tài sản của họ\nThú cưng cần phải được đeo rọ mõm, nhốt trong lồng, túi, balo phi hành gia để đảm bảo cho việc vận chuyển an toàn, phòng tránh việc thú cưng chạy ra ngoài\nHãng xe chỉ chấp nhận vận chuyển động vật như là một hành lý ký gửi; không cho phép mang lên xe cùng hành khách\nNhiệt độ thời tiết trong quá trình vận chuyển đôi khi ảnh hưởng đến sức khỏe của động vật cảnh, nhà xe không chịu trách nhiệm về sức khỏe động vật trong suốt chuyến đi",
+        
         "numSeats": 30,
         "totalNumSeats": 50,
         "price": 300000,
@@ -34,7 +34,7 @@ module.exports = {
         "startTime": "21:30",
         "endTime": "03:00",
         "locationImage": "/images/locationImages/quang-tri.jpg",
-        "policy": "An toàn Covid-19\nYêu cầu đeo khẩu trang khi lên xe\nYêu cầu khi lên xe\nCó mặt tại văn phòng/quầy vé/bến xe trước 30 phút để làm thủ tục lên xe\nĐổi vé giấy trước khi lên xe\nXuất trình SMS/Email đặt vé trước khi lên xe\nKhông mang đồ ăn, thức ăn có mùi lên xe\nKhông hút thuốc, uống rượu, sử dụng chất kích thích trên xe\nKhông mang các vật dễ cháy nổ lên xeKhông vứt rác trên xe\nKhông làm ồn, gây mất trật tự trên xe\nKhông mang giày, dép trên xe\nHành lý xách tay\nTổng trọng lượng hành lý không vượt quá 20 kg\nTrẻ em và phụ nữ có thai\nTrẻ em dưới 3 tuổi hoặc dưới 120 cm được miễn phí vé nếu ngồi cùng ghế/giường với bố mẹ\nĐộng vật cảnh/Thú cưng\nĐộng vật cảnh phải đảm bảo có sức khỏe tốt, thân thiện với con người, đã được tiêm phòng đầy đủ, không có mùi khó chịu, không gây ảnh hưởng đến hành khách và tài sản của họ\nThú cưng cần phải được đeo rọ mõm, nhốt trong lồng, túi, balo phi hành gia để đảm bảo cho việc vận chuyển an toàn, phòng tránh việc thú cưng chạy ra ngoài\nHãng xe chỉ chấp nhận vận chuyển động vật như là một hành lý ký gửi; không cho phép mang lên xe cùng hành khách\nNhiệt độ thời tiết trong quá trình vận chuyển đôi khi ảnh hưởng đến sức khỏe của động vật cảnh, nhà xe không chịu trách nhiệm về sức khỏe động vật trong suốt chuyến đi",
+        
         "numSeats": 42,
         "totalNumSeats": 50,
         "price": 320000,
@@ -51,7 +51,7 @@ module.exports = {
         "startTime": "19:00",
         "endTime": "03:00",
         "locationImage": "/images/locationImages/quang-tri.jpg",
-        "policy": "An toàn Covid-19\nYêu cầu đeo khẩu trang khi lên xe\nYêu cầu khi lên xe\nCó mặt tại văn phòng/quầy vé/bến xe trước 30 phút để làm thủ tục lên xe\nĐổi vé giấy trước khi lên xe\nXuất trình SMS/Email đặt vé trước khi lên xe\nKhông mang đồ ăn, thức ăn có mùi lên xe\nKhông hút thuốc, uống rượu, sử dụng chất kích thích trên xe\nKhông mang các vật dễ cháy nổ lên xeKhông vứt rác trên xe\nKhông làm ồn, gây mất trật tự trên xe\nKhông mang giày, dép trên xe\nHành lý xách tay\nTổng trọng lượng hành lý không vượt quá 20 kg\nTrẻ em và phụ nữ có thai\nTrẻ em dưới 3 tuổi hoặc dưới 120 cm được miễn phí vé nếu ngồi cùng ghế/giường với bố mẹ\nĐộng vật cảnh/Thú cưng\nĐộng vật cảnh phải đảm bảo có sức khỏe tốt, thân thiện với con người, đã được tiêm phòng đầy đủ, không có mùi khó chịu, không gây ảnh hưởng đến hành khách và tài sản của họ\nThú cưng cần phải được đeo rọ mõm, nhốt trong lồng, túi, balo phi hành gia để đảm bảo cho việc vận chuyển an toàn, phòng tránh việc thú cưng chạy ra ngoài\nHãng xe chỉ chấp nhận vận chuyển động vật như là một hành lý ký gửi; không cho phép mang lên xe cùng hành khách\nNhiệt độ thời tiết trong quá trình vận chuyển đôi khi ảnh hưởng đến sức khỏe của động vật cảnh, nhà xe không chịu trách nhiệm về sức khỏe động vật trong suốt chuyến đi",
+        
         "numSeats": 25,
         "totalNumSeats": 50,
         "price": 450000,
@@ -68,7 +68,7 @@ module.exports = {
         "startTime": "18:00",
         "endTime": "06:10",
         "locationImage": "/images/locationImages/dak-lak.jpg",
-        "policy": "An toàn Covid-19\nYêu cầu đeo khẩu trang khi lên xe\nYêu cầu khi lên xe\nCó mặt tại văn phòng/quầy vé/bến xe trước 30 phút để làm thủ tục lên xe\nĐổi vé giấy trước khi lên xe\nXuất trình SMS/Email đặt vé trước khi lên xe\nKhông mang đồ ăn, thức ăn có mùi lên xe\nKhông hút thuốc, uống rượu, sử dụng chất kích thích trên xe\nKhông mang các vật dễ cháy nổ lên xeKhông vứt rác trên xe\nKhông làm ồn, gây mất trật tự trên xe\nKhông mang giày, dép trên xe\nHành lý xách tay\nTổng trọng lượng hành lý không vượt quá 20 kg\nTrẻ em và phụ nữ có thai\nTrẻ em dưới 3 tuổi hoặc dưới 120 cm được miễn phí vé nếu ngồi cùng ghế/giường với bố mẹ\nĐộng vật cảnh/Thú cưng\nĐộng vật cảnh phải đảm bảo có sức khỏe tốt, thân thiện với con người, đã được tiêm phòng đầy đủ, không có mùi khó chịu, không gây ảnh hưởng đến hành khách và tài sản của họ\nThú cưng cần phải được đeo rọ mõm, nhốt trong lồng, túi, balo phi hành gia để đảm bảo cho việc vận chuyển an toàn, phòng tránh việc thú cưng chạy ra ngoài\nHãng xe chỉ chấp nhận vận chuyển động vật như là một hành lý ký gửi; không cho phép mang lên xe cùng hành khách\nNhiệt độ thời tiết trong quá trình vận chuyển đôi khi ảnh hưởng đến sức khỏe của động vật cảnh, nhà xe không chịu trách nhiệm về sức khỏe động vật trong suốt chuyến đi",
+        
         "numSeats": 25,
         "totalNumSeats": 50,
         "price": 300000,
@@ -85,7 +85,7 @@ module.exports = {
         "startTime": "22:30",
         "endTime": "07:15",
         "locationImage": "/images/locationImages/sai-gon.jpg",
-        "policy": "An toàn Covid-19\nYêu cầu đeo khẩu trang khi lên xe\nYêu cầu khi lên xe\nCó mặt tại văn phòng/quầy vé/bến xe trước 30 phút để làm thủ tục lên xe\nĐổi vé giấy trước khi lên xe\nXuất trình SMS/Email đặt vé trước khi lên xe\nKhông mang đồ ăn, thức ăn có mùi lên xe\nKhông hút thuốc, uống rượu, sử dụng chất kích thích trên xe\nKhông mang các vật dễ cháy nổ lên xeKhông vứt rác trên xe\nKhông làm ồn, gây mất trật tự trên xe\nKhông mang giày, dép trên xe\nHành lý xách tay\nTổng trọng lượng hành lý không vượt quá 20 kg\nTrẻ em và phụ nữ có thai\nTrẻ em dưới 3 tuổi hoặc dưới 120 cm được miễn phí vé nếu ngồi cùng ghế/giường với bố mẹ\nĐộng vật cảnh/Thú cưng\nĐộng vật cảnh phải đảm bảo có sức khỏe tốt, thân thiện với con người, đã được tiêm phòng đầy đủ, không có mùi khó chịu, không gây ảnh hưởng đến hành khách và tài sản của họ\nThú cưng cần phải được đeo rọ mõm, nhốt trong lồng, túi, balo phi hành gia để đảm bảo cho việc vận chuyển an toàn, phòng tránh việc thú cưng chạy ra ngoài\nHãng xe chỉ chấp nhận vận chuyển động vật như là một hành lý ký gửi; không cho phép mang lên xe cùng hành khách\nNhiệt độ thời tiết trong quá trình vận chuyển đôi khi ảnh hưởng đến sức khỏe của động vật cảnh, nhà xe không chịu trách nhiệm về sức khỏe động vật trong suốt chuyến đi",
+        
         "numSeats": 41,
         "totalNumSeats": 50,
         "price": 350000,
@@ -102,7 +102,7 @@ module.exports = {
         "startTime": "19:05",
         "endTime": "12:35",
         "locationImage": "/images/locationImages/sai-gon.jpg",
-        "policy": "An toàn Covid-19\nYêu cầu đeo khẩu trang khi lên xe\nYêu cầu khi lên xe\nCó mặt tại văn phòng/quầy vé/bến xe trước 30 phút để làm thủ tục lên xe\nĐổi vé giấy trước khi lên xe\nXuất trình SMS/Email đặt vé trước khi lên xe\nKhông mang đồ ăn, thức ăn có mùi lên xe\nKhông hút thuốc, uống rượu, sử dụng chất kích thích trên xe\nKhông mang các vật dễ cháy nổ lên xeKhông vứt rác trên xe\nKhông làm ồn, gây mất trật tự trên xe\nKhông mang giày, dép trên xe\nHành lý xách tay\nTổng trọng lượng hành lý không vượt quá 20 kg\nTrẻ em và phụ nữ có thai\nTrẻ em dưới 3 tuổi hoặc dưới 120 cm được miễn phí vé nếu ngồi cùng ghế/giường với bố mẹ\nĐộng vật cảnh/Thú cưng\nĐộng vật cảnh phải đảm bảo có sức khỏe tốt, thân thiện với con người, đã được tiêm phòng đầy đủ, không có mùi khó chịu, không gây ảnh hưởng đến hành khách và tài sản của họ\nThú cưng cần phải được đeo rọ mõm, nhốt trong lồng, túi, balo phi hành gia để đảm bảo cho việc vận chuyển an toàn, phòng tránh việc thú cưng chạy ra ngoài\nHãng xe chỉ chấp nhận vận chuyển động vật như là một hành lý ký gửi; không cho phép mang lên xe cùng hành khách\nNhiệt độ thời tiết trong quá trình vận chuyển đôi khi ảnh hưởng đến sức khỏe của động vật cảnh, nhà xe không chịu trách nhiệm về sức khỏe động vật trong suốt chuyến đi",
+        
         "numSeats": 20,
         "totalNumSeats": 50,
         "price": 800000,
@@ -119,7 +119,7 @@ module.exports = {
         "startTime": "22:15",
         "endTime": "02:50",
         "locationImage": "/images/locationImages/lao-cai.jpg",
-        "policy": "An toàn Covid-19\nYêu cầu đeo khẩu trang khi lên xe\nYêu cầu khi lên xe\nCó mặt tại văn phòng/quầy vé/bến xe trước 30 phút để làm thủ tục lên xe\nĐổi vé giấy trước khi lên xe\nXuất trình SMS/Email đặt vé trước khi lên xe\nKhông mang đồ ăn, thức ăn có mùi lên xe\nKhông hút thuốc, uống rượu, sử dụng chất kích thích trên xe\nKhông mang các vật dễ cháy nổ lên xeKhông vứt rác trên xe\nKhông làm ồn, gây mất trật tự trên xe\nKhông mang giày, dép trên xe\nHành lý xách tay\nTổng trọng lượng hành lý không vượt quá 20 kg\nTrẻ em và phụ nữ có thai\nTrẻ em dưới 3 tuổi hoặc dưới 120 cm được miễn phí vé nếu ngồi cùng ghế/giường với bố mẹ\nĐộng vật cảnh/Thú cưng\nĐộng vật cảnh phải đảm bảo có sức khỏe tốt, thân thiện với con người, đã được tiêm phòng đầy đủ, không có mùi khó chịu, không gây ảnh hưởng đến hành khách và tài sản của họ\nThú cưng cần phải được đeo rọ mõm, nhốt trong lồng, túi, balo phi hành gia để đảm bảo cho việc vận chuyển an toàn, phòng tránh việc thú cưng chạy ra ngoài\nHãng xe chỉ chấp nhận vận chuyển động vật như là một hành lý ký gửi; không cho phép mang lên xe cùng hành khách\nNhiệt độ thời tiết trong quá trình vận chuyển đôi khi ảnh hưởng đến sức khỏe của động vật cảnh, nhà xe không chịu trách nhiệm về sức khỏe động vật trong suốt chuyến đi",
+        
         "numSeats": 20,
         "totalNumSeats": 50,
         "price": 400000,
@@ -136,7 +136,7 @@ module.exports = {
         "startTime": "19:20",
         "endTime": "02:50",
         "locationImage": "/images/locationImages/dien-bien.jpg",
-        "policy": "An toàn Covid-19\nYêu cầu đeo khẩu trang khi lên xe\nYêu cầu khi lên xe\nCó mặt tại văn phòng/quầy vé/bến xe trước 30 phút để làm thủ tục lên xe\nĐổi vé giấy trước khi lên xe\nXuất trình SMS/Email đặt vé trước khi lên xe\nKhông mang đồ ăn, thức ăn có mùi lên xe\nKhông hút thuốc, uống rượu, sử dụng chất kích thích trên xe\nKhông mang các vật dễ cháy nổ lên xeKhông vứt rác trên xe\nKhông làm ồn, gây mất trật tự trên xe\nKhông mang giày, dép trên xe\nHành lý xách tay\nTổng trọng lượng hành lý không vượt quá 20 kg\nTrẻ em và phụ nữ có thai\nTrẻ em dưới 3 tuổi hoặc dưới 120 cm được miễn phí vé nếu ngồi cùng ghế/giường với bố mẹ\nĐộng vật cảnh/Thú cưng\nĐộng vật cảnh phải đảm bảo có sức khỏe tốt, thân thiện với con người, đã được tiêm phòng đầy đủ, không có mùi khó chịu, không gây ảnh hưởng đến hành khách và tài sản của họ\nThú cưng cần phải được đeo rọ mõm, nhốt trong lồng, túi, balo phi hành gia để đảm bảo cho việc vận chuyển an toàn, phòng tránh việc thú cưng chạy ra ngoài\nHãng xe chỉ chấp nhận vận chuyển động vật như là một hành lý ký gửi; không cho phép mang lên xe cùng hành khách\nNhiệt độ thời tiết trong quá trình vận chuyển đôi khi ảnh hưởng đến sức khỏe của động vật cảnh, nhà xe không chịu trách nhiệm về sức khỏe động vật trong suốt chuyến đi",
+        
         "numSeats": 50,
         "totalNumSeats": 50,
         "price": 280000,
@@ -152,8 +152,7 @@ module.exports = {
         "endDate": "13-12-2022",
         "startTime": "19:00",
         "endTime": "05:55",
-        "locationImage": "/images/locationImages/dien-bien.jpg",
-        "policy": "An toàn Covid-19\nYêu cầu đeo khẩu trang khi lên xe\nYêu cầu khi lên xe\nCó mặt tại văn phòng/quầy vé/bến xe trước 30 phút để làm thủ tục lên xe\nĐổi vé giấy trước khi lên xe\nXuất trình SMS/Email đặt vé trước khi lên xe\nKhông mang đồ ăn, thức ăn có mùi lên xe\nKhông hút thuốc, uống rượu, sử dụng chất kích thích trên xe\nKhông mang các vật dễ cháy nổ lên xeKhông vứt rác trên xe\nKhông làm ồn, gây mất trật tự trên xe\nKhông mang giày, dép trên xe\nHành lý xách tay\nTổng trọng lượng hành lý không vượt quá 20 kg\nTrẻ em và phụ nữ có thai\nTrẻ em dưới 3 tuổi hoặc dưới 120 cm được miễn phí vé nếu ngồi cùng ghế/giường với bố mẹ\nĐộng vật cảnh/Thú cưng\nĐộng vật cảnh phải đảm bảo có sức khỏe tốt, thân thiện với con người, đã được tiêm phòng đầy đủ, không có mùi khó chịu, không gây ảnh hưởng đến hành khách và tài sản của họ\nThú cưng cần phải được đeo rọ mõm, nhốt trong lồng, túi, balo phi hành gia để đảm bảo cho việc vận chuyển an toàn, phòng tránh việc thú cưng chạy ra ngoài\nHãng xe chỉ chấp nhận vận chuyển động vật như là một hành lý ký gửi; không cho phép mang lên xe cùng hành khách\nNhiệt độ thời tiết trong quá trình vận chuyển đôi khi ảnh hưởng đến sức khỏe của động vật cảnh, nhà xe không chịu trách nhiệm về sức khỏe động vật trong suốt chuyến đi",
+        "locationImage": "/images/locationImages/dien-bien.jpg",    
         "numSeats": 38,
         "totalNumSeats": 50,
         "price": 380000,
@@ -170,7 +169,7 @@ module.exports = {
         "startTime": "19:00",
         "endTime": "06:30",
         "locationImage": "/images/locationImages/lam-dong.jpg",
-        "policy": "An toàn Covid-19\nYêu cầu đeo khẩu trang khi lên xe\nYêu cầu khi lên xe\nCó mặt tại văn phòng/quầy vé/bến xe trước 30 phút để làm thủ tục lên xe\nĐổi vé giấy trước khi lên xe\nXuất trình SMS/Email đặt vé trước khi lên xe\nKhông mang đồ ăn, thức ăn có mùi lên xe\nKhông hút thuốc, uống rượu, sử dụng chất kích thích trên xe\nKhông mang các vật dễ cháy nổ lên xeKhông vứt rác trên xe\nKhông làm ồn, gây mất trật tự trên xe\nKhông mang giày, dép trên xe\nHành lý xách tay\nTổng trọng lượng hành lý không vượt quá 20 kg\nTrẻ em và phụ nữ có thai\nTrẻ em dưới 3 tuổi hoặc dưới 120 cm được miễn phí vé nếu ngồi cùng ghế/giường với bố mẹ\nĐộng vật cảnh/Thú cưng\nĐộng vật cảnh phải đảm bảo có sức khỏe tốt, thân thiện với con người, đã được tiêm phòng đầy đủ, không có mùi khó chịu, không gây ảnh hưởng đến hành khách và tài sản của họ\nThú cưng cần phải được đeo rọ mõm, nhốt trong lồng, túi, balo phi hành gia để đảm bảo cho việc vận chuyển an toàn, phòng tránh việc thú cưng chạy ra ngoài\nHãng xe chỉ chấp nhận vận chuyển động vật như là một hành lý ký gửi; không cho phép mang lên xe cùng hành khách\nNhiệt độ thời tiết trong quá trình vận chuyển đôi khi ảnh hưởng đến sức khỏe của động vật cảnh, nhà xe không chịu trách nhiệm về sức khỏe động vật trong suốt chuyến đi",
+        
         "numSeats": 10,
         "totalNumSeats": 50,
         "price": 360000,
@@ -187,7 +186,7 @@ module.exports = {
         "startTime": "22:30",
         "endTime": "06:30",
         "locationImage": "/images/locationImages/sai-gon.jpg",
-        "policy": "An toàn Covid-19\nYêu cầu đeo khẩu trang khi lên xe\nYêu cầu khi lên xe\nCó mặt tại văn phòng/quầy vé/bến xe trước 30 phút để làm thủ tục lên xe\nĐổi vé giấy trước khi lên xe\nXuất trình SMS/Email đặt vé trước khi lên xe\nKhông mang đồ ăn, thức ăn có mùi lên xe\nKhông hút thuốc, uống rượu, sử dụng chất kích thích trên xe\nKhông mang các vật dễ cháy nổ lên xeKhông vứt rác trên xe\nKhông làm ồn, gây mất trật tự trên xe\nKhông mang giày, dép trên xe\nHành lý xách tay\nTổng trọng lượng hành lý không vượt quá 20 kg\nTrẻ em và phụ nữ có thai\nTrẻ em dưới 3 tuổi hoặc dưới 120 cm được miễn phí vé nếu ngồi cùng ghế/giường với bố mẹ\nĐộng vật cảnh/Thú cưng\nĐộng vật cảnh phải đảm bảo có sức khỏe tốt, thân thiện với con người, đã được tiêm phòng đầy đủ, không có mùi khó chịu, không gây ảnh hưởng đến hành khách và tài sản của họ\nThú cưng cần phải được đeo rọ mõm, nhốt trong lồng, túi, balo phi hành gia để đảm bảo cho việc vận chuyển an toàn, phòng tránh việc thú cưng chạy ra ngoài\nHãng xe chỉ chấp nhận vận chuyển động vật như là một hành lý ký gửi; không cho phép mang lên xe cùng hành khách\nNhiệt độ thời tiết trong quá trình vận chuyển đôi khi ảnh hưởng đến sức khỏe của động vật cảnh, nhà xe không chịu trách nhiệm về sức khỏe động vật trong suốt chuyến đi",
+        
         "numSeats": 25,
         "totalNumSeats": 50,
         "price": 300000,
@@ -204,7 +203,7 @@ module.exports = {
         "startTime": "16:00",
         "endTime": "09:45",
         "locationImage": "/images/locationImages/sai-gon.jpg",
-        "policy": "An toàn Covid-19\nYêu cầu đeo khẩu trang khi lên xe\nYêu cầu khi lên xe\nCó mặt tại văn phòng/quầy vé/bến xe trước 30 phút để làm thủ tục lên xe\nĐổi vé giấy trước khi lên xe\nXuất trình SMS/Email đặt vé trước khi lên xe\nKhông mang đồ ăn, thức ăn có mùi lên xe\nKhông hút thuốc, uống rượu, sử dụng chất kích thích trên xe\nKhông mang các vật dễ cháy nổ lên xeKhông vứt rác trên xe\nKhông làm ồn, gây mất trật tự trên xe\nKhông mang giày, dép trên xe\nHành lý xách tay\nTổng trọng lượng hành lý không vượt quá 20 kg\nTrẻ em và phụ nữ có thai\nTrẻ em dưới 3 tuổi hoặc dưới 120 cm được miễn phí vé nếu ngồi cùng ghế/giường với bố mẹ\nĐộng vật cảnh/Thú cưng\nĐộng vật cảnh phải đảm bảo có sức khỏe tốt, thân thiện với con người, đã được tiêm phòng đầy đủ, không có mùi khó chịu, không gây ảnh hưởng đến hành khách và tài sản của họ\nThú cưng cần phải được đeo rọ mõm, nhốt trong lồng, túi, balo phi hành gia để đảm bảo cho việc vận chuyển an toàn, phòng tránh việc thú cưng chạy ra ngoài\nHãng xe chỉ chấp nhận vận chuyển động vật như là một hành lý ký gửi; không cho phép mang lên xe cùng hành khách\nNhiệt độ thời tiết trong quá trình vận chuyển đôi khi ảnh hưởng đến sức khỏe của động vật cảnh, nhà xe không chịu trách nhiệm về sức khỏe động vật trong suốt chuyến đi",
+        
         "numSeats": 30,
         "totalNumSeats": 50,
         "price": 400000,
@@ -221,7 +220,7 @@ module.exports = {
         "startTime": "19:44",
         "endTime": "22:59",
         "locationImage": "/images/locationImages/can-tho.jpg",
-        "policy": "An toàn Covid-19\nYêu cầu đeo khẩu trang khi lên xe\nYêu cầu khi lên xe\nCó mặt tại văn phòng/quầy vé/bến xe trước 30 phút để làm thủ tục lên xe\nĐổi vé giấy trước khi lên xe\nXuất trình SMS/Email đặt vé trước khi lên xe\nKhông mang đồ ăn, thức ăn có mùi lên xe\nKhông hút thuốc, uống rượu, sử dụng chất kích thích trên xe\nKhông mang các vật dễ cháy nổ lên xeKhông vứt rác trên xe\nKhông làm ồn, gây mất trật tự trên xe\nKhông mang giày, dép trên xe\nHành lý xách tay\nTổng trọng lượng hành lý không vượt quá 20 kg\nTrẻ em và phụ nữ có thai\nTrẻ em dưới 3 tuổi hoặc dưới 120 cm được miễn phí vé nếu ngồi cùng ghế/giường với bố mẹ\nĐộng vật cảnh/Thú cưng\nĐộng vật cảnh phải đảm bảo có sức khỏe tốt, thân thiện với con người, đã được tiêm phòng đầy đủ, không có mùi khó chịu, không gây ảnh hưởng đến hành khách và tài sản của họ\nThú cưng cần phải được đeo rọ mõm, nhốt trong lồng, túi, balo phi hành gia để đảm bảo cho việc vận chuyển an toàn, phòng tránh việc thú cưng chạy ra ngoài\nHãng xe chỉ chấp nhận vận chuyển động vật như là một hành lý ký gửi; không cho phép mang lên xe cùng hành khách\nNhiệt độ thời tiết trong quá trình vận chuyển đôi khi ảnh hưởng đến sức khỏe của động vật cảnh, nhà xe không chịu trách nhiệm về sức khỏe động vật trong suốt chuyến đi",
+        
         "numSeats": 10,
         "totalNumSeats": 50,
         "price": 250000,
@@ -238,7 +237,7 @@ module.exports = {
         "startTime": "22:59",
         "endTime": "02:49",
         "locationImage": "/images/locationImages/phan-thiet.jpg",
-        "policy": "An toàn Covid-19\nYêu cầu đeo khẩu trang khi lên xe\nYêu cầu khi lên xe\nCó mặt tại văn phòng/quầy vé/bến xe trước 30 phút để làm thủ tục lên xe\nĐổi vé giấy trước khi lên xe\nXuất trình SMS/Email đặt vé trước khi lên xe\nKhông mang đồ ăn, thức ăn có mùi lên xe\nKhông hút thuốc, uống rượu, sử dụng chất kích thích trên xe\nKhông mang các vật dễ cháy nổ lên xeKhông vứt rác trên xe\nKhông làm ồn, gây mất trật tự trên xe\nKhông mang giày, dép trên xe\nHành lý xách tay\nTổng trọng lượng hành lý không vượt quá 20 kg\nTrẻ em và phụ nữ có thai\nTrẻ em dưới 3 tuổi hoặc dưới 120 cm được miễn phí vé nếu ngồi cùng ghế/giường với bố mẹ\nĐộng vật cảnh/Thú cưng\nĐộng vật cảnh phải đảm bảo có sức khỏe tốt, thân thiện với con người, đã được tiêm phòng đầy đủ, không có mùi khó chịu, không gây ảnh hưởng đến hành khách và tài sản của họ\nThú cưng cần phải được đeo rọ mõm, nhốt trong lồng, túi, balo phi hành gia để đảm bảo cho việc vận chuyển an toàn, phòng tránh việc thú cưng chạy ra ngoài\nHãng xe chỉ chấp nhận vận chuyển động vật như là một hành lý ký gửi; không cho phép mang lên xe cùng hành khách\nNhiệt độ thời tiết trong quá trình vận chuyển đôi khi ảnh hưởng đến sức khỏe của động vật cảnh, nhà xe không chịu trách nhiệm về sức khỏe động vật trong suốt chuyến đi",
+        
         "numSeats": 42,
         "totalNumSeats": 50,
         "price": 230000,
@@ -255,7 +254,7 @@ module.exports = {
         "startTime": "21:30",
         "endTime": "05:05",
         "locationImage": "/images/locationImages/sai-gon.jpg",
-        "policy": "An toàn Covid-19\nYêu cầu đeo khẩu trang khi lên xe\nYêu cầu khi lên xe\nCó mặt tại văn phòng/quầy vé/bến xe trước 30 phút để làm thủ tục lên xe\nĐổi vé giấy trước khi lên xe\nXuất trình SMS/Email đặt vé trước khi lên xe\nKhông mang đồ ăn, thức ăn có mùi lên xe\nKhông hút thuốc, uống rượu, sử dụng chất kích thích trên xe\nKhông mang các vật dễ cháy nổ lên xeKhông vứt rác trên xe\nKhông làm ồn, gây mất trật tự trên xe\nKhông mang giày, dép trên xe\nHành lý xách tay\nTổng trọng lượng hành lý không vượt quá 20 kg\nTrẻ em và phụ nữ có thai\nTrẻ em dưới 3 tuổi hoặc dưới 120 cm được miễn phí vé nếu ngồi cùng ghế/giường với bố mẹ\nĐộng vật cảnh/Thú cưng\nĐộng vật cảnh phải đảm bảo có sức khỏe tốt, thân thiện với con người, đã được tiêm phòng đầy đủ, không có mùi khó chịu, không gây ảnh hưởng đến hành khách và tài sản của họ\nThú cưng cần phải được đeo rọ mõm, nhốt trong lồng, túi, balo phi hành gia để đảm bảo cho việc vận chuyển an toàn, phòng tránh việc thú cưng chạy ra ngoài\nHãng xe chỉ chấp nhận vận chuyển động vật như là một hành lý ký gửi; không cho phép mang lên xe cùng hành khách\nNhiệt độ thời tiết trong quá trình vận chuyển đôi khi ảnh hưởng đến sức khỏe của động vật cảnh, nhà xe không chịu trách nhiệm về sức khỏe động vật trong suốt chuyến đi",
+        
         "numSeats": 45,
         "totalNumSeats": 50,
         "price": 300000,

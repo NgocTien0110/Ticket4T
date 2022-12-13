@@ -42,22 +42,31 @@
 
         <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
             <ol class="carousel-indicators">
-                <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true"
-                    aria-label="First slide"></li>
-                <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="Second slide"></li>
-                <li data-bs-target="#carouselId" data-bs-slide-to="2" aria-label="Third slide"></li>
+                {{#each trip.NhaXe.imageJours}}
+                <li data-bs-target="#carouselId" data-bs-slide-to="{{@index}}" class="{{#if @first}}active{{/if}}"
+                    aria-current="true" aria-label="{{this}}"></li>
+                {{/each}}
+                {{!-- <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true"
+                    aria-label="{{trip.NhaXe.imageJours.[0]}}"></li>
+                <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="{{trip.NhaXe.imageJours.[1]}}"></li>
+                <li data-bs-target="#carouselId" data-bs-slide-to="2" aria-label="{{trip.NhaXe.imageJours.[2]}}"></li> --}}
             </ol>
             <div class="carousel-inner" height="300" role="listbox">
-                <div class="carousel-item active ">
-                    <img src="/images/SaiGon-DaLat/VIP-Limousine-Tien-Oanh.jpg" height="600" class="w-100 d-block"
-                        alt="First slide">
+                {{#each trip.NhaXe.imageJours}}
+                <div class="carousel-item {{#if @first}}active{{/if}}">
+                    <img src="{{this}}" height="600" class="w-100 d-block" alt="{{this}}">
+                </div>
+                {{/each}}
+                {{!-- <div class="carousel-item active  ">
+                    <img src="{{trip.NhaXe.imageJours.[0]}}" height="600" class="w-100 d-block"
+                        alt="{{trip.NhaXe.imageJours.[0]}}">
                 </div>
                 <div class="carousel-item">
-                    <img src="/images/SaiGon-DaLat/sg-dt.jpg" height="600" class="w-100 d-block" alt="Second slide">
+                    <img src="{{trip.NhaXe.imageJours.[1]}}" height="600" class="w-100 d-block" alt="Second slide">
                 </div>
                 <div class="carousel-item">
-                    <img src="/images/SaiGon-DaLat/sg-dt-1.jpg" height="600" class="w-100 d-block" alt="Third slide">
-                </div>
+                    <img src="{{trip.NhaXe.imageJours.[2]}}" height="600" class="w-100 d-block" alt="Third slide">
+                </div> --}}
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -133,31 +142,18 @@
         </div>
     </section>
 
-    <section class="container my-5 p-4 bg-color-4">
-        <h1 class="fw-bold color-1">
-            Chính sách nhà xe
-        </h1>
-        <h1 class="fw-bold color-1">
-            An toàn Covid-19
-        </h1>
-        <ul class="color-1 fs-5">
-            <li>Yêu cầu đeo khẩu trang khi lên xe</li>
-        </ul>
-        <h1 class="fw-bold color-1">Yêu cầu khi lên xe</h1>
-        <ul class="color-1 fs-5">
-            <li>Có mặt tại văn phòng/quầy vé/bến xe trước 30 phút để làm thủ tục lên xe</li>
-            <li>Xuất trình SMS/Email đặt vé trước khi lên xe</li>
-            <li>Không mang đồ ăn, thức ăn có mùi lên xe</li>
-            <li>Không hút thuốc, uống rượu, sử dụng chất kích thích trên xe</li>
-            <li>Không mang các vật dễ cháy nổ lên xe</li>
-            <li>Không vứt rác trên xe</li>
-            <li>Không làm ồn, gây mất trật tự trên xe</li>
-            <li>Không mang giày, dép trên xe</li>
-        </ul>
-        <h1 class="fw-bold color-1">Trẻ em và phụ nữ có thai</h1>
-        <ul class="color-1 fs-5">
-            <li>Trẻ em dưới 16 tuổi hoặc dưới 120 cm được miễn phí vé nếu ngồi cùng ghế/giường với bố mẹ</li>
-        </ul>
+    <section class="container my-5 px-5 py-3 bg-color-4">
+      
+            <h3 class="my-3 fw-bold text-white">Chính sách của chuyến xe</h3>
+        <pre class="chinhSach">{{trip.NhaXe.policy}}</pre>
     </section>
 </main>
 {{>footer}}
+
+<script>
+    let chinhSach = document.querySelector('.chinhSach');
+    // thêm thẻ li vào đầu mỗi dòng
+    chinhSach.innerHTML = '<li>' + chinhSach.innerHTML;
+    chinhSach.innerHTML = chinhSach.innerHTML.replace( /\n/g, '</li><li>' );
+
+</script>

@@ -36,9 +36,6 @@ module.exports = {
       locationImage: {
         type: Sequelize.STRING
       },
-      policy: {
-        type: Sequelize.TEXT
-      },
       numSeats: {
         type: Sequelize.INTEGER
       },

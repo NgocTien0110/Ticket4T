@@ -15,21 +15,25 @@ module.exports = (sequelize, DataTypes) => {
       NhaXe.hasMany(models.Review, { foreignKey: 'carId' });
     }
   }
-  NhaXe.init({
-    name: DataTypes.STRING,
-    description: DataTypes.TEXT,
-    phoneNo: DataTypes.ARRAY(DataTypes.STRING),
-    address: DataTypes.ARRAY(DataTypes.STRING),
-    mainRoute: DataTypes.ARRAY(DataTypes.STRING),
-    startTime: DataTypes.ARRAY(DataTypes.STRING),
-    numOfTrip: DataTypes.STRING,
-    ticketPrice: DataTypes.ARRAY(DataTypes.STRING),
-    stars: DataTypes.FLOAT,
-    imageCarCom: DataTypes.STRING,
-    imageJours: DataTypes.ARRAY(DataTypes.STRING)
-  }, {
-    sequelize,
-    modelName: 'NhaXe',
-  });
+  NhaXe.init(
+    {
+      name: DataTypes.STRING,
+      description: DataTypes.TEXT,
+      phoneNo: DataTypes.ARRAY(DataTypes.STRING),
+      address: DataTypes.ARRAY(DataTypes.STRING),
+      policy: DataTypes.TEXT,
+      mainRoute: DataTypes.ARRAY(DataTypes.STRING),
+      startTime: DataTypes.ARRAY(DataTypes.STRING),
+      numOfTrip: DataTypes.STRING,
+      ticketPrice: DataTypes.ARRAY(DataTypes.STRING),
+      stars: DataTypes.FLOAT,
+      imageCarCom: DataTypes.STRING,
+      imageJours: DataTypes.ARRAY(DataTypes.STRING),
+    },
+    {
+      sequelize,
+      modelName: "NhaXe",
+    }
+  );
   return NhaXe;
 };
