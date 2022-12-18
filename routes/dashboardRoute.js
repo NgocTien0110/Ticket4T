@@ -12,4 +12,5 @@ Router.get('/tables', (req, res) => {
 Router.get('/document', (req, res) => {
     res.render('document');
 })
+Router.get('/quanlyve', controller.showTicket);
 module.exports = Router;
