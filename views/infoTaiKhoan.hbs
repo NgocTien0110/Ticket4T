@@ -20,145 +20,147 @@
 
 </head>
 
-{{>header}}
-<main>
-    <div class="bodyInfo">
-        <div class="container">
-            {{#with infoAcc}}
-            <div class="row">
-                <div class="col-md-12">
-                    <p><a href="/">Trang chủ </a> > <a href="/tai-khoan/thong-tin">Thông tin
-                            tài khoản</a>
-                    </p>
-                    <div class="infoAcc">
-                        <img src="{{imageAccount}}" alt="AnhDaiDien" class="img-fluid" id="avatarInfoAcc">
-                        <div class="infoNameAcc">
-                            <div style="font-size:larger">Tài khoản của</div>
-                            <h4 style="color: var(--color--secondary)">{{fullName}}</h4>
+<body>
+    {{>header}}
+    <main>
+        <div class="bodyInfo">
+            <div class="container">
+                {{#with infoAcc}}
+                <div class="row">
+                    <div class="col-md-12">
+                        <p><a href="/">Trang chủ </a> > <a href="/tai-khoan/thong-tin">Thông tin
+                                tài khoản</a>
+                        </p>
+                        <div class="infoAcc">
+                            <img src="{{imageAccount}}" alt="AnhDaiDien" class="img-fluid" id="avatarInfoAcc">
+                            <div class="infoNameAcc">
+                                <div style="font-size:larger">Tài khoản của</div>
+                                <h4 style="color: var(--color--secondary)">{{fullName}}</h4>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="row bodyInfoDetail">
+                    <div class="col-md-3 leftBody">
+                        <div class="leftInfoAcc">
+                            <a class="linkLeftInfoAcc" href="/tai-khoan/thong-tin">
+                                <i class="fa-solid fa-user"></i> Thông tin tài khoản
+                            </a>
+                        </div>
+                        <div class="leftInfoAcc">
+                            <a href="/tai-khoan/ve-cua-toi" class="linkLeftInfoAcc">
+                                <span class="bi bi-ticket-detailed"></span>
+                                Vé của tôi
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-9 rightBody">
+                        <form action="/tai-khoan/thong-tin" class="formRightBody" method="POST"
+                            enctype="multipart/form-data">
+                            <h2 id="thongtincn">Thông tin cá nhân</h2>
+                            <div class="topRightBody">
+                                <div class="leftOfTopRightBody">
+                                    <img src="{{imageAccount}}" alt="AnhDaiDien" class="img-fluid" id="avatarInfo">
+                                    <div class="changeAvatar">
+                                        <label for="avatar"><i class="bi bi-camera-fill"></i></label>
+                                        <input type="file" name="image" id="avatar" style="display: none">
+                                    </div>
+                                </div>
+                                <div class="rightOfTopRightBody">
+                                    <div class="HoTenForm form-group">
+                                        <label for="fullName">Họ và tên</label>
+                                        <input style="width:250px; height:30px" type="text" name="fullName"
+                                            id="fullName" value="{{fullName}}" class="form-control">
+                                    </div>
+                                    <div class="EmailForm form-group">
+                                        <label for="email">Email</label>
+                                        <input style="width:284px; height:30px" type="email" name="email" id="email"
+                                            value="{{email}}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                                            class="form-control" required>
+                                    </div>
+                                    <div class="SDTForm form-group">
+                                        <label for="phoneNum">Số điện thoại</label>
+                                        <input style="width:235px; height:30px" type="text" name="phoneNum"
+                                            id="phoneNum" value="{{phoneNum}}" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="botRightBody text-center">
+                                <div class="NgaySinhForm form-group">
+                                    <label for="dob">Ngày Sinh</label>
+                                    <input style="height:30px; width:380px" type="date" name="dob" id="date-picker"
+                                        value="{{dob}}" class="form-control">
+                                </div>
+                                <div class="GioiTinhForm form-group">
+                                    <div class="leftGioiTinhForm">
+                                        <label for="sex">Giới tính</label>
+                                    </div>
+                                    <div class="rightGioiTinhForm form-group">
+                                        {{#if isMale}}
+                                        <div class="radioNam">
+                                            <input type="radio" name="sex" id="Nam" value="Nam" checked>
+                                            <label for="Nam">Nam</label>
+                                        </div>
+                                        <div class="radioNu">
+                                            <input type="radio" name="sex" id="Nu" value="Nữ">
+                                            <label for="Nu">Nữ</label>
+                                        </div>
+                                        {{else}}
+                                        <div class="radioNam">
+                                            <input type="radio" name="sex" id="Nam" value="Nam">
+                                            <label for="Nam">Nam</label>
+                                        </div>
+                                        <div class="radioNu">
+                                            <input type="radio" name="sex" id="Nu" value="Nữ" checked>
+                                            <label for="Nu">Nữ</label>
+                                        </div>
+                                        {{/if}}
+                                    </div>
+                                </div>
+                                <a href="/tai-khoan/cap-nhat-mat-khau" id="changePassword">Thay đổi mật
+                                    khẩu?</a>
+                            </div>
+                            {{#if ../message}}
+                            <div class="form-group alert {{../type}}">
+                                <strong>{{../message}}</strong>
+                            </div>
+                            {{/if}}
+                            <button class="btn btn-dark fw-bold mt-3 lds-ring">
+                                <div class="ring" style="display: none"></div>
+                                <div class="ring" style="display: none"></div>
+                                <div class="ring" style="display: none"></div>
+                                <div class="ring" style="display: none"></div>
+                                Lưu thay đổi
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                {{/with}}
             </div>
-            <div class="row bodyInfoDetail">
-                <div class="col-md-3 leftBody">
-                    <div class="leftInfoAcc">
-                        <a class="linkLeftInfoAcc" href="/tai-khoan/thong-tin">
-                            <i class="fa-solid fa-user"></i> Thông tin tài khoản
-                        </a>
-                    </div>
-                    <div class="leftInfoAcc">
-                        <a href="/tai-khoan/ve-cua-toi" class="linkLeftInfoAcc">
-                            <span class="bi bi-ticket-detailed"></span>
-                            Vé của tôi
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-9 rightBody">
-                    <form action="/tai-khoan/thong-tin" class="formRightBody" method="POST"
-                        enctype="multipart/form-data">
-                        <h2 id="thongtincn">Thông tin cá nhân</h2>
-                        <div class="topRightBody">
-                            <div class="leftOfTopRightBody">
-                                <img src="{{imageAccount}}" alt="AnhDaiDien" class="img-fluid" id="avatarInfo">
-                                <div class="changeAvatar">
-                                    <label for="avatar"><i class="bi bi-camera-fill"></i></label>
-                                    <input type="file" name="image" id="avatar" style="display: none">
-                                </div>
-                            </div>
-                            <div class="rightOfTopRightBody">
-                                <div class="HoTenForm form-group">
-                                    <label for="fullName">Họ và tên</label>
-                                    <input style="width:250px; height:30px" type="text" name="fullName" id="fullName"
-                                        value="{{fullName}}" class="form-control">
-                                </div>
-                                <div class="EmailForm form-group">
-                                    <label for="email">Email</label>
-                                    <input style="width:284px; height:30px" type="email" name="email" id="email"
-                                        value="{{email}}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                                        class="form-control" required>
-                                </div>
-                                <div class="SDTForm form-group">
-                                    <label for="phoneNum">Số điện thoại</label>
-                                    <input style="width:235px; height:30px" type="text" name="phoneNum" id="phoneNum"
-                                        value="{{phoneNum}}" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="botRightBody text-center">
-                            <div class="NgaySinhForm form-group">
-                                <label for="dob">Ngày Sinh</label>
-                                <input style="height:30px; width:380px" type="date" name="dob" id="date-picker"
-                                    value="{{dob}}" class="form-control">
-                            </div>
-                            <div class="GioiTinhForm form-group">
-                                <div class="leftGioiTinhForm">
-                                    <label for="sex">Giới tính</label>
-                                </div>
-                                <div class="rightGioiTinhForm form-group">
-                                    {{#if isMale}}
-                                    <div class="radioNam">
-                                        <input type="radio" name="sex" id="Nam" value="Nam" checked>
-                                        <label for="Nam">Nam</label>
-                                    </div>
-                                    <div class="radioNu">
-                                        <input type="radio" name="sex" id="Nu" value="Nữ">
-                                        <label for="Nu">Nữ</label>
-                                    </div>
-                                    {{else}}
-                                    <div class="radioNam">
-                                        <input type="radio" name="sex" id="Nam" value="Nam">
-                                        <label for="Nam">Nam</label>
-                                    </div>
-                                    <div class="radioNu">
-                                        <input type="radio" name="sex" id="Nu" value="Nữ" checked>
-                                        <label for="Nu">Nữ</label>
-                                    </div>
-                                    {{/if}}
-                                </div>
-                            </div>
-                            <a href="/tai-khoan/cap-nhat-mat-khau" id="changePassword">Thay đổi mật
-                                khẩu?</a>
-                        </div>
-                        {{#if ../message}}
-                        <div class="form-group alert {{../type}}">
-                            <strong>{{../message}}</strong>
-                        </div>
-                        {{/if}}
-                        <button class="btn btn-dark fw-bold mt-3 lds-ring">
-                            <div class="ring" style="display: none"></div>
-                            <div class="ring" style="display: none"></div>
-                            <div class="ring" style="display: none"></div>
-                            <div class="ring" style="display: none"></div>
-                            Lưu thay đổi
-                        </button>
-                    </form>
-                </div>
-            </div>
-            {{/with}}
         </div>
-    </div>
-</main>
-{{>footer}}
-<script>
-    //preview avatar
-    let avt = document.querySelector('#avatar');
-    let avtInfo = document.querySelector('#avatarInfo');
-    let avtInfoAcc = document.querySelector('#avatarInfoAcc');
-    avt.addEventListener('change', () => {
-        let file = avt.files[0];
-        let reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => {
-            avtInfo.src = reader.result;
-            avtInfoAcc.src = reader.result;
-        }
-    })
-    let ring = document.querySelectorAll('.ring');
-    let btn = document.querySelector('.lds-ring');
-    btn.addEventListener('click', () => {
-        ring.forEach((item) => {
-            item.style.display = 'block';
+    </main>
+    {{>footer}}
+    <script>
+        //preview avatar
+        let avt = document.querySelector('#avatar');
+        let avtInfo = document.querySelector('#avatarInfo');
+        let avtInfoAcc = document.querySelector('#avatarInfoAcc');
+        avt.addEventListener('change', () => {
+            let file = avt.files[0];
+            let reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => {
+                avtInfo.src = reader.result;
+                avtInfoAcc.src = reader.result;
+            }
         })
-    })
+        let ring = document.querySelectorAll('.ring');
+        let btn = document.querySelector('.lds-ring');
+        btn.addEventListener('click', () => {
+            ring.forEach((item) => {
+                item.style.display = 'block';
+            })
+        })
 
-</script>
+    </script>
+</body>

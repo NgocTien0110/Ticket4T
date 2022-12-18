@@ -233,18 +233,25 @@ controller.showDetailsTicket = async (req, res) => {
     let accId = req.session.user.id
     let ticketId = req.params.ticketId;
 
-    res.locals.infoAcc = await models.TaiKhoan.findOne({
+    let infoAcc = await models.TaiKhoan.findOne({
         where: {
             id: accId
         },
         include: [{
             model: models.VeDaDat,
-            include: [{ model: models.ChuyenXe, include: [models.NhaXe], include: [models.LoaiXe] }],
+            include: [{ model: models.ChuyenXe, include: [models.NhaXe] }],
             where: {
                 id: ticketId,
             }
         }]
     })
+    res.locals.infoAcc = infoAcc
+    // let LoaiXe = 
+    // res.locals.LoaiXe = await models.LoaiXe.findOne({
+    //     where: {
+    //         id: res.locals.infoAcc.VeDaDats.ChuyenXe.cateCarId
+    //     }
+    // })
 
     res.render('xemChiTietVe')
 }

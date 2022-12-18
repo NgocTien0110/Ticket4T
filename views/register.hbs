@@ -15,74 +15,76 @@
     <link rel="stylesheet" href="/css/register.css">
 </head>
 
-{{>header}}
-<main>
-    <div id="anhBgRegister">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-1"></div>
+<body>
+    {{>header}}
+    <main>
+        <div id="anhBgRegister">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-1"></div>
 
-                <div class="col-md-5 text-center">
-                    <div id="formRegister">
+                    <div class="col-md-5 text-center">
+                        <div id="formRegister">
 
-                        <div id="bodyForm" style="display: flex; justify-content: center; flex-direction: column;">
-                            <div id="topForm">
-                                <a href="/users/login">
-                                    <h4>Đăng nhập</h4>
-                                </a>
-                                <a href="/users/register">
-                                    <h4>Đăng ký</h4>
-                                </a>
+                            <div id="bodyForm" style="display: flex; justify-content: center; flex-direction: column;">
+                                <div id="topForm">
+                                    <a href="/users/login">
+                                        <h4>Đăng nhập</h4>
+                                    </a>
+                                    <a href="/users/register">
+                                        <h4>Đăng ký</h4>
+                                    </a>
+                                </div>
+
+                                <form action="/users/register" id="register-form" method="POST">
+                                    {{#if message}}
+                                    <div class="form-group alert {{type}}">
+                                        <strong>{{message}}</strong>
+                                    </div>
+                                    {{/if}}
+                                    <div class="form-group">
+                                        <label for="fullname" style="float: left">Họ và tên</label>
+                                        <input type="text" class="form-control" id="fullname" name="fullname"
+                                            placeholder="Nhập họ và tên" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email" style="float: left">Địa chỉ Email</label>
+                                        <input type="email" class="form-control" id="email" name="email"
+                                            aria-describedby="emailHelp" placeholder="Nhập Email"
+                                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password" style="float: left">Mật khẩu</label>
+                                        <input type="password" class="form-control" id="password" name="password"
+                                            placeholder="Nhập mật khẩu" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="confirmPassword" style="float: left">Xác nhận mật khẩu</label>
+                                        <input type="password" class="form-control" id="confirmPassword"
+                                            name="confirmPassword" placeholder="Nhập lại mật khẩu" required>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-dark submit-button">
+                                        <i class="bi bi-person-plus"></i>
+                                        Đăng ký
+                                    </button>
+                                </form>
                             </div>
 
-                            <form action="/users/register" id="register-form" method="POST">
-                                {{#if message}}
-                                <div class="form-group alert {{type}}">
-                                    <strong>{{message}}</strong>
-                                </div>
-                                {{/if}}
-                                <div class="form-group">
-                                    <label for="fullname" style="float: left">Họ và tên</label>
-                                    <input type="text" class="form-control" id="fullname" name="fullname"
-                                        placeholder="Nhập họ và tên" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email" style="float: left">Địa chỉ Email</label>
-                                    <input type="email" class="form-control" id="email" name="email"
-                                        aria-describedby="emailHelp" placeholder="Nhập Email"
-                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="password" style="float: left">Mật khẩu</label>
-                                    <input type="password" class="form-control" id="password" name="password"
-                                        placeholder="Nhập mật khẩu" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="confirmPassword" style="float: left">Xác nhận mật khẩu</label>
-                                    <input type="password" class="form-control" id="confirmPassword"
-                                        name="confirmPassword" placeholder="Nhập lại mật khẩu" required>
-                                </div>
-
-                                <button type="submit" class="btn btn-dark submit-button">
-                                    <i class="bi bi-person-plus"></i>
-                                    Đăng ký
-                                </button>
-                            </form>
                         </div>
-
                     </div>
-                </div>
-                <div class="col-md-1"></div>
-                <div class="col-md-5 d-none d-md-block text-center">
-                    <div id="sloganRegister">
-                        <p>Ticket4T</p>
-                        <p>Hân hạnh tài trợ</p>
-                        <p>chuyến đi của bạn</p>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-5 d-none d-md-block text-center">
+                        <div id="sloganRegister">
+                            <p>Ticket4T</p>
+                            <p>Hân hạnh tài trợ</p>
+                            <p>chuyến đi của bạn</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</main>
-{{>footer}}
+    </main>
+    {{>footer}}
+</body>

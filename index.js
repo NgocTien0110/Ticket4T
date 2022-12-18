@@ -68,7 +68,7 @@ app.use('/users', require('./routes/userRoute'))
 app.use('/reset-password', require('./routes/resetPasswordRoute'))
 app.use('/nha-xe', require('./routes/nhaxeRoute'))
 app.use('/about', require('./routes/aboutRoute'))
-
+app.use('/dashboard', require('./routes/dashboardRoute'))
 
 
 app.get('/createTables', (req, res) => {
