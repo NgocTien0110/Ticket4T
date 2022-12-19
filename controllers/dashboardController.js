@@ -80,4 +80,16 @@ controller.showChuyenXe = async (req, res) => {
     res.render('quanlychuyenxe');
 }
 
+controller.deleteChuyenXe = async(req, res) => {
+    const id = parseInt(req.body.id);
+    
+    await models.ChuyenXe.destroy({
+        where: {
+            id: id
+        }
+    })
+
+    res.redirect(req.get('referer'))
+}
+
 module.exports = controller;

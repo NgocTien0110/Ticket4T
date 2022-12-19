@@ -325,10 +325,18 @@
                                                     <td>{{LoaiXe.name}}</td>
                                                     <td>{{NhaXe.name}}</td>
                                                     <td>
-                                                        <button class="bi bi-pencil-square btn bg-primary"
-                                                            onclick="redirectTo({{id}})"></button>
-                                                        <button class="bi bi-trash btn bg-danger"
-                                                            onclick="redirectTo({{id}})"></button>
+
+
+                                                        <form id="deleteChuyenXe" action="/dashboard/quanlychuyenxe"
+                                                            method="post">
+                                                            <button type="button"
+                                                                class="bi bi-pencil-square btn bg-primary"
+                                                                onclick="redirectTo({{id}})"></button>
+                                                            <button class="bi bi-trash btn bg-danger" type="submit"
+                                                                onclick="deleteById()"></button>
+                                                            <input name="id" type="text" value="{{id}}" hidden>
+                                                        </form>
+
                                                     </td>
                                                 </tr>
                                                 {{/each}}
@@ -376,6 +384,10 @@
     <script>
         function redirectTo(id) {
             window.location.href = "/dashboard/quanlychuyenxe/" + id;
+        }
+
+        function deleteById() {
+            document.getElementById("deleteChuyenXe").submit();
         }
     </script>
     <!-- endinject -->
