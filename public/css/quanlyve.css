@@ -9,8 +9,9 @@ tr>td {
 .delete {
     color: white;
     background-color: red;
-    padding: 8px 10px;
+    padding: 10px 10px;
     border-radius: 5px;
+    border: none;
 }
 
 .delete:hover {
@@ -20,10 +21,16 @@ tr>td {
 .edit {
     color: white;
     background-color: rgb(37, 116, 227);
-    padding: 8px 10px;
+    padding: 10px 10px;
     border-radius: 5px;
+    border: none;
 }
 
 .edit:hover {
     background-color: rgb(0, 0, 255);
+}
+
+.statusMau {
+    color: #4B49AC !important;
+    border-bottom: 2px solid #4B49AC;
 }

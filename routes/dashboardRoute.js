@@ -13,6 +13,7 @@ Router.get('/document', (req, res) => {
     res.render('document');
 })
 Router.get('/quanlyve', controller.showTicket);
+Router.post('/quanlyve', controller.deleteTicket)
 Router.get('/quanlyve/chitietve/:id', controller.showDetailTicket);
 Router.post('/quanlyve/chitietve/:id', controller.updateStatusTicket);
 

@@ -5,27 +5,27 @@ controller.show = async (req, res) => {
     res.render('dashboard');
 }
 controller.showTicket = async (req, res) => {
-    res.locals.vuadat = await models.VeDaDat.findAll(
+    let statusTicket = req.query.status || 'Vừa đặt'
+    let statusVuaDat = true;
+    let statusThanhToan = false;
+    let statusDaHuy = false;
+    console.log(statusVuaDat)
+    if (!statusTicket.localeCompare('Đã thanh toán')) {
+        statusVuaDat = false;
+        statusThanhToan = true;
+    }
+    else if (!statusTicket.localeCompare('Đã hủy')) {
+        statusVuaDat = false;
+        statusDaHuy = true;
+    }
+    res.locals.statusVuaDat = statusVuaDat;
+    res.locals.statusThanhToan = statusThanhToan;
+    res.locals.statusDaHuy = statusDaHuy;
+    res.locals.ve = await models.VeDaDat.findAll(
         {
             where: {
-                statusTicket: 'Vừa đặt'
+                statusTicket: statusTicket
 
-            },
-            include: [models.ChuyenXe]
-        }
-    )
-    res.locals.dathanhtoan = await models.VeDaDat.findAll(
-        {
-            where: {
-                statusTicket: 'Đã thanh toán'
-            },
-            include: [models.ChuyenXe]
-        }
-    )
-    res.locals.dahuy = await models.VeDaDat.findAll(
-        {
-            where: {
-                statusTicket: 'Đã hủy'
             },
             include: [models.ChuyenXe]
         }
@@ -49,7 +49,6 @@ controller.showDetailTicket = async (req, res) => {
 controller.updateStatusTicket = async (req, res) => {
     let id = req.params.id;
     let statusTicket = req.body.status;
-    console.log(statusTicket)
     await models.VeDaDat.update({
         statusTicket: statusTicket
     }, {
@@ -58,6 +57,15 @@ controller.updateStatusTicket = async (req, res) => {
         }
     })
     return res.redirect('/dashboard/quanlyve/chitietve/' + id);
+}
+controller.deleteTicket = async (req, res) => {
+    let id = req.body.id;
+    await models.VeDaDat.destroy({
+        where: {
+            id: id
+        }
+    })
+    res.redirect(req.get('referer')); // trở về trang trước đó
 }
 
 module.exports = controller;

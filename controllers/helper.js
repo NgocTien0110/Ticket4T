@@ -125,7 +125,7 @@ helper.createNextPreviousPagination = (id, page, star, totalPage, type, pageType
     page = parseInt(page);
     totalPage = parseInt(totalPage);
 
-    if(totalPage == 0)
+    if (totalPage == 0)
         return str;
 
     if (page > totalPage || page < 1)
@@ -133,9 +133,9 @@ helper.createNextPreviousPagination = (id, page, star, totalPage, type, pageType
     else
         str = '<a class="page-link" href="/nha-xe/';
 
-    if(pageType == 'review')
+    if (pageType == 'review')
         str += id + '?page=' + page + '&star=' + star + '#review-section">';
-    else if(pageType == 'nhaxe'){
+    else if (pageType == 'nhaxe') {
         str += '?page=' + page + '">';
     }
 
@@ -170,14 +170,14 @@ helper.createNextPrevTicketPagination = (ticketStatus, newPage, pageStatus, butt
     let str = '<a class="page-link';
     let end = '">' + buttonType + '</a>';
 
-    if(pageStatus == false)
-        return  str + " disabled\"" + end;
+    if (pageStatus == false)
+        return str + " disabled\"" + end;
 
-    else 
+    else
         str += "\"";
 
     str += "href=\"/tai-khoan/ve-cua-toi?";
-    if(ticketStatus == 'Vừa đặt'){
+    if (ticketStatus == 'Vừa đặt') {
         str += "page=";
     }
     else
@@ -189,14 +189,14 @@ helper.createNextPrevTicketPagination = (ticketStatus, newPage, pageStatus, butt
 
 helper.createTicketPagination = (ticketStatus, currentPage, totalPage) => {
     let str = '';
-    for(i = 1; i <= totalPage; ++i){
+    for (i = 1; i <= totalPage; ++i) {
         let href = '/tai-khoan/ve-cua-toi?'
-        if(ticketStatus != 'Vừa đặt')
+        if (ticketStatus != 'Vừa đặt')
             href += "statusTicket=" + ticketStatus + "&";
         href += "page=" + i;
-        
+
         str += '<li class="page-item';
-        if(i == currentPage)
+        if (i == currentPage)
             str += " active";
 
         str += '"><a class="page-link" ' + 'href="' + href + '"">' + i + '</a></li>';
@@ -212,13 +212,13 @@ helper.SearchTripPagination = (page, limit, totalRows, queryParams) => {
 
     if (totalPage == 0)
         return str;
-    
+
     str += '<li class="page-item';
     if (page == 1)
         str += ' disabled"><a class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>';
     else
         str += '"><a class="page-link" href="' + href + (page - 1) + queryParams + '" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>';
-    
+
     for (i = 1; i <= totalPage; ++i) {
         str += '<li class="page-item';
         if (i == page)
@@ -231,9 +231,7 @@ helper.SearchTripPagination = (page, limit, totalRows, queryParams) => {
         str += ' disabled"><a class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>';
     else
         str += '"><a class="page-link" href="' + href + (page + 1) + queryParams + '" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>';
-    
-    return str;   
+
+    return str;
 }
-
-
 module.exports = helper;

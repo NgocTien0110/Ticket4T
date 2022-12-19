@@ -294,9 +294,39 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between select">
-                                        <h4 class="card-title">Vừa đặt</h4>
-                                        <h4 class="card-title">Đã thanh toán</h4>
-                                        <h4 class="card-title">Đã hủy</h4>
+                                        {{#if statusVuaDat}}
+                                        <a href="/dashBoard/quanlyve">
+                                            <h4 class="card-title statusMau">Vừa đặt</h4>
+                                        </a>
+                                        <a href="/dashBoard/quanlyve?status=Đã thanh toán">
+                                            <h4 class="card-title">Đã thanh toán</h4>
+                                        </a>
+                                        <a href="/dashBoard/quanlyve?status=Đã hủy">
+                                            <h4 class="card-title">Đã hủy</h4>
+                                        </a>
+                                        {{else if statusThanhToan}}
+                                        <a href="/dashBoard/quanlyve">
+                                            <h4 class="card-title">Vừa đặt</h4>
+                                        </a>
+                                        <a href="/dashBoard/quanlyve?status=Đã thanh toán">
+                                            <h4 class="card-title statusMau">Đã thanh toán</h4>
+                                        </a>
+                                        <a href="/dashBoard/quanlyve?status=Đã hủy">
+                                            <h4 class="card-title">Đã hủy</h4>
+                                        </a>
+                                        {{else}}
+                                        <a href="/dashBoard/quanlyve">
+                                            <h4 class="card-title">Vừa đặt</h4>
+                                        </a>
+                                        <a href="/dashBoard/quanlyve?status=Đã thanh toán">
+                                            <h4 class="card-title">Đã thanh toán</h4>
+                                        </a>
+                                        <a href="/dashBoard/quanlyve?status=Đã hủy">
+                                            <h4 class="card-title statusMau">Đã hủy</h4>
+                                        </a>
+                                        {{/if}}
+
+
                                     </div>
                                     <div class="table-responsive">
                                         <table class="table col-12">
@@ -314,8 +344,9 @@
                                                 </tr>
                                             </thead>
                                             <tbody class="content-table">
-                                                {{#each vuadat}}
-                                                <tr onclick="navigateTo({{id}})">
+                                                {{#each ve}}
+                                                <tr>
+
                                                     <td>{{id}}</td>
                                                     <td>{{fullName}}</td>
                                                     <td>{{ChuyenXe.startProvince}} - {{ChuyenXe.endProvince}}</td>
@@ -324,53 +355,27 @@
                                                     <td>{{formatPrice ChuyenXe.price}}đ</td>
                                                     <td>{{numSeats}}</td>
                                                     <td>{{totalPrice ChuyenXe.price numSeats}}</td>
+                                                    {{#if ../statusThanhToan}}
+                                                    <td><label class="badge badge-success">{{statusTicket}}</label>
+                                                    </td>
+                                                    {{else if ../statusVuaDat}}
                                                     <td><label class="badge badge-info">{{statusTicket}}</label>
                                                     </td>
-                                                    <td>
-                                                        <i class="bi bi-pencil-square edit"
-                                                            onclick="navigateTo({{id}})"></i>
-                                                        <i class="bi bi-trash delete"></i>
+                                                    {{else}}
+                                                    <td><label class="badge badge-danger">{{statusTicket}}</label>
                                                     </td>
-                                                </tr>
-                                                {{/each}}
-                                            </tbody>
-                                            <tbody class="content-table">
-                                                {{#each dathanhtoan}}
-                                                <tr>
-                                                    <td>{{id}}</td>
-                                                    <td>{{fullName}}</td>
-                                                    <td>{{ChuyenXe.startProvince}} - {{ChuyenXe.endProvince}}</td>
-                                                    <td>{{date ChuyenXe.startDate}}</td>
-                                                    <td>{{date createdAt}}</td>
-                                                    <td>{{formatPrice ChuyenXe.price}}đ</td>
-                                                    <td>{{numSeats}}</td>
-                                                    <td>{{totalPrice ChuyenXe.price numSeats}}</td>
-                                                    <td><label class="badge badge-success">{{statusTicket}}</label></td>
-                                                    <td>
-                                                        <i class="bi bi-pencil-square edit"
-                                                            onclick="navigateTo({{id}})"></i>
-                                                        <i class="bi bi-trash delete"></i>
+                                                    {{/if}}
+                                                    <td class="d-flex pt-3 px-0">
+                                                        <button class="bi bi-pencil-square edit"
+                                                            onclick="navigateTo({{id}})"></button>
+                                                        <form action="/dashBoard/quanlyve" method="post"
+                                                            id="deleteForm">
+                                                            <input type="text" value="{{id}}" name="id" hidden>
+                                                            <div class="bi bi-trash delete mx-2" onclick="submit()">
+                                                            </div>
+                                                        </form>
                                                     </td>
-                                                </tr>
-                                                {{/each}}
-                                            </tbody>
-                                            <tbody class="content-table">
-                                                {{#each dahuy}}
-                                                <tr>
-                                                    <td>{{id}}</td>
-                                                    <td>{{fullName}}</td>
-                                                    <td>{{ChuyenXe.startProvince}} - {{ChuyenXe.endProvince}}</td>
-                                                    <td>{{date ChuyenXe.startDate}}</td>
-                                                    <td>{{date createdAt}}</td>
-                                                    <td>{{formatPrice ChuyenXe.price}}đ</td>
-                                                    <td>{{numSeats}}</td>
-                                                    <td>{{totalPrice ChuyenXe.price numSeats}}</td>
-                                                    <td><label class="badge badge-danger">{{statusTicket}}</label></td>
-                                                    <td>
-                                                        <i class="bi bi-pencil-square edit"
-                                                            onclick="navigateTo({{id}})"></i>
-                                                        <i class="bi bi-trash delete"></i>
-                                                    </td>
+
                                                 </tr>
                                                 {{/each}}
                                             </tbody>
@@ -417,46 +422,12 @@
             <!-- End custom js for this page-->
 </body>
 <script>
-    let content = document.querySelectorAll(".content-table");
-    let select = document.querySelector(".select");
-    let a = select.querySelectorAll("h4");
-    a[0].style.color = "#4B49AC";
-    content[1].classList.add("d-none");
-    content[2].classList.add("d-none");
-    a[0].addEventListener("click", () => {
-        if (content[0].classList.contains("d-none")) {
-            content[0].classList.remove("d-none");
-        }
-        a[0].style.color = "#4B49AC";
-        a[1].style.color = "#000";
-        content[1].classList.add("d-none");
-        a[2].style.color = "#000";
-        content[2].classList.add("d-none");
-    });
-    a[1].addEventListener("click", () => {
-        if (content[1].classList.contains("d-none")) {
-            content[1].classList.remove("d-none");
-        }
-        content[0].classList.add("d-none");
-        a[1].style.color = "#4B49AC";
-        a[0].style.color = "#000";
-        content[1].classList.remove("d-none");
-        a[2].style.color = "#000";
-        content[2].classList.add("d-none");
-    });
-
-    a[2].addEventListener("click", () => {
-        if (content[2].classList.contains("d-none")) {
-            content[2].classList.remove("d-none");
-        }
-        content[0].classList.add("d-none");
-        a[2].style.color = "#4B49AC";
-        content[2].classList.remove("d-none");
-        a[0].style.color = "#000";
-        content[1].classList.add("d-none");
-        a[1].style.color = "#000";
-    });
     function navigateTo(id) {
         window.location.href = "/dashBoard/quanlyve/chitietve/" + id;
+    }
+    function submit() {
+        if (confirm("Bạn có chắc chắn muốn xóa không?")) {
+            document.getElementById("deleteForm").submit();
+        }
     }
 </script>
