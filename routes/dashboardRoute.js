@@ -1,6 +1,7 @@
 const express = require('express');
 const Router = express.Router();
 const controller = require('../controllers/dashboardController.js')
+const quanlynhaxe = require('../controllers/quanlynhaxeController.js')
 
 Router.get('/', controller.show);
 Router.get('/form', (req, res) => {
@@ -19,5 +20,6 @@ Router.post('/quanlyve/chitietve/:id', controller.updateStatusTicket);
 
 Router.get('/quanlychuyenxe', controller.showChuyenXe);
 
+Router.get("/quanlynhaxe", quanlynhaxe.show);
 
 module.exports = Router;
