@@ -9,6 +9,11 @@ const controller2 = require("../controllers/thongtinkhachhangController");
 const controller3 = require("../controllers/thanhtoanController");
 const userController = require('../controllers/userController');
 const { Model } = require("sequelize");
+const Mailjet = require('node-mailjet');
+const mailjet = Mailjet.apiConnect(
+  process.env.MJ_APIKEY_PUBLIC || 'e4581f950320d261cac2aad9cc75c453',
+  process.env.MJ_APIKEY_PRIVATE || '81b78a49dfb2165685b478652db78aa4',
+);
 
 Router.get("/:id", tripInfoController.show);
 Router.get("/", controller.show);
@@ -23,10 +28,15 @@ Router.post(
     let totalprice = k.slice(0, -4).replace(".", "");
     let accId = req.session.user.id;
 
+    let user = await models.TaiKhoan.findOne({
+      where: {
+        id: accId
+      }
+    })
     let chuyenxe = await models.ChuyenXe.findOne({
       where: {
         id: parseInt(req.params.id)
-      }
+      }, include: [models.NhaXe]
     })
 
     models.VeDaDat.bulkCreate([
@@ -42,6 +52,7 @@ Router.post(
       },
     ])
       .then((product) => {
+        userController.sendEmailTicketOrder(user, chuyenxe, chuyenxe.NhaXe.name, req.body.ticket, totalprice)
         chuyenxe.update({
           numSeats: (chuyenxe.numSeats - req.body.ticket)
         })

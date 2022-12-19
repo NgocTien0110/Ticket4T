@@ -28,13 +28,19 @@ controller.login = (req, res, next) => {
         .getUserByEmail(email)
         .then(user => {
             if (user) {
-                if (controller.comparePassword(password, user.password)) {
+                if (controller.comparePassword(password, user.password) == true && user.isVerified == true) {
                     req.session.user = user;
                     if (req.session.returnURL) {
                         return res.redirect(req.session.returnURL)
                     } else {
                         return res.redirect('/')
                     }
+                }
+                else if (controller.comparePassword(password, user.password) == true && user.isVerified == false) {
+                    return res.render('login', {
+                        message: 'Tài khoản của bạn chưa được xác thực trong hệ thống, vui lòng xác thực!',
+                        type: 'alert-danger'
+                    })
                 }
                 else {
                     return res.render('login', {
@@ -232,6 +238,47 @@ controller.sendVerifyUserEmail = (user, host, url) => {
                     <br/>
                     <p>Thanks!,</p>
                     <p>The Ticket4T team</p>`
+                }
+            ]
+        })
+    return request;
+}
+
+controller.sendEmailTicketOrder = (user, trip, tripCompName, numOfSeats, totalPrice, host, url) => {
+    const request = mailjet
+        .post('send', { version: 'v3.1' })
+        .request({
+            Messages: [
+                {
+                    From: {
+                        Email: "nhom5.20ktpm4@gmail.com",
+                        Name: "Ticket4T"
+                    },
+                    To: [
+                        {
+                            Email: user.email,
+                            Name: user.fullName
+                        }
+                    ],
+                    Subject: "Successful booking",
+                    //   TextPart: "Dear passenger 1, welcome to Mailjet! May the delivery force be with you!",
+                    HTMLPart: `
+                    <p> Hi ${user.fullName}, </p>
+                    <br/>
+                    <p> Woo hoo! Congratulations on your successful booking. </p>
+                    <br/>
+                    <p> ORDER TICKET SUMMARY: </p>
+                    <ul>
+                        <li> Name of the trip: ${trip.startProvince} -> ${trip.endProvince}</li>
+                        <li> Trip company name: ${tripCompName}</li>
+                        <li> Number of seats: ${numOfSeats}</li>
+                        <li> Departure day: ${trip.startDate}</li>
+                        <li> Total Price: ${totalPrice}</li>
+                    </ul>
+                    <br/>
+                    <p> Thanks,</p>
+                    <p> Ticket4T team</p>
+                    `
                 }
             ]
         })
