@@ -33,5 +33,18 @@ controller.showTicket = async (req, res) => {
     res.render('quanlyve');
 
 }
+controller.showDetailTicket = async (req, res) => {
+    let id = req.params.id;
+    res.locals.vedadat = await models.VeDaDat.findOne({
+        where: {
+            id: id
+        },
+        include: [
+            { model: models.TaiKhoan },
+            { model: models.ChuyenXe, include: [models.NhaXe] }
+        ]
+    })
+    res.render('chitietve');
+}
 
 module.exports = controller;

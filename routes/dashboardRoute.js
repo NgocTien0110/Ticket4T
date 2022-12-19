@@ -13,4 +13,6 @@ Router.get('/document', (req, res) => {
     res.render('document');
 })
 Router.get('/quanlyve', controller.showTicket);
+Router.get('/quanlyve/chitietve/:id', controller.showDetailTicket);
+
 module.exports = Router;

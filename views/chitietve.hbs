@@ -15,6 +15,10 @@
     <!-- endinject -->
     <link rel="shortcut icon" href="/images/favicon.png" />
     <link rel="stylesheet" href="/css/quanlyve.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/xemChiTietVe.css">
 </head>
 
 <body>
@@ -291,155 +295,118 @@
                         <div class="col-lg-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <div class="d-flex justify-content-between select">
-                                        <h4 class="card-title">Vừa đặt</h4>
-                                        <h4 class="card-title">Đã thanh toán</h4>
-                                        <h4 class="card-title">Đã hủy</h4>
+                                    {{#with vedadat}}
+                                    <div class="col-md-12 rightBody p-5">
+                                        <div class="ttLienLac row">
+                                            <div class="leftTTLienLac col-5">
+                                                <div id="maVe">Mã vé #<span>T{{id}}</span></div>
+                                                <br>
+                                                <div class="ttNguoiDung">
+                                                    <div class="fontSizeLarger"><i class="fa-solid fa-circle-info"></i>
+                                                        Thông tin liên
+                                                        lạc</div>
+                                                    <ul class="mb-0 mt-1">
+                                                        <li>Họ tên: <span>{{fullName}}</span></li>
+                                                        <li>Số điện thoại: <span>{{phoneNum}}</span></li>
+                                                        <li>Email: <span>{{email}}</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-3"></div>
+                                            <div class="col-4">
+                                                <img src={{ChuyenXe.locationImage}} alt="anhTuyenDuong"
+                                                    class="img-fluid" style="height: 100%;">
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="tinhTrangVe col-3">
+                                            <span class="fontSizeLarger"><i class="bi bi-ticket-perforated"></i> Tình
+                                                trạng vé</span>
+                                            <ul>
+                                                <li id="liTinhTrangVe">
+                                                    <select class="form-select" aria-label="Default select example">
+                                                        <option value="1">Vừa đặt</option>
+                                                        <option value="2">Đã thanh toán</option>
+                                                        <option value="3">Đã hủy</option>
+                                                    </select>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <hr>
+                                        <div class="ttChuyenDi">
+                                            <span class="fontSizeLarger"><i class="fa-solid fa-location-dot"></i> Thông
+                                                tin chuyến
+                                                đi</span>
+                                            <ul>
+                                                <li>Tên chuyến đi: <span>{{ChuyenXe.startProvince}} <i
+                                                            class="fa-solid fa-arrow-right"></i>
+                                                        {{ChuyenXe.endProvince}}</span>
+                                                </li>
+                                                <li>Tên nhà xe: <span>{{ChuyenXe.NhaXe.name}}</span></li>
+                                                <li>Ngày đặt vé: <span>{{date createdAt}}</span></li>
+                                                <li>Ngày khởi hành: <span>{{date ChuyenXe.startDate}}</span></li>
+                                            </ul>
+                                        </div>
+                                        <hr>
+                                        <div class="ttDonGia">
+                                            <span class="fontSizeLarger"><i class="bi bi-cash"></i> Thông tin đơn
+                                                giá</span>
+                                            <ul>
+                                                <li>Giá vé: <span>{{formatPrice ChuyenXe.price}}đ</span></li>
+                                                <li id="soVeDat">Số vé đặt: <span>{{numSeats}}</span></li>
+                                                <hr id="horiSoTien">
+                                                <li>Tổng số tiền: <span
+                                                        style="color:var(--color--secondary)">{{totalPrice
+                                                        ChuyenXe.price
+                                                        numSeats}}đ</span></li>
+                                            </ul>
+                                        </div>
+                                        <button class="col-3 btn btn-primary text-white">Lưu</button>
+                                        <button class="col-3 btn btn-danger">Xóa</button>
+
                                     </div>
-                                    <div class="table-responsive">
-                                        <table class="table-hover col-12">
-                                            <thead>
-                                                <tr>
-                                                    <th>Mã đơn hàng</th>
-                                                    <th>Họ và tên</th>
-                                                    <th>Tên chuyến đi</th>
-                                                    <th>Ngày khởi hành</th>
-                                                    <th>Ngày đặt vé</th>
-                                                    <th>Giá vé</th>
-                                                    <th>Số vé đặt</th>
-                                                    <th>Tổng tiền</th>
-                                                    <th>Tình trạng</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="content-table">
-                                                {{#each vuadat}}
-                                                <tr onclick="navigateTo({{id}})">
-                                                    <td>{{id}}</td>
-                                                    <td>{{fullName}}</td>
-                                                    <td>{{ChuyenXe.startProvince}} - {{ChuyenXe.endProvince}}</td>
-                                                    <td>{{date ChuyenXe.createdAt}}</td>
-                                                    <td>{{date createdAt}}</td>
-                                                    <td>{{formatPrice ChuyenXe.price}}đ</td>
-                                                    <td>{{numSeats}}</td>
-                                                    <td>{{totalPrice ChuyenXe.price numSeats}}</td>
-                                                    <td><label class="badge badge-info">{{statusTicket}}</label>
-                                                    </td>
-                                                </tr>
-                                                {{/each}}
-                                            </tbody>
-                                            <tbody class="content-table">
-                                                {{#each dathanhtoan}}
-                                                <tr>
-                                                    <td>{{id}}</td>
-                                                    <td>{{fullName}}</td>
-                                                    <td>{{ChuyenXe.startProvince}} - {{ChuyenXe.endProvince}}</td>
-                                                    <td>{{date ChuyenXe.createdAt}}</td>
-                                                    <td>{{date createdAt}}</td>
-                                                    <td>{{formatPrice ChuyenXe.price}}đ</td>
-                                                    <td>{{numSeats}}</td>
-                                                    <td>{{totalPrice ChuyenXe.price numSeats}}</td>
-                                                    <td><label class="badge badge-success">{{statusTicket}}</label></td>
-                                                </tr>
-                                                {{/each}}
-                                            </tbody>
-                                            <tbody class="content-table">
-                                                {{#each dahuy}}
-                                                <tr>
-                                                    <td>{{id}}</td>
-                                                    <td>{{fullName}}</td>
-                                                    <td>{{ChuyenXe.startProvince}} - {{ChuyenXe.endProvince}}</td>
-                                                    <td>{{date ChuyenXe.createdAt}}</td>
-                                                    <td>{{date createdAt}}</td>
-                                                    <td>{{formatPrice ChuyenXe.price}}đ</td>
-                                                    <td>{{numSeats}}</td>
-                                                    <td>{{totalPrice ChuyenXe.price numSeats}}</td>
-                                                    <td><label class="badge badge-danger">{{statusTicket}}</label></td>
-                                                </tr>
-                                                {{/each}}
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                    {{/with}}
                                 </div>
                             </div>
                         </div>
-
-                        <!-- content-wrapper ends -->
-                        <!-- partial:/partials/_footer.html -->
-                        <footer class="footer">
-                            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                                <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright ©
-                                    2021.
-                                    Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin
-                                        template</a> from BootstrapDash.
-                                    All rights reserved.</span>
-                                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted &
-                                    made
-                                    with <i class="ti-heart text-danger ml-1"></i></span>
-                            </div>
-                        </footer>
-                        <!-- partial -->
                     </div>
-                    <!-- main-panel ends -->
                 </div>
-                <!-- page-body-wrapper ends -->
-            </div>
-            <!-- container-scroller -->
-            <!-- plugins:js -->
-            <script src="/vendors/js/vendor.bundle.base.js"></script>
-            <!-- endinject -->
-            <!-- Plugin js for this page -->
-            <!-- End plugin js for this page -->
-            <!-- inject:js -->
-            <script src="/js/off-canvas.js"></script>
-            <script src="/js/hoverable-collapse.js"></script>
-            <script src="/js/template.js"></script>
-            <script src="/js/settings.js"></script>
-            <script src="/js/todolist.js"></script>
-            <!-- endinject -->
-            <!-- Custom js for this page-->
-            <!-- End custom js for this page-->
-</body>
-<script>
-    let content = document.querySelectorAll(".content-table");
-    let select = document.querySelector(".select");
-    let a = select.querySelectorAll("h4");
-    a[0].style.color = "#4B49AC";
-    content[1].classList.add("d-none");
-    content[2].classList.add("d-none");
-    a[0].addEventListener("click", () => {
-        if (content[0].classList.contains("d-none")) {
-            content[0].classList.remove("d-none");
-        }
-        a[0].style.color = "#4B49AC";
-        a[1].style.color = "#000";
-        content[1].classList.add("d-none");
-        a[2].style.color = "#000";
-        content[2].classList.add("d-none");
-    });
-    a[1].addEventListener("click", () => {
-        if (content[1].classList.contains("d-none")) {
-            content[1].classList.remove("d-none");
-        }
-        content[0].classList.add("d-none");
-        a[1].style.color = "#4B49AC";
-        a[0].style.color = "#000";
-        content[1].classList.remove("d-none");
-        a[2].style.color = "#000";
-        content[2].classList.add("d-none");
-    });
 
-    a[2].addEventListener("click", () => {
-        if (content[2].classList.contains("d-none")) {
-            content[2].classList.remove("d-none");
-        }
-        content[0].classList.add("d-none");
-        a[2].style.color = "#4B49AC";
-        content[2].classList.remove("d-none");
-        a[0].style.color = "#000";
-        content[1].classList.add("d-none");
-        a[1].style.color = "#000";
-    });
-    function navigateTo(id) {
-        window.location.href = "/dashBoard/quanlyve/chitietve/" + id;
-    }
-</script>
+                <!-- content-wrapper ends -->
+                <!-- partial:/partials/_footer.html -->
+                <footer class="footer">
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright
+                            ©
+                            2021.
+                            Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin
+                                template</a> from BootstrapDash.
+                            All rights reserved.</span>
+                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted
+                            &
+                            made
+                            with <i class="ti-heart text-danger ml-1"></i></span>
+                    </div>
+                </footer>
+                <!-- partial -->
+            </div>
+            <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="/js/off-canvas.js"></script>
+    <script src="/js/hoverable-collapse.js"></script>
+    <script src="/js/template.js"></script>
+    <script src="/js/settings.js"></script>
+    <script src="/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <!-- End custom js for this page-->
+</body>

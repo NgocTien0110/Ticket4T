@@ -1,4 +1,4 @@
-body{
+body {
     font-family: 'Roboto', sans-serif;
 }
 
@@ -34,7 +34,7 @@ a:hover {
 }
 
 .infoNameAcc {
-    float:left;
+    float: left;
 }
 
 .bodyInfoDetail {
@@ -46,6 +46,7 @@ a:hover {
 .leftBody {
     font-size: large;
 }
+
 .leftBody div.leftInfoAcc:nth-last-child(1) {
     background-color: var(--color--tertiary);
 }
