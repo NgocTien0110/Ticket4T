@@ -46,5 +46,18 @@ controller.showDetailTicket = async (req, res) => {
     })
     res.render('chitietve');
 }
+controller.updateStatusTicket = async (req, res) => {
+    let id = req.params.id;
+    let statusTicket = req.body.status;
+    console.log(statusTicket)
+    await models.VeDaDat.update({
+        statusTicket: statusTicket
+    }, {
+        where: {
+            id: id
+        }
+    })
+    return res.redirect('/dashboard/quanlyve/chitietve/' + id);
+}
 
 module.exports = controller;

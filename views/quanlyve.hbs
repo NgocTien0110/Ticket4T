@@ -12,6 +12,8 @@
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <link rel="stylesheet" href="/css/vertical-layout-light/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css">
+
     <!-- endinject -->
     <link rel="shortcut icon" href="/images/favicon.png" />
     <link rel="stylesheet" href="/css/quanlyve.css">
@@ -297,10 +299,10 @@
                                         <h4 class="card-title">Đã hủy</h4>
                                     </div>
                                     <div class="table-responsive">
-                                        <table class="table-hover col-12">
+                                        <table class="table col-12">
                                             <thead>
                                                 <tr>
-                                                    <th>Mã đơn hàng</th>
+                                                    <th>Id</th>
                                                     <th>Họ và tên</th>
                                                     <th>Tên chuyến đi</th>
                                                     <th>Ngày khởi hành</th>
@@ -317,12 +319,17 @@
                                                     <td>{{id}}</td>
                                                     <td>{{fullName}}</td>
                                                     <td>{{ChuyenXe.startProvince}} - {{ChuyenXe.endProvince}}</td>
-                                                    <td>{{date ChuyenXe.createdAt}}</td>
+                                                    <td>{{date ChuyenXe.startDate}}</td>
                                                     <td>{{date createdAt}}</td>
                                                     <td>{{formatPrice ChuyenXe.price}}đ</td>
                                                     <td>{{numSeats}}</td>
                                                     <td>{{totalPrice ChuyenXe.price numSeats}}</td>
                                                     <td><label class="badge badge-info">{{statusTicket}}</label>
+                                                    </td>
+                                                    <td>
+                                                        <i class="bi bi-pencil-square edit"
+                                                            onclick="navigateTo({{id}})"></i>
+                                                        <i class="bi bi-trash delete"></i>
                                                     </td>
                                                 </tr>
                                                 {{/each}}
@@ -333,12 +340,17 @@
                                                     <td>{{id}}</td>
                                                     <td>{{fullName}}</td>
                                                     <td>{{ChuyenXe.startProvince}} - {{ChuyenXe.endProvince}}</td>
-                                                    <td>{{date ChuyenXe.createdAt}}</td>
+                                                    <td>{{date ChuyenXe.startDate}}</td>
                                                     <td>{{date createdAt}}</td>
                                                     <td>{{formatPrice ChuyenXe.price}}đ</td>
                                                     <td>{{numSeats}}</td>
                                                     <td>{{totalPrice ChuyenXe.price numSeats}}</td>
                                                     <td><label class="badge badge-success">{{statusTicket}}</label></td>
+                                                    <td>
+                                                        <i class="bi bi-pencil-square edit"
+                                                            onclick="navigateTo({{id}})"></i>
+                                                        <i class="bi bi-trash delete"></i>
+                                                    </td>
                                                 </tr>
                                                 {{/each}}
                                             </tbody>
@@ -348,12 +360,17 @@
                                                     <td>{{id}}</td>
                                                     <td>{{fullName}}</td>
                                                     <td>{{ChuyenXe.startProvince}} - {{ChuyenXe.endProvince}}</td>
-                                                    <td>{{date ChuyenXe.createdAt}}</td>
+                                                    <td>{{date ChuyenXe.startDate}}</td>
                                                     <td>{{date createdAt}}</td>
                                                     <td>{{formatPrice ChuyenXe.price}}đ</td>
                                                     <td>{{numSeats}}</td>
                                                     <td>{{totalPrice ChuyenXe.price numSeats}}</td>
                                                     <td><label class="badge badge-danger">{{statusTicket}}</label></td>
+                                                    <td>
+                                                        <i class="bi bi-pencil-square edit"
+                                                            onclick="navigateTo({{id}})"></i>
+                                                        <i class="bi bi-trash delete"></i>
+                                                    </td>
                                                 </tr>
                                                 {{/each}}
                                             </tbody>

@@ -5,3 +5,25 @@ h4.card-title {
 tr>td {
     cursor: pointer;
 }
+
+.delete {
+    color: white;
+    background-color: red;
+    padding: 8px 10px;
+    border-radius: 5px;
+}
+
+.delete:hover {
+    background-color: rgb(221, 35, 35);
+}
+
+.edit {
+    color: white;
+    background-color: rgb(37, 116, 227);
+    padding: 8px 10px;
+    border-radius: 5px;
+}
+
+.edit:hover {
+    background-color: rgb(0, 0, 255);
+}

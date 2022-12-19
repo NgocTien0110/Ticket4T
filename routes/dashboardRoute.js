@@ -14,5 +14,6 @@ Router.get('/document', (req, res) => {
 })
 Router.get('/quanlyve', controller.showTicket);
 Router.get('/quanlyve/chitietve/:id', controller.showDetailTicket);
+Router.post('/quanlyve/chitietve/:id', controller.updateStatusTicket);
 
 module.exports = Router;
