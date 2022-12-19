@@ -23,7 +23,8 @@ module.exports = (sequelize, DataTypes) => {
     dob: DataTypes.STRING,
     isMale: DataTypes.BOOLEAN,
     imageAccount: DataTypes.STRING,
-    isAdmin: DataTypes.BOOLEAN
+    isAdmin: DataTypes.BOOLEAN,
+    isVerified: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'TaiKhoan',
