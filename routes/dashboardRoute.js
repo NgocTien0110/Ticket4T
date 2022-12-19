@@ -17,4 +17,7 @@ Router.post('/quanlyve', controller.deleteTicket)
 Router.get('/quanlyve/chitietve/:id', controller.showDetailTicket);
 Router.post('/quanlyve/chitietve/:id', controller.updateStatusTicket);
 
+Router.get('/quanlychuyenxe', controller.showChuyenXe);
+
+
 module.exports = Router;

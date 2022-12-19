@@ -68,4 +68,16 @@ controller.deleteTicket = async (req, res) => {
     res.redirect(req.get('referer')); // trở về trang trước đó
 }
 
+
+controller.showChuyenXe = async (req, res) => {
+    const limit = 5;
+    
+    res.locals.quanly_chuyenxe = await models.ChuyenXe.findAll({
+        include: [models.NhaXe, models.LoaiXe],
+        order: [['id', "ASC"]],
+        limit: limit
+    });
+    res.render('quanlychuyenxe');
+}
+
 module.exports = controller;
