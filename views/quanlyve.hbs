@@ -457,4 +457,11 @@
             document.getElementById("deleteForm").submit();
         }
     }
+    let page_item = document.querySelectorAll(".page-item");
+    if ({{ page }} == 1) {
+        page_item[0].style.opacity = "0.4";
+    }
+    if ({{ page }} == {{ totalPage }}) {
+        page_item[page_item.length - 1].style.opacity = "0.4";
+    }
 </script>

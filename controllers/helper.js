@@ -243,7 +243,7 @@ helper.ViewListTicketPagination = (page, totalPage, queryParams) => {
 
     str += '<li class="page-item';
     if (page == 1)
-        str += ' disabled" hidden><a class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>';
+        str += ' disabled"><a class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>';
     else
         str += '"><a class="page-link" href="' + href + (page - 1) + queryParams + '" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>';
 
@@ -256,7 +256,7 @@ helper.ViewListTicketPagination = (page, totalPage, queryParams) => {
 
     str += '<li class="page-item';
     if (page == totalPage)
-        str += ' disabled" hidden><a class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>';
+        str += ' disabled"><a class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>';
     else
         str += '"><a class="page-link" href="' + href + (page + 1) + queryParams + '" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>';
 
