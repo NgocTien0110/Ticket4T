@@ -6,4 +6,14 @@ controller.show = async (req, res) => {
   });
   res.render("quanlynhaxe");
 };
+controller.showDetail = async (req, res) => {
+  const { id } = req.params;
+  res.locals.chitietnhaxe = await models.NhaXe.findOne({
+    where: {
+      id: id,
+    },
+  });
+
+  res.render("quanlychitietnhaxe");
+};
 module.exports = controller;

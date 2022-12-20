@@ -22,5 +22,6 @@ Router.get('/quanlychuyenxe', controller.showChuyenXe);
 Router.post('/quanlychuyenxe', controller.deleteChuyenXe);
 
 Router.get("/quanlynhaxe", quanlynhaxe.show);
+Router.get("/quanlynhaxe/nhaxe/:id", quanlynhaxe.showDetail);
 
 module.exports = Router;
