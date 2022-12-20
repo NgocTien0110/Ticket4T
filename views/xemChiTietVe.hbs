@@ -80,6 +80,17 @@
                             </ul>
                         </div>
                         <hr>
+                        {{#if ../../veChuaHuy}}
+                        <div class="formDelete">
+                            <form action="/tai-khoan/ve-cua-toi/{{id}}" method="post">
+                                <span class="fontSizeLarger"><i class="fa-solid fa-xmark"></i> Chính sách</span>
+                                <p>Hủy đơn hàng & hoàn tiền</p>
+                                <input type="hidden" value="{{id}}" name="id" id="id">
+                                <button class="btn btn-danger" style="width: 150px;">Hủy vé</button>
+                            </form>
+                        </div>
+                        <hr>
+                        {{/if}}
                         <div class="ttChuyenDi">
                             <span class="fontSizeLarger"><i class="fa-solid fa-location-dot"></i> Thông tin chuyến
                                 đi</span>
