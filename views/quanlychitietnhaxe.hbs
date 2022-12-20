@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/css/xemChiTietVe.css">
 
+    {{!-- upload file css  --}}
+    <link rel="stylesheet" href="path-to/node_modules/dropify/dist/css/dropify.min.css">
 
 </head>
 
@@ -270,8 +272,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false"
-                            aria-controls="tables">
+                        <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
                             <i class="icon-grid-2 menu-icon"></i>
                             <span class="menu-title">Tables</span>
                             <i class="menu-arrow"></i>
@@ -287,6 +288,24 @@
                         <a class="nav-link" href="dashboard/document">
                             <i class="icon-paper menu-icon"></i>
                             <span class="menu-title">Documentation</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard/quanlyve">
+                            <i class="fa-solid fa-ticket menu-icon"></i>
+                            <span class="menu-title">Quản lý vé đặt</span>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/dashboard/quanlynhaxe">
+                            <i class="fa-solid fa-car menu-icon"></i>
+                            <span class="menu-title">Quản lý nhà xe</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard/quanlychuyenxe">
+                            <i class="fa-solid fa-bus menu-icon"></i>
+                            <span class="menu-title">Quản lý chuyến xe</span>
                         </a>
                     </li>
                 </ul>
@@ -310,6 +329,23 @@
                                                             {{!-- <label for="inputTenNhaXe">Tên nhà xe</label> --}}
                                                             <input type="" class="form-control" id="inputTenNhaXe"
                                                                 value="{{name}}" placeholder="Nhập tên nhà xe">
+                                                        </div>
+                                                        <h5 class="fw-semibold">Ảnh nhà xe</h5>
+                                                        <div class="form-group ">
+                                                            <label for="">Ảnh đại diện
+                                                                <br> <input type="file" class="dropify" />
+                                                            </label>
+                                                            <div class="row">
+                                                                <div class="col-4"><label for="">Ảnh chi tiết 1
+                                                                    <br> <input type="file" class="dropify" />
+                                                                </label></div>
+                                                                <div class="col-4"><label for="">Ảnh chi tiết 2
+                                                                    <br> <input type="file" class="dropify" />
+                                                                </label></div>
+                                                                <div class="col-4"><label for="">Ảnh chi tiết 3
+                                                                    <br> <input type="file" class="dropify" />
+                                                                </label></div>
+                                                            </div>
                                                         </div>
                                                         <h5 class="fw-semibold">Số điện thoại</h5>
                                                         <div class="row">
@@ -363,7 +399,7 @@
                                                     {{!-- nút lưu --}}
                                                     <div class="d-flex justify-content-center">
                                                         <button type="submit" class="btn btn-primary mr-2">Lưu</button>
-                                                        <button class="btn btn-light">Hủy</button>
+                                                        <a class="btn btn-light" href="/dashboard/quanlynhaxe/" >Hủy</a>
                                                     </div>
                                             </form>
 
@@ -423,11 +459,17 @@
     <!-- endinject -->
     <!-- Custom js for this page-->
     <!-- End custom js for this page-->
+    <script src="path-to/node_modules/dropify/dist/js/dropify.min.js"></script>
+
+
 </body>
 
 <script>
     function selected(value) {
         document.getElementById(value).selected = true
     }
-
+   
+</script>
+<script>
+    $('.dropify').dropify();
 </script>
