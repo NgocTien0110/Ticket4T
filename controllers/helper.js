@@ -234,4 +234,33 @@ helper.SearchTripPagination = (page, limit, totalRows, queryParams) => {
 
     return str;
 }
+helper.ViewListTicketPagination = (page, totalPage, queryParams) => {
+    let str = '';
+    let href = '/dashBoard/quanlyve?page=';
+
+    if (totalPage == 0)
+        return str;
+
+    str += '<li class="page-item';
+    if (page == 1)
+        str += ' disabled" hidden><a class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>';
+    else
+        str += '"><a class="page-link" href="' + href + (page - 1) + queryParams + '" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>';
+
+    for (i = 1; i <= totalPage; ++i) {
+        str += '<li class="page-item';
+        if (i == page)
+            str += ' active';
+        str += '"><a class="page-link" href="' + href + i + queryParams + '">' + i + '</a></li>';
+    }
+
+    str += '<li class="page-item';
+    if (page == totalPage)
+        str += ' disabled" hidden><a class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>';
+    else
+        str += '"><a class="page-link" href="' + href + (page + 1) + queryParams + '" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>';
+
+    return str;
+}
+
 module.exports = helper;

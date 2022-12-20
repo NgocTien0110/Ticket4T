@@ -402,6 +402,13 @@
                                         </table>
                                     </div>
                                 </div>
+                                <nav aria-label="Page navigation" id="pagi">
+                                    <br>
+                                    {{!-- <p>"{{pagis.totalRows}}" </p> --}}
+                                    <ul class="pagination  justify-content-center  ">
+                                        {{{ViewListTicketPagination page totalPage queryParams }}}
+                                    </ul>
+                                </nav>
                             </div>
                         </div>
 

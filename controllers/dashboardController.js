@@ -21,15 +21,25 @@ controller.showTicket = async (req, res) => {
     res.locals.statusVuaDat = statusVuaDat;
     res.locals.statusThanhToan = statusThanhToan;
     res.locals.statusDaHuy = statusDaHuy;
-    res.locals.ve = await models.VeDaDat.findAll(
-        {
-            where: {
-                statusTicket: statusTicket
+    let page = req.query.page || 1;
+    const limit = 3;
+    let offset = (page - 1) * limit;
+    let temp = {
+        where: {
+            statusTicket: statusTicket
+        },
+        include: [{ model: models.ChuyenXe }],
+        order: [['id', 'ASC']]
+    }
+    let totalPage = Math.ceil(await models.VeDaDat.count(temp) / limit);
 
-            },
-            include: [models.ChuyenXe]
-        }
-    )
+    temp.limit = limit;
+    temp.offset = offset;
+
+    res.locals.ve = await models.VeDaDat.findAll(temp)
+    res.locals.page = parseInt(page);
+    res.locals.totalPage = totalPage;
+    res.locals.queryParams = '&status=' + statusTicket;
     res.render('quanlyve');
 
 }
@@ -71,7 +81,7 @@ controller.deleteTicket = async (req, res) => {
 
 controller.showChuyenXe = async (req, res) => {
     const limit = 5;
-    
+
     res.locals.quanly_chuyenxe = await models.ChuyenXe.findAll({
         include: [models.NhaXe, models.LoaiXe],
         order: [['id', "ASC"]],
@@ -80,9 +90,9 @@ controller.showChuyenXe = async (req, res) => {
     res.render('quanlychuyenxe');
 }
 
-controller.deleteChuyenXe = async(req, res) => {
+controller.deleteChuyenXe = async (req, res) => {
     const id = parseInt(req.body.id);
-    
+
     await models.ChuyenXe.destroy({
         where: {
             id: id
