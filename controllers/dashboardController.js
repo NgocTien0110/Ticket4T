@@ -1,5 +1,7 @@
 const controller = {} //Để {} vì là object có thể chứa thêm các hàm khác
+const { where } = require('sequelize');
 const models = require('../models')
+const { Op, INTEGER } = require("sequelize");
 
 controller.show = async (req, res) => {
     res.render('dashboard');
@@ -109,4 +111,24 @@ controller.deleteChuyenXe = async (req, res) => {
     res.redirect(req.get('referer'))
 }
 
+controller.editChuyenXe = async (req, res) => {
+    const id = parseInt(req.params.id);
+
+    let details = await models.ChuyenXe.findOne({
+        where: {id: id},
+        include: [models.LoaiXe, models.NhaXe]
+    })
+    res.locals.chuyenxeDetails = details;
+
+    const nhaxeID = details.NhaXe.id;
+    res.locals.danhsachNhaXe = await models.NhaXe.findAll({
+        where: {id: {[Op.ne]: nhaxeID} }
+    })
+
+    const loaixeID = details.LoaiXe.id;
+    res.locals.danhsachLoaiXe = await models.LoaiXe.findAll({
+        where: {id: {[Op.ne]: loaixeID}}
+    })
+    res.render('thongtinchitietChuyenXe')
+}
 module.exports = controller;

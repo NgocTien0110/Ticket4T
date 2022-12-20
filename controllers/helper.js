@@ -290,4 +290,10 @@ helper.createChuyenXeManagementPagination = (totalPage, currentPage) => {
 
     return str;
 }
+
+helper.toDate = (dateString) => {
+    let temp = dateString.split('-');
+
+    return temp[2] + '-' + temp[1] + '-' + temp[0]
+}
 module.exports = helper;

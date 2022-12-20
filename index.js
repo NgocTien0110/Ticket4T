@@ -28,6 +28,7 @@ app.engine('hbs', expressHbs.engine({
         SearchTripPagination: helper.SearchTripPagination,
         ViewListTicketPagination: helper.ViewListTicketPagination,
         createChuyenXeManagementPagination: helper.createChuyenXeManagementPagination,
+        toDate: helper.toDate,
     },
     runtimeOptions: { //Để cho phép hbs truy cập đc vào database
         allowProtoPropertiesByDefault: true
