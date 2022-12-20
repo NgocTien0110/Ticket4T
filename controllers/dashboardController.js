@@ -81,12 +81,19 @@ controller.deleteTicket = async (req, res) => {
 
 controller.showChuyenXe = async (req, res) => {
     const limit = 5;
+    let page = req.query.page || 1;
+    page = parseInt(page);
+    let offset = limit * (page - 1)
 
-    res.locals.quanly_chuyenxe = await models.ChuyenXe.findAll({
+    let {rows, count} = await models.ChuyenXe.findAndCountAll({
         include: [models.NhaXe, models.LoaiXe],
         order: [['id', "ASC"]],
-        limit: limit
+        limit: limit,
+        offset: offset
     });
+    res.locals.quanly_chuyenxe = rows;
+    res.locals.currentPage = page;
+    res.locals.totalPage = Math.ceil(count / limit)
     res.render('quanlychuyenxe');
 }
 
