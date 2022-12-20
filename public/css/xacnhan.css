@@ -1,0 +1,168 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.step-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--color--tertiary);
+    transition: .4s;
+}
+
+.step-button[aria-expanded="true"] {
+    width: 60px;
+    height: 60px;
+    background-color: var(--color--secondary);
+    color: #fff;
+}
+
+.done {
+    background-color: var(--color--secondary);
+    color: #fff;
+}
+
+.step-item {
+    z-index: 10;
+    text-align: center;
+}
+
+#progress {
+    -webkit-appearance: none;
+    position: absolute;
+    width: calc(95% - 18px);
+    z-index: 5;
+    height: 10px;
+    margin-left: 18px;
+    margin-bottom: 18px;
+}
+
+/* to customize progress bar */
+#progress::-webkit-progress-value {
+    background-color: var(--color--secondary);
+    transition: .5s ease;
+}
+
+#progress::-webkit-progress-bar {
+    background-color: var(--color--tertiary);
+
+}
+
+.date>.go,
+.date>.arrive {
+    color: var(--color--secondary);
+}
+
+.h3 {
+    color: var(--color--primary);
+}
+
+.bi-geo-alt-fill {
+    color: var(--color--primary);
+}
+
+.continue {
+    background-color: var(--color--secondary);
+    color: white;
+    border-radius: 50px;
+}
+
+.back {
+    background-color: white;
+    color: black;
+    border-radius: 50px;
+    border: 1px solid var(--color--secondary);
+}
+
+.btn.continue:hover {
+    background-color: var(--color--primary);
+    color: white;
+    border-radius: 50px;
+}
+
+.btn.back:hover {
+    background-color: var(--color--tertiary);
+    color: black;
+    border-radius: 50px;
+}
+
+.linee::after {
+    content: "";
+    background: black;
+    position: absolute;
+    width: calc(32% - 32px);
+    left: 50%;
+    bottom: 22%;
+    height: 2px;
+    z-index: 10;
+    transform: translateX(-50%);
+    border: none;
+    margin-left: 3px;
+
+
+}
+
+@media screen and (max-width: 991px) {
+    .col-6 {
+        width: 100%;
+    }
+
+    .linee::after {
+        content: "";
+        background: black;
+        position: absolute;
+        width: calc(75% - 32px);
+        left: 50%;
+        bottom: 22%;
+        height: 2px;
+        z-index: 10;
+        transform: translateX(-50%);
+        border: none;
+        margin-left: 3px;
+
+
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .col-6 {
+        width: 100%;
+    }
+
+    .linee::after {
+        content: "";
+        background: black;
+        position: absolute;
+        width: calc(65% - 65px);
+        left: 50%;
+        bottom: 22%;
+        height: 2px;
+        z-index: 10;
+        /*canh giua man hinh */
+        transform: translateX(-50%);
+        border: none;
+        margin-left: 3px;
+
+
+    }
+}
+
+.line {
+    border-bottom: 3px dotted #112d4e;
+    width: 50%;
+    margin-top: 15px;
+
+}
+
+.color-3 {
+    color: #3f72af;
+}

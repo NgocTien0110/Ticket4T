@@ -1,0 +1,27 @@
+.rounded-bottom-2 {
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}
+
+.rounded-top-2{
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+}
+
+.rounded-top-bottom-1{
+    border-radius: 1rem;
+}
+
+.primary-title-50{
+    font-weight: bold;
+    color: var(--color--primary);
+    font-size: 50px;
+    text-shadow: 1px 1px black;
+}
+
+.primary-title-30{
+    font-weight: bold;
+    color: var(--color--primary);
+    font-size: 30px;
+    text-shadow: 1px 1px black;
+}

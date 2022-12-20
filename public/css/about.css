@@ -1,0 +1,84 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+.about-container{
+    position: relative;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.about-container > *{
+    padding: 10px;
+}
+
+.about-container .about-text h1 {
+    position: relative;
+
+}
+
+
+.about-container .about-text h1:after{
+    position: absolute;
+    content: "";
+    background: black;
+
+    top: 110%;
+    height: 2px;
+    width: 80%;
+    background-color: var(--color--secondary);
+    z-index: 1;
+
+    left: 0;
+
+    bottom: 10px;
+}
+
+.team .member p{
+    text-align: center;
+}
+
+.team .member p:not(:nth-child(2n)){
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.rounded .team-avt{
+    border: 100px 2px black;
+
+}
+
+.team-text{
+    position: relative;
+
+    font-weight: bold;
+    color: var(--color--primary);
+    font-size: 30px;
+    text-shadow: 1px 1px black;
+    padding: 10px;
+}
+
+.team-text::after{
+    position: absolute;
+    content: "";
+    background: black;
+
+    top: 80%;
+    height: 2px;
+    width: 30%;
+    background-color: var(--color--secondary);
+    z-index: 1;
+
+    left: 35%;
+
+    bottom: 10px;
+}
+
+.about-text .about-title{
+    font-weight: bold;
+
+    color: var(--color--primary);
+
+    text-shadow: 1px 1px black;
+}
+

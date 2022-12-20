@@ -1,0 +1,60 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.bg-form
+{
+    background-color: var(--color--tertiary);
+}
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    background-color: white;
+    height: 30px;
+    border-radius: 5px;
+    margin:0 auto;
+}
+.wrapper span{
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.wrapper span.minus, .wrapper span.plus{
+    cursor: pointer;
+    font-size: 20px;
+    color: var(--color--quaternary);
+    background-color: var(--color--secondary);
+    border-radius: 5px;
+    padding: 0 20px;
+}
+.wrapper span.minus:hover, .wrapper span.plus:hover{
+    background-color: #4488dc;
+}
+
+.ticket{
+    text-align: center;
+}
+
+.backk{
+    background-color: white;
+    color: black;
+    border-radius: 50px;
+    border: 1px solid var(--color--secondary);
+}
+.btn.backk:hover{
+    background-color: rgb(162, 158, 158);
+    color: white;
+}
+input.ticket{
+    border: none;
+    cursor: auto;
+    text-align: center; 
+    width: 100px;
+}
+input.ticket:focus{
+    outline: none;
+}

@@ -1,0 +1,178 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+.bodyInfo {
+    background-color: var(--color--quaternary);
+    padding-top: 10px;
+}
+
+a {
+    color: black;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+.infoAcc {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#avatarInfoAcc {
+    float: left;
+    border-radius: 50%;
+    height: 75px;
+    width: 75px;
+    border: 1px solid;
+}
+
+.infoNameAcc {
+    float:left;
+}
+
+.bodyInfoDetail {
+    min-height: 570px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.leftBody {
+    font-size: large;
+}
+.leftBody div.leftInfoAcc:nth-last-child(1) {
+    background-color: var(--color--tertiary);
+}
+
+.leftInfoAcc {
+    padding-left: 29px;
+}
+
+.linkLeftInfoAcc {
+    display: flex;
+    align-items: center;
+    gap: 44px;
+}
+
+.rightBody {
+    background-color: white;
+    border-radius: 13px;
+}
+
+.topRightBody {
+    display: flex;
+    justify-content: space-between;
+    font-size: larger;
+    font-weight: bold;
+    border-bottom: 1px solid gainsboro;
+}
+
+#statusMau {
+    color: var(--color--secondary);
+    border-bottom: 2px solid var(--color--secondary);
+}
+
+.bodyRightBody {
+    margin-top: 15px;
+}
+
+.infoTicket {
+    display: flex;
+    flex-direction: column;
+    min-height: 195px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.maDonHang {
+    flex-basis: 20%;
+    padding-left: 15px;
+    font-size: larger;
+    font-weight: 500;
+}
+.infoDetailTicket {
+    flex-basis: 60%;
+    padding: 15px;
+    font-size: large;
+}
+
+.tongSoTien {
+    flex-basis: 20%;
+    font-size: larger;
+    font-weight: 500;
+    display: flex;
+    justify-content: end;
+    padding-right: 15px;
+}
+
+.idDonHang, .soTien {
+    color: var(--color--secondary);
+}
+
+.soTien {
+    padding-left: 5px;
+}
+
+.leftInfoDetail img {
+    width: 118px;
+    height: 111px;
+    border-radius: 5px;
+}
+
+.leftInfoDetail {
+    flex-basis: 40%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.infoChuyenDi p:nth-child(2) {
+    color: #9B9B9B;
+}
+
+.infoChuyenDi p:nth-last-child(1) {
+  margin-bottom: 0px;
+}
+
+.rightInFoDetail {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.rightInFoDetail div.ngayDiChuyenDi {
+    display:  flex;
+    justify-content: center;
+    gap: 3px;
+    align-items: center;
+    font-size: large;
+}
+
+a.btn.btn-dark {
+    background-color: var(--color--secondary);
+    border-color: var(--color--secondary);
+    width: 160px;
+    border-radius: 15px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+a.btn.btn-dark:hover {
+    background-color: #1c7ef7;
+    border-color: var(--color--secondary);
+}
+
+.botRightBody {
+    display: flex;
+    justify-content: center;
+}
+
+.fontSizeLarger {
+    font-size: 1.4em;
+}

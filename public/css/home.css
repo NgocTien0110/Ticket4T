@@ -1,0 +1,83 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+:root {
+    --color-1: #f9f7f7;
+    --color-2: #dbe2ef;
+    --color-3: #3f72af;
+    --color-4: #112d4e;
+  }
+  
+.text-4 {
+  color: var(--color-4);
+  font-weight: bold;
+}
+
+.text-3 {
+  color: var(--color-3);
+  font-weight: bold;
+}
+
+
+  .header {
+    background-color: var(--color-4);
+    color: var(--color-4);
+    height: 100px;
+  }
+  
+  /* banner  */
+  
+  #banner {
+    background: url(../images/banner.jpg) no-repeat center center;
+    height: 30rem;
+  }
+  
+  #search-banner-trip {
+    background-color: var(--color-2);
+    border-right: 1px solid var(--color-3);
+  }
+  
+  .search-banner-item {
+    padding: 1.4rem;
+  }
+  
+  .border-item {
+    border-right: 1px solid var(--color-3);
+    
+  }
+  
+  .select-search {
+    background-color: var(--color-2);
+  }
+  
+  
+  #btn-search {
+    background-color: var(--color-3);
+    color: var(--color-1);
+  }
+  
+  
+  /* popular trips  */
+  
+  .popular-trip-item {
+    background-color: var(--color-2);
+  }
+  
+
+  /* nền tảng kết nối */
+#nen-tang-ket-noi {
+  background-color: var(--color-3);
+}
+
+/* nhận xét khách hàng */
+.card-nhan-xet{
+  background-color: var(--color-3);
+}
+
+#cmt {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+}

@@ -1,0 +1,33 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.color-1 {
+    color: #f9f7f7;
+  }
+  
+  .color-2 {
+    color: #dbe2ef;
+  }
+  
+  .color-3 {
+    color: #3f72af;
+  }
+  
+  .color-4 {
+    color: #112d4e;
+  }
+
+
+  .bg-color-3 {
+    background-color: #3f72af;
+  }
+
+  .bg-color-2 {
+    background-color: #dbe2ef;
+  }
+
+.d-flex .btn-info:hover, button:hover,#btn-search:hover {
+    background-color: #1c7ef7;
+    border-color: var(--color--secondary);
+  }

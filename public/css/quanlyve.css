@@ -1,0 +1,36 @@
+h4.card-title {
+    cursor: pointer;
+}
+
+tr>td {
+    cursor: pointer;
+}
+
+.delete {
+    color: white;
+    background-color: red;
+    padding: 10px 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.delete:hover {
+    background-color: rgb(221, 35, 35);
+}
+
+.edit {
+    color: white;
+    background-color: rgb(37, 116, 227);
+    padding: 10px 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.edit:hover {
+    background-color: rgb(0, 0, 255);
+}
+
+.statusMau {
+    color: #4B49AC !important;
+    border-bottom: 2px solid #4B49AC;
+}

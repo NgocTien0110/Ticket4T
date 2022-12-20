@@ -1,0 +1,57 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.color-1 {
+  color: #f9f7f7;
+}
+
+.color-2 {
+  color: #dbe2ef;
+}
+
+.color-3 {
+  color: #3f72af;
+}
+
+.color-4 {
+  color: #112d4e;
+}
+
+.border-color-4 {
+  border-style: solid;
+  border-color: #3f72af;
+  border-width: 0.3rem;
+}
+
+.bg-color-4 {
+  background-color: #3f72af;
+}
+
+.line {
+  border-bottom: 2px dotted #112d4e;
+  width: 50%;
+}
+
+.btn-dark {
+  border: #3f72af;
+  color: white;
+}
+
+.col-6 .btn-dark:hover {
+  background-color: #1c7ef7;
+  border-color: var(--color--secondary);
+  color: white;
+}
+
+.chinhSach {
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+
+  color: white;
+  font-family: Arial, Helvetica, sans-serif, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 0;
+}

@@ -1,0 +1,109 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.description{
+    background-color: var(--color--tertiary);
+
+    display: flex;
+
+}
+
+.description .review:after{
+    content: "";
+    background: black;
+    position: absolute;
+
+    left: 0;
+    top: 25%;
+    bottom: 25%;
+
+    height: 50%;
+    width: 2px;
+}
+
+.description .review{
+    position: relative;
+
+    padding-left: 10px;
+
+    display: inline;
+}
+
+.description .review .review-star{ 
+    display: inline;
+    font-size: 28px;
+}
+
+.description .review .review-star .icon{
+    color: rgb(240, 221, 12);
+    text-shadow: 0 0 3px #000;
+}
+
+.description .review .review-star .review-count{
+    color: rgb(223, 150, 14);
+}
+
+.description .intro{
+    padding: 0 5px;
+}
+
+.intro p:hover{
+    background-color: #cac9d5;
+
+    border-radius: 0.5rem;
+}
+
+.nhaxe{
+    display: inline-block;
+}
+
+.description div{
+    flex-grow: 1;
+    width: 0;
+}
+
+.page-site{
+    padding: 10px;
+}
+
+
+.image-container{
+    position: relative;
+}
+
+.image-container .hover-block{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(100, 100, 100, 0);
+}
+
+
+.image-container .hover-block:hover{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(100, 100, 100, 0.3);
+}
+
+.nhaxe{
+    padding: 10px;
+}
+
+.cmt p {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+}
