@@ -2,7 +2,6 @@ const controller = {} //Để {} vì là object có thể chứa thêm các hàm
 const models = require('../models')
 const userController = require('../controllers/userController');
 let bcrypt = require('bcryptjs');
-const { where } = require('sequelize');
 
 controller.showUpdatePassword = async (req, res) => {
     let accId = req.session.user.id
@@ -233,6 +232,16 @@ controller.showDetailsTicket = async (req, res) => {
     let accId = req.session.user.id
     let ticketId = req.params.ticketId;
 
+    const d = new Date();
+    let hour = d.getHours();
+    let minutes = d.getMinutes();
+    let dd = String(d.getDate()).padStart(2, '0');
+    let mm = String(d.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let yyyy = d.getFullYear();
+
+    today = dd + '-' + mm + '-' + yyyy;
+    time = hour + ":" + minutes;
+
     let infoAcc = await models.TaiKhoan.findOne({
         where: {
             id: accId
@@ -245,15 +254,75 @@ controller.showDetailsTicket = async (req, res) => {
             }
         }]
     })
+    let veDaDat = await models.VeDaDat.findOne({
+        where: {
+            id: ticketId
+        }
+    })
+
+    let chuyenXe = await models.ChuyenXe.findOne({
+        where: {
+            id: veDaDat.jourId
+        }
+    })
+
+    let veChuaHuy;
+
+    if (veDaDat.statusTicket != "Đã hủy" && (today.localeCompare(chuyenXe.endDate) == -1)) {
+        veChuaHuy = true;
+    }
+    else if (veDaDat.statusTicket != "Đã hủy" && (today.localeCompare(chuyenXe.endDate) == 0)) {
+        if (time.localeCompare(chuyenXe.endTime) == -1) {
+            veChuaHuy = true;
+        }
+    }
+    else {
+    }
+
+    res.locals.veChuaHuy = veChuaHuy;
     res.locals.infoAcc = infoAcc
-    // let LoaiXe = 
-    // res.locals.LoaiXe = await models.LoaiXe.findOne({
-    //     where: {
-    //         id: res.locals.infoAcc.VeDaDats.ChuyenXe.cateCarId
-    //     }
-    // })
 
     res.render('xemChiTietVe')
+}
+
+controller.cancleTicket = async (req, res) => {
+    let ticketId = req.body.id;
+    let accId = req.session.user.id;
+
+    let infoAcc = await models.TaiKhoan.findOne({
+        where: {
+            id: accId
+        },
+        include: [{
+            model: models.VeDaDat,
+            include: [{ model: models.ChuyenXe, include: [models.NhaXe] }],
+            where: {
+                id: ticketId,
+            }
+        }]
+    })
+
+    let veDaDat = await models.VeDaDat.findOne({
+        where: {
+            id: ticketId
+        }
+    })
+
+    let chuyenXe = await models.ChuyenXe.findOne({
+        where: {
+            id: veDaDat.jourId
+        }
+    })
+
+    veDaDat.update({
+        statusTicket: 'Đã hủy'
+    })
+    chuyenXe.update({
+        numSeats: (chuyenXe.numSeats + veDaDat.numSeats)
+    })
+
+    res.locals.infoAcc = infoAcc
+    res.render('xemChiTietVe');
 }
 
 module.exports = controller;
