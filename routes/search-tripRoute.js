@@ -14,54 +14,13 @@ const mailjet = Mailjet.apiConnect(
   process.env.MJ_APIKEY_PUBLIC || 'e4581f950320d261cac2aad9cc75c453',
   process.env.MJ_APIKEY_PRIVATE || '81b78a49dfb2165685b478652db78aa4',
 );
-
 Router.get("/:id", tripInfoController.show);
 Router.get("/", controller.show);
 Router.get("/:id/thanh-toan/xacnhan", userController.isLoggedIn, controller1.show);
 Router.get("/:id/thanh-toan/thongtinkhachhang", userController.isLoggedIn, controller2.show);
 Router.get("/:id/thanh-toan/thanhtoan", userController.isLoggedIn, controller3.show);
-
-Router.post(
-  "/:id/thanh-toan/thanhcong",
-  async (req, res) => {
-    let k = req.body.totalprice;
-    let totalprice = k.slice(0, -4).replace(".", "");
-    let accId = req.session.user.id;
-
-    let user = await models.TaiKhoan.findOne({
-      where: {
-        id: accId
-      }
-    })
-    let chuyenxe = await models.ChuyenXe.findOne({
-      where: {
-        id: parseInt(req.params.id)
-      }, include: [models.NhaXe]
-    })
-
-    models.VeDaDat.bulkCreate([
-      {
-        numSeats: req.body.ticket,
-        totalPrice: totalprice,
-        statusTicket: "Vừa đặt",
-        phoneNum: req.body.phone,
-        email: req.body.email,
-        jourId: parseInt(req.params.id),
-        accId: accId,
-        fullName: req.body.name,
-      },
-    ])
-      .then((product) => {
-        userController.sendEmailTicketOrder(user, chuyenxe, chuyenxe.NhaXe.name, req.body.ticket, totalprice)
-        chuyenxe.update({
-          numSeats: (chuyenxe.numSeats - req.body.ticket)
-        })
-        res.render("thanhcong");
-      })
-      .catch((err) => {
-        res.json(err);
-      });
-  }
-);
+Router.post("/:id/thanh-toan/thanhtoan", controller3.Payment);
+Router.get("/:id/thanh-toan/thanhcong", controller3.Success);
+Router.get("/:id/thanh-toan/thatbai", controller3.Cancel);
 
 module.exports = Router;
