@@ -19,9 +19,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/css/xemChiTietVe.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
 
     {{!-- upload file css  --}}
-    <link rel="stylesheet" href="path-to/node_modules/dropify/dist/css/dropify.min.css">
+    {{!-- <link rel="stylesheet" href="path-to/node_modules/dropify/dist/css/dropify.min.css"> --}}
+
 
 </head>
 
@@ -272,7 +275,8 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
+                        <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false"
+                            aria-controls="tables">
                             <i class="icon-grid-2 menu-icon"></i>
                             <span class="menu-title">Tables</span>
                             <i class="menu-arrow"></i>
@@ -312,115 +316,138 @@
             </nav>
             <!-- partial -->
             <div class="main-panel">
-                {{#with chitietnhaxe}}
-                    <div class="content-wrapper">
-                        <div class="row">
-                            <div class="col-lg-12 grid-margin stretch-card">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="col-md-12 rightBody p-5">
-                                            <form id="example-form" action="#">
-                                                <div>
-                                                    <h4 class="text-center fw-bold">Quản lý nhà xe {{name}}</h4>
-
-                                                    <section>
+                {{!-- {{#with chitietnhaxe}} --}}
+                <div class="content-wrapper">
+                    <div class="row">
+                        <div class="col-lg-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="col-md-12 rightBody p-5">
+                                        <form id="example-form" action="#">
+                                            <div>
+                                                <h1 class="text-center fw-bold mb-5"> Nhà xe {{chitietnhaxe.name}}</h1>
+                                                <section>
+                                                    <div class="form-group">
                                                         <h5 class="fw-semibold">Tên nhà xe</h5>
-                                                        <div class="form-group">
-                                                            {{!-- <label for="inputTenNhaXe">Tên nhà xe</label> --}}
-                                                            <input type="" class="form-control" id="inputTenNhaXe"
-                                                                value="{{name}}" placeholder="Nhập tên nhà xe">
-                                                        </div>
-                                                        <h5 class="fw-semibold">Ảnh nhà xe</h5>
-                                                        <div class="form-group ">
-                                                            <label for="">Ảnh đại diện
-                                                                <br> <input type="file" class="dropify" />
-                                                            </label>
-                                                            <div class="row">
-                                                                <div class="col-4"><label for="">Ảnh chi tiết 1
-                                                                    <br> <input type="file" class="dropify" />
-                                                                </label></div>
-                                                                <div class="col-4"><label for="">Ảnh chi tiết 2
-                                                                    <br> <input type="file" class="dropify" />
-                                                                </label></div>
-                                                                <div class="col-4"><label for="">Ảnh chi tiết 3
-                                                                    <br> <input type="file" class="dropify" />
-                                                                </label></div>
-                                                            </div>
-                                                        </div>
-                                                        <h5 class="fw-semibold">Số điện thoại</h5>
                                                         <div class="row">
-                                                            <div class="form-group col-4">
-                                                                <label for="inputSDT1">Số điện thoại 1</label>
-                                                                <input type="" class="form-control"
-                                                                    value="{{lookup phoneNo 0}}" id="inputSDT1"
-                                                                    placeholder="Số điện thoại">
-                                                            </div>
-                                                            <div class="form-group col-4">
-                                                                <label for="inputSDT2">Số điện thoại 2</label>
-                                                                <input type="" class="form-control"
-                                                                    value="{{lookup phoneNo 1}}" id="inputSDT2"
-                                                                    placeholder="Số điện thoại">
-                                                            </div>
-                                                            <div class="form-group col-4">
-                                                                <label for="inputSDT3">Số điện thoại 3</label>
-                                                                <input type="" class="form-control"
-                                                                    value="{{lookup phoneNo 2}}" id="inputSDT3"
-                                                                    placeholder="Số điện thoại">
+                                                            <div class="col-md-4">
+                                                                <div class="col-sm-10">
+                                                                    {{!-- <label for="inputTenNhaXe">Tên nhà xe</label> --}}
+                                                                    <input type="" class="form-control"
+                                                                        id="inputTenNhaXe" value="{{chitietnhaxe.name}}"
+                                                                        placeholder="Nhập tên nhà xe">
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <h5 class="fw-semibold">Địa chỉ</h5>
-                                                        <div class="form-group">
-                                                            <label for="inputDiaChi1">Địa chỉ 1 </label>
-                                                            <input type="" class="form-control" id="inputDiaChi1"
-                                                                value="{{lookup address 0}}"
-                                                                placeholder="Địa chỉ nhà xe">
-                                                            <label for="inputDiaChi2">Địa chỉ 2</label>
-                                                            <input type="" class="form-control" id="inputDiaChi2"
-                                                                value="{{lookup address 1}}"
-                                                                placeholder="Địa chỉ nhà xe">
-                                                            <label for="inputDiaChi3">Địa chỉ 3</label>
-                                                            <input type="" class="form-control" id="inputDiaChi3"
-                                                                value="{{lookup address 2}}"
-                                                                placeholder="Địa chỉ nhà xe">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <h5 class="fw-semibold">Giới thiệu nhà xe</h5>
-                                                            {{!-- <label for="inputGioiThieu">Giới thiệu nhà xe</label> --}}
-                                                            <textarea class="form-control"
-                                                                rows="5">{{description}}</textarea>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <h5 class="fw-semibold">Chính sách nhà xe</h5>
-                                                            {{!-- <label for="inputGioiThieu">Giới thiệu nhà xe</label> --}}
-                                                            <textarea class="form-control"
-                                                                rows="5">{{policy}}</textarea>
-                                                        </div>
-                                                    </section>
-                                                    {{!-- nút lưu --}}
-                                                    <div class="d-flex justify-content-center">
-                                                        <button type="submit" class="btn btn-primary mr-2">Lưu</button>
-                                                        <a class="btn btn-light" href="/dashboard/quanlynhaxe/" >Hủy</a>
                                                     </div>
-                                            </form>
+                                                    <h5 class="fw-semibold">Hình ảnh </h5>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <div class="col-sm-10">
+                                                                    <label for="avatar" class="form-label">Ảnh đại
+                                                                        diện
+                                                                        nhà xe</label>
+                                                                    <input class="" type="file" id="avatar">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="col-sm-10">
+                                                                    <label for="anhchitiet" class="form-label">Hình
+                                                                        ảnh
+                                                                        chi tiết chuyến
+                                                                        xe</label>
+                                                                    <input class="" type="file" id="anhchitiet"
+                                                                        multiple>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
-                                            <script>
-                                                var form = $("#example-form");
-                                                form.children("div").steps({
-                                                    headerTag: "h3",
-                                                    bodyTag: "section",
-                                                    transitionEffect: "slideLeft",
-                                                    onFinished: function (event, currentIndex) {
-                                                        alert("Submitted!");
-                                                    }
-                                                });
-                                            </script>
-                                        </div>
+                                                    <h5 class="fw-semibold">Phòng vé</h5>
+                                                    <div class="form-group " id="phongve">
+                                                        {{#each phongves}}
+                                                            <div class="row mb-2">
+                                                                <div class="col-md-4">
+                                                                    <div class="col-sm-10">
+                                                                        <label for="inputSDT">Số điện thoại</label>
+                                                                        <input type="" class="form-control"
+                                                                            value="{{this.phoneNo}}" id="inputSDT"
+                                                                            placeholder="Số điện thoại">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    <div class="col-sm-11">
+                                                                        <label for="inputDiaChi">Địa chỉ</label>
+                                                                        <input type="" class="form-control"
+                                                                            value="{{this.address}}" id="inputDiaChi"
+                                                                            placeholder="Địa chỉ">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="col-sm-10">
+                                                                        <label for="tinh"
+                                                                            class="form-label">Tỉnh:</label>
+                                                                        <select class="form-select" id="tinh"
+                                                                            name="tinh">
+                                                                            <option value="{{this.mainRoute}}">
+                                                                                {{this.mainRoute}}
+                                                                            </option>
+                                                                            {{!-- thêm option từ phongves  --}}
+                                                                            {{#each chontinh}}
+                                                                                <option value="{{this.name}}">
+                                                                                    {{this.name}}
+                                                                                </option>
+                                                                            {{/each}}
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        {{/each}}
+                                                    </div>
+                                                    {{!-- <button class="btn btn-primary mb-3 ml-3 px-4"
+                                                        onclick="themphongve()"> + </button> --}}
+
+                                                    <div class="form-group">
+                                                        <h5 class="fw-semibold">Giới thiệu nhà xe</h5>
+                                                        {{!-- <label for="inputGioiThieu">Giới thiệu nhà xe</label> --}}
+                                                        <textarea class="form-control"
+                                                            rows="5">{{chitietnhaxe.description}}</textarea>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <h5 class="fw-semibold">Chính sách nhà xe</h5>
+                                                        {{!-- <label for="inputGioiThieu">Giới thiệu nhà xe</label> --}}
+                                                        <textarea class="form-control"
+                                                            rows="5">{{chitietnhaxe.policy}}</textarea>
+                                                    </div>
+                                                </section>
+                                                {{!-- nút lưu --}}
+                                                <div class="d-flex justify-content-center">
+                                                    <button type="submit" class="btn btn-primary mr-2">Lưu</button>
+                                                    <a class="btn btn-light" href="/dashboard/quanlynhaxe/">Hủy</a>
+                                                </div>
+                                        </form>
+
+                                        <script>
+                                            var form = $("#example-form");
+                                            form.children("div").steps({
+                                                headerTag: "h3",
+                                                bodyTag: "section",
+                                                transitionEffect: "slideLeft",
+                                                onFinished: function (event, currentIndex) {
+                                                    alert("Submitted!");
+                                                }
+                                            });
+                                        </script>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                {{/with}}
+                </div>
+                {{!-- {{/with}} --}}
+
+
 
                 <!-- content-wrapper ends -->
                 <!-- partial:/partials/_footer.html -->
@@ -459,7 +486,7 @@
     <!-- endinject -->
     <!-- Custom js for this page-->
     <!-- End custom js for this page-->
-    <script src="path-to/node_modules/dropify/dist/js/dropify.min.js"></script>
+    {{!-- <script src="path-to/node_modules/dropify/dist/js/dropify.min.js"></script> --}}
 
 
 </body>
@@ -468,8 +495,17 @@
     function selected(value) {
         document.getElementById(value).selected = true
     }
-   
+
+         
+
+    function changeAvatar() {
+        let avatar = document.getElementById('avatar');
+        avatar.click();
+    }
+
+
+
 </script>
-<script>
+{{!-- <script>
     $('.dropify').dropify();
-</script>
+</script> --}}
