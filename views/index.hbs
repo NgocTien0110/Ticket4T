@@ -126,9 +126,9 @@
                                 <div class="col-md-4">
                                     <a
                                         href="/search-trip?start={{ startProvince }}&end={{ endProvince }}&date={{../todayDate}}">
-                                        <img src="{{locationImage}}" class="img-fluid rounded-2"
+                                        <img src="/images/phobien/{{@index}}.jpg" class="img-fluid rounded-2"
                                             style="object-fit: cover; height: 9rem; width: 36rem;"
-                                            alt="{{startProvince}} - {{endProvince}}">
+                                            alt="Tuyến đường phổ biến">
                                     </a>
                                 </div>
                                 <div class="col-md-8">
@@ -143,9 +143,7 @@
                                             {{!-- <p class="card-text fs-5"> <i class="fa-solid fa-location-dot"></i>
                                                 100 km
                                             </p> --}}
-                                            <p class="card-text fs-5">Giá vé: Từ {{formatPrice min_price}}đ đến
-                                                {{formatPrice
-                                                max_price}}đ</p>
+                                            <p class="card-text fs-5">{{{checkMinMaxPrice min_price max_price}}}</p>
 
                                         </div>
                                     </div>

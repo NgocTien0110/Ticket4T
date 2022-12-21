@@ -29,6 +29,7 @@ app.engine('hbs', expressHbs.engine({
         ViewListTicketPagination: helper.ViewListTicketPagination,
         createChuyenXeManagementPagination: helper.createChuyenXeManagementPagination,
         toDate: helper.toDate,
+        checkMinMaxPrice: helper.checkMinMaxPrice,
     },
     runtimeOptions: { //Để cho phép hbs truy cập đc vào database
         allowProtoPropertiesByDefault: true

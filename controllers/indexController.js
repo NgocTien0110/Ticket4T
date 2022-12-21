@@ -19,8 +19,8 @@ controller.show = async (req, res) => {
   });
 
   await models.ChuyenXe.findAll({
-    attributes: ["startProvince", "endProvince", "locationImage", [Sequelize.fn('MIN', Sequelize.col('price')), "min_price"] , [Sequelize.fn('COUNT', Sequelize.col('id')), "count"], [Sequelize.fn('MAX', Sequelize.col('price')), "max_price"]],
-    group: ["startProvince", "endProvince","locationImage",],
+    attributes: ["startProvince", "endProvince", [Sequelize.fn('MIN', Sequelize.col('price')), "min_price"] , [Sequelize.fn('COUNT', Sequelize.col('id')), "count"], [Sequelize.fn('MAX', Sequelize.col('price')), "max_price"]],
+    group: ["startProvince", "endProvince",],
     order: [['count', 'DESC']],
     raw: true,
     limit: 6

@@ -297,4 +297,17 @@ helper.toDate = (dateString) => {
 
     return temp[2] + '-' + temp[1] + '-' + temp[0]
 }
+
+helper.checkMinMaxPrice = (minPrice, maxPrice) => {
+    let str = '';
+    minPrice = parseFloat(minPrice);
+    maxPrice = parseFloat(maxPrice);
+
+    if(minPrice === maxPrice)
+        str = "Giá vé: " + helper.formatPrice(minPrice) + "đ";
+    else
+        str = "Giá vé: Từ " +  helper.formatPrice(minPrice) + "đ đến" + helper.formatPrice(maxPrice) + "đ";
+                                            
+    return str;
+}
 module.exports = helper;
