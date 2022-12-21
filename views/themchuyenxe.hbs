@@ -321,8 +321,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Chỉnh sửa chuyến xe</h4>
-                                    {{#with chuyenxeDetails}}
-                                    <form id="updateChuyenXe" action="/dashboard/quanlychuyenxe/{{id}}"
+                                    <form id="updateChuyenXe" action="/dashboard/quanlychuyenxe/themchuyenxe/add"
                                         class="form-sample d-flex justify-content-center flex-column" method="post">
 
                                         <p class="card-description" style="font-weight: bold;">
@@ -336,8 +335,9 @@
                                                         <label class=""><i class="fa-solid fa-signs-post"></i> Tỉnh bắt
                                                             đầu</label>
 
-                                                        <input type="text" class="form-control"
-                                                            value="{{startProvince}}" name="startProvince" />
+                                                        <input type="text" class="form-control" value=""
+                                                            placeholder="Nhập tỉnh bắt đầu" name="startProvince"
+                                                            required />
                                                     </div>
                                                 </div>
                                             </div>
@@ -347,22 +347,21 @@
                                                         <label class=""><i class="fa-solid fa-map-location-dot"></i>
                                                             Điểm
                                                             đón</label>
-                                                        <input type="text" class="form-control"
-                                                            value="{{startLocation}}" name="startLocation" />
+                                                        <input type="text" class="form-control" value=""
+                                                            placeholder="Nhập điểm đón" name="startLocation" required />
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-
-
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group row justify-content-center">
                                                     <div class="col-sm-9">
                                                         <label class=""><i class="fa-solid fa-signs-post"></i> Tỉnh kết
                                                             thúc</label>
-                                                        <input type="text" class="form-control" value="{{endProvince}}"
-                                                            name="endProvince" />
+                                                        <input type="text" class="form-control" value=""
+                                                            name="endProvince" placeholder="Nhập tỉnh kết thúc"
+                                                            required />
                                                     </div>
                                                 </div>
                                             </div>
@@ -372,8 +371,9 @@
                                                         <label class=""><i class="fa-solid fa-map-location-dot"></i>
                                                             Điểm
                                                             trả khách</label>
-                                                        <input type="text" class="form-control" value="{{endLocation}}"
-                                                            name="endLocation" />
+                                                        <input type="text" class="form-control" value=""
+                                                            name="endLocation" placeholder="Nhập điểm trả khách"
+                                                            required />
                                                     </div>
                                                 </div>
                                             </div>
@@ -388,9 +388,9 @@
                                                     <div class="col-sm-9">
                                                         <label class=""><i class="fa-solid fa-calendar-check"></i> Ngày
                                                             bắt đầu</label>
-                                                        <input type="date" class="form-control"
-                                                            value="{{toDate startDate}}" name="startDate" id="startDate"
-                                                            min="2018-01-01" max="2025-12-31" />
+                                                        <input type="date" class="form-control" value=""
+                                                            name="startDate" id="startDate" min="2018-01-01"
+                                                            max="2025-12-31" required />
                                                     </div>
                                                 </div>
                                             </div>
@@ -399,8 +399,8 @@
                                                     <div class="col-sm-9">
                                                         <label class=""><i class="fa-solid fa-hourglass-start"></i> Thời
                                                             gian bắt đầu</label>
-                                                        <input type="time" class="form-control" value="{{startTime}}"
-                                                            name="startTime" />
+                                                        <input type="time" class="form-control" value=""
+                                                            name="startTime" required />
                                                     </div>
                                                 </div>
                                             </div>
@@ -413,7 +413,7 @@
                                                                 class="fa-sharp fa-solid fa-calendar-xmark"></i>
                                                             Ngày kết thúc</label>
                                                         <input type="date" class="form-control" id="endDate"
-                                                            value="{{toDate endDate}}" name="endDate" />
+                                                            name="endDate" required />
                                                     </div>
                                                 </div>
                                             </div>
@@ -422,13 +422,12 @@
                                                     <div class="col-sm-9">
                                                         <label class=""><i class="fa-solid fa-hourglass-end"></i> Thời
                                                             gian kết thúc</label>
-                                                        <input type="time" class="form-control" value="{{endTime}}"
-                                                            name="endTime" />
+                                                        <input type="time" class="form-control" name="endTime"
+                                                            required />
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-
                                         <hr />
                                         <div class="row justify-content-center">
                                             <div class="col-md-6">
@@ -437,10 +436,9 @@
                                                         <label class=" col-form-label"><i class="fa-solid fa-bus"></i>
                                                             Nhà xe</label>
                                                         {{!-- <input type="text" class="form-control" /> --}}
-                                                        <select class="form-control" name="nhaxe">
-                                                            <option selected>{{NhaXe.name}}</option>
-
-                                                            {{#each ../danhsachNhaXe}}
+                                                        <select class="form-control" name="nhaxe" required>
+                                                            <option value="" hidden>Chọn nhà xe</option>
+                                                            {{#each danhsachNhaXe}}
                                                             <option>{{name}}</option>
                                                             {{/each}}
                                                         </select>
@@ -454,10 +452,9 @@
                                                         <label class=" col-form-label"><i
                                                                 class="fa-solid fa-van-shuttle"></i> Loại xe</label>
                                                         {{!-- <input type="text" class="form-control" /> --}}
-                                                        <select class="form-control" name="loaixe">
-                                                            <option selected>{{LoaiXe.name}}</option>
-
-                                                            {{#each ../danhsachLoaiXe}}
+                                                        <select class="form-control" name="loaixe" required>
+                                                            <option value="" hidden>Chọn loại xe</option>
+                                                            {{#each danhsachLoaiXe}}
                                                             <option>{{name}}</option>
                                                             {{/each}}
                                                         </select>
@@ -465,7 +462,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <hr />
                                         <div class="row justify-content-center">
                                             <div class="col-md-6">
@@ -473,8 +469,8 @@
                                                     <div class="col-sm-10">
                                                         <label class=" col-form-label"><i class="fas fa-chair"></i> Số
                                                             ghế ngồi</label>
-                                                        <input type="text" class="form-control"
-                                                            value="{{totalNumSeats}}" name="totalNumSeats" />
+                                                        <input type="text" class="form-control" name="totalNumSeats"
+                                                            required />
 
                                                     </div>
                                                 </div>
@@ -485,25 +481,23 @@
                                                     <div class="col-sm-10">
                                                         <label class=" col-form-label"><i
                                                                 class="fa-solid fa-dollar-sign"></i> Giá vé</label>
-                                                        <input type="currency" class="form-control" value="{{price}}"
-                                                            name="price" />
+                                                        <input type="currency" class="form-control" name="price"
+                                                            required />
 
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div
                                             style="display: flex; justify-content: center; padding: 10px; margin: 10px">
                                             <button type="button" class="btn-success btn" style="margin: 10px;"
-                                                onclick="sendDataToServer()">Xác
+                                                onclick="sendDataToServerAdd()">Xác
                                                 nhận</button>
                                             <button type="button" class="btn-danger btn" style="margin: 10px;"
                                                 onclick="redirectTo()">Trở về</button>
                                         </div>
 
                                     </form>
-                                    {{/with}}
                                 </div>
                             </div>
                         </div>
@@ -558,8 +552,7 @@
             return true;
         }
 
-        function sendDataToServer() {
-
+        function sendDataToServerAdd() {
             if (checkValidStartEndDate())
                 if (confirm("Xác nhận thay đổi"))
                     document.getElementById("updateChuyenXe").submit();

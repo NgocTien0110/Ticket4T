@@ -174,7 +174,48 @@ controller.updateChuyenXe = async(req, res) => {
     res.redirect(req.get('referer'))
 }
 
+controller.themchuyenxe = async(req, res) => {
+    res.locals.danhsachNhaXe = await models.NhaXe.findAll();
+    res.locals.danhsachLoaiXe = await models.LoaiXe.findAll();
+    res.render("themchuyenxe");
+}
 
+controller.addChuyenXe = async(req, res) => {
+    let [startProvince, endProvince, startLocation, endLocation] = [req.body.startProvince, req.body.endProvince, req.body.startLocation, req.body.endLocation];
+    let [startDate, endDate, startTime, endTime] = [req.body.startDate, req.body.endDate, req.body.startTime, req.body.endTime]
+    let [nhaxe, loaixe] = [req.body.nhaxe, req.body.loaixe]
+    let [price, totalNumSeats] =  [req.body.price, req.body.totalNumSeats]
+
+    let carId = await models.NhaXe.findOne({
+        attribute: 'id',
+        where: {name: nhaxe}
+    })
+    let cateId = await models.LoaiXe.findOne({
+        attribute: 'id',
+        where: {name: loaixe}
+    })
+
+    let tempStartDate = startDate.split('-')
+    startDate = tempStartDate[2] + '-' + tempStartDate[1] + '-' + tempStartDate[0]
+
+    let tempEndDate = endDate.split('-')
+    endDate = tempEndDate[2] + '-' + tempEndDate[1] + '-' + tempEndDate[0]
+
+    // let imgPath = toLowerCaseNonAccentVietnamese(endProvince);
+    // imgPath = "/images/locationImages/" + imgPath.replace(' ', '-') + ".jpg";
+
+    await models.ChuyenXe.create({
+        startProvince: startProvince, endProvince: endProvince, 
+        startLocation: startLocation, endLocation: endLocation,
+        startDate: startDate, endDate: endDate, 
+        startTime: startTime, endTime: endTime,
+        carId: carId.id, cateCarId: cateId.id,
+        totalNumSeats: totalNumSeats, price: price,
+        numSeats: 0,
+        // locationImage: imgPath
+    });
+    res.redirect(req.get('referer'));
+}
 
 // function toLowerCaseNonAccentVietnamese(str) {
 //     str = str.toLowerCase();
