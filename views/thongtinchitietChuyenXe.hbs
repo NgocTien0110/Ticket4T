@@ -16,6 +16,15 @@
     <link rel="stylesheet" href="/css/vertical-layout-light/style.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="/images/favicon.png" />
+
+
+    <!-- flatpickr -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
+    <script src="https://npmcdn.com/flatpickr@4.6.13/dist/l10n/vn.js"></script>
 </head>
 
 <body>
@@ -294,7 +303,8 @@
                                 <div class="card-body">
                                     <h4 class="card-title">Chỉnh sửa chuyến xe</h4>
                                     {{#with chuyenxeDetails}}
-                                    <form class="form-sample d-flex justify-content-center flex-column">
+                                    <form id="updateChuyenXe" action="/dashboard/quanlychuyenxe/{{id}}"
+                                        class="form-sample d-flex justify-content-center flex-column" method="post">
 
                                         <p class="card-description">
                                             Tuyến đường
@@ -306,7 +316,7 @@
                                                         <label class="">Tỉnh bắt đầu</label>
 
                                                         <input type="text" class="form-control"
-                                                            value="{{startProvince}}" />
+                                                            value="{{startProvince}}" name="startProvince" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -315,7 +325,7 @@
                                                     <div class="col-sm-9">
                                                         <label class="">Điểm đón</label>
                                                         <input type="text" class="form-control"
-                                                            value="{{startLocation}}" />
+                                                            value="{{startLocation}}" name="startLocation" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -325,8 +335,8 @@
                                                 <div class="form-group row justify-content-center">
                                                     <div class="col-sm-9">
                                                         <label class="">Tỉnh kết thúc</label>
-                                                        <input type="text" class="form-control"
-                                                            value="{{endProvince}}" />
+                                                        <input type="text" class="form-control" value="{{endProvince}}"
+                                                            name="endProvince" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -334,52 +344,12 @@
                                                 <div class="form-group row justify-content-center">
                                                     <div class="col-sm-9">
                                                         <label class="">Điểm trả khách</label>
-                                                        <input type="text" class="form-control"
-                                                            value="{{endLocation}}" />
+                                                        <input type="text" class="form-control" value="{{endLocation}}"
+                                                            name="endLocation" />
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        {{!-- <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="col-sm-3 col-form-label">Category</label>
-                                                    <div class="col-sm-9">
-                                                        <select class="form-control">
-                                                            <option>Category1</option>
-                                                            <option>Category2</option>
-                                                            <option>Category3</option>
-                                                            <option>Category4</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="col-sm-3 col-form-label">Membership</label>
-                                                    <div class="col-sm-4">
-                                                        <div class="form-check">
-                                                            <label class="form-check-label">
-                                                                <input type="radio" class="form-check-input"
-                                                                    name="membershipRadios" id="membershipRadios1"
-                                                                    value="" checked>
-                                                                Free
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-5">
-                                                        <div class="form-check">
-                                                            <label class="form-check-label">
-                                                                <input type="radio" class="form-check-input"
-                                                                    name="membershipRadios" id="membershipRadios2"
-                                                                    value="option2">
-                                                                Professional
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> --}}
                                         <hr />
                                         <p class="card-description">
                                             Thời gian
@@ -390,7 +360,8 @@
                                                     <div class="col-sm-9">
                                                         <label class="">Ngày bắt đầu</label>
                                                         <input type="date" class="form-control"
-                                                            value="{{toDate startDate}}" />
+                                                            value="{{toDate startDate}}" name="startDate" id="startDate"
+                                                            min="2018-01-01" max="2025-12-31" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -398,7 +369,8 @@
                                                 <div class="form-group row justify-content-center">
                                                     <div class="col-sm-9">
                                                         <label class="">Thời gian bắt đầu</label>
-                                                        <input type="time" class="form-control" value="{{startTime}}" />
+                                                        <input type="time" class="form-control" value="{{startTime}}"
+                                                            name="startTime" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -408,8 +380,8 @@
                                                 <div class="form-group row justify-content-center">
                                                     <div class="col-sm-9">
                                                         <label class="">Ngày kết thúc</label>
-                                                        <input type="date" class="form-control"
-                                                            value="{{toDate endDate}}" />
+                                                        <input type="date" class="form-control" id="endDate"
+                                                            value="{{toDate endDate}}" name="endDate" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -417,7 +389,8 @@
                                                 <div class="form-group row justify-content-center">
                                                     <div class="col-sm-9">
                                                         <label class="">Thời gian kết thúc</label>
-                                                        <input type="time" class="form-control" value="{{endTime}}" />
+                                                        <input type="time" class="form-control" value="{{endTime}}"
+                                                            name="endTime" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -430,7 +403,7 @@
                                                     <div class="col-sm-10">
                                                         <label class=" col-form-label">Nhà xe</label>
                                                         {{!-- <input type="text" class="form-control" /> --}}
-                                                        <select class="form-control">
+                                                        <select class="form-control" name="nhaxe">
                                                             <option selected>{{NhaXe.name}}</option>
 
                                                             {{#each ../danhsachNhaXe}}
@@ -446,7 +419,7 @@
                                                     <div class="col-sm-10">
                                                         <label class=" col-form-label">Loại xe</label>
                                                         {{!-- <input type="text" class="form-control" /> --}}
-                                                        <select class="form-control">
+                                                        <select class="form-control" name="loaixe">
                                                             <option selected>{{LoaiXe.name}}</option>
 
                                                             {{#each ../danhsachLoaiXe}}
@@ -465,7 +438,7 @@
                                                     <div class="col-sm-10">
                                                         <label class=" col-form-label">Số ghế ngồi</label>
                                                         <input type="text" class="form-control"
-                                                            value="{{totalNumSeats}}" />
+                                                            value="{{totalNumSeats}}" name="totalNumSeats" />
 
                                                     </div>
                                                 </div>
@@ -475,14 +448,23 @@
                                                 <div class="form-group row justify-content-center">
                                                     <div class="col-sm-10">
                                                         <label class=" col-form-label">Giá vé</label>
-                                                        <input type="currency" class="form-control" value="{{price}}" />
+                                                        <input type="currency" class="form-control" value="{{price}}"
+                                                            name="price" />
 
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <button type="submit" class="btn-primary btn">Xác nhận</button>
+                                        <div
+                                            style="display: flex; justify-content: center; padding: 10px; margin: 10px">
+                                            <button type="button" class="btn-success btn" style="margin: 10px;"
+                                                onclick="sendDataToServer()">Xác
+                                                nhận</button>
+                                            <button type="button" class="btn-danger btn" style="margin: 10px;"
+                                                onclick="redirectTo()">Trở về</button>
+                                        </div>
+
                                     </form>
                                     {{/with}}
                                 </div>
@@ -527,5 +509,40 @@
     <script src="/js/file-upload.js"></script>
     <script src="/js/typeahead.js"></script>
     <script src="/js/select2.js"></script>
+    <script>
+        function checkValidStartEndDate() {
+            let start = Date.parse(document.getElementById("startDate").value)
+            let end = Date.parse(document.getElementById("endDate").value)
+
+            if (start >= end) {
+                alert("Ngày bắt đầu phải nhỏ hơn hoặc bằng ngày kết thúc")
+                return false;
+            }
+            return true;
+        }
+
+        function sendDataToServer() {
+
+            if (checkValidStartEndDate())
+                if (confirm("Xác nhận thay đổi"))
+                    document.getElementById("updateChuyenXe").submit();
+        }
+
+        function redirectTo() {
+            window.location.href = "/dashboard/quanlychuyenxe/";
+        }
+    </script>
+
+    <script>
+        flatpickr("#datetimepicker", {
+            dateFormat: "d-m-Y",
+            locale: "vn",
+            disableMobile: "true",
+            // set today date
+            defaultDate: new Date()
+
+        });
+
+    </script>
     <!-- End custom js for this page-->
 </body>

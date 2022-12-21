@@ -21,6 +21,8 @@ Router.post('/quanlyve/chitietve/:id', controller.updateStatusTicket);
 Router.get('/quanlychuyenxe', controller.showChuyenXe);
 Router.post('/quanlychuyenxe', controller.deleteChuyenXe);
 Router.get('/quanlychuyenxe/:id', controller.editChuyenXe);
+Router.post('/quanlychuyenxe/:id', controller.updateChuyenXe);
+
 
 Router.get("/quanlynhaxe", quanlynhaxe.show);
 Router.post("/quanlynhaxe", quanlynhaxe.deleteNhaXe);

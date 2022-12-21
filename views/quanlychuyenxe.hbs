@@ -330,10 +330,11 @@
                                                         <form id="deleteChuyenXe" action="/dashboard/quanlychuyenxe"
                                                             method="post">
                                                             <button type="button"
-                                                                class="bi bi-pencil-square btn bg-primary"
-                                                                onclick="redirectTo({{id}})"></button>
+                                                                class="bi bi-pencil-square btn bg-success"
+                                                                onclick="redirectTo({{id}})"
+                                                                style="color: white;"></button>
                                                             <button class="bi bi-trash btn bg-danger" type="submit"
-                                                                onclick="deleteById()"></button>
+                                                                style="color: white" ; onclick=" deleteById()"></button>
                                                             <input name="id" type="text" value="{{id}}" hidden>
                                                         </form>
 
@@ -345,7 +346,7 @@
                                     </div>
                                 </div>
 
-                                <nav aria-label="...">
+                                <nav aria-label="..." style="display: flex; justify-content: center">
                                     <ul class="pagination">
                                         {{{createChuyenXeManagementPagination totalPage currentPage}}}
                                     </ul>
