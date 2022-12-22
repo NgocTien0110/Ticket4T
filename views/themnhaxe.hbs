@@ -420,7 +420,7 @@
                                                 </section>
                                                 {{!-- nút lưu --}}
                                                 <div class="d-flex justify-content-center">
-                                                    <button type="submit" class="btn btn-primary mr-2">Lưu</button>
+                                                    <button type="button" class="btn btn-primary mr-2" onclick="sendDataToServer()">Lưu</button>
                                                     <a class="btn btn-light" href="/dashboard/quanlynhaxe/">Trở lại</a>
                                                 </div>
                                         </form>
@@ -492,7 +492,7 @@
     }
 
     function sendDataToServer(){
-         if (confirm("Bạn có muốn thay đổi nhà xe này không?")) {
+         if (confirm("Bạn có muốn thêm nhà xe này không?")) {
             let form = document.getElementById('addNhaXe');
             form.submit();
         }

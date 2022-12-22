@@ -323,10 +323,11 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="col-md-12 rightBody p-5">
-                                        <form id="updateNhaXe" action="/dashboard/quanlynhaxe/nhaxe/{{chitietnhaxe.id}}" method="post">
+                                        <form id="updateNhaXe" action="/dashboard/quanlynhaxe/nhaxe/{{chitietnhaxe.id}}"
+                                            method="post">
                                             <div>
                                                 <h1 class="text-center fw-bold mb-5"> Nhà xe {{chitietnhaxe.name}}</h1>
-                                                <section>
+                                                <div>
                                                     <div class="form-group">
                                                         <h5 class="fw-semibold">Tên nhà xe</h5>
                                                         <div class="row">
@@ -371,17 +372,18 @@
                                                                 <div class="col-md-4">
                                                                     <div class="col-sm-10">
                                                                         <label for="phoneNo">Số điện thoại</label>
-                                                                        <input type="" class="form-control" name="phoneNo"
-                                                                            value="{{this.phoneNo}}" id="phoneNo"
-                                                                            placeholder="Số điện thoại" required >
+                                                                        <input type="" class="form-control"
+                                                                            name="phoneNo" value="{{this.phoneNo}}"
+                                                                            id="phoneNo" placeholder="Số điện thoại"
+                                                                            required>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-5">
                                                                     <div class="col-sm-11">
                                                                         <label for="address">Địa chỉ</label>
-                                                                        <input type="" class="form-control" name="address"
-                                                                            value="{{this.address}}" id="address"
-                                                                            placeholder="Địa chỉ" required >
+                                                                        <input type="" class="form-control"
+                                                                            name="address" value="{{this.address}}"
+                                                                            id="address" placeholder="Địa chỉ" required>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-3">
@@ -423,9 +425,10 @@
                                                 </section>
                                                 {{!-- nút lưu --}}
                                                 <div class="d-flex justify-content-center">
-                                                    <button type="submit" class="btn btn-primary mr-2" onclick="sendDatatoServer()">Lưu</button>
+                                                    <button type="button" class="btn btn-primary mr-2" onclick="sendDataToServer()">Lưu</button>
                                                     <a class="btn btn-light" href="/dashboard/quanlynhaxe/">Trở về</a>
                                                 </div>
+                                            </div>
                                         </form>
 
                                         {{!-- <script>
@@ -495,16 +498,16 @@
     function selected(value) {
         document.getElementById(value).selected = true
     }
-      
- //   function changeAvatar() {
-  //      let avatar = document.getElementById('avatar');
- //       avatar.click();
- //   }
+
+    //   function changeAvatar() {
+    //      let avatar = document.getElementById('avatar');
+    //       avatar.click();
+    //   }
 
     function sendDataToServer() {
-        if(confirm("Bạn có muốn thay đổi nhà xe này không?")){
+        if (confirm("Bạn có muốn thay đổi nhà xe này không?")) {
             document.getElementById("updateNhaXe").submit();
-    }
+        }
     }
 
 
