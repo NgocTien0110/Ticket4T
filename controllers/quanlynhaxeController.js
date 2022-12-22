@@ -66,14 +66,14 @@ let tinhThanh = [
   { name: "Vĩnh Phúc" },
   { name: "Yên Bái" },
   { name: "Phú Yên" },
-]
+];
 
 controller.show = async (req, res) => {
   res.locals.nhaxes = await models.NhaXe.findAll({});
   res.render("quanlynhaxe");
 };
 
-controller.showDetail = async (req, res) => {
+controller.editNhaXe = async (req, res) => {
   const { id } = req.params;
   let phongve = [];
   let pv = await models.NhaXe.findAll({
@@ -82,7 +82,7 @@ controller.showDetail = async (req, res) => {
     },
     attributes: ["phoneNo", "address", "mainRoute"],
   });
-   
+
   for (let i = 0; i < pv[0].phoneNo.length; i++) {
     phongve[i] = {
       phoneNo: pv[0].phoneNo[i],
@@ -92,7 +92,6 @@ controller.showDetail = async (req, res) => {
     };
   }
 
-  
   // parse to json
   // let hihi  = JSON.stringify(phongve);
   // console.log(hihi);
@@ -107,6 +106,30 @@ controller.showDetail = async (req, res) => {
   res.render("quanlychitietnhaxe");
 };
 
+controller.updateNhaXe = async (req, res) => {
+  let id = parseInt(req.params.id);
+  let body = req.body;
+  // console.log(body.policy);
+
+  await models.NhaXe.update(
+    {
+      name: body.name,
+      phoneNo: body.phoneNo,
+      address: body.address,
+      mainRoute: body.mainRoute,
+      description: body.description,
+      policy: body.policy,
+    },
+    {
+      where: {
+        id: id,
+      },
+    }
+  );
+ 
+  res.redirect(req.get("referer"));
+};
+
 controller.deleteNhaXe = async (req, res) => {
   const id = req.body.id;
 
@@ -117,8 +140,34 @@ controller.deleteNhaXe = async (req, res) => {
   });
   res.redirect(req.get("referer"));
 };
-controller.addNhaXe = async (req, res) => {
+
+controller.themNhaXe = async (req, res) => {
   res.locals.tinhThanh = tinhThanh;
   res.render("themnhaxe");
 };
+
+controller.addNhaXe = async (req, res) => {
+  let body = req.body;
+  // console.log(body);
+
+  let name = body.name;
+  let phoneNo = [body.phoneNo];
+  let address = [body.address];
+  let mainRoute = [body.mainRoute];
+  let description = body.description;
+  let policy = body.policy;
+
+  await models.NhaXe.create({
+    name: name,
+    phoneNo: phoneNo,
+    address: address,
+    mainRoute: mainRoute,
+    description: description,
+    policy: policy,
+    // còn ảnh thì e nhường a Thông làm
+  });
+
+  res.redirect(req.get("referer"));
+};
+
 module.exports = controller;

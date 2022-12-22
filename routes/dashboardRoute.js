@@ -29,8 +29,11 @@ Router.post('/quanlychuyenxe/themchuyenxe/add', controller.addChuyenXe);
 
 // nha xe
 Router.get("/quanlynhaxe", quanlynhaxe.show);
+Router.get("/quanlynhaxe/themnhaxe", quanlynhaxe.themNhaXe);
+
 Router.post("/quanlynhaxe", quanlynhaxe.deleteNhaXe);
-Router.get("/quanlynhaxe/themnhaxe", quanlynhaxe.addNhaXe);
-Router.get("/quanlynhaxe/nhaxe/:id", quanlynhaxe.showDetail);
+Router.get("/quanlynhaxe/nhaxe/:id", quanlynhaxe.editNhaXe);
+Router.post("/quanlynhaxe/nhaxe/:id", quanlynhaxe.updateNhaXe);
+Router.post("/quanlynhaxe/themnhaxe/add", quanlynhaxe.addNhaXe);
 
 module.exports = Router;

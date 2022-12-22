@@ -323,7 +323,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="col-md-12 rightBody p-5">
-                                        <form id="example-form" action="#">
+                                        <form id="updateNhaXe" action="/dashboard/quanlynhaxe/nhaxe/{{chitietnhaxe.id}}" method="post">
                                             <div>
                                                 <h1 class="text-center fw-bold mb-5"> Nhà xe {{chitietnhaxe.name}}</h1>
                                                 <section>
@@ -333,9 +333,9 @@
                                                             <div class="col-md-4">
                                                                 <div class="col-sm-10">
                                                                     {{!-- <label for="inputTenNhaXe">Tên nhà xe</label> --}}
-                                                                    <input type="" class="form-control"
+                                                                    <input type="" class="form-control" name="name"
                                                                         id="inputTenNhaXe" value="{{chitietnhaxe.name}}"
-                                                                        placeholder="Nhập tên nhà xe">
+                                                                        placeholder="Nhập tên nhà xe" required>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -370,27 +370,27 @@
                                                             <div class="row mb-2">
                                                                 <div class="col-md-4">
                                                                     <div class="col-sm-10">
-                                                                        <label for="inputSDT">Số điện thoại</label>
-                                                                        <input type="" class="form-control"
-                                                                            value="{{this.phoneNo}}" id="inputSDT"
-                                                                            placeholder="Số điện thoại">
+                                                                        <label for="phoneNo">Số điện thoại</label>
+                                                                        <input type="" class="form-control" name="phoneNo"
+                                                                            value="{{this.phoneNo}}" id="phoneNo"
+                                                                            placeholder="Số điện thoại" required >
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-5">
                                                                     <div class="col-sm-11">
-                                                                        <label for="inputDiaChi">Địa chỉ</label>
-                                                                        <input type="" class="form-control"
-                                                                            value="{{this.address}}" id="inputDiaChi"
-                                                                            placeholder="Địa chỉ">
+                                                                        <label for="address">Địa chỉ</label>
+                                                                        <input type="" class="form-control" name="address"
+                                                                            value="{{this.address}}" id="address"
+                                                                            placeholder="Địa chỉ" required >
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-3">
                                                                     <div class="col-sm-10">
                                                                         <label for="tinh"
                                                                             class="form-label">Tỉnh:</label>
-                                                                        <select class="form-select" id="tinh"
-                                                                            name="tinh">
-                                                                            <option value="{{this.mainRoute}}">
+                                                                        <select class="form-select" id="mainRoute"
+                                                                            name="mainRoute" required>
+                                                                            <option value="{{this.mainRoute}}" selected>
                                                                                 {{this.mainRoute}}
                                                                             </option>
                                                                             {{!-- thêm option từ phongves  --}}
@@ -411,24 +411,24 @@
                                                     <div class="form-group">
                                                         <h5 class="fw-semibold">Giới thiệu nhà xe</h5>
                                                         {{!-- <label for="inputGioiThieu">Giới thiệu nhà xe</label> --}}
-                                                        <textarea class="form-control"
-                                                            rows="5">{{chitietnhaxe.description}}</textarea>
+                                                        <textarea class="form-control" name="description"
+                                                            rows="5" required >{{chitietnhaxe.description}}</textarea>
                                                     </div>
                                                     <div class="form-group">
                                                         <h5 class="fw-semibold">Chính sách nhà xe</h5>
                                                         {{!-- <label for="inputGioiThieu">Giới thiệu nhà xe</label> --}}
-                                                        <textarea class="form-control"
-                                                            rows="5">{{chitietnhaxe.policy}}</textarea>
+                                                        <textarea class="form-control" name="policy"
+                                                            rows="5" required >{{chitietnhaxe.policy}}</textarea>
                                                     </div>
                                                 </section>
                                                 {{!-- nút lưu --}}
                                                 <div class="d-flex justify-content-center">
-                                                    <button type="submit" class="btn btn-primary mr-2">Lưu</button>
-                                                    <a class="btn btn-light" href="/dashboard/quanlynhaxe/">Hủy</a>
+                                                    <button type="submit" class="btn btn-primary mr-2" onclick="sendDatatoServer()">Lưu</button>
+                                                    <a class="btn btn-light" href="/dashboard/quanlynhaxe/">Trở về</a>
                                                 </div>
                                         </form>
 
-                                        <script>
+                                        {{!-- <script>
                                             var form = $("#example-form");
                                             form.children("div").steps({
                                                 headerTag: "h3",
@@ -438,7 +438,7 @@
                                                     alert("Submitted!");
                                                 }
                                             });
-                                        </script>
+                                        </script> --}}
                                     </div>
                                 </div>
                             </div>
@@ -495,17 +495,18 @@
     function selected(value) {
         document.getElementById(value).selected = true
     }
+      
+ //   function changeAvatar() {
+  //      let avatar = document.getElementById('avatar');
+ //       avatar.click();
+ //   }
 
-         
-
-    function changeAvatar() {
-        let avatar = document.getElementById('avatar');
-        avatar.click();
+    function sendDataToServer() {
+        if(confirm("Bạn có muốn thay đổi nhà xe này không?")){
+            document.getElementById("updateNhaXe").submit();
+    }
     }
 
 
 
 </script>
-{{!-- <script>
-    $('.dropify').dropify();
-</script> --}}

@@ -194,6 +194,7 @@ controller.addChuyenXe = async(req, res) => {
         attribute: 'id',
         where: {name: loaixe}
     })
+    console.log(startProvince);
 
     let tempStartDate = startDate.split('-')
     startDate = tempStartDate[2] + '-' + tempStartDate[1] + '-' + tempStartDate[0]
