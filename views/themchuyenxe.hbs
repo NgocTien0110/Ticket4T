@@ -26,6 +26,7 @@
 
     <script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
     <script src="https://npmcdn.com/flatpickr@4.6.13/dist/l10n/vn.js"></script>
+    <link rel="stylesheet" href="/css/themchuyenxe.css">
 </head>
 
 <body>
@@ -322,7 +323,8 @@
                                 <div class="card-body">
                                     <h4 class="card-title">Chỉnh sửa chuyến xe</h4>
                                     <form id="updateChuyenXe" action="/dashboard/quanlychuyenxe/themchuyenxe/add"
-                                        class="form-sample d-flex justify-content-center flex-column" method="post">
+                                        class="form-sample d-flex justify-content-center flex-column" method="post"
+                                        enctype="multipart/form-data">
 
                                         <p class="card-description" style="font-weight: bold;">
                                             <i class="fa-solid fa-road"></i> Tuyến đường
@@ -484,6 +486,23 @@
                                                         <input type="currency" class="form-control" name="price"
                                                             required />
 
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="row justify-content-start">
+                                            <div class="col-md-6">
+                                                <div class="form-group row justify-content-center">
+                                                    <div class="col-sm-10 d-flex flex-column">
+                                                        <label class=" col-form-label"><i
+                                                                class="fa-regular fa-image"></i> Ảnh địa điểm</label>
+                                                        <img src="https://ehs.stanford.edu/wp-content/uploads/missing-image.png"
+                                                            alt="" class="img">
+                                                        <input type="file" id="file" name="image" required />
+                                                        <label for="file" class="upload">Tải ảnh lên</label>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -561,6 +580,21 @@
         function redirectTo() {
             window.location.href = "/dashboard/quanlychuyenxe/";
         }
+        let img = document.querySelector('#file');
+        let imgPreview = document.querySelector('.img');
+        img.addEventListener('change', function () {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                imgPreview.style.display = "block";
+                reader.readAsDataURL(file);
+                reader.onload = () => {
+                    imgPreview.setAttribute('src', reader.result);
+                }
+            }
+        })
+
+
     </script>
 
     <script>

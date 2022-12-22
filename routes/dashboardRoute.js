@@ -2,6 +2,7 @@ const express = require('express');
 const Router = express.Router();
 const controller = require('../controllers/dashboardController.js')
 const quanlynhaxe = require('../controllers/quanlynhaxeController.js')
+const upload_cloud = require('../config/cloudinary');
 
 Router.get('/', controller.show);
 Router.get('/form', (req, res) => {
@@ -25,7 +26,7 @@ Router.get('/quanlychuyenxe/themchuyenxe', [controller.themchuyenxe,]);
 Router.post('/quanlychuyenxe', controller.deleteChuyenXe);
 Router.get('/quanlychuyenxe/:id', controller.editChuyenXe);
 Router.post('/quanlychuyenxe/:id', controller.updateChuyenXe);
-Router.post('/quanlychuyenxe/themchuyenxe/add', controller.addChuyenXe);
+Router.post('/quanlychuyenxe/themchuyenxe/add', upload_cloud.single('image'), controller.addChuyenXe);
 
 // nha xe
 Router.get("/quanlynhaxe", quanlynhaxe.show);

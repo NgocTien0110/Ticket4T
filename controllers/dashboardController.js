@@ -87,7 +87,7 @@ controller.showChuyenXe = async (req, res) => {
     page = parseInt(page);
     let offset = limit * (page - 1)
 
-    let {rows, count} = await models.ChuyenXe.findAndCountAll({
+    let { rows, count } = await models.ChuyenXe.findAndCountAll({
         include: [models.NhaXe, models.LoaiXe],
         order: [['id', "ASC"]],
         limit: limit,
@@ -115,37 +115,37 @@ controller.editChuyenXe = async (req, res) => {
     const id = parseInt(req.params.id);
 
     let details = await models.ChuyenXe.findOne({
-        where: {id: id},
+        where: { id: id },
         include: [models.LoaiXe, models.NhaXe]
     })
     res.locals.chuyenxeDetails = details;
 
     const nhaxeID = details.NhaXe.id;
     res.locals.danhsachNhaXe = await models.NhaXe.findAll({
-        where: {id: {[Op.ne]: nhaxeID} }
+        where: { id: { [Op.ne]: nhaxeID } }
     })
 
     const loaixeID = details.LoaiXe.id;
     res.locals.danhsachLoaiXe = await models.LoaiXe.findAll({
-        where: {id: {[Op.ne]: loaixeID}}
+        where: { id: { [Op.ne]: loaixeID } }
     })
     res.render('thongtinchitietChuyenXe')
 }
 
-controller.updateChuyenXe = async(req, res) => {
+controller.updateChuyenXe = async (req, res) => {
     let id = parseInt(req.params.id)
     let [startProvince, endProvince, startLocation, endLocation] = [req.body.startProvince, req.body.endProvince, req.body.startLocation, req.body.endLocation];
     let [startDate, endDate, startTime, endTime] = [req.body.startDate, req.body.endDate, req.body.startTime, req.body.endTime]
     let [nhaxe, loaixe] = [req.body.nhaxe, req.body.loaixe]
-    let [price, totalNumSeats] =  [req.body.price, req.body.totalNumSeats]
+    let [price, totalNumSeats] = [req.body.price, req.body.totalNumSeats]
 
     let carId = await models.NhaXe.findOne({
         attribute: 'id',
-        where: {name: nhaxe}
+        where: { name: nhaxe }
     })
     let cateId = await models.LoaiXe.findOne({
         attribute: 'id',
-        where: {name: loaixe}
+        where: { name: loaixe }
     })
 
     let tempStartDate = startDate.split('-')
@@ -158,9 +158,9 @@ controller.updateChuyenXe = async(req, res) => {
     // imgPath = "/images/locationImages/" + imgPath.replace(' ', '-') + ".jpg";
 
     await models.ChuyenXe.update({
-        startProvince: startProvince, endProvince: endProvince, 
+        startProvince: startProvince, endProvince: endProvince,
         startLocation: startLocation, endLocation: endLocation,
-        startDate: startDate, endDate: endDate, 
+        startDate: startDate, endDate: endDate,
         startTime: startTime, endTime: endTime,
         carId: carId.id, cateCarId: cateId.id,
         totalNumSeats: totalNumSeats, price: price,
@@ -174,25 +174,26 @@ controller.updateChuyenXe = async(req, res) => {
     res.redirect(req.get('referer'))
 }
 
-controller.themchuyenxe = async(req, res) => {
+controller.themchuyenxe = async (req, res) => {
     res.locals.danhsachNhaXe = await models.NhaXe.findAll();
     res.locals.danhsachLoaiXe = await models.LoaiXe.findAll();
     res.render("themchuyenxe");
 }
 
-controller.addChuyenXe = async(req, res) => {
+controller.addChuyenXe = async (req, res) => {
+    let img = req.file;
     let [startProvince, endProvince, startLocation, endLocation] = [req.body.startProvince, req.body.endProvince, req.body.startLocation, req.body.endLocation];
     let [startDate, endDate, startTime, endTime] = [req.body.startDate, req.body.endDate, req.body.startTime, req.body.endTime]
     let [nhaxe, loaixe] = [req.body.nhaxe, req.body.loaixe]
-    let [price, totalNumSeats] =  [req.body.price, req.body.totalNumSeats]
+    let [price, totalNumSeats] = [req.body.price, req.body.totalNumSeats]
 
     let carId = await models.NhaXe.findOne({
         attribute: 'id',
-        where: {name: nhaxe}
+        where: { name: nhaxe }
     })
     let cateId = await models.LoaiXe.findOne({
         attribute: 'id',
-        where: {name: loaixe}
+        where: { name: loaixe }
     })
     console.log(startProvince);
 
@@ -206,14 +207,14 @@ controller.addChuyenXe = async(req, res) => {
     // imgPath = "/images/locationImages/" + imgPath.replace(' ', '-') + ".jpg";
 
     await models.ChuyenXe.create({
-        startProvince: startProvince, endProvince: endProvince, 
+        startProvince: startProvince, endProvince: endProvince,
         startLocation: startLocation, endLocation: endLocation,
-        startDate: startDate, endDate: endDate, 
+        startDate: startDate, endDate: endDate,
         startTime: startTime, endTime: endTime,
         carId: carId.id, cateCarId: cateId.id,
         totalNumSeats: totalNumSeats, price: price,
         numSeats: 0,
-        // locationImage: imgPath
+        locationImage: img.path
     });
     res.redirect(req.get('referer'));
 }
