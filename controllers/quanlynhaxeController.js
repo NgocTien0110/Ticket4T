@@ -126,7 +126,7 @@ controller.updateNhaXe = async (req, res) => {
       },
     }
   );
- 
+
   res.redirect(req.get("referer"));
 };
 
@@ -147,6 +147,12 @@ controller.themNhaXe = async (req, res) => {
 };
 
 controller.addNhaXe = async (req, res) => {
+  let img_array = req.files;
+  let img_avatar = img_array[0].path;
+  let img_jours = [];
+  for (let i = 1; i < img_array.length; i++) {
+    img_jours[i] = img_array[i].path;
+  }
   let body = req.body;
   // console.log(body);
 
@@ -164,6 +170,8 @@ controller.addNhaXe = async (req, res) => {
     mainRoute: mainRoute,
     description: description,
     policy: policy,
+    imageCarCom: img_avatar,
+    imageJours: img_jours
     // còn ảnh thì e nhường a Thông làm
   });
 
