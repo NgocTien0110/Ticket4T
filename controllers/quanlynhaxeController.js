@@ -121,7 +121,7 @@ controller.editNhaXe = async (req, res) => {
 
 controller.updateNhaXe = async (req, res) => {
   let id = parseInt(req.params.id);
-  // let body = req.body;
+  let body = req.body;
   // console.log(body.policy);
   // let img_array = req.files;
   // let img_avatar = img_array[0].path;
@@ -139,8 +139,8 @@ controller.updateNhaXe = async (req, res) => {
       mainRoute: body.mainRoute,
       description: body.description,
       policy: body.policy,
-      imageCarCom: img_avatar,
-      imageJours: img_jours,
+      // imageCarCom: img_avatar,
+      // imageJours: img_jours,
     },
     {
       where: {

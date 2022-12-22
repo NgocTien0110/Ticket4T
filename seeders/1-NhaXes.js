@@ -17,9 +17,9 @@ module.exports = {
         policy:
           "Yêu cầu đeo khẩu trang khi lên xe\nCó mặt tại văn phòng/quầy vé/bến xe trước 30 phút để làm thủ tục lên xe\nĐổi vé giấy trước khi lên xe\nXuất trình SMS/Email đặt vé trước khi lên xe\nKhông mang đồ ăn, thức ăn có mùi lên xe\nKhông hút thuốc, uống rượu, sử dụng chất kích thích trên xe\nKhông mang các vật dễ cháy nổ lên xeKhông vứt rác trên xe\nKhông làm ồn, gây mất trật tự trên xe\nKhông mang giày, dép trên xe\nTổng trọng lượng hành lý không vượt quá 20 kg\nTrẻ em dưới 3 tuổi hoặc dưới 120 cm được miễn phí vé nếu ngồi cùng ghế/giường với bố mẹ\nĐộng vật cảnh phải đảm bảo có sức khỏe tốt, thân thiện với con người, đã được tiêm phòng đầy đủ, không có mùi khó chịu, không gây ảnh hưởng đến hành khách và tài sản của họ\nThú cưng cần phải được đeo rọ mõm, nhốt trong lồng, túi, balo phi hành gia để đảm bảo cho việc vận chuyển an toàn, phòng tránh việc thú cưng chạy ra ngoài\nHãng xe chỉ chấp nhận vận chuyển động vật như là một hành lý ký gửi; không cho phép mang lên xe cùng hành khách\nNhiệt độ thời tiết trong quá trình vận chuyển đôi khi ảnh hưởng đến sức khỏe của động vật cảnh, nhà xe không chịu trách nhiệm về sức khỏe động vật trong suốt chuyến đi",
         mainRoute: ["Quảng Trị", "Nghệ An", "Hà Nội"],
-        startTime: ["22:00", "06:15"],
-        numOfTrip: "4",
-        ticketPrice: ["100000", "200000"],
+        // startTime: ["22:00", "06:15"],
+        // numOfTrip: "4",
+        // ticketPrice: ["100000", "200000"],
         imageCarCom: "/images/nhaxe/nxHaMy.png",
         imageJours: [
           "/images/chuyenxe/ha-my-1.jpg",
@@ -40,9 +40,9 @@ module.exports = {
         policy:
           "Yêu cầu đeo khẩu trang khi lên xe\nCó mặt tại văn phòng/quầy vé/bến xe trước 30 phút để làm thủ tục lên xe\nĐổi vé giấy trước khi lên xe\nXuất trình SMS/Email đặt vé trước khi lên xe\nKhông mang đồ ăn, thức ăn có mùi lên xe\nKhông hút thuốc, uống rượu, sử dụng chất kích thích trên xe\nKhông mang các vật dễ cháy nổ lên xeKhông vứt rác trên xe\nKhông làm ồn, gây mất trật tự trên xe\nKhông mang giày, dép trên xe\nTổng trọng lượng hành lý không vượt quá 20 kg\nTrẻ em dưới 3 tuổi hoặc dưới 120 cm được miễn phí vé nếu ngồi cùng ghế/giường với bố mẹ\nĐộng vật cảnh phải đảm bảo có sức khỏe tốt, thân thiện với con người, đã được tiêm phòng đầy đủ, không có mùi khó chịu, không gây ảnh hưởng đến hành khách và tài sản của họ\nThú cưng cần phải được đeo rọ mõm, nhốt trong lồng, túi, balo phi hành gia để đảm bảo cho việc vận chuyển an toàn, phòng tránh việc thú cưng chạy ra ngoài\nHãng xe chỉ chấp nhận vận chuyển động vật như là một hành lý ký gửi; không cho phép mang lên xe cùng hành khách\nNhiệt độ thời tiết trong quá trình vận chuyển đôi khi ảnh hưởng đến sức khỏe của động vật cảnh, nhà xe không chịu trách nhiệm về sức khỏe động vật trong suốt chuyến đi",
         mainRoute: ["Đà Nẵng", "Sài Gòn", "Đắc Lắk"],
-        startTime: ["06:00", "01:00"],
-        numOfTrip: "3",
-        ticketPrice: ["100000", "150000"],
+        // startTime: ["06:00", "01:00"],
+        // numOfTrip: "3",
+        // ticketPrice: ["100000", "150000"],
         imageCarCom: "/images/nhaxe/nxMinhPhuong.png",
         imageJours: [
           "/images/chuyenxe/minh-phuong-1.jpg",
@@ -63,9 +63,9 @@ module.exports = {
         policy:
           "Yêu cầu đeo khẩu trang khi lên xe\nCó mặt tại văn phòng/quầy vé/bến xe trước 30 phút để làm thủ tục lên xe\nĐổi vé giấy trước khi lên xe\nXuất trình SMS/Email đặt vé trước khi lên xe\nKhông mang đồ ăn, thức ăn có mùi lên xe\nKhông hút thuốc, uống rượu, sử dụng chất kích thích trên xe\nKhông mang các vật dễ cháy nổ lên xeKhông vứt rác trên xe\nKhông làm ồn, gây mất trật tự trên xe\nKhông mang giày, dép trên xe\nTổng trọng lượng hành lý không vượt quá 20 kg\nTrẻ em dưới 3 tuổi hoặc dưới 120 cm được miễn phí vé nếu ngồi cùng ghế/giường với bố mẹ\nĐộng vật cảnh phải đảm bảo có sức khỏe tốt, thân thiện với con người, đã được tiêm phòng đầy đủ, không có mùi khó chịu, không gây ảnh hưởng đến hành khách và tài sản của họ\nThú cưng cần phải được đeo rọ mõm, nhốt trong lồng, túi, balo phi hành gia để đảm bảo cho việc vận chuyển an toàn, phòng tránh việc thú cưng chạy ra ngoài\nHãng xe chỉ chấp nhận vận chuyển động vật như là một hành lý ký gửi; không cho phép mang lên xe cùng hành khách\nNhiệt độ thời tiết trong quá trình vận chuyển đôi khi ảnh hưởng đến sức khỏe của động vật cảnh, nhà xe không chịu trách nhiệm về sức khỏe động vật trong suốt chuyến đi",
         mainRoute: ["Hà Nội", "Lào Cai", "Điện Biên"],
-        startTime: ["07:00", "10:00", "13:05", "15:00"],
-        numOfTrip: "5",
-        ticketPrice: ["100000", "250000"],
+        // startTime: ["07:00", "10:00", "13:05", "15:00"],
+        // numOfTrip: "5",
+        // ticketPrice: ["100000", "250000"],
         imageCarCom: "/images/nhaxe/nxPhatThuy.png",
         imageJours: [
           "/images/chuyenxe/phat-thuy-1.jpg",
@@ -86,9 +86,9 @@ module.exports = {
         policy:
           "Yêu cầu đeo khẩu trang khi lên xe\nCó mặt tại văn phòng/quầy vé/bến xe trước 30 phút để làm thủ tục lên xe\nĐổi vé giấy trước khi lên xe\nXuất trình SMS/Email đặt vé trước khi lên xe\nKhông mang đồ ăn, thức ăn có mùi lên xe\nKhông hút thuốc, uống rượu, sử dụng chất kích thích trên xe\nKhông mang các vật dễ cháy nổ lên xeKhông vứt rác trên xe\nKhông làm ồn, gây mất trật tự trên xe\nKhông mang giày, dép trên xe\nTổng trọng lượng hành lý không vượt quá 20 kg\nTrẻ em dưới 3 tuổi hoặc dưới 120 cm được miễn phí vé nếu ngồi cùng ghế/giường với bố mẹ\nĐộng vật cảnh phải đảm bảo có sức khỏe tốt, thân thiện với con người, đã được tiêm phòng đầy đủ, không có mùi khó chịu, không gây ảnh hưởng đến hành khách và tài sản của họ\nThú cưng cần phải được đeo rọ mõm, nhốt trong lồng, túi, balo phi hành gia để đảm bảo cho việc vận chuyển an toàn, phòng tránh việc thú cưng chạy ra ngoài\nHãng xe chỉ chấp nhận vận chuyển động vật như là một hành lý ký gửi; không cho phép mang lên xe cùng hành khách\nNhiệt độ thời tiết trong quá trình vận chuyển đôi khi ảnh hưởng đến sức khỏe của động vật cảnh, nhà xe không chịu trách nhiệm về sức khỏe động vật trong suốt chuyến đi",
         mainRoute: ["Quảng Ngãi", "Lâm Đồng", "Sài Gòn"],
-        startTime: ["00:30", "22:40"],
-        numOfTrip: "2",
-        ticketPrice: ["120000", "250000"],
+        // startTime: ["00:30", "22:40"],
+        // numOfTrip: "2",
+        // ticketPrice: ["120000", "250000"],
         imageCarCom: "/images/nhaxe/nxHoangAnh.png",
         imageJours: [
           "/images/chuyenxe/hoang-anh-1.jpg",
@@ -109,9 +109,9 @@ module.exports = {
         policy:
           "Yêu cầu đeo khẩu trang khi lên xe\nCó mặt tại văn phòng/quầy vé/bến xe trước 30 phút để làm thủ tục lên xe\nĐổi vé giấy trước khi lên xe\nXuất trình SMS/Email đặt vé trước khi lên xe\nKhông mang đồ ăn, thức ăn có mùi lên xe\nKhông hút thuốc, uống rượu, sử dụng chất kích thích trên xe\nKhông mang các vật dễ cháy nổ lên xeKhông vứt rác trên xe\nKhông làm ồn, gây mất trật tự trên xe\nKhông mang giày, dép trên xe\nTổng trọng lượng hành lý không vượt quá 20 kg\nTrẻ em dưới 3 tuổi hoặc dưới 120 cm được miễn phí vé nếu ngồi cùng ghế/giường với bố mẹ\nĐộng vật cảnh phải đảm bảo có sức khỏe tốt, thân thiện với con người, đã được tiêm phòng đầy đủ, không có mùi khó chịu, không gây ảnh hưởng đến hành khách và tài sản của họ\nThú cưng cần phải được đeo rọ mõm, nhốt trong lồng, túi, balo phi hành gia để đảm bảo cho việc vận chuyển an toàn, phòng tránh việc thú cưng chạy ra ngoài\nHãng xe chỉ chấp nhận vận chuyển động vật như là một hành lý ký gửi; không cho phép mang lên xe cùng hành khách\nNhiệt độ thời tiết trong quá trình vận chuyển đôi khi ảnh hưởng đến sức khỏe của động vật cảnh, nhà xe không chịu trách nhiệm về sức khỏe động vật trong suốt chuyến đi",
         mainRoute: ["Sài gòn", "Cần Thơ", "Cà Mau"],
-        startTime: ["22:00", "22:40", "23:00"],
-        numOfTrip: "3",
-        ticketPrice: ["150000", "250000"],
+        // startTime: ["22:00", "22:40", "23:00"],
+        // numOfTrip: "3",
+        // ticketPrice: ["150000", "250000"],
         imageCarCom: "/images/nhaxe/nxTienDatThanh.png",
         imageJours: [
           "/images/chuyenxe/tien-dat-1.jpg",
