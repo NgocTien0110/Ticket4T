@@ -291,6 +291,37 @@ helper.createChuyenXeManagementPagination = (totalPage, currentPage) => {
     return str;
 }
 
+helper.createNhaXeManagementPagination = (totalPage, currentPage) => {
+  let str = '<li class="page-item ';
+
+  if (currentPage == 1) str += "disabled";
+  str +=
+    '"><a class="page-link" href="/dashboard/quanlynhaxe?page=' +
+    (parseInt(currentPage) - 1) +
+    '">Previous</a></li>';
+
+  for (i = 1; i <= totalPage; ++i) {
+    str += '<li class="page-item ';
+    if (i == currentPage) str += "active";
+    str +=
+      '"><a class="page-link" href="' +
+      "/dashboard/quanlynhaxe?page=" +
+      i +
+      '">' +
+      i +
+      " </a></li>";
+  }
+
+  str += '<li class="page-item ';
+  if (currentPage == totalPage) str += "disabled";
+  str +=
+    '"><a class="page-link" href="/dashboard/quanlynhaxe?page=' +
+    (parseInt(currentPage) + 1) +
+    '">Next</a></li>';
+
+  return str;
+};
+
 helper.toDate = (dateString) => {
     
     let temp = dateString.split('-');

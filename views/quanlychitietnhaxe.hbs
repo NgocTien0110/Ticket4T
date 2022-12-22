@@ -19,6 +19,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/css/xemChiTietVe.css">
+    <link rel="stylesheet" href="/css/themnhaxe.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
 
 
@@ -324,7 +325,7 @@
                                 <div class="card-body">
                                     <div class="col-md-12 rightBody p-5">
                                         <form id="updateNhaXe" action="/dashboard/quanlynhaxe/nhaxe/{{chitietnhaxe.id}}"
-                                            method="post">
+                                            method="post" enctype="multipart/form-data">
                                             <div>
                                                 <h1 class="text-center fw-bold mb-5"> Nhà xe {{chitietnhaxe.name}}</h1>
                                                 <div>
@@ -341,9 +342,45 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <h5 class="fw-semibold">Hình ảnh </h5>
-                                                    <div class="form-group">
-                                                        <div class="row">
+                                                    {{!-- <h5 class="fw-semibold">Hình ảnh </h5>
+                                                    <div class="form-group"> --}}
+                                                        {{!-- <div class="row">
+                                                            <div class="col-md-4">
+                                                                <div class="col-sm-10">
+                                                                    <label class="form-label">Ảnh đại diện
+                                                                        nhà xe</label>
+                                                                    <input class="" type="file" id="avatar" name="image"
+                                                                        hidden required>
+                                                                    <img src="{{chitietnhaxe.imageCarCom}}" alt=""
+                                                                        class="img-avt">
+                                                                    <label for="avatar" class="form-label upload">Tải
+                                                                        ảnh lên
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-8">
+
+                                                                <label class="form-label">Hình ảnh
+                                                                    chi tiết chuyến
+                                                                    xe</label>
+                                                                <input class="" type="file" id="anhchitiet" name="image"
+                                                                    multiple required>
+                                                                {{#each chitietnhaxe.imageJours}}
+                                                                    <div
+                                                                        class="col-sm-12 d-flex flex-wrap justify-content-start">
+                                                                        <img src="{{this}}" alt="anh chi tiet"
+                                                                            class="img-detail">
+                                                                        <div class="image-detail"> </div>
+                                                                    </div>
+                                                                {{/each}}
+                                                                <label for="anhchitiet"
+                                                                    class="form-label upload-detail ms-3">Tải
+                                                                    ảnh lên
+                                                                </label>
+
+                                                            </div>
+                                                        </div> --}}
+                                                        {{!-- <div class="row">
                                                             <div class="col-md-4">
                                                                 <div class="col-sm-10">
                                                                     <label for="avatar" class="form-label">Ảnh đại
@@ -362,8 +399,8 @@
                                                                         multiple>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    </div>
+                                                        </div> --}}
+                                                    {{!-- </div> --}}
 
                                                     <h5 class="fw-semibold">Phòng vé</h5>
                                                     <div class="form-group " id="phongve">
@@ -413,22 +450,24 @@
                                                     <div class="form-group">
                                                         <h5 class="fw-semibold">Giới thiệu nhà xe</h5>
                                                         {{!-- <label for="inputGioiThieu">Giới thiệu nhà xe</label> --}}
-                                                        <textarea class="form-control" name="description"
-                                                            rows="5" required >{{chitietnhaxe.description}}</textarea>
+                                                        <textarea class="form-control" name="description" rows="5"
+                                                            required>{{chitietnhaxe.description}}</textarea>
                                                     </div>
                                                     <div class="form-group">
                                                         <h5 class="fw-semibold">Chính sách nhà xe</h5>
                                                         {{!-- <label for="inputGioiThieu">Giới thiệu nhà xe</label> --}}
-                                                        <textarea class="form-control" name="policy"
-                                                            rows="5" required >{{chitietnhaxe.policy}}</textarea>
+                                                        <textarea class="form-control" name="policy" rows="5"
+                                                            required>{{chitietnhaxe.policy}}</textarea>
                                                     </div>
-                                                </section>
-                                                {{!-- nút lưu --}}
-                                                <div class="d-flex justify-content-center">
-                                                    <button type="button" class="btn btn-primary mr-2" onclick="sendDataToServer()">Lưu</button>
-                                                    <a class="btn btn-light" href="/dashboard/quanlynhaxe/">Trở về</a>
+                                                    </section>
+                                                    {{!-- nút lưu --}}
+                                                    <div class="d-flex justify-content-center">
+                                                        <button type="button" class="btn btn-primary mr-2"
+                                                            onclick="sendDataToServer()">Lưu</button>
+                                                        <a class="btn btn-light" href="/dashboard/quanlynhaxe/">Trở
+                                                            về</a>
+                                                    </div>
                                                 </div>
-                                            </div>
                                         </form>
 
                                         {{!-- <script>
@@ -499,17 +538,55 @@
         document.getElementById(value).selected = true
     }
 
-    //   function changeAvatar() {
-    //      let avatar = document.getElementById('avatar');
-    //       avatar.click();
-    //   }
-
     function sendDataToServer() {
         if (confirm("Bạn có muốn thay đổi nhà xe này không?")) {
             document.getElementById("updateNhaXe").submit();
         }
     }
 
+    let avatar = document.querySelector("#avatar");
+    let img = document.querySelector(".img-avt");
+    let k;
+    avatar.addEventListener("change", function () {
+        let file = this.files[0];
+        if (file) {
+            let reader = new FileReader();
+            reader.readAsDataURL(file);
+            img.style.width = "197.8px";
+            img.style.height = "197.8px";
+            img.style.objectFit = "cover";
+            reader.onload = function () {
+                img.src = this.result;
+                k = this.result;
+            }
+        }
+    })
+    // multiple file
+    let img_detail = document.querySelector(".img-detail");
+    let input_detail = document.querySelector("#anhchitiet");
+    let image_detail = document.querySelector(".image-detail");
+
+    // multiple file
+    input_detail.addEventListener("change", function () {
+        let len = this.files.length;
+        for (let i = 0; i < len; i++) {
+            let file = this.files[i];
+            if (file) {
+                let reader = new FileReader();
+                reader.readAsDataURL(file);
+                img_detail.style.display = "none";
+                reader.onload = function () {
+                    let img = document.createElement("img");
+                    img.className = "img-fluid";
+                    img.style.width = "197.8px";
+                    img.style.height = "197.8px";
+                    img.style.objectFit = "cover";
+                    img.src = reader.result;
+                    image_detail.appendChild(img);
+                }
+            }
+        }
+    });
 
 
 </script>

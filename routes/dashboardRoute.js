@@ -34,7 +34,7 @@ Router.get("/quanlynhaxe/themnhaxe", quanlynhaxe.themNhaXe);
 
 Router.post("/quanlynhaxe", quanlynhaxe.deleteNhaXe);
 Router.get("/quanlynhaxe/nhaxe/:id", quanlynhaxe.editNhaXe);
-Router.post("/quanlynhaxe/nhaxe/:id", quanlynhaxe.updateNhaXe);
+Router.post("/quanlynhaxe/nhaxe/:id",upload_cloud.array('image'), quanlynhaxe.updateNhaXe);
 Router.post("/quanlynhaxe/themnhaxe/add", upload_cloud.array('image'), quanlynhaxe.addNhaXe);
 
 module.exports = Router;

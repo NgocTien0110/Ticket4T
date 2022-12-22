@@ -69,7 +69,20 @@ let tinhThanh = [
 ];
 
 controller.show = async (req, res) => {
-  res.locals.nhaxes = await models.NhaXe.findAll({});
+  const limit = 5;
+  let page = req.query.page || 1;
+  page = parseInt(page);
+  let offset = limit * (page - 1);
+  // res.locals.nhaxes = await models.NhaXe.findAll({
+  let { rows, count } = await models.NhaXe.findAndCountAll({
+    order: [["id", "ASC"]],
+    limit: limit,
+    offset: offset,
+  });
+  res.locals.nhaxes = rows;
+   res.locals.currentPage = page;
+  res.locals.totalPage = Math.ceil(count / limit);
+  console.log(res.locals.totalPage);
   res.render("quanlynhaxe");
 };
 
@@ -108,9 +121,16 @@ controller.editNhaXe = async (req, res) => {
 
 controller.updateNhaXe = async (req, res) => {
   let id = parseInt(req.params.id);
-  let body = req.body;
+  // let body = req.body;
   // console.log(body.policy);
+  // let img_array = req.files;
+  // let img_avatar = img_array[0].path;
+  // let img_jours = [];
+  // for (let i = 1; i < img_array.length; i++) {
+  //   img_jours[i] = img_array[i].path;
+  // }
 
+  // console.log(img_array);
   await models.NhaXe.update(
     {
       name: body.name,
@@ -119,6 +139,8 @@ controller.updateNhaXe = async (req, res) => {
       mainRoute: body.mainRoute,
       description: body.description,
       policy: body.policy,
+      imageCarCom: img_avatar,
+      imageJours: img_jours,
     },
     {
       where: {
@@ -154,7 +176,6 @@ controller.addNhaXe = async (req, res) => {
     img_jours[i] = img_array[i].path;
   }
   let body = req.body;
-  // console.log(body);
 
   let name = body.name;
   let phoneNo = [body.phoneNo];
@@ -171,8 +192,7 @@ controller.addNhaXe = async (req, res) => {
     description: description,
     policy: policy,
     imageCarCom: img_avatar,
-    imageJours: img_jours
-    // còn ảnh thì e nhường a Thông làm
+    imageJours: img_jours,
   });
 
   res.redirect(req.get("referer"));

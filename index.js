@@ -4,37 +4,44 @@ const expressHbs = require('express-handlebars');
 const paginateHelper = require('express-handlebars-paginate');
 const helper = require('./controllers/helper');
 
-app.engine('hbs', expressHbs.engine({
-    extname: 'hbs',
-    defaultLayout: 'layout',
-    layoutsDir: __dirname + '/views/layouts',
-    partialsDir: __dirname + '/views/partials',
+app.engine(
+  "hbs",
+  expressHbs.engine({
+    extname: "hbs",
+    defaultLayout: "layout",
+    layoutsDir: __dirname + "/views/layouts",
+    partialsDir: __dirname + "/views/partials",
     helpers: {
-        date: helper.date,
-        date1: helper.date1,
-        time: helper.time,
-        totalTime: helper.totalTime,
-        totalPrice: helper.totalPrice,
-        generateStarList: helper.generateStarList,
-        formatPrice: helper.formatPrice,
-        starNhanXet: helper.starNhanXet,
-        generateStarListFont2: helper.generateStarListFont2,
-        createPagination: paginateHelper.createPagination,
-        simpleMath: helper.simpleMath,
-        createNextPreviousPagination: helper.createNextPreviousPagination,
-        createReviewPagination: helper.createReviewPagination,
-        createNextPrevTicketPagination: helper.createNextPrevTicketPagination,
-        createTicketPagination: helper.createTicketPagination,
-        SearchTripPagination: helper.SearchTripPagination,
-        ViewListTicketPagination: helper.ViewListTicketPagination,
-        createChuyenXeManagementPagination: helper.createChuyenXeManagementPagination,
-        toDate: helper.toDate,
-        checkMinMaxPrice: helper.checkMinMaxPrice,
+      date: helper.date,
+      date1: helper.date1,
+      time: helper.time,
+      totalTime: helper.totalTime,
+      totalPrice: helper.totalPrice,
+      generateStarList: helper.generateStarList,
+      formatPrice: helper.formatPrice,
+      starNhanXet: helper.starNhanXet,
+      generateStarListFont2: helper.generateStarListFont2,
+      createPagination: paginateHelper.createPagination,
+      simpleMath: helper.simpleMath,
+      createNextPreviousPagination: helper.createNextPreviousPagination,
+      createReviewPagination: helper.createReviewPagination,
+      createNextPrevTicketPagination: helper.createNextPrevTicketPagination,
+      createTicketPagination: helper.createTicketPagination,
+      SearchTripPagination: helper.SearchTripPagination,
+      ViewListTicketPagination: helper.ViewListTicketPagination,
+      createChuyenXeManagementPagination:
+        helper.createChuyenXeManagementPagination,
+      createNhaXeManagementPagination:
+        helper.createNhaXeManagementPagination,
+      toDate: helper.toDate,
+      checkMinMaxPrice: helper.checkMinMaxPrice,
     },
-    runtimeOptions: { //Để cho phép hbs truy cập đc vào database
-        allowProtoPropertiesByDefault: true
-    }
-}))
+    runtimeOptions: {
+      //Để cho phép hbs truy cập đc vào database
+      allowProtoPropertiesByDefault: true,
+    },
+  })
+);
 
 app.set('view engine', 'hbs');
 
