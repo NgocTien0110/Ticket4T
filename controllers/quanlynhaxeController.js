@@ -82,7 +82,7 @@ controller.show = async (req, res) => {
   res.locals.nhaxes = rows;
    res.locals.currentPage = page;
   res.locals.totalPage = Math.ceil(count / limit);
-  console.log(res.locals.totalPage);
+  // console.log(res.locals.totalPage);
   res.render("quanlynhaxe");
 };
 
@@ -123,43 +123,95 @@ controller.updateNhaXe = async (req, res) => {
   let id = parseInt(req.params.id);
   let body = req.body;
   // console.log(body.policy);
-  // let img_array = req.files;
-  // let img_avatar = img_array[0].path;
-  // let img_jours = [];
-  // for (let i = 1; i < img_array.length; i++) {
-  //   img_jours[i] = img_array[i].path;
-  // }
+
+  if (req.files.length > 0) {
+    let img_array = req.files;
+    let img_avatar = img_array[0].path;
+    let img_jours = [];
+    for (let i = 1; i < img_array.length; i++) {
+      img_jours[i-1] = img_array[i].path;
+    }
+    await models.NhaXe.update(
+      {
+        name: body.name,
+        phoneNo: body.phoneNo,
+        address: body.address,
+        mainRoute: body.mainRoute,
+        description: body.description,
+        policy: body.policy,
+        imageCarCom: img_avatar,
+        imageJours: img_jours,
+      },
+      {
+        where: {
+          id: id,
+        },
+      }
+    );
+  } else {
+      await models.NhaXe.update(
+        {
+          name: body.name,
+          phoneNo: body.phoneNo,
+          address: body.address,
+          mainRoute: body.mainRoute,
+          description: body.description,
+          policy: body.policy,
+          // imageCarCom: img_avatar,
+          // imageJours: img_jours,
+        },
+        {
+          where: {
+            id: id,
+          },
+        }
+      );
+  }
 
   // console.log(img_array);
-  await models.NhaXe.update(
-    {
-      name: body.name,
-      phoneNo: body.phoneNo,
-      address: body.address,
-      mainRoute: body.mainRoute,
-      description: body.description,
-      policy: body.policy,
-      // imageCarCom: img_avatar,
-      // imageJours: img_jours,
-    },
-    {
-      where: {
-        id: id,
-      },
-    }
-  );
+  
 
   res.redirect(req.get("referer"));
 };
 
 controller.deleteNhaXe = async (req, res) => {
   const id = req.body.id;
+  // let idChuyenxe = await models.ChuyenXe.findAll({
+  //   where: {
+  //     carId: id,
+  //   },
+  //   attributes: ["id"],
+  // });
 
+  // parse json
+  // let hihi = JSON.stringify(idChuyenxe);
+  // console.log(hihi);
+
+ 
+  await models.ChuyenXe.destroy({
+   include: [ models.VeDaDat ],
+   where: {
+     carId: id,
+   },
+ });
+ await models.Review.destroy({
+   where: {
+     carId: id,
+   },
+ });
   await models.NhaXe.destroy({
     where: {
       id: id,
     },
   });
+
+  await models.VeDaDat.destroy({
+    where: {
+      jourId: null,
+    },
+  });
+ 
+
   res.redirect(req.get("referer"));
 };
 
@@ -173,7 +225,7 @@ controller.addNhaXe = async (req, res) => {
   let img_avatar = img_array[0].path;
   let img_jours = [];
   for (let i = 1; i < img_array.length; i++) {
-    img_jours[i] = img_array[i].path;
+    img_jours[i-1] = img_array[i].path;
   }
   let body = req.body;
 
