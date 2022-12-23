@@ -80,7 +80,7 @@ controller.show = async (req, res) => {
     offset: offset,
   });
   res.locals.nhaxes = rows;
-   res.locals.currentPage = page;
+  res.locals.currentPage = page;
   res.locals.totalPage = Math.ceil(count / limit);
   // console.log(res.locals.totalPage);
   res.render("quanlynhaxe");
@@ -122,23 +122,23 @@ controller.editNhaXe = async (req, res) => {
 controller.updateNhaXe = async (req, res) => {
   let id = parseInt(req.params.id);
   let body = req.body;
-  // console.log(body.policy);
+  console.log(req.files);
+  console.log("hihi");
+  console.log(req.body.checkavt);
 
-  if (req.files.length > 0) {
+  if (
+    req.body.checkavt == "avt" &&
+    req.body.checkjours == "jour" &&
+    req.files.length > 2
+  ) {
     let img_array = req.files;
     let img_avatar = img_array[0].path;
     let img_jours = [];
     for (let i = 1; i < img_array.length; i++) {
-      img_jours[i-1] = img_array[i].path;
+      img_jours[i - 1] = img_array[i].path;
     }
     await models.NhaXe.update(
       {
-        name: body.name,
-        phoneNo: body.phoneNo,
-        address: body.address,
-        mainRoute: body.mainRoute,
-        description: body.description,
-        policy: body.policy,
         imageCarCom: img_avatar,
         imageJours: img_jours,
       },
@@ -148,28 +148,77 @@ controller.updateNhaXe = async (req, res) => {
         },
       }
     );
-  } else {
-      await models.NhaXe.update(
-        {
-          name: body.name,
-          phoneNo: body.phoneNo,
-          address: body.address,
-          mainRoute: body.mainRoute,
-          description: body.description,
-          policy: body.policy,
-          // imageCarCom: img_avatar,
-          // imageJours: img_jours,
+  } else if (req.body.checkavt == "avt" && req.files.length > 0) {
+    let img_array = req.files;
+    let img_avatar = img_array[0].path;
+    await models.NhaXe.update(
+      {
+        imageCarCom: img_avatar,
+      },
+      {
+        where: {
+          id: id,
         },
-        {
-          where: {
-            id: id,
-          },
-        }
-      );
+      }
+    );
+  } else if (req.body.checkjours == "jour" && req.files.length > 0) {
+    let img_array = req.files;
+    let img_jours = [];
+    for (let i = 0; i < img_array.length; i++) {
+      img_jours[i] = img_array[i].path;
+    }
+    await models.NhaXe.update(
+      {
+        imageJours: img_jours,
+      },
+      {
+        where: {
+          id: id,
+        },
+      }
+    );
   }
+    
+    
+  // if (req.files.length > 0) {
+  //   let img_array = req.files;
+  //   let img_avatar = img_array[0].path;
+  //   let img_jours = [];
+  //   for (let i = 1; i < img_array.length; i++) {
+  //     img_jours[i - 1] = img_array[i].path;
+  //   }
+  //   await models.NhaXe.update(
+  //     {
+  //       imageCarCom: img_avatar,
+  //       imageJours: img_jours,
+  //     },
+  //     {
+  //       where: {
+  //         id: id,
+  //       },
+  //     }
+  //   );
+  // }
+
+  await models.NhaXe.update(
+    {
+      name: body.name,
+      phoneNo: body.phoneNo,
+      address: body.address,
+      mainRoute: body.mainRoute,
+      description: body.description,
+      policy: body.policy,
+      // imageCarCom: img_avatar,
+      // imageJours: img_jours,
+    },
+    {
+      where: {
+        id: id,
+      },
+    }
+  );
 
   // console.log(img_array);
-  
 
   res.redirect(req.get("referer"));
 };
@@ -187,18 +236,17 @@ controller.deleteNhaXe = async (req, res) => {
   // let hihi = JSON.stringify(idChuyenxe);
   // console.log(hihi);
 
- 
   await models.ChuyenXe.destroy({
-   include: [ models.VeDaDat ],
-   where: {
-     carId: id,
-   },
- });
- await models.Review.destroy({
-   where: {
-     carId: id,
-   },
- });
+    include: [models.VeDaDat],
+    where: {
+      carId: id,
+    },
+  });
+  await models.Review.destroy({
+    where: {
+      carId: id,
+    },
+  });
   await models.NhaXe.destroy({
     where: {
       id: id,
@@ -210,7 +258,6 @@ controller.deleteNhaXe = async (req, res) => {
       jourId: null,
     },
   });
- 
 
   res.redirect(req.get("referer"));
 };
@@ -225,10 +272,10 @@ controller.addNhaXe = async (req, res) => {
   let img_avatar = img_array[0].path;
   let img_jours = [];
   for (let i = 1; i < img_array.length; i++) {
-    img_jours[i-1] = img_array[i].path;
+    img_jours[i - 1] = img_array[i].path;
   }
   let body = req.body;
-
+  // console.log(img_array);
   let name = body.name;
   let phoneNo = [body.phoneNo];
   let address = [body.address];

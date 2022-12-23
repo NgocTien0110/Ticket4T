@@ -351,6 +351,8 @@
                                                                         nhà xe</label>
                                                                     <input class="" type="file" id="avatar" name="image"
                                                                         hidden required>
+                                                                    <input type="" name="checkavt" id="checkavt"
+                                                                        value="" hidden>
                                                                     <img src="{{chitietnhaxe.imageCarCom}}" alt=""
                                                                         class="img-avt">
                                                                     <label for="avatar" class="form-label upload">Tải
@@ -365,14 +367,18 @@
                                                                     xe</label>
                                                                 <input class="" type="file" id="anhchitiet" name="image"
                                                                     multiple required>
-                                                                {{#each chitietnhaxe.imageJours}}
-                                                                    <div
-                                                                        class="col-sm-12 d-flex flex-wrap justify-content-start">
-                                                                        <img src="{{this}}" alt="anh chi tiet"
-                                                                            class="img-detail">
-                                                                        <div class="image-detail"> </div>
+                                                                <input type="" name="checkjours" id="checkjours"
+                                                                    value="" hidden>
+                                                                <div
+                                                                    class="col-sm-12 d-flex flex-row justify-content-start">
+                                                                    <div class="image-detail">
+                                                                        {{#each chitietnhaxe.imageJours}}
+                                                                            <img src="{{this}}" alt="anh chi tiet"
+                                                                                class="img-detail img-fluid">
+                                                                        {{/each}}
                                                                     </div>
-                                                                {{/each}}
+
+                                                                </div>
                                                                 <label for="anhchitiet"
                                                                     class="form-label upload-detail ms-3">Tải
                                                                     ảnh lên
@@ -380,26 +386,7 @@
 
                                                             </div>
                                                         </div>
-                                                        <div class="row">
-                                                            <div class="col-md-4">
-                                                                <div class="col-sm-10">
-                                                                    <label for="avatar" class="form-label">Ảnh đại
-                                                                        diện
-                                                                        nhà xe</label>
-                                                                    <input class="" type="file" id="avatar">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-4">
-                                                                <div class="col-sm-10">
-                                                                    <label for="anhchitiet" class="form-label">Hình
-                                                                        ảnh
-                                                                        chi tiết chuyến
-                                                                        xe</label>
-                                                                    <input class="" type="file" id="anhchitiet"
-                                                                        multiple>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+
                                                     </div>
 
                                                     <h5 class="fw-semibold">Phòng vé</h5>
@@ -544,11 +531,18 @@
         }
     }
 
+    let checkavt = document.querySelector("#checkavt");
+    let checkjours = document.querySelector("#checkjours");
+
     let avatar = document.querySelector("#avatar");
     let img = document.querySelector(".img-avt");
     let k;
     avatar.addEventListener("change", function () {
+        checkavt.value = "avt";
         let file = this.files[0];
+        file.avt = "avt";
+        let avt = "avt"
+        console.log(file);
         if (file) {
             let reader = new FileReader();
             reader.readAsDataURL(file);
@@ -561,6 +555,10 @@
             }
         }
     })
+
+
+
+
     // multiple file
     let img_detail = document.querySelector(".img-detail");
     let input_detail = document.querySelector("#anhchitiet");
@@ -568,9 +566,17 @@
 
     // multiple file
     input_detail.addEventListener("change", function () {
+        image_detail.innerHTML = "";
+
+        checkjours.value = "jour";
         let len = this.files.length;
-        for (let i = 0; i < len; i++) {
+        let i = 0;
+
+        for (i; i < len; i++) {
+            console.log("hihi" + i);
             let file = this.files[i];
+            file.chitiet = "detail";
+            console.log(file);
             if (file) {
                 let reader = new FileReader();
                 reader.readAsDataURL(file);
@@ -586,6 +592,10 @@
                 }
             }
         }
+
+
+
+
     });
 
 
