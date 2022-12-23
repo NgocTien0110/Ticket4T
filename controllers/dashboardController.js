@@ -101,6 +101,11 @@ controller.showChuyenXe = async (req, res) => {
 
 controller.deleteChuyenXe = async (req, res) => {
     const id = parseInt(req.body.id);
+    await models.VeDaDat.destroy({
+        where: {
+            jourId: id,
+        }
+    })
 
     await models.ChuyenXe.destroy({
         where: {
