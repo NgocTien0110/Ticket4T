@@ -2,7 +2,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Quản lý chuyến xe</title>
+    <title>Chỉnh sửa chuyến xe</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="/vendors/feather/feather.css">
     <link rel="stylesheet" href="/vendors/ti-icons/css/themify-icons.css">
@@ -336,8 +336,16 @@
                                                         <label class=""><i class="fa-solid fa-signs-post"></i> Tỉnh bắt
                                                             đầu</label>
 
-                                                        <input type="text" class="form-control"
-                                                            value="{{startProvince}}" name="startProvince" />
+                                                        <select class="form-control" name="startProvince">
+                                                            <option selected>{{startProvince}}</option>
+
+                                                            {{#each ../startProvinceList}}
+                                                            <option>{{name}}</option>
+                                                            {{/each}}
+                                                        </select>
+
+                                                        {{!-- <input type="text" class="form-control" value=""
+                                                            name="startProvince" /> --}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -361,8 +369,16 @@
                                                     <div class="col-sm-9">
                                                         <label class=""><i class="fa-solid fa-signs-post"></i> Tỉnh kết
                                                             thúc</label>
-                                                        <input type="text" class="form-control" value="{{endProvince}}"
-                                                            name="endProvince" />
+
+                                                        <select class="form-control" name="endProvince">
+                                                            <option selected>{{endProvince}}</option>
+
+                                                            {{#each ../endProvinceList}}
+                                                            <option>{{name}}</option>
+                                                            {{/each}}
+                                                        </select>
+                                                        {{!-- <input type="text" class="form-control"
+                                                            value="{{endProvince}}" name="endProvince" /> --}}
                                                     </div>
                                                 </div>
                                             </div>

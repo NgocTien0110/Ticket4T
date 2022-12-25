@@ -134,6 +134,10 @@ controller.editChuyenXe = async (req, res) => {
     res.locals.danhsachLoaiXe = await models.LoaiXe.findAll({
         where: { id: { [Op.ne]: loaixeID } }
     })
+
+    res.locals.startProvinceList = provinceList.filter(e => e.name != details.startProvince)
+    res.locals.endProvinceList = provinceList.filter(e => e.name != details.endProvince)
+
     res.render('thongtinchitietChuyenXe')
 }
 
@@ -182,6 +186,7 @@ controller.updateChuyenXe = async (req, res) => {
 controller.themchuyenxe = async (req, res) => {
     res.locals.danhsachNhaXe = await models.NhaXe.findAll();
     res.locals.danhsachLoaiXe = await models.LoaiXe.findAll();
+    res.locals.provinceList = provinceList
     res.render("themchuyenxe");
 }
 
@@ -221,6 +226,7 @@ controller.addChuyenXe = async (req, res) => {
         numSeats: 0,
         locationImage: img.path
     });
+
     res.redirect(req.get('referer'));
 }
 
@@ -239,4 +245,71 @@ controller.addChuyenXe = async (req, res) => {
 //     str = str.replace(/\u02C6|\u0306|\u031B/g, ""); // Â, Ê, Ă, Ơ, Ư
 //     return str;
 // }
+
+
+const provinceList = [
+  { name: "Hà Nội" },
+  { name: "Hồ Chí Minh" },
+  { name: "Hải Phòng" },
+  { name: "Đà Nẵng" },
+  { name: "Cần Thơ" },
+  { name: "An Giang" },
+  { name: "Bà Rịa - Vũng Tàu" },
+  { name: "Bắc Giang" },
+  { name: "Bắc Kạn" },
+  { name: "Bạc Liêu" },
+  { name: "Bắc Ninh" },
+  { name: "Bến Tre" },
+  { name: "Bình Dương" },
+  { name: "Bình Định" },
+  { name: "Bình Phước" },
+  { name: "Bình Thuận" },
+  { name: "Cà Mau" },
+  { name: "Cao Bằng" },
+  { name: "Đắk Lắk" },
+  { name: "Đắk Nông" },
+  { name: "Điện Biên" },
+  { name: "Đồng Nai" },
+  { name: "Đồng Tháp" },
+  { name: "Gia Lai" },
+  { name: "Hà Giang" },
+  { name: "Hà Nam" },
+  { name: "Hà Tĩnh" },
+  { name: "Hải Dương" },
+  { name: "Hậu Giang" },
+  { name: "Hòa Bình" },
+  { name: "Hưng Yên" },
+  { name: "Khánh Hòa" },
+  { name: "Kiên Giang" },
+  { name: "Kon Tum" },
+  { name: "Lai Châu" },
+  { name: "Lâm Đồng" },
+  { name: "Lạng Sơn" },
+  { name: "Lào Cai" },
+  { name: "Long An" },
+  { name: "Nam Định" },
+  { name: "Nghệ An" },
+  { name: "Ninh Bình" },
+  { name: "Ninh Thuận" },
+  { name: "Phú Thọ" },
+  { name: "Quảng Bình" },
+  { name: "Quảng Nam" },
+  { name: "Quảng Ngãi" },
+  { name: "Quảng Ninh" },
+  { name: "Quảng Trị" },
+  { name: "Sóc Trăng" },
+  { name: "Sơn La" },
+  { name: "Tây Ninh" },
+  { name: "Thái Bình" },
+  { name: "Thái Nguyên" },
+  { name: "Thanh Hóa" },
+  { name: "Thừa Thiên Huế" },
+  { name: "Tiền Giang" },
+  { name: "Trà Vinh" },
+  { name: "Tuyên Quang" },
+  { name: "Vĩnh Long" },
+  { name: "Vĩnh Phúc" },
+  { name: "Yên Bái" },
+  { name: "Phú Yên" },
+];
 module.exports = controller;

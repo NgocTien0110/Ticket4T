@@ -2,7 +2,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Quản lý chuyến xe</title>
+    <title>Thêm chuyến xe</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="/vendors/feather/feather.css">
     <link rel="stylesheet" href="/vendors/ti-icons/css/themify-icons.css">
@@ -321,7 +321,7 @@
                         <div class="col-12 grid-margin">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Chỉnh sửa chuyến xe</h4>
+                                    <h4 class="card-title">Thêmchuyến xe</h4>
                                     <form id="updateChuyenXe" action="/dashboard/quanlychuyenxe/themchuyenxe/add"
                                         class="form-sample d-flex justify-content-center flex-column" method="post"
                                         enctype="multipart/form-data">
@@ -337,9 +337,16 @@
                                                         <label class=""><i class="fa-solid fa-signs-post"></i> Tỉnh bắt
                                                             đầu</label>
 
-                                                        <input type="text" class="form-control" value=""
+                                                        <select class="form-control" name="startProvince" required>
+                                                            <option value="" hidden>Chọn tỉnh bắt đầu</option>
+
+                                                            {{#each provinceList}}
+                                                            <option>{{name}}</option>
+                                                            {{/each}}
+                                                        </select>
+                                                        {{!-- <input type="text" class="form-control" value=""
                                                             placeholder="Nhập tỉnh bắt đầu" name="startProvince"
-                                                            required />
+                                                            required /> --}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -361,9 +368,17 @@
                                                     <div class="col-sm-9">
                                                         <label class=""><i class="fa-solid fa-signs-post"></i> Tỉnh kết
                                                             thúc</label>
-                                                        <input type="text" class="form-control" value=""
+
+                                                        <select class="form-control" name="endProvince" required>
+                                                            <option value="" hidden>Chọn tỉnh kết thúc</option>
+
+                                                            {{#each provinceList}}
+                                                            <option>{{name}}</option>
+                                                            {{/each}}
+                                                        </select>
+                                                        {{!-- <input type="text" class="form-control" value=""
                                                             name="endProvince" placeholder="Nhập tỉnh kết thúc"
-                                                            required />
+                                                            required /> --}}
                                                     </div>
                                                 </div>
                                             </div>
