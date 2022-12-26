@@ -357,7 +357,6 @@
                                                     <th>Tên chuyến đi</th>
                                                     <th>Ngày khởi hành</th>
                                                     <th>Ngày đặt vé</th>
-                                                    <th>Giá vé</th>
                                                     <th>Số vé đặt</th>
                                                     <th>Tổng tiền</th>
                                                     <th>Tình trạng</th>
@@ -372,9 +371,8 @@
                                                     <td>{{ChuyenXe.startProvince}} - {{ChuyenXe.endProvince}}</td>
                                                     <td>{{date ChuyenXe.startDate}}</td>
                                                     <td>{{date createdAt}}</td>
-                                                    <td>{{formatPrice ChuyenXe.price}}đ</td>
                                                     <td>{{numSeats}}</td>
-                                                    <td>{{totalPrice ChuyenXe.price numSeats}}</td>
+                                                    <td>{{totalPrice ChuyenXe.price numSeats}}đ</td>
                                                     {{#if ../statusThanhToan}}
                                                     <td><label class="badge badge-success">{{statusTicket}}</label>
                                                     </td>
@@ -391,8 +389,9 @@
                                                         <form action="/dashBoard/quanlyve" method="post"
                                                             id="deleteForm">
                                                             <input type="text" value="{{id}}" name="id" hidden>
-                                                            <div class="bi bi-trash delete mx-2" onclick="submit()">
-                                                            </div>
+                                                            <button class="bi bi-trash delete mx-2"
+                                                                onclick="deleteById()">
+                                                            </button>
                                                         </form>
                                                     </td>
 
@@ -452,7 +451,7 @@
     function navigateTo(id) {
         window.location.href = "/dashBoard/quanlyve/chitietve/" + id;
     }
-    function submit() {
+    function deleteById() {
         if (confirm("Bạn có chắc chắn muốn xóa không?")) {
             document.getElementById("deleteForm").submit();
         }
