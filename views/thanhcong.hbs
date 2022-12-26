@@ -26,8 +26,13 @@
                   <div class="payment_header">
                      <div class="check"><i class="fa fa-check" aria-hidden="true"></i></div>
                   </div>
+
                   <div class="content">
+                     {{#if book}}
+                     <h1>Đặt vé thành công !</h1>
+                     {{else}}
                      <h1>Thanh toán thành công !</h1>
+                     {{/if}}
                      <p>Ticket4T Hân hạnh tài trợ chuyến đi của bạn</p>
                      <a href="/">Trở về trang chủ</a>
                      <a href="/tai-khoan/ve-cua-toi">Vé của tôi</a>

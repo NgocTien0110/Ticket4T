@@ -2,11 +2,11 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.bg-form
-{
+.bg-form {
     background-color: var(--color--tertiary);
 }
-.wrapper{
+
+.wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,16 +14,18 @@ body {
     background-color: white;
     height: 30px;
     border-radius: 5px;
-    margin:0 auto;
+    margin: 0 auto;
 }
-.wrapper span{
+
+.wrapper span {
     width: 100%;
     text-align: center;
     font-size: 18px;
     font-weight: 500;
 }
 
-.wrapper span.minus, .wrapper span.plus{
+.wrapper span.minus,
+.wrapper span.plus {
     cursor: pointer;
     font-size: 20px;
     color: var(--color--quaternary);
@@ -31,30 +33,71 @@ body {
     border-radius: 5px;
     padding: 0 20px;
 }
-.wrapper span.minus:hover, .wrapper span.plus:hover{
+
+.wrapper span.minus:hover,
+.wrapper span.plus:hover {
     background-color: #4488dc;
 }
 
-.ticket{
+.ticket {
     text-align: center;
 }
 
-.backk{
+.backk {
     background-color: white;
     color: black;
     border-radius: 50px;
     border: 1px solid var(--color--secondary);
 }
-.btn.backk:hover{
+
+.btn.backk:hover {
     background-color: rgb(162, 158, 158);
     color: white;
 }
-input.ticket{
+
+input.ticket {
     border: none;
     cursor: auto;
-    text-align: center; 
+    text-align: center;
     width: 100px;
 }
-input.ticket:focus{
+
+input.ticket:focus {
     outline: none;
+}
+
+input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    -webkit-appearance: none;
+    border: 3px solid #999;
+    border-radius: 50%;
+    margin-top: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+
+input[type="radio"]:checked::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #4488dc;
+}
+
+input[type="radio"]:checked {
+    border: 3px solid #4488dc;
+}
+
+img {
+    display: inline-block;
+}
+
+.bi-paypal {
+    color: #112D4E;
 }

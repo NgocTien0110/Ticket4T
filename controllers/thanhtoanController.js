@@ -13,6 +13,13 @@ controller.show = async (req, res) => {
     res.locals.phone = req.query.phone;
     res.locals.email = req.query.email;
     res.locals.ticket = req.query.ticket;
+    res.locals.type = req.query.card
+    if (req.query.card == "Paypal") {
+        res.locals.payment = true;
+    }
+    else {
+        res.locals.payment = false;
+    }
 
     let id = req.params['id'];
 
@@ -134,6 +141,7 @@ controller.Payment = async (req, res) => {
 controller.Success = async (req, res) => {
     const payerId = req.query.PayerID;
     const paymentId = req.query.paymentId;
+
     var execute_payment_json = {
         "payer_id": payerId,
         "transactions": [{
@@ -161,6 +169,42 @@ controller.Success = async (req, res) => {
 }
 controller.Cancel = (req, res) => {
     res.render("thatbai");
+}
+controller.PaymentCOD = async (req, res) => {
+    let accId = req.session.user.id;
+    res.locals.book = true;
+    let user = await models.TaiKhoan.findOne({
+        where: {
+            id: accId
+        }
+    })
+    let chuyenxe = await models.ChuyenXe.findOne({
+        where: {
+            id: parseInt(req.params.id)
+        }, include: [models.NhaXe]
+    })
+    models.VeDaDat.bulkCreate([
+        {
+            numSeats: req.body.ticket,
+            totalPrice: req.body.totalprice,
+            statusTicket: "Vừa đặt",
+            phoneNum: req.body.phone,
+            email: req.body.email,
+            jourId: parseInt(req.params.id),
+            accId: accId,
+            fullName: req.body.name,
+        },
+    ])
+        .then((product) => {
+            userController.sendEmailTicketOrder(user, chuyenxe, chuyenxe.NhaXe.name, req.body.ticket, req.body.totalprice)
+            chuyenxe.update({
+                numSeats: (chuyenxe.numSeats - req.body.ticket)
+            })
+            res.render("thanhcong");
+        })
+        .catch((err) => {
+            res.json(err);
+        });
 }
 
 

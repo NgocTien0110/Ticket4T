@@ -22,5 +22,6 @@ Router.get("/:id/thanh-toan/thanhtoan", userController.isLoggedIn, controller3.s
 Router.post("/:id/thanh-toan/thanhtoan", controller3.Payment);
 Router.get("/:id/thanh-toan/thanhcong", controller3.Success);
 Router.get("/:id/thanh-toan/thatbai", controller3.Cancel);
+Router.post("/:id/thanh-toan/thanhcong", controller3.PaymentCOD);
 
 module.exports = Router;
