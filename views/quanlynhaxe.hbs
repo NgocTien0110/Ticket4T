@@ -18,10 +18,14 @@
     <link rel="shortcut icon" href="/images/favicon.png" />
     <link rel="stylesheet" href="/css/quanlyve.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    {{!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
-    {{!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css"> --}}
-    {{!-- <link rel="stylesheet" href="/css/xemChiTietVe.css"> --}}
-    {{!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script> --}}
+    {{!--
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
+    {{!--
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css"> --}}
+    {{!--
+    <link rel="stylesheet" href="/css/xemChiTietVe.css"> --}}
+    {{!--
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script> --}}
 
 </head>
 
@@ -257,40 +261,6 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false"
-                            aria-controls="form-elements">
-                            <i class="icon-columns menu-icon"></i>
-                            <span class="menu-title">Form elements</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="form-elements">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"><a class="nav-link" href="/dashboard/form">Basic
-                                        Elements</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false"
-                            aria-controls="tables">
-                            <i class="icon-grid-2 menu-icon"></i>
-                            <span class="menu-title">Tables</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="tables">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="/dashboard/tables">Basic
-                                        table</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="dashboard/document">
-                            <i class="icon-paper menu-icon"></i>
-                            <span class="menu-title">Documentation</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="/dashboard/quanlyve">
                             <i class="fa-solid fa-ticket menu-icon"></i>
                             <span class="menu-title">Quản lý vé đặt</span>
@@ -339,25 +309,24 @@
                                             </thead>
                                             <tbody class="content-table">
                                                 {{#each nhaxes}}
-                                                    <tr>
-                                                        <td class="hihi">{{id}}</td>
-                                                        <td class="hihi">{{name}}</td>
-                                                        <td class="hihi">{{lookup phoneNo 0}}</td>
-                                                        <td class="hihi">{{lookup address 0}}</td>
-                                                        {{!-- <td class="hihi">{{description}}</td>
-                                                        <td class="hihi">{{policy}}</td> --}}
-                                                        <td class="d-flex pt-3 px-0">
-                                                            <button class="bi bi-pencil-square edit"
-                                                                onclick="navigateTo({{id}})"></button>
-                                                            <form action="/dashBoard/quanlynhaxe" method="post"
-                                                                id="deleteForm">
-                                                                <input type="text" value="{{id}}" name="id" hidden>
-                                                                <button class="bi bi-trash delete mx-2"
-                                                                    onclick="submit()">
-                                                                </button>
-                                                            </form>
-                                                        </td>
-                                                    </tr>
+                                                <tr>
+                                                    <td class="hihi">{{id}}</td>
+                                                    <td class="hihi">{{name}}</td>
+                                                    <td class="hihi">{{lookup phoneNo 0}}</td>
+                                                    <td class="hihi">{{lookup address 0}}</td>
+                                                    {{!-- <td class="hihi">{{description}}</td>
+                                                    <td class="hihi">{{policy}}</td> --}}
+                                                    <td class="d-flex pt-3 px-0">
+                                                        <button class="bi bi-pencil-square edit"
+                                                            onclick="navigateTo({{id}})"></button>
+                                                        <form action="/dashBoard/quanlynhaxe" method="post"
+                                                            id="deleteForm">
+                                                            <input type="text" value="{{id}}" name="id" hidden>
+                                                            <button class="bi bi-trash delete mx-2" onclick="submit()">
+                                                            </button>
+                                                        </form>
+                                                    </td>
+                                                </tr>
                                                 {{/each}}
                                             </tbody>
                                         </table>

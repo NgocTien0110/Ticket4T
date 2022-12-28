@@ -59,17 +59,17 @@ app.use(cookieParser());
 //Use Session
 let session = require('express-session');
 app.use(session({
-    cookie: { httpOnly: true, maxAge: null },
-    secret: 'S3cret',
-    resave: false,
-    saveUninitialized: false
+  cookie: { httpOnly: true, maxAge: null },
+  secret: 'S3cret',
+  resave: false,
+  saveUninitialized: false
 }))
 
 app.use((req, res, next) => {
-    res.locals.fullName = req.session.user ? req.session.user.fullName : '';
-    res.locals.isLoggedIn = req.session.user ? true : false;
-    res.locals.avatar = req.session.user ? req.session.user.imageAccount : '';
-    next();
+  res.locals.fullName = req.session.user ? req.session.user.fullName : '';
+  res.locals.isLoggedIn = req.session.user ? true : false;
+  res.locals.avatar = req.session.user ? req.session.user.imageAccount : '';
+  next();
 })
 
 app.use('/', require('./routes/indexRoute'))
@@ -83,13 +83,13 @@ app.use('/dashboard', require('./routes/dashboardRoute'))
 
 
 app.get('/createTables', (req, res) => {
-    let models = require('./models');
-    models.sequelize.sync().then(() => { //Tạo bảng ở trong postgres
-        res.send("tables created");
-    })
+  let models = require('./models');
+  models.sequelize.sync().then(() => { //Tạo bảng ở trong postgres
+    res.send("tables created");
+  })
 })
 
 app.set('port', process.env.PORT || 3000);
 app.listen(app.get('port'), () => {
-    console.log(`server is listening on port ${app.get('port')}`);
+  console.log(`server is listening on port ${app.get('port')}`);
 })

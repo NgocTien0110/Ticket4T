@@ -2,6 +2,7 @@ const controller = {} //Để {} vì là object có thể chứa thêm các hàm
 const { where } = require('sequelize');
 const models = require('../models')
 const { Op, INTEGER } = require("sequelize");
+const userController = require("../controllers/userController")
 
 controller.show = async (req, res) => {
     res.render('dashboard');
@@ -246,70 +247,119 @@ controller.addChuyenXe = async (req, res) => {
 //     return str;
 // }
 
+controller.loginAdmin = (req, res, next) => {
+    let email = req.body.email
+    let password = req.body.password
+
+    userController
+        .getUserByEmail(email)
+        .then(user => {
+            if (user) {
+                if (userController.comparePassword(password, user.password) == true && user.isVerified == true && user.isAdmin == true) {
+                    req.session.user = user;
+                    if (req.session.returnURL) {
+                        return res.redirect(req.session.returnURL)
+                    } else {
+                        return res.redirect('/dashboard')
+                    }
+                }
+                else if (userController.comparePassword(password, user.password) == true && user.isVerified == false) {
+                    return res.render('loginAdmin', {
+                        message: 'Tài khoản của bạn chưa được xác thực trong hệ thống, vui lòng xác thực!',
+                        type: 'alert-danger'
+                    })
+                }
+                else if (userController.comparePassword(password, user.password) == true && user.isVerified == true && user.isAdmin == false) {
+                    return res.render('loginAdmin', {
+                        message: 'Tài khoản của bạn không phải là admin!!!',
+                        type: 'alert-danger'
+                    })
+                }
+                else {
+                    return res.render('loginAdmin', {
+                        message: 'Mật khẩu nhập không đúng!!!',
+                        type: 'alert-danger'
+                    })
+                }
+            }
+            return res.render('loginAdmin', {
+                message: 'Email không tồn tại!!!',
+                type: 'alert-danger'
+            })
+        })
+}
+
+controller.isAdminLoggedIn = (req, res, next) => {
+    if (req.session.user) {
+        next();
+    } else {
+        res.redirect(`/dashboard/login?returnURL=${req.originalUrl}`)
+    }
+}
 
 const provinceList = [
-  { name: "Hà Nội" },
-  { name: "Hồ Chí Minh" },
-  { name: "Hải Phòng" },
-  { name: "Đà Nẵng" },
-  { name: "Cần Thơ" },
-  { name: "An Giang" },
-  { name: "Bà Rịa - Vũng Tàu" },
-  { name: "Bắc Giang" },
-  { name: "Bắc Kạn" },
-  { name: "Bạc Liêu" },
-  { name: "Bắc Ninh" },
-  { name: "Bến Tre" },
-  { name: "Bình Dương" },
-  { name: "Bình Định" },
-  { name: "Bình Phước" },
-  { name: "Bình Thuận" },
-  { name: "Cà Mau" },
-  { name: "Cao Bằng" },
-  { name: "Đắk Lắk" },
-  { name: "Đắk Nông" },
-  { name: "Điện Biên" },
-  { name: "Đồng Nai" },
-  { name: "Đồng Tháp" },
-  { name: "Gia Lai" },
-  { name: "Hà Giang" },
-  { name: "Hà Nam" },
-  { name: "Hà Tĩnh" },
-  { name: "Hải Dương" },
-  { name: "Hậu Giang" },
-  { name: "Hòa Bình" },
-  { name: "Hưng Yên" },
-  { name: "Khánh Hòa" },
-  { name: "Kiên Giang" },
-  { name: "Kon Tum" },
-  { name: "Lai Châu" },
-  { name: "Lâm Đồng" },
-  { name: "Lạng Sơn" },
-  { name: "Lào Cai" },
-  { name: "Long An" },
-  { name: "Nam Định" },
-  { name: "Nghệ An" },
-  { name: "Ninh Bình" },
-  { name: "Ninh Thuận" },
-  { name: "Phú Thọ" },
-  { name: "Quảng Bình" },
-  { name: "Quảng Nam" },
-  { name: "Quảng Ngãi" },
-  { name: "Quảng Ninh" },
-  { name: "Quảng Trị" },
-  { name: "Sóc Trăng" },
-  { name: "Sơn La" },
-  { name: "Tây Ninh" },
-  { name: "Thái Bình" },
-  { name: "Thái Nguyên" },
-  { name: "Thanh Hóa" },
-  { name: "Thừa Thiên Huế" },
-  { name: "Tiền Giang" },
-  { name: "Trà Vinh" },
-  { name: "Tuyên Quang" },
-  { name: "Vĩnh Long" },
-  { name: "Vĩnh Phúc" },
-  { name: "Yên Bái" },
-  { name: "Phú Yên" },
+    { name: "Hà Nội" },
+    { name: "Hồ Chí Minh" },
+    { name: "Hải Phòng" },
+    { name: "Đà Nẵng" },
+    { name: "Cần Thơ" },
+    { name: "An Giang" },
+    { name: "Bà Rịa - Vũng Tàu" },
+    { name: "Bắc Giang" },
+    { name: "Bắc Kạn" },
+    { name: "Bạc Liêu" },
+    { name: "Bắc Ninh" },
+    { name: "Bến Tre" },
+    { name: "Bình Dương" },
+    { name: "Bình Định" },
+    { name: "Bình Phước" },
+    { name: "Bình Thuận" },
+    { name: "Cà Mau" },
+    { name: "Cao Bằng" },
+    { name: "Đắk Lắk" },
+    { name: "Đắk Nông" },
+    { name: "Điện Biên" },
+    { name: "Đồng Nai" },
+    { name: "Đồng Tháp" },
+    { name: "Gia Lai" },
+    { name: "Hà Giang" },
+    { name: "Hà Nam" },
+    { name: "Hà Tĩnh" },
+    { name: "Hải Dương" },
+    { name: "Hậu Giang" },
+    { name: "Hòa Bình" },
+    { name: "Hưng Yên" },
+    { name: "Khánh Hòa" },
+    { name: "Kiên Giang" },
+    { name: "Kon Tum" },
+    { name: "Lai Châu" },
+    { name: "Lâm Đồng" },
+    { name: "Lạng Sơn" },
+    { name: "Lào Cai" },
+    { name: "Long An" },
+    { name: "Nam Định" },
+    { name: "Nghệ An" },
+    { name: "Ninh Bình" },
+    { name: "Ninh Thuận" },
+    { name: "Phú Thọ" },
+    { name: "Quảng Bình" },
+    { name: "Quảng Nam" },
+    { name: "Quảng Ngãi" },
+    { name: "Quảng Ninh" },
+    { name: "Quảng Trị" },
+    { name: "Sóc Trăng" },
+    { name: "Sơn La" },
+    { name: "Tây Ninh" },
+    { name: "Thái Bình" },
+    { name: "Thái Nguyên" },
+    { name: "Thanh Hóa" },
+    { name: "Thừa Thiên Huế" },
+    { name: "Tiền Giang" },
+    { name: "Trà Vinh" },
+    { name: "Tuyên Quang" },
+    { name: "Vĩnh Long" },
+    { name: "Vĩnh Phúc" },
+    { name: "Yên Bái" },
+    { name: "Phú Yên" },
 ];
 module.exports = controller;

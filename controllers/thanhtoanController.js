@@ -119,7 +119,7 @@ controller.Payment = async (req, res) => {
         {
             numSeats: req.body.ticket,
             totalPrice: totalPrice,
-            statusTicket: "Vừa đặt",
+            statusTicket: "Đã thanh toán",
             phoneNum: req.body.phone,
             email: req.body.email,
             jourId: parseInt(req.params.id),

@@ -23,8 +23,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
 
 
-    {{!-- upload file css  --}}
-    {{!-- <link rel="stylesheet" href="path-to/node_modules/dropify/dist/css/dropify.min.css"> --}}
+    {{!-- upload file css --}}
+    {{!--
+    <link rel="stylesheet" href="path-to/node_modules/dropify/dist/css/dropify.min.css"> --}}
 
 
 </head>
@@ -262,40 +263,6 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false"
-                            aria-controls="form-elements">
-                            <i class="icon-columns menu-icon"></i>
-                            <span class="menu-title">Form elements</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="form-elements">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"><a class="nav-link" href="/dashboard/form">Basic
-                                        Elements</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false"
-                            aria-controls="tables">
-                            <i class="icon-grid-2 menu-icon"></i>
-                            <span class="menu-title">Tables</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="tables">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="/dashboard/tables">Basic
-                                        table</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="dashboard/document">
-                            <i class="icon-paper menu-icon"></i>
-                            <span class="menu-title">Documentation</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="/dashboard/quanlyve">
                             <i class="fa-solid fa-ticket menu-icon"></i>
                             <span class="menu-title">Quản lý vé đặt</span>
@@ -334,7 +301,8 @@
                                                         <div class="row">
                                                             <div class="col-md-4">
                                                                 <div class="col-sm-10">
-                                                                    {{!-- <label for="inputTenNhaXe">Tên nhà xe</label> --}}
+                                                                    {{!-- <label for="inputTenNhaXe">Tên nhà xe</label>
+                                                                    --}}
                                                                     <input type="" class="form-control" name="name"
                                                                         id="inputTenNhaXe" value="{{chitietnhaxe.name}}"
                                                                         placeholder="Nhập tên nhà xe" required>
@@ -373,8 +341,8 @@
                                                                     class="col-sm-12 d-flex flex-row justify-content-start">
                                                                     <div class="image-detail">
                                                                         {{#each chitietnhaxe.imageJours}}
-                                                                            <img src="{{this}}" alt="anh chi tiet"
-                                                                                class="img-detail img-fluid">
+                                                                        <img src="{{this}}" alt="anh chi tiet"
+                                                                            class="img-detail img-fluid">
                                                                         {{/each}}
                                                                     </div>
 
@@ -392,43 +360,41 @@
                                                     <h5 class="fw-semibold">Phòng vé</h5>
                                                     <div class="form-group " id="phongve">
                                                         {{#each phongves}}
-                                                            <div class="row mb-2">
-                                                                <div class="col-md-4">
-                                                                    <div class="col-sm-10">
-                                                                        <label for="phoneNo">Số điện thoại</label>
-                                                                        <input type="" class="form-control"
-                                                                            name="phoneNo" value="{{this.phoneNo}}"
-                                                                            id="phoneNo" placeholder="Số điện thoại"
-                                                                            required>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-5">
-                                                                    <div class="col-sm-11">
-                                                                        <label for="address">Địa chỉ</label>
-                                                                        <input type="" class="form-control"
-                                                                            name="address" value="{{this.address}}"
-                                                                            id="address" placeholder="Địa chỉ" required>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-3">
-                                                                    <div class="col-sm-10">
-                                                                        <label for="tinh"
-                                                                            class="form-label">Tỉnh:</label>
-                                                                        <select class="form-select" id="mainRoute"
-                                                                            name="mainRoute" required>
-                                                                            <option value="{{this.mainRoute}}" selected>
-                                                                                {{this.mainRoute}}
-                                                                            </option>
-                                                                            {{!-- thêm option từ phongves  --}}
-                                                                            {{#each chontinh}}
-                                                                                <option value="{{this.name}}">
-                                                                                    {{this.name}}
-                                                                                </option>
-                                                                            {{/each}}
-                                                                        </select>
-                                                                    </div>
+                                                        <div class="row mb-2">
+                                                            <div class="col-md-4">
+                                                                <div class="col-sm-10">
+                                                                    <label for="phoneNo">Số điện thoại</label>
+                                                                    <input type="" class="form-control" name="phoneNo"
+                                                                        value="{{this.phoneNo}}" id="phoneNo"
+                                                                        placeholder="Số điện thoại" required>
                                                                 </div>
                                                             </div>
+                                                            <div class="col-md-5">
+                                                                <div class="col-sm-11">
+                                                                    <label for="address">Địa chỉ</label>
+                                                                    <input type="" class="form-control" name="address"
+                                                                        value="{{this.address}}" id="address"
+                                                                        placeholder="Địa chỉ" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="col-sm-10">
+                                                                    <label for="tinh" class="form-label">Tỉnh:</label>
+                                                                    <select class="form-select" id="mainRoute"
+                                                                        name="mainRoute" required>
+                                                                        <option value="{{this.mainRoute}}" selected>
+                                                                            {{this.mainRoute}}
+                                                                        </option>
+                                                                        {{!-- thêm option từ phongves --}}
+                                                                        {{#each chontinh}}
+                                                                        <option value="{{this.name}}">
+                                                                            {{this.name}}
+                                                                        </option>
+                                                                        {{/each}}
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                         {{/each}}
                                                     </div>
                                                     {{!-- <button class="btn btn-primary mb-3 ml-3 px-4"
@@ -457,7 +423,8 @@
                                                 </div>
                                         </form>
 
-                                        {{!-- <script>
+                                        {{!--
+                                        <script>
                                             var form = $("#example-form");
                                             form.children("div").steps({
                                                 headerTag: "h3",
@@ -515,7 +482,8 @@
     <!-- endinject -->
     <!-- Custom js for this page-->
     <!-- End custom js for this page-->
-    {{!-- <script src="path-to/node_modules/dropify/dist/js/dropify.min.js"></script> --}}
+    {{!--
+    <script src="path-to/node_modules/dropify/dist/js/dropify.min.js"></script> --}}
 
 
 </body>
