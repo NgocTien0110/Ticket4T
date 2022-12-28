@@ -5,6 +5,21 @@ const { Op, INTEGER } = require("sequelize");
 const userController = require("../controllers/userController")
 
 controller.show = async (req, res) => {
+    let chuyenxe = await models.ChuyenXe.findAll();
+    let nhaxe = await models.NhaXe.findAll();
+    let vedadat = await models.VeDaDat.findAll();
+    let accId = req.session.user.id
+
+    let infoAcc = await models.TaiKhoan.findOne({
+        where: {
+            id: accId
+        }
+    });
+
+    res.locals.infoAcc = infoAcc;
+    res.locals.chuyenxe = chuyenxe;
+    res.locals.nhaxe = nhaxe;
+    res.locals.vedadat = vedadat;
     res.render('dashboard');
 }
 controller.showTicket = async (req, res) => {
@@ -295,6 +310,15 @@ controller.isAdminLoggedIn = (req, res, next) => {
     } else {
         res.redirect(`/dashboard/login?returnURL=${req.originalUrl}`)
     }
+}
+
+controller.logoutAdmin = (req, res, next) => {
+    req.session.destroy(error => {
+        if (error) {
+            return next(error);
+        }
+        return res.redirect('/dashboard/login')
+    })
 }
 
 const provinceList = [

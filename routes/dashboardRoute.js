@@ -33,4 +33,6 @@ Router.get("/login", (req, res) => {
 })
 
 Router.post("/login", controller.loginAdmin);
+Router.get('/logout', controller.logoutAdmin);
+
 module.exports = Router;
