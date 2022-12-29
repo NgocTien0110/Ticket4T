@@ -82,6 +82,15 @@ controller.show = async (req, res) => {
   res.locals.nhaxes = rows;
   res.locals.currentPage = page;
   res.locals.totalPage = Math.ceil(count / limit);
+  let accId = req.session.user.id
+
+  let infoAcc = await models.TaiKhoan.findOne({
+    where: {
+      id: accId
+    }
+  });
+
+  res.locals.infoAcc = infoAcc;
   // console.log(res.locals.totalPage);
   res.render("quanlynhaxe");
 };
@@ -109,6 +118,15 @@ controller.editNhaXe = async (req, res) => {
   // let hihi  = JSON.stringify(phongve);
   // console.log(hihi);
   res.locals.phongves = phongve;
+  let accId = req.session.user.id
+
+  let infoAcc = await models.TaiKhoan.findOne({
+    where: {
+      id: accId
+    }
+  });
+
+  res.locals.infoAcc = infoAcc;
 
   res.locals.chitietnhaxe = await models.NhaXe.findOne({
     where: {
@@ -122,9 +140,6 @@ controller.editNhaXe = async (req, res) => {
 controller.updateNhaXe = async (req, res) => {
   let id = parseInt(req.params.id);
   let body = req.body;
-  console.log(req.files);
-  console.log("hihi");
-  console.log(req.body.checkavt);
 
   if (
     req.body.checkavt == "avt" &&
@@ -178,8 +193,8 @@ controller.updateNhaXe = async (req, res) => {
       }
     );
   }
-    
-    
+
+
   // if (req.files.length > 0) {
   //   let img_array = req.files;
   //   let img_avatar = img_array[0].path;
@@ -264,6 +279,15 @@ controller.deleteNhaXe = async (req, res) => {
 
 controller.themNhaXe = async (req, res) => {
   res.locals.tinhThanh = tinhThanh;
+  let accId = req.session.user.id
+
+  let infoAcc = await models.TaiKhoan.findOne({
+    where: {
+      id: accId
+    }
+  });
+
+  res.locals.infoAcc = infoAcc;
   res.render("themnhaxe");
 };
 

@@ -23,6 +23,16 @@ controller.show = async (req, res) => {
     res.render('dashboard');
 }
 controller.showTicket = async (req, res) => {
+    let accId = req.session.user.id
+
+    let infoAcc = await models.TaiKhoan.findOne({
+        where: {
+            id: accId
+        }
+    });
+
+    res.locals.infoAcc = infoAcc;
+
     let statusTicket = req.query.status || 'Vừa đặt'
     let statusVuaDat = true;
     let statusThanhToan = false;
@@ -62,6 +72,16 @@ controller.showTicket = async (req, res) => {
 
 }
 controller.showDetailTicket = async (req, res) => {
+    let accId = req.session.user.id
+
+    let infoAcc = await models.TaiKhoan.findOne({
+        where: {
+            id: accId
+        }
+    });
+
+    res.locals.infoAcc = infoAcc;
+
     let id = req.params.id;
     res.locals.vedadat = await models.VeDaDat.findOne({
         where: {
@@ -102,6 +122,15 @@ controller.showChuyenXe = async (req, res) => {
     let page = req.query.page || 1;
     page = parseInt(page);
     let offset = limit * (page - 1)
+    let accId = req.session.user.id
+
+    let infoAcc = await models.TaiKhoan.findOne({
+        where: {
+            id: accId
+        }
+    });
+
+    res.locals.infoAcc = infoAcc;
 
     let { rows, count } = await models.ChuyenXe.findAndCountAll({
         include: [models.NhaXe, models.LoaiXe],
@@ -150,6 +179,16 @@ controller.editChuyenXe = async (req, res) => {
     res.locals.danhsachLoaiXe = await models.LoaiXe.findAll({
         where: { id: { [Op.ne]: loaixeID } }
     })
+
+    let accId = req.session.user.id
+
+    let infoAcc = await models.TaiKhoan.findOne({
+        where: {
+            id: accId
+        }
+    });
+
+    res.locals.infoAcc = infoAcc;
 
     res.locals.startProvinceList = provinceList.filter(e => e.name != details.startProvince)
     res.locals.endProvinceList = provinceList.filter(e => e.name != details.endProvince)
@@ -203,6 +242,15 @@ controller.themchuyenxe = async (req, res) => {
     res.locals.danhsachNhaXe = await models.NhaXe.findAll();
     res.locals.danhsachLoaiXe = await models.LoaiXe.findAll();
     res.locals.provinceList = provinceList
+    let accId = req.session.user.id
+
+    let infoAcc = await models.TaiKhoan.findOne({
+        where: {
+            id: accId
+        }
+    });
+
+    res.locals.infoAcc = infoAcc;
     res.render("themchuyenxe");
 }
 
