@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="/images/favicon.png" />
+    <link rel="stylesheet" href="/css/quanlyve.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css">
 
 </head>
@@ -290,10 +291,10 @@
                                                         <form id="deleteChuyenXe" action="/dashboard/quanlychuyenxe"
                                                             method="post">
                                                             <button type="button"
-                                                                class="bi bi-pencil-square btn bg-success"
+                                                                class="bi bi-pencil-square edit"
                                                                 onclick="redirectTo({{id}})"
                                                                 style="color: white;"></button>
-                                                            <button class="bi bi-trash btn bg-danger" type="submit"
+                                                            <button class="bi bi-trash delete" type="submit"
                                                                 style="color: white" ; onclick=" deleteById()"></button>
                                                             <input name="id" type="text" value="{{id}}" hidden>
                                                         </form>

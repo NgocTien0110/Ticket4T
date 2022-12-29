@@ -258,13 +258,9 @@
                         <div class="col-lg-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-
-                                    <div class="d-flex justify-content-between">
-                                        <h4 class="card-title">Quản lý nhà xe</h4>
-                                        <a class="btn btn-primary" href="/dashBoard/quanlynhaxe/themnhaxe/">Thêm nhà
-                                            xe</a>
-                                    </div>
-
+                                    <h4 class="card-title">Quản lý nhà xe</h4>
+                                    <a class="bi bi-plus-square btn btn-primary" href="/dashBoard/quanlynhaxe/themnhaxe/"> Thêm nhà
+                                        xe</a>
                                     <div class="table-responsive">
                                         <table class="table table-hover col-12">
                                             <thead>
@@ -279,24 +275,25 @@
                                             </thead>
                                             <tbody class="content-table">
                                                 {{#each nhaxes}}
-                                                <tr>
-                                                    <td class="hihi">{{id}}</td>
-                                                    <td class="hihi">{{name}}</td>
-                                                    <td class="hihi">{{lookup phoneNo 0}}</td>
-                                                    <td class="hihi">{{lookup address 0}}</td>
-                                                    {{!-- <td class="hihi">{{description}}</td>
+                                                    <tr>
+                                                        <td class="hihi">{{id}}</td>
+                                                        <td class="hihi">{{name}}</td>
+                                                        <td class="hihi">{{lookup phoneNo 0}}</td>
+                                                        <td class="hihi">{{lookup address 0}}</td>
+                                                        {{!-- <td class="hihi">{{description}}</td>
                                                     <td class="hihi">{{policy}}</td> --}}
-                                                    <td class="d-flex pt-3 px-0">
-                                                        <button class="bi bi-pencil-square edit"
-                                                            onclick="navigateTo({{id}})"></button>
-                                                        <form action="/dashBoard/quanlynhaxe" method="post"
-                                                            id="deleteForm">
-                                                            <input type="text" value="{{id}}" name="id" hidden>
-                                                            <button class="bi bi-trash delete mx-2" onclick="submit()">
-                                                            </button>
-                                                        </form>
-                                                    </td>
-                                                </tr>
+                                                        <td class="d-flex pt-3 px-0">
+                                                            <button class="bi bi-pencil-square edit"
+                                                                onclick="navigateTo({{id}})"></button>
+                                                            <form action="/dashBoard/quanlynhaxe" method="post"
+                                                                id="deleteForm">
+                                                                <input type="text" value="{{id}}" name="id" hidden>
+                                                                <button class="bi bi-trash delete mx-2"
+                                                                    onclick="submit()">
+                                                                </button>
+                                                            </form>
+                                                        </td>
+                                                    </tr>
                                                 {{/each}}
                                             </tbody>
                                         </table>
