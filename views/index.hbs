@@ -59,8 +59,8 @@
                                     placeholder="Điểm đi" required>
                                 <datalist id="datalistOptions1">
                                     {{#each searchStart}}
-                                    <option value="{{startProvince}}">
-                                        {{/each}}
+                                        <option value="{{startProvince}}">
+                                    {{/each}}
                                 </datalist>
                             </div>
                             <hr style="margin-right:10px;">
@@ -74,8 +74,8 @@
                                     required>
                                 <datalist id="datalistOptions">
                                     {{#each searchEnd}}
-                                    <option value="{{endProvince}}">
-                                        {{/each}}
+                                        <option value="{{endProvince}}">
+                                    {{/each}}
                                 </datalist>
                             </div>
                             <hr style="margin-right:10px;">
@@ -119,38 +119,39 @@
                 <div class="row gx-5">
 
                     {{#each chuyenxes}}
-                    <!-- item 1  -->
-                    <div class="col-lg-6">
-                        <div class="card mb-3 popular-trip-item">
-                            <div class=" row g-0">
-                                <div class="col-md-4">
-                                    <a
-                                        href="/search-trip?start={{ startProvince }}&end={{ endProvince }}&date={{../todayDate}}">
-                                        <img src="/images/phobien/{{@index}}.jpg" class="img-fluid rounded-2"
-                                            style="object-fit: cover; height: 9rem; width: 36rem;"
-                                            alt="Tuyến đường phổ biến">
-                                    </a>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body pb-0 d-flex flex-column justify-content-between">
+                        <!-- item 1  -->
+                        <div class="col-lg-6">
+                            <div class="card mb-3 popular-trip-item">
+                                <div class=" row g-0">
+                                    <div class="col-md-4">
                                         <a
                                             href="/search-trip?start={{ startProvince }}&end={{ endProvince }}&date={{../todayDate}}">
-                                            <h3 class="card-title py-2 text-3">{{startProvince}} - {{endProvince}}</h3>
+                                            <img src="/images/phobien/{{@index}}.jpg" class="img-fluid rounded-2"
+                                                style="object-fit: cover; height: 9rem; width: 36rem;"
+                                                alt="Tuyến đường phổ biến">
                                         </a>
-                                        <!-- <p class="card-text">Sai Gon - Da Lat</p> -->
-                                        <div
-                                            class="d-flex flex-row justify-content-between align-item-end mt-3 trip-info">
-                                            {{!-- <p class="card-text fs-5"> <i class="fa-solid fa-location-dot"></i>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body pb-0 d-flex flex-column justify-content-between">
+                                            <a
+                                                href="/search-trip?start={{ startProvince }}&end={{ endProvince }}&date={{../todayDate}}">
+                                                <h3 class="card-title py-2 text-3">{{startProvince}} - {{endProvince}}
+                                                </h3>
+                                            </a>
+                                            <!-- <p class="card-text">Sai Gon - Da Lat</p> -->
+                                            <div
+                                                class="d-flex flex-row justify-content-between align-item-end mt-3 trip-info">
+                                                {{!-- <p class="card-text fs-5"> <i class="fa-solid fa-location-dot"></i>
                                                 100 km
                                             </p> --}}
-                                            <p class="card-text fs-5">{{{checkMinMaxPrice min_price max_price}}}</p>
+                                                <p class="card-text fs-5">{{{checkMinMaxPrice min_price max_price}}}</p>
 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     {{/each}}
 
                 </div>
@@ -168,23 +169,25 @@
 
             <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
                 <ol class="carousel-indicators">
-                    <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true"
-                        aria-label="">
-                    </li>
-                    <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label=""></li>
-                    <li data-bs-target="#carouselId" data-bs-slide-to="2" aria-label=""></li>
-                    <li data-bs-target="#carouselId" data-bs-slide-to="3" aria-label=""></li>
-                    <li data-bs-target="#carouselId" data-bs-slide-to="4" aria-label=""></li>
+                    {{#each nhaxes}}
+                        <li data-bs-target="#carouselId" data-bs-slide-to="{{@index}}" class="{{#if @first}}active{{/if}}" aria-current="true"
+                            aria-label="{{imageJours.[0]}}">
+                        </li>
+                        {{!-- <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label=""></li>
+                        <li data-bs-target="#carouselId" data-bs-slide-to="2" aria-label=""></li>
+                        <li data-bs-target="#carouselId" data-bs-slide-to="3" aria-label=""></li>
+                        <li data-bs-target="#carouselId" data-bs-slide-to="4" aria-label=""></li> --}}
+                    {{/each}}
                 </ol>
                 <div class="carousel-inner" role="listbox">
                     {{#each nhaxes}}
-                    <div class="carousel-item {{#if @first}} active {{/if}}">
-                        <a href="/nha-xe/{{id}}"><img src="{{imageJours.[0]}}" height="500" class="w-100 d-block"
-                                alt="{{imageJours.[0]}}"></a>
-                        <div class="carousel-caption d-none d-md-block">
-                            <h3 class="fw-bold">Nhà xe {{name}}</h3>
+                        <div class="carousel-item {{#if @first}} active {{/if}}">
+                            <a href="/nha-xe/{{id}}"><img src="{{imageJours.[0]}}" height="500" class="w-100 d-block"
+                                    alt="{{imageJours.[0]}}"></a>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h3 class="fw-bold">Nhà xe {{name}}</h3>
+                            </div>
                         </div>
-                    </div>
                     {{/each}}
 
                 </div>
@@ -314,26 +317,27 @@
 
             <div class="row justify-content-between">
                 {{#each comments}}
-                <div class="col-lg-4 my-3">
-                    <div class="card p-3 card-nhan-xet text-white" style="height: 20rem;">
-                        <div class="row">
-                            <div class="col-4 ">
-                                {{#with TaiKhoan}}
-                                <img src="{{imageAccount}}" style="height: 7rem; width: 7rem; object-fit: cover;"
-                                    class="img-fluid rounded-circle" alt="">
+                    <div class="col-lg-4 my-3">
+                        <div class="card p-3 card-nhan-xet text-white" style="height: 20rem;">
+                            <div class="row">
+                                <div class="col-4 ">
+                                    {{#with TaiKhoan}}
+                                        <img src="{{imageAccount}}"
+                                            style="height: 7rem; width: 7rem; object-fit: cover;"
+                                            class="img-fluid rounded-circle" alt="">
+                                </div>
+                                <div class="col-8 p-3">
+                                    <h3 class="fw-bold pt-2">{{fullName}}</h3>
+                                    {{/with}}
+                                </div>
                             </div>
-                            <div class="col-8 p-3">
-                                <h3 class="fw-bold pt-2">{{fullName}}</h3>
-                                {{/with}}
+                            <p class="text-center" id="cmt">{{comment}}</p>
+                            <div
+                                class="icon-start position-absolute bottom-0 start-50 translate-middle-x text-warning pb-2">
+                                {{{ generateStarList stars }}}
                             </div>
-                        </div>
-                        <p class="text-center" id="cmt">{{comment}}</p>
-                        <div
-                            class="icon-start position-absolute bottom-0 start-50 translate-middle-x text-warning pb-2">
-                            {{{ generateStarList stars }}}
                         </div>
                     </div>
-                </div>
                 {{/each}}
 
 
