@@ -34,3 +34,15 @@ tr>td {
     color: #4B49AC !important;
     border-bottom: 2px solid #4B49AC;
 }
+
+.multi {
+    color: white;
+    background-color: rgb(0, 175, 84);
+    padding: 10px 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.multi:hover {
+    background-color: rgb(0, 100, 39);
+}

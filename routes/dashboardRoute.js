@@ -14,10 +14,16 @@ Router.post('/quanlyve/chitietve/:id', controller.isAdminLoggedIn, controller.up
 Router.get(['/quanlychuyenxe',], controller.isAdminLoggedIn, [controller.showChuyenXe,]);
 Router.get('/quanlychuyenxe/themchuyenxe', controller.isAdminLoggedIn, [controller.themchuyenxe,]);
 
-Router.post('/quanlychuyenxe', controller.isAdminLoggedIn, controller.deleteChuyenXe);
+
+Router.post(
+  "/quanlychuyenxe",
+  controller.isAdminLoggedIn,
+  controller.featureChuyenXe
+);
 Router.get('/quanlychuyenxe/:id', controller.isAdminLoggedIn, controller.editChuyenXe);
 Router.post('/quanlychuyenxe/:id', controller.isAdminLoggedIn, controller.updateChuyenXe);
 Router.post('/quanlychuyenxe/themchuyenxe/add', controller.isAdminLoggedIn, upload_cloud.single('image'), controller.addChuyenXe);
+
 
 // nha xe
 Router.get("/quanlynhaxe", controller.isAdminLoggedIn, quanlynhaxe.show);

@@ -17,7 +17,7 @@
     <link rel="shortcut icon" href="/images/favicon.png" />
     <link rel="stylesheet" href="/css/quanlyve.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css">
-
+    
 </head>
 
 <body>
@@ -285,20 +285,20 @@
                                                     <td>{{totalNumSeats}}</td>
                                                     <td>{{LoaiXe.name}}</td>
                                                     <td>{{NhaXe.name}}</td>
-                                                    <td>
+                                                    <td style="flex-direction: row; display: flex">
 
-
+                                                        <button type="button" class="bi bi-pencil-square edit" onclick="redirectTo({{id}})" style="color: white; margin-right: 10px"></button>
                                                         <form id="deleteChuyenXe" action="/dashboard/quanlychuyenxe"
                                                             method="post">
-                                                            <button type="button"
-                                                                class="bi bi-pencil-square edit"
-                                                                onclick="redirectTo({{id}})"
-                                                                style="color: white;"></button>
-                                                            <button class="bi bi-trash delete" type="submit"
-                                                                style="color: white" ; onclick=" deleteById()"></button>
-                                                            <input name="id" type="text" value="{{id}}" hidden>
+                                                            <button class="bi bi-trash delete"
+                                                                style="color: white; margin-right: 10px" ; onclick=" deleteById()"></button>
+                                                            <input name="id" type="text" value="{{id}},-" hidden>
                                                         </form>
 
+                                                        <form id="multiChuyenXe" action="/dashboard/quanlychuyenxe" method="post">
+                                                            <button class="bi bi-plus-square multi" style="color: white" ; onclick="multiByID()"></button>
+                                                            <input name="id" type="text" value="{{id}},+" hidden>
+                                                        </form>
                                                     </td>
                                                 </tr>
                                                 {{/each}}
@@ -356,6 +356,11 @@
 
         function deleteById() {
             document.getElementById("deleteChuyenXe").submit();
+        }
+
+        function multiByID(){
+            alert("Nhân bản chuyến xe thành công")
+            document.getElementById("multiChuyenXe").submit();
         }
     </script>
     <!-- endinject -->
