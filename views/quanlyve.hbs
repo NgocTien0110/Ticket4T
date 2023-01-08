@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="/css/vertical-layout-light/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 
 
     <!-- endinject -->
@@ -322,17 +324,17 @@
                                                     <td class="d-flex pt-3 px-0">
                                                         <button class="bi bi-pencil-square edit"
                                                             onclick="navigateTo({{id}})"></button>
-                                                        <form action="/dashBoard/quanlyve" method="post"
-                                                            id="deleteForm">
+                                                        <form action="/dashBoard/quanlyve" method="post" id="deleteForm"
+                                                            onsubmit="return submitForm(this);">
                                                             <input type="text" value="{{id}}" name="id" hidden>
-                                                            <button class="bi bi-trash delete mx-2"
-                                                                onclick="deleteById()">
+                                                            <button class="bi bi-trash delete mx-2">
                                                             </button>
                                                         </form>
                                                     </td>
 
                                                 </tr>
                                                 {{/each}}
+
                                             </tbody>
                                         </table>
                                     </div>
@@ -387,11 +389,23 @@
     function navigateTo(id) {
         window.location.href = "/dashBoard/quanlyve/chitietve/" + id;
     }
-    function deleteById() {
-        if (confirm("Bạn có chắc chắn muốn xóa không?")) {
-            document.getElementById("deleteForm").submit();
-        }
+    function submitForm(form) {
+        swal({
+            title: "Bạn có chắc chắn muốn xóa vé này không ?",
+            text: "Bạn sẽ không thể khôi phục lại vé này !",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    form.submit();
+
+                }
+            });
+        return false;
     }
+
     let page_item = document.querySelectorAll(".page-item");
     if ({{ page }} == 1) {
         page_item[0].style.opacity = "0.4";
@@ -399,4 +413,5 @@
     if ({{ page }} == {{ totalPage }}) {
         page_item[page_item.length - 1].style.opacity = "0.4";
     }
+    let deleteForm = document.getElementById("deleteForm");
 </script>

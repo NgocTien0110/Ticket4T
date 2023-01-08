@@ -17,7 +17,9 @@
     <link rel="shortcut icon" href="/images/favicon.png" />
     <link rel="stylesheet" href="/css/quanlyve.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css">
-    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
 </head>
 
 <body>
@@ -287,16 +289,20 @@
                                                     <td>{{NhaXe.name}}</td>
                                                     <td style="flex-direction: row; display: flex">
 
-                                                        <button type="button" class="bi bi-pencil-square edit" onclick="redirectTo({{id}})" style="color: white; margin-right: 10px"></button>
+                                                        <button type="button" class="bi bi-pencil-square edit"
+                                                            onclick="redirectTo({{id}})"
+                                                            style="color: white; margin-right: 10px"></button>
                                                         <form id="deleteChuyenXe" action="/dashboard/quanlychuyenxe"
-                                                            method="post">
+                                                            method="post" onsubmit="return submitForm(this)">
                                                             <button class="bi bi-trash delete"
-                                                                style="color: white; margin-right: 10px" ; onclick=" deleteById()"></button>
+                                                                style="color: white; margin-right: 10px" ;></button>
                                                             <input name="id" type="text" value="{{id}},-" hidden>
                                                         </form>
 
-                                                        <form id="multiChuyenXe" action="/dashboard/quanlychuyenxe" method="post">
-                                                            <button class="bi bi-plus-square multi" style="color: white" ; onclick="multiByID()"></button>
+                                                        <form id="multiChuyenXe" action="/dashboard/quanlychuyenxe"
+                                                            method="post" onsubmit="return multiByID(this)">
+                                                            <button class="bi bi-plus-square multi"
+                                                                style="color: white"></button>
                                                             <input name="id" type="text" value="{{id}},+" hidden>
                                                         </form>
                                                     </td>
@@ -354,13 +360,35 @@
             window.location.href = "/dashboard/quanlychuyenxe/" + id;
         }
 
-        function deleteById() {
-            document.getElementById("deleteChuyenXe").submit();
+        function submitForm(form) {
+            swal({
+                title: "Bạn có chắc chắn muốn xóa chuyến này không ?",
+                text: "Bạn sẽ không thể khôi phục lại chuyến xe này !",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        form.submit();
+
+                    }
+                });
+            return false;
         }
 
-        function multiByID(){
-            alert("Nhân bản chuyến xe thành công")
-            document.getElementById("multiChuyenXe").submit();
+        function multiByID(form) {
+            swal({
+                title: "Nhân bản chuyến xe thành công !",
+                icon: "success",
+                button: "OK",
+            })
+                .then((isOk) => {
+                    if (isOk) {
+                        form.submit();
+                    }
+                })
+            return false;
         }
     </script>
     <!-- endinject -->

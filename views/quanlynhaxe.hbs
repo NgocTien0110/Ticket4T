@@ -18,6 +18,8 @@
     <link rel="shortcut icon" href="/images/favicon.png" />
     <link rel="stylesheet" href="/css/quanlyve.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     {{!--
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
     {{!--
@@ -259,7 +261,8 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Quản lý nhà xe</h4>
-                                    <a class="bi bi-plus-square btn btn-primary" href="/dashBoard/quanlynhaxe/themnhaxe/"> Thêm nhà
+                                    <a class="bi bi-plus-square btn btn-primary"
+                                        href="/dashBoard/quanlynhaxe/themnhaxe/"> Thêm nhà
                                         xe</a>
                                     <div class="table-responsive">
                                         <table class="table table-hover col-12">
@@ -275,25 +278,24 @@
                                             </thead>
                                             <tbody class="content-table">
                                                 {{#each nhaxes}}
-                                                    <tr>
-                                                        <td class="hihi">{{id}}</td>
-                                                        <td class="hihi">{{name}}</td>
-                                                        <td class="hihi">{{lookup phoneNo 0}}</td>
-                                                        <td class="hihi">{{lookup address 0}}</td>
-                                                        {{!-- <td class="hihi">{{description}}</td>
+                                                <tr>
+                                                    <td class="hihi">{{id}}</td>
+                                                    <td class="hihi">{{name}}</td>
+                                                    <td class="hihi">{{lookup phoneNo 0}}</td>
+                                                    <td class="hihi">{{lookup address 0}}</td>
+                                                    {{!-- <td class="hihi">{{description}}</td>
                                                     <td class="hihi">{{policy}}</td> --}}
-                                                        <td class="d-flex pt-3 px-0">
-                                                            <button class="bi bi-pencil-square edit"
-                                                                onclick="navigateTo({{id}})"></button>
-                                                            <form action="/dashBoard/quanlynhaxe" method="post"
-                                                                id="deleteForm">
-                                                                <input type="text" value="{{id}}" name="id" hidden>
-                                                                <button class="bi bi-trash delete mx-2"
-                                                                    onclick="submit()">
-                                                                </button>
-                                                            </form>
-                                                        </td>
-                                                    </tr>
+                                                    <td class="d-flex pt-3 px-0">
+                                                        <button class="bi bi-pencil-square edit"
+                                                            onclick="navigateTo({{id}})"></button>
+                                                        <form action="/dashBoard/quanlynhaxe" method="post"
+                                                            id="deleteForm" onsubmit="return submitForm(this)">
+                                                            <input type="text" value="{{id}}" name="id" hidden>
+                                                            <button class="bi bi-trash delete mx-2">
+                                                            </button>
+                                                        </form>
+                                                    </td>
+                                                </tr>
                                                 {{/each}}
                                             </tbody>
                                         </table>
@@ -349,10 +351,21 @@
     function navigateTo(id) {
         window.location.href = "/dashBoard/quanlynhaxe/nhaxe/" + id;
     }
-    function submit() {
-        if (confirm("Bạn có chắc chắn muốn xóa không?")) {
-            document.getElementById("deleteForm").submit();
-        }
+    function submitForm(form) {
+        swal({
+            title: "Bạn có chắc chắn muốn xóa nhà xe này không ?",
+            text: "Bạn sẽ không thể khôi phục lại nhà xe này !",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    form.submit();
+
+                }
+            });
+        return false;
     }
 
     var content = document.getElementsByClassName("hihi");
