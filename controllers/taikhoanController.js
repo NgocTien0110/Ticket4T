@@ -228,6 +228,34 @@ controller.showMyTicket = async (req, res) => {
     res.render('myTicket')
 }
 
+controller.compareTwoDate = (date1, date2) => {
+    const date1Temp = date1.split('-');
+    const date2Temp = date2.split('-');
+
+    if (date1Temp[2].localeCompare(date2Temp[2]) == 1) {
+        return true;
+    }
+    else if (date1Temp[2].localeCompare(date2Temp[2]) == -1) {
+        return false;
+    }
+    else {
+        if (date1Temp[1].localeCompare(date2Temp[1]) == 1) {
+            return true;
+        }
+        else if (date1Temp[1].localeCompare(date2Temp[1]) == -1) {
+            return false;
+        }
+        else {
+            if (date1Temp[0].localeCompare(date2Temp[0]) == -1) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    }
+}
+
 controller.showDetailsTicket = async (req, res) => {
     let accId = req.session.user.id
     let ticketId = req.params.ticketId;
@@ -268,13 +296,8 @@ controller.showDetailsTicket = async (req, res) => {
 
     let veChuaHuy;
 
-    if (veDaDat.statusTicket != "Đã hủy" && (today.localeCompare(chuyenXe.endDate) == -1)) {
+    if (veDaDat.statusTicket != "Đã hủy" && (controller.compareTwoDate(today, chuyenXe.endDate) == false)) {
         veChuaHuy = true;
-    }
-    else if (veDaDat.statusTicket != "Đã hủy" && (today.localeCompare(chuyenXe.endDate) == 0)) {
-        if (time.localeCompare(chuyenXe.endTime) == -1) {
-            veChuaHuy = true;
-        }
     }
     else {
     }
@@ -322,7 +345,7 @@ controller.cancleTicket = async (req, res) => {
     })
 
     res.locals.infoAcc = infoAcc
-    res.render('xemChiTietVe');
+    res.redirect("/tai-khoan/ve-cua-toi");
 }
 
 module.exports = controller;
