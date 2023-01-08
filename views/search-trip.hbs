@@ -409,6 +409,17 @@
             pagi.querySelectorAll('a').forEach(item => {
                 item.classList.add('page-link');
             })
+            flatpickr("#datetimepicker", {
+                dateFormat: "d-m-Y",
+                locale: "vn",
+                disableMobile: "true",
+                // set today date
+                defaultDate: new Date(),
+                //disable date before today
+                minDate: new Date(),
+
+            });
+
         </script>
     </main>
     {{>footer}}
