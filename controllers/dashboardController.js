@@ -146,46 +146,46 @@ controller.showChuyenXe = async (req, res) => {
 
 // controller.deleteChuyenXe = async (req, res) => {
 //     const id = parseInt(req.body.id);
-    
+
 
 //     res.redirect(req.get('referer'))
 // }
 
-controller.featureChuyenXe = async(req, res) => {
+controller.featureChuyenXe = async (req, res) => {
     let tempID = req.body.id.split(",");
     const id = parseInt(tempID[0]);
 
-    if(tempID[1] == '-'){
+    if (tempID[1] == '-') {
         await models.VeDaDat.destroy({
-        where: {
-            jourId: id,
-        },
+            where: {
+                jourId: id,
+            },
         });
 
         await models.ChuyenXe.destroy({
-        where: {
-            id: id,
-        },
+            where: {
+                id: id,
+            },
         });
     }
-    else{
-        let tempModel = await models.ChuyenXe.findOne({where: {id: id}})
-        
+    else {
+        let tempModel = await models.ChuyenXe.findOne({ where: { id: id } })
+
         await models.ChuyenXe.create({
-          startProvince: tempModel.startProvince,
-          endProvince: tempModel.endProvince,
-          startLocation: tempModel.startLocation,
-          endLocation: tempModel.endLocation,
-          startDate: tempModel.startDate,
-          endDate: tempModel.endDate,
-          startTime: tempModel.startTime,
-          endTime: tempModel.endTime,
-          carId: tempModel.carId,
-          cateCarId: tempModel.cateCarId,
-          totalNumSeats: tempModel.totalNumSeats,
-          price: tempModel.price,
-          numSeats: 0,
-          locationImage: tempModel.locationImage,
+            startProvince: tempModel.startProvince,
+            endProvince: tempModel.endProvince,
+            startLocation: tempModel.startLocation,
+            endLocation: tempModel.endLocation,
+            startDate: tempModel.startDate,
+            endDate: tempModel.endDate,
+            startTime: tempModel.startTime,
+            endTime: tempModel.endTime,
+            carId: tempModel.carId,
+            cateCarId: tempModel.cateCarId,
+            totalNumSeats: tempModel.totalNumSeats,
+            price: tempModel.price,
+            numSeats: tempModel.numSeats,
+            locationImage: tempModel.locationImage,
         });
         console.log(tempModel.numSeats);
     }

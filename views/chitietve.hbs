@@ -19,6 +19,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/css/xemChiTietVe.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 
 
 </head>
@@ -279,8 +281,7 @@
                                             <span class="fontSizeLarger"><i class="bi bi-ticket-perforated"></i> Tình
                                                 trạng vé</span>
                                             <ul>
-                                                <form id="liTinhTrangVe" action="/dashBoard/quanlyve/chitietve/{{id}}"
-                                                    method="POST">
+                                                <form id="liTinhTrangVe" onsubmit="return submitForm({{id}})">
                                                     <div class="d-flex">
                                                         <select class="form-select col-7" name="status"
                                                             aria-label="Default select example">
@@ -291,8 +292,8 @@
                                                             <option value="Đã hủy" id="Đã hủy">Đã hủy
                                                             </option>
                                                         </select>
-                                                        <button
-                                                            class="col-3 ms-3 btn btn-primary text-white">Lưu</button>
+                                                        <input type="submit"
+                                                            class="col-3 ms-3 btn btn-primary text-white" value="Lưu" />
                                                     </div>
 
                                                 </form>
@@ -378,6 +379,21 @@
 <script>
     function selected(value) {
         document.getElementById(value).selected = true
+    }
+    function submitForm(id) {
+        var form = document.getElementById("liTinhTrangVe");
+        var status = form.elements["status"].value;
+        let url = "/dashboard/quanlyve/chitietve/" + id;
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                swal("Thành công!", "Cập nhật trạng thái vé thành công!", "success");
+            }
+        };
+        xhttp.open("POST", url, true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("status=" + status);
+        return false;
     }
 
 </script>
