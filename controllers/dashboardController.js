@@ -386,7 +386,7 @@ controller.loginAdmin = (req, res, next) => {
 }
 
 controller.isAdminLoggedIn = (req, res, next) => {
-    if (req.session.user) {
+    if (req.session.user.isAdmin) {
         next();
     } else {
         res.redirect(`/dashboard/login?returnURL=${req.originalUrl}`)

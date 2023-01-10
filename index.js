@@ -69,6 +69,11 @@ app.use((req, res, next) => {
   res.locals.fullName = req.session.user ? req.session.user.fullName : '';
   res.locals.isLoggedIn = req.session.user ? true : false;
   res.locals.avatar = req.session.user ? req.session.user.imageAccount : '';
+  if (req.session.user) {
+    if (req.session.user.isAdmin == false) {
+      res.locals.isUser = true;
+    }
+  }
   next();
 })
 
