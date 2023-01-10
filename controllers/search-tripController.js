@@ -35,16 +35,26 @@ controller.show = async (req, res) => {
         where: {},
       },
     ],
-    order: [],  
+    order: [],
     where: {
-      // thời gian bắt đầu phải lớn hơn thời gian hiện tại
-      startTime: {
-        [sequelize.Op.gte]: dateTime.getHours() + ":" + dateTime.getMinutes(),
-      },
+      // startTime: {
+      //   [sequelize.Op.gte]: dateTime.getHours() + ":" + dateTime.getMinutes(),
+      // },
     },
     limit: limit,
     offset: (page - 1) * limit,
   };
+
+  // thời gian bắt đầu phải lớn hơn thời gian hiện tại
+  // đổi năm-tháng-ngay sang ngày-tháng-năm
+  let date = new Date().toISOString().slice(0, 10).split("-");
+  let date2 = date[2] + "-" + date[1] + "-" + date[0];
+  if (dataSearch.date ==  date2) {
+    console.log("ok");
+    option.where.startTime = {
+      [sequelize.Op.gte]: dateTime.getHours() + ":" + dateTime.getMinutes(),
+    }
+  }
 
   // chọn option sort
   if (sort) {
