@@ -30,16 +30,16 @@ module.exports = {
       {
         name: "Minh Phương",
         description:
-          "Tuyến đường Sài Gòn – Đà Nẵng - Đắk Lắk luôn là quãng đường phục vụ nhu cầu, đặc biệt là du lịch phổ biến. Và hôm nay, Ticket4T xin giới thiệu đến các bạn nhà xe Minh Phương, cái tên uy tín hàng đầu hoạt động trên tuyến đường này. Hãy cùng chúng tôi tìm hiểu qua về các thông tin mà nhà xe này hoạt động.\nMinh Phương là một trong những cái tên nổi bật về dịch vụ xe khách, đặc biệt là vận chuyển hàng hóa bằng xe khách. Nhà xe này được đánh giá rất tốt về thang điểm dịch vụ, dựa trên những trải nghiệm thực tế từ chính khách hàng.\nPhục vụ nhiều tuyến xe trong ngày, thuận lợi cho việc di chuyển của nhiều hành khách.Chi phí vé xe và dịch vụ vận chuyển hàng hóa luôn ở mức bình ổn.Thời gian vận chuyển đúng giờ, tiết kiệm nhiều thời gian hơn so với các đơn vị khác.",
+          "Tuyến đường Hà Nội – Nghệ An - Quảng Trị luôn là quãng đường phục vụ nhu cầu, đặc biệt là du lịch phổ biến. Và hôm nay, Ticket4T xin giới thiệu đến các bạn nhà xe Minh Phương, cái tên uy tín hàng đầu hoạt động trên tuyến đường này. Hãy cùng chúng tôi tìm hiểu qua về các thông tin mà nhà xe này hoạt động.\nMinh Phương là một trong những cái tên nổi bật về dịch vụ xe khách, đặc biệt là vận chuyển hàng hóa bằng xe khách. Nhà xe này được đánh giá rất tốt về thang điểm dịch vụ, dựa trên những trải nghiệm thực tế từ chính khách hàng.\nPhục vụ nhiều tuyến xe trong ngày, thuận lợi cho việc di chuyển của nhiều hành khách.Chi phí vé xe và dịch vụ vận chuyển hàng hóa luôn ở mức bình ổn.Thời gian vận chuyển đúng giờ, tiết kiệm nhiều thời gian hơn so với các đơn vị khác.",
         phoneNo: ["0902 843 799", "088 6060 605", "0981 787 785"],
         address: [
-          "201 Tôn Đức Thắng, phường Hòa Minh, quận Liên Chiểu, thành phố Đà Nẵng",
-          "292 Đinh Bộ Lĩnh, phường 26, quận Bình Thạnh, thành phố Hồ Chí Minh",
-          "51 Nguyễn Đức Cảnh, TP Buôn Mê Thuột, Đắk Lắk",
+          "50 Hoàng Diệu, Phường 2, Đông Hà, Quảng Trị",
+          "Số 15 Xuân Thu , Thị xã Cửa Lò , Tỉnh Nghệ An",
+          "Số 25 đường Phạm Hùng – Mỹ Đình – Từ Liêm – Hà Nội",
         ],
         policy:
           "Yêu cầu đeo khẩu trang khi lên xe\nCó mặt tại văn phòng/quầy vé/bến xe trước 30 phút để làm thủ tục lên xe\nĐổi vé giấy trước khi lên xe\nXuất trình SMS/Email đặt vé trước khi lên xe\nKhông mang đồ ăn, thức ăn có mùi lên xe\nKhông hút thuốc, uống rượu, sử dụng chất kích thích trên xe\nKhông mang các vật dễ cháy nổ lên xeKhông vứt rác trên xe\nKhông làm ồn, gây mất trật tự trên xe\nKhông mang giày, dép trên xe\nTổng trọng lượng hành lý không vượt quá 20 kg\nTrẻ em dưới 3 tuổi hoặc dưới 120 cm được miễn phí vé nếu ngồi cùng ghế/giường với bố mẹ\nĐộng vật cảnh phải đảm bảo có sức khỏe tốt, thân thiện với con người, đã được tiêm phòng đầy đủ, không có mùi khó chịu, không gây ảnh hưởng đến hành khách và tài sản của họ\nThú cưng cần phải được đeo rọ mõm, nhốt trong lồng, túi, balo phi hành gia để đảm bảo cho việc vận chuyển an toàn, phòng tránh việc thú cưng chạy ra ngoài\nHãng xe chỉ chấp nhận vận chuyển động vật như là một hành lý ký gửi; không cho phép mang lên xe cùng hành khách\nNhiệt độ thời tiết trong quá trình vận chuyển đôi khi ảnh hưởng đến sức khỏe của động vật cảnh, nhà xe không chịu trách nhiệm về sức khỏe động vật trong suốt chuyến đi",
-        mainRoute: ["Đà Nẵng", "Sài Gòn", "Đắc Lắk"],
+        mainRoute: ["Quảng Trị", "Nghệ An", "Hà Nội"],
         // startTime: ["06:00", "01:00"],
         // numOfTrip: "3",
         // ticketPrice: ["100000", "150000"],
@@ -53,16 +53,16 @@ module.exports = {
       {
         name: "Phát Thủy",
         description:
-          "Bạn muốn đặt vé từ Điện Biên đi Sơn La? Lào Cai? Bạn muốn đặt vé từ Điện Biên đi Hà Nội? Nhưng bạn không biết nên lựa chọn nhà xe khách nào? Ticket4T sẽ gửi đến bạn thông tin nhà xe Phát Thủy chạy tuyến Điện Biên đi Hà Nội và Sơn La để bạn tham khảo cho dự định của bạn nhé\nNhà xe Phát Thủy là nhà xe chuyên phục vụ tuyến Điện Biên – Hà Nội – Hà Nam và tuyến Điện Biên Sơn La. Các điểm ích lợi khi lựa chọn nhà xe bao gồm: Gối ôm, đèn đọc sách cá nhân, dây đai an toàn, nước khoáng đóng chai, chăn mềm, gối nằm, tủ lạnh mini, sạc điện thoại, điều hòa, khăn lạnh, wifi, búa phá kính phòng trường hợp khẩn cấp,…\nNhà xe Phát Thủy còn ăn điểm của khách hàng ở thái độ phục vụ của nhà xe. Nhân viên hỗ trợ khách hàng rất nhiệt tình từ lúc quý khách bắt đầu tham khảo thông tin đặt vé cho đến khi khách hàng xuống xe. Đội ngũ lái xe đường dài đầy kinh nghiệm, nhân viên phụ xe lịch sự, nhiệt tình.",
+          "Bạn muốn đặt vé từ TPHCM đi Lâm Đồng? Quảng Ngãi? Bạn muốn đặt vé từ Điện Biên đi Hà Nội? Nhưng bạn không biết nên lựa chọn nhà xe khách nào? Ticket4T sẽ gửi đến bạn thông tin nhà xe Phát Thủy chạy tuyến Điện Biên đi Hà Nội và Sơn La để bạn tham khảo cho dự định của bạn nhé\nNhà xe Phát Thủy là nhà xe chuyên phục vụ tuyến Điện Biên – Hà Nội – Hà Nam và tuyến Điện Biên Sơn La. Các điểm ích lợi khi lựa chọn nhà xe bao gồm: Gối ôm, đèn đọc sách cá nhân, dây đai an toàn, nước khoáng đóng chai, chăn mềm, gối nằm, tủ lạnh mini, sạc điện thoại, điều hòa, khăn lạnh, wifi, búa phá kính phòng trường hợp khẩn cấp,…\nNhà xe Phát Thủy còn ăn điểm của khách hàng ở thái độ phục vụ của nhà xe. Nhân viên hỗ trợ khách hàng rất nhiệt tình từ lúc quý khách bắt đầu tham khảo thông tin đặt vé cho đến khi khách hàng xuống xe. Đội ngũ lái xe đường dài đầy kinh nghiệm, nhân viên phụ xe lịch sự, nhiệt tình.",
         phoneNo: ["0912 040 545", "0961 619 333", "1900 272 708"],
         address: [
-          "Số 219, Đường Ngọc Hồi, Văn Điển, Thanh Trì, Hà Nội cách Bệnh Viện Nội Tiết",
-          "Số 2 Cầu Mây, thị trấn Sapa, tỉnh Lào Cai",
-          "Số nhà 73 đường Giáp Bát (cách bến xe Giáp Bát 500m)",
+          "26 Lê Thánh Tông, Nghĩa Chánh Nam, Quảng Ngãi",
+          "13/21 Trần Quang Diệu , Huyện Đức Trọng, Tỉnh Lâm Đồng",
+          "272 Trần Quốc Tuấn, Phạm Ngũ Lão, Quận 1, TP.HCM",
         ],
         policy:
           "Yêu cầu đeo khẩu trang khi lên xe\nCó mặt tại văn phòng/quầy vé/bến xe trước 30 phút để làm thủ tục lên xe\nĐổi vé giấy trước khi lên xe\nXuất trình SMS/Email đặt vé trước khi lên xe\nKhông mang đồ ăn, thức ăn có mùi lên xe\nKhông hút thuốc, uống rượu, sử dụng chất kích thích trên xe\nKhông mang các vật dễ cháy nổ lên xeKhông vứt rác trên xe\nKhông làm ồn, gây mất trật tự trên xe\nKhông mang giày, dép trên xe\nTổng trọng lượng hành lý không vượt quá 20 kg\nTrẻ em dưới 3 tuổi hoặc dưới 120 cm được miễn phí vé nếu ngồi cùng ghế/giường với bố mẹ\nĐộng vật cảnh phải đảm bảo có sức khỏe tốt, thân thiện với con người, đã được tiêm phòng đầy đủ, không có mùi khó chịu, không gây ảnh hưởng đến hành khách và tài sản của họ\nThú cưng cần phải được đeo rọ mõm, nhốt trong lồng, túi, balo phi hành gia để đảm bảo cho việc vận chuyển an toàn, phòng tránh việc thú cưng chạy ra ngoài\nHãng xe chỉ chấp nhận vận chuyển động vật như là một hành lý ký gửi; không cho phép mang lên xe cùng hành khách\nNhiệt độ thời tiết trong quá trình vận chuyển đôi khi ảnh hưởng đến sức khỏe của động vật cảnh, nhà xe không chịu trách nhiệm về sức khỏe động vật trong suốt chuyến đi",
-        mainRoute: ["Hà Nội", "Lào Cai", "Điện Biên"],
+        mainRoute: ["Quảng Ngãi", "Lâm Đồng", "Sài Gòn"],
         // startTime: ["07:00", "10:00", "13:05", "15:00"],
         // numOfTrip: "5",
         // ticketPrice: ["100000", "250000"],
