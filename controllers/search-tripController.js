@@ -1,13 +1,20 @@
 const controller = {}; //Để {} vì là object có thể chứa thêm các hàm khác
 const models = require("../models");
 const sequelize = require("sequelize");
+// thời gian hiện tại
+const dateTime = new Date();
 
 controller.show = async (req, res) => {
+  // lấy dữ liệu từ query và set các thuộc tính mặc định
   let dataSearch = req.query;
   let sort = req.query.sort || "earliest";
   let minPrice = req.query.min || 0;
   let maxPrice = req.query.max || 2000000;
-  console.log(dataSearch.date);
+  let page = req.query.page || 1;
+  let limit = 3;
+  // console.log(dataSearch.date);
+
+  // filter của thanh search
   let orders = {
     earliest: ["startTime", "ASC"],
     latest: ["startTime", "DESC"],
@@ -15,9 +22,7 @@ controller.show = async (req, res) => {
     expensive: ["price", "DESC"],
   };
 
-  let page = req.query.page || 1;
-  let limit = 3;
-
+  // tạo option cho search
   let option = {
     include: [
       {
@@ -30,31 +35,39 @@ controller.show = async (req, res) => {
         where: {},
       },
     ],
-    order: [],
-    where: {},
+    order: [],  
+    where: {
+      // thời gian bắt đầu phải lớn hơn thời gian hiện tại
+      startTime: {
+        [sequelize.Op.gte]: dateTime.getHours() + ":" + dateTime.getMinutes(),
+      },
+    },
     limit: limit,
     offset: (page - 1) * limit,
   };
 
-
-  option.where.price = {
-    [sequelize.Op.between]: [minPrice, maxPrice],
-  };
-
+  // chọn option sort
   if (sort) {
     option.order.push(orders[sort]);
   }
+  // lọc giá từ min tới max
+  option.where.price = {
+    [sequelize.Op.between]: [minPrice, maxPrice],
+  };
+  // where start và end và ngày đi
   if (dataSearch.start || dataSearch.end || dataSearch.date) {
     option.where.startProvince = dataSearch.start;
     option.where.endProvince = dataSearch.end;
     option.where.startDate = dataSearch.date;
   }
+  // lọc nhà xe
   if (req.query.nhaxe) {
     let arrNhaxe = req.query.nhaxe.split(",");
     option.include[0].where.id = {
       [sequelize.Op.in]: arrNhaxe,
     };
   }
+  // lọc loại xe
   if (req.query.loaixe) {
     let arrLoaixe = req.query.loaixe.split(",");
     option.include[1].where.id = {
@@ -66,9 +79,9 @@ controller.show = async (req, res) => {
   let option2 = Object.assign({}, option);
   delete option2.limit;
   delete option2.offset;
-  let   count  = await models.ChuyenXe.findAll(option2);
-  let totalPage = count.length; 
-  
+  let count = await models.ChuyenXe.findAll(option2);
+  let totalPage = count.length;
+
   // lấy param để phân trang
   let para = "";
   for (let key in req.query) {
@@ -82,7 +95,7 @@ controller.show = async (req, res) => {
     queryParams: para,
   };
   res.locals.pagis = pagi;
-  
+
   res.locals.chuyenxes = await models.ChuyenXe.findAll(option);
   res.locals.nhaxes = await models.NhaXe.findAll({
     include: [models.ChuyenXe],
@@ -103,7 +116,5 @@ controller.show = async (req, res) => {
 
   res.render("search-trip", { dataSearch });
 };
-
-
 
 module.exports = controller;

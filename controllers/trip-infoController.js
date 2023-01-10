@@ -2,6 +2,7 @@ const controller = {}; //Để {} vì là object có thể chứa thêm các hà
 const models = require("../models");
 
 controller.show = async (req, res) => {
+    // lấy id từ url gòi lây thông tin chuyến xe
     let id = req.params.id;
     res.locals.trip = await models.ChuyenXe.findOne({
         where: { id: id },
