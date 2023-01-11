@@ -327,8 +327,8 @@
                                                     </div>
                                                     <h5 class="fw-semibold">Phòng vé</h5>
                                                     <div class="form-group " id="phongve">
-                                                        <div class="row mb-2">
-                                                            <div class="col-md-4">
+                                                        <div class="row mb-2" id="themphongve">
+                                                            <div class="col-md-3">
                                                                 <div class="col-sm-10">
                                                                     <label for="phoneNo">Số điện thoại</label>
                                                                     <input type="" class="form-control" id="phoneNo"
@@ -336,7 +336,7 @@
                                                                         required>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-5">
+                                                            <div class="col-md-4">
                                                                 <div class="col-sm-10">
                                                                     <label for="address">Địa chỉ</label>
                                                                     <input type="" class="form-control" id="address"
@@ -351,16 +351,29 @@
                                                                         name="mainRoute" required>
                                                                         <option>Chọn tỉnh</option>
                                                                         {{#each tinhThanh}}
-                                                                        <option value="{{this.name}}">{{this.name}}
-                                                                        </option>
+                                                                            <option value="{{this.name}}">{{this.name}}
+                                                                            </option>
                                                                         {{/each}}
                                                                     </select>
                                                                 </div>
                                                             </div>
+
+                                                            {{!-- <div class="col-md-2">
+                                                                <div class="col-sm-10">                                                                    
+                                                                   <button class="btn btn-danger mt-4 ml-3 px-4"> - </button>
+                                                                </div>
+                                                            </div> --}}
+
+
                                                         </div>
+
+
                                                     </div>
-                                                    {{!-- <button class="btn btn-primary mb-3 ml-3 px-4"
-                                                        onclick="themphongve()"> + </button> --}}
+
+                                                    <button class="btn btn-primary mb-3 ml-3 px-4"
+                                                        onclick="themphongve()"> +
+                                                    </button>
+
 
                                                     <div class="form-group">
                                                         <h5 class="fw-semibold">Giới thiệu nhà xe</h5>
@@ -379,7 +392,8 @@
                                                 <div class="d-flex justify-content-center">
                                                     <button type="button" class="btn btn-primary mr-2"
                                                         onclick="sendDataToServer()">Lưu</button>
-                                                    <a class="btn btn-light" href="/dashboard/quanlynhaxe/">Trở lại</a>
+                                                    <a class="btn btn-light" href="/dashboard/quanlynhaxe/">Trở
+                                                        lại</a>
                                                 </div>
                                         </form>
                                         {{!--
@@ -446,6 +460,52 @@
 </body>
 
 <script>
+    function themphongve() {
+        let themphongve = document.getElementById("phongve");
+        let s = `
+         <div class="row mb-2">
+            <div class="col-md-3">
+                <div class="col-sm-10">
+                    <label for="phoneNo">Số điện thoại</label>
+                    <input type="" class="form-control" id="phoneNo" name="phoneNo" placeholder="Số điện thoại" required>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="col-sm-10">
+                    <label for="address">Địa chỉ</label>
+                    <input type="" class="form-control" id="address" name="address" placeholder="Địa chỉ" required>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="col-sm-10">
+                    <label for="mainRoute" class="form-label">Tỉnh:</label>
+                    <select class="form-select" id="mainRoute" name="mainRoute" required>
+                        <option>Chọn tỉnh</option>
+                        {{#each tinhThanh}}
+                            <option value="{{this.name}}">{{this.name}}
+                            </option>
+                        {{/each}}
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="col-sm-10">                                                                    
+                    <button class="btn btn-danger mt-4 ml-3 px-4" onclick="xoaphongve()"> - </button>
+                </div>
+            </div>
+            
+        </div>`
+        themphongve.insertAdjacentHTML("beforeend", s);
+        
+    }
+
+    function xoaphongve() {
+        let xoaphongve = document.getElementById("phongve");
+        xoaphongve.removeChild(xoaphongve.lastChild);
+    }
+
+
+
     function selected(value) {
         document.getElementById(value).selected = true
     }
