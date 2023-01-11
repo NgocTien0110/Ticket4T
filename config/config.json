@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "postgres",
-    "password": "nhom5-ticket4t",
-    "database": "postgres",
-    "host": "db.kneiqmkjvzdscvwhjypu.supabase.co",
+    "password": "postgres",
+    "database": "Ticket4T",
+    "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
