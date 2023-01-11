@@ -144,13 +144,6 @@ controller.showChuyenXe = async (req, res) => {
     res.render('quanlychuyenxe');
 }
 
-// controller.deleteChuyenXe = async (req, res) => {
-//     const id = parseInt(req.body.id);
-
-
-//     res.redirect(req.get('referer'))
-// }
-
 controller.featureChuyenXe = async (req, res) => {
     let tempID = req.body.id.split(",");
     const id = parseInt(tempID[0]);
@@ -268,7 +261,7 @@ controller.updateChuyenXe = async (req, res) => {
         }
     })
 
-    res.redirect(req.get('referer'))
+    res.redirect("/dashboard/quanlychuyenxe");
 }
 
 controller.themchuyenxe = async (req, res) => {
@@ -324,7 +317,7 @@ controller.addChuyenXe = async (req, res) => {
         locationImage: img.path
     });
 
-    res.redirect(req.get('referer'));
+    res.redirect("/dashboard/quanlychuyenxe");
 }
 
 controller.editMultiChuyenXe = async (req, res) => {

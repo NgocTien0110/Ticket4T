@@ -235,7 +235,7 @@ controller.updateNhaXe = async (req, res) => {
 
   // console.log(img_array);
 
-  res.redirect(req.get("referer"));
+  res.redirect("/dashboard/quanlynhaxe");
 };
 
 controller.deleteNhaXe = async (req, res) => {
@@ -320,7 +320,7 @@ controller.addNhaXe = async (req, res) => {
     imageJours: img_jours,
   });
 
-  res.redirect(req.get("referer"));
+  res.redirect("/dashboard/quanlynhaxe");
 };
 
 module.exports = controller;
