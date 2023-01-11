@@ -383,7 +383,7 @@
             let start = Date.parse(document.getElementById("startDate").value)
             let end = Date.parse(document.getElementById("endDate").value)
 
-            if (start >= end) {
+            if (start > end) {
                 alert("Ngày bắt đầu phải nhỏ hơn hoặc bằng ngày kết thúc")
                 return false;
             }
