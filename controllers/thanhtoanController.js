@@ -52,8 +52,8 @@ controller.Paypal = (req, res, item, totalPrice, id) => {
             "payment_method": "paypal"
         },
         "redirect_urls": {
-            "return_url": "https://nhom5-ticket4t.onrender.com/search-trip/" + id + "/thanh-toan/thanhcong",
-            "cancel_url": "https://nhom5-ticket4t.onrender.com/search-trip/" + id + "/thanh-toan/thatbai"
+            "return_url": "https://project-ticket4t-nhom5.onrender.com/search-trip/" + id + "/thanh-toan/thanhcong",
+            "cancel_url": "https://project-ticket4t-nhom5.onrender.com/search-trip/" + id + "/thanh-toan/thatbai"
         },
         "transactions": [{
             "item_list": {
