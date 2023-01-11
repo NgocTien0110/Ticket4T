@@ -52,8 +52,8 @@ controller.Paypal = (req, res, item, totalPrice, id) => {
             "payment_method": "paypal"
         },
         "redirect_urls": {
-            "return_url": "http://localhost:3000/search-trip/" + id + "/thanh-toan/thanhcong",
-            "cancel_url": "http://localhost:3000/search-trip/" + id + "/thanh-toan/thatbai"
+            "return_url": "https://nhom5-ticket4t.onrender.com/search-trip/" + id + "/thanh-toan/thanhcong",
+            "cancel_url": "https://nhom5-ticket4t.onrender.com/search-trip/" + id + "/thanh-toan/thatbai"
         },
         "transactions": [{
             "item_list": {
@@ -82,10 +82,10 @@ controller.Paypal = (req, res, item, totalPrice, id) => {
 }
 controller.Payment = async (req, res) => {
     let t = req.body.totalprice;
-    let totalPrice = t.slice(0, -4).replaceAll(".", "");
+    let totalPrice = t.slice(0, -4).split(".").join("");
     let accId = req.session.user.id;
     let price = req.body.price;
-    price = parseFloat(price.slice(0, -4).replaceAll(".", ""));
+    price = parseFloat(price.slice(0, -4).split(".").join(""));
     totalprice = parseFloat(totalPrice);
     price = (price * 0.042 / 1000).toFixed(2).toString();
     totalprice = (totalprice * 0.042 / 1000).toFixed(2).toString();
@@ -119,7 +119,7 @@ controller.Payment = async (req, res) => {
         {
             numSeats: req.body.ticket,
             totalPrice: totalPrice,
-            statusTicket: "Đã thanh toán",
+            statusTicket: "Vừa đặt",
             phoneNum: req.body.phone,
             email: req.body.email,
             jourId: parseInt(req.params.id),
