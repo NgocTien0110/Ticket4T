@@ -2,24 +2,30 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Quản lý chuyến xe</title>
+    <title>Nhân bản chuyến xe</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="/vendors/feather/feather.css">
     <link rel="stylesheet" href="/vendors/ti-icons/css/themify-icons.css">
     <link rel="stylesheet" href="/vendors/css/vendor.bundle.base.css">
     <!-- endinject -->
     <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="/vendors/select2/select2.min.css">
+    <link rel="stylesheet" href="/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <link rel="stylesheet" href="/css/vertical-layout-light/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="/images/favicon.png" />
-    <link rel="stylesheet" href="/css/quanlyve.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
+    <!-- flatpickr -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
+    <script src="https://npmcdn.com/flatpickr@4.6.13/dist/l10n/vn.js"></script>
 </head>
 
 <body>
@@ -247,83 +253,94 @@
             <div class="main-panel">
                 <div class="content-wrapper">
                     <div class="row">
-                        <div class="col grid-margin stretch-card">
+                        <div class="col-12 grid-margin">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Quản lý chuyến xe</h4>
-                                    <a href="/dashboard/quanlychuyenxe/themchuyenxe" type="button"
-                                        class="bi bi-plus-square btn bg-primary" style="color: white;"> Thêm chuyến
-                                        xe</a>
+                                    <h4 class="card-title">Nhân bản chuyến xe</h4>
+                                    {{#with chuyenxeDetails}}
+                                    <form id="updateChuyenXe" action="/dashboard/quanlychuyenxe/editMultiplyChuyenXe/{{id}}"
+                                        class="form-sample d-flex justify-content-center flex-column" method="post" onsubmit="return sendDataToServer(this)">
+                                        <p class="card-description" style="font-weight: bold;">
+                                            <i class="fa-solid fa-clock"></i> Thời gian
+                                        </p>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group row justify-content-center">
+                                                    <div class="col-sm-9">
+                                                        <label class=""><i class="fa-solid fa-calendar-check"></i> Ngày
+                                                            bắt đầu</label>
+                                                        <input type="date" class="form-control"
+                                                            value="{{toDate startDate}}" name="startDate" id="startDate"
+                                                            min="2018-01-01" max="2025-12-31" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group row justify-content-center">
+                                                    <div class="col-sm-9">
+                                                        <label class=""><i class="fa-solid fa-hourglass-start"></i> Thời
+                                                            gian bắt đầu</label>
+                                                        <input type="time" class="form-control" value="{{startTime}}"
+                                                            name="startTime" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-6">
+                                                <div class="form-group row justify-content-center">
+                                                    <div class="col-sm-9">
+                                                        <label class=""><i
+                                                                class="fa-sharp fa-solid fa-calendar-xmark"></i>
+                                                            Ngày kết thúc</label>
+                                                        <input type="date" class="form-control" id="endDate"
+                                                            value="{{toDate endDate}}" name="endDate" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group row justify-content-center">
+                                                    <div class="col-sm-9">
+                                                        <label class=""><i class="fa-solid fa-hourglass-end"></i> Thời
+                                                            gian kết thúc</label>
+                                                        <input type="time" class="form-control" value="{{endTime}}"
+                                                            name="endTime" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
+                                        <hr />
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-6">
+                                                <div class="form-group row justify-content-center">
+                                                    <div class="col-sm-10">
+                                                        <label class=" col-form-label"><i class="fas fa-chair"></i> Số
+                                                            ghế ngồi còn lại</label>
+                                                        <input type="text" class="form-control"
+                                                            value="{{numSeats}}" name="numSeats" />
 
-                                    {{!-- <p class="card-description">
-                                        Add class <code>.table-hover</code>
-                                    </p> --}}
-                                    <div class="table-responsive">
-                                        <table class="table table-hover">
-                                            <thead>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Tuyến đường</th>
-                                                    <th>Điểm đón - Điểm dừng</th>
-                                                    <th>Ngày</th>
-                                                    <th>Thời gian</th>
-                                                    <th>Tổng số ghế</th>
-                                                    <th>Loại ghế</th>
-                                                    <th>Nhà xe</th>
-                                                    <th></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {{#each quanly_chuyenxe}}
-                                                <tr>
-                                                    <td>{{id}}</td>
-                                                    <td>{{startProvince}} <i class="bi bi-arrow-right"></i>
-                                                        {{endProvince}}</td>
-                                                    <td>{{startLocation}} <i class="bi bi-arrow-right"></i>
-                                                        {{endLocation}}</td>
-                                                    <td>{{date startDate}} - {{date endDate}}</td>
-                                                    <td>{{startTime}} - {{endTime}}</td>
-                                                    <td>{{totalNumSeats}}</td>
-                                                    <td>{{LoaiXe.name}}</td>
-                                                    <td>{{NhaXe.name}}</td>
-                                                    <td style="flex-direction: row; display: flex">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                                        <button type="button" class="bi bi-pencil-square edit"
-                                                            onclick="redirectTo({{id}})"
-                                                            style="color: white; margin-right: 10px"></button>
-                                                        <form id="deleteChuyenXe" action="/dashboard/quanlychuyenxe"
-                                                            method="post" onsubmit="return submitForm(this)">
-                                                            <button class="bi bi-trash delete"
-                                                                style="color: white; margin-right: 10px" ;></button>
-                                                            <input name="id" type="text" value="{{id}},-" hidden>
-                                                        </form>
+                                        <div
+                                            style="display: flex; justify-content: center; padding: 10px; margin: 10px">
+                                            <button class="btn-success btn" style="margin: 10px;"
+                                                >Xác
+                                                nhận</button>
+                                            <button type="button" class="btn-danger btn" style="margin: 10px;"
+                                                onclick="redirectTo()">Trở về</button>
+                                        </div>
 
-                                                        <form id="multiChuyenXe" action="/dashboard/quanlychuyenxe"
-                                                            method="post" onsubmit="return multiByID(this)">
-                                                            <button class="bi bi-plus-square multi"
-                                                                style="color: white"></button>
-                                                            <input name="id" type="text" value="{{id}},+" hidden>
-                                                        </form>
-                                                    </td>
-                                                </tr>
-                                                {{/each}}
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                    </form>
+                                    {{/with}}
                                 </div>
-
-                                <nav aria-label="..." style="display: flex; justify-content: center">
-                                    <ul class="pagination">
-                                        {{{createChuyenXeManagementPagination totalPage currentPage}}}
-                                    </ul>
-                                </nav>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
                 <!-- content-wrapper ends -->
                 <!-- partial:/partials/_footer.html -->
                 <footer class="footer">
@@ -347,6 +364,8 @@
     <script src="/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
+    <script src="/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+    <script src="/vendors/select2/select2.min.js"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
     <script src="/js/off-canvas.js"></script>
@@ -354,59 +373,49 @@
     <script src="/js/template.js"></script>
     <script src="/js/settings.js"></script>
     <script src="/js/todolist.js"></script>
-
-    <script>
-        function redirectTo(id) {
-            window.location.href = "/dashboard/quanlychuyenxe/" + id;
-        }
-
-        function redirectToEditMulti(id){
-            window.location.href = "/dashboard/quanlychuyenxe/editMultiplyChuyenXe/" + id;
-        }
-
-        function submitForm(form) {
-            swal({
-                title: "Bạn có chắc chắn muốn xóa chuyến này không ?",
-                text: "Bạn sẽ không thể khôi phục lại chuyến xe này !",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        form.submit();
-
-                    }
-                });
-            return false;
-        }
-
-        function multiByID(form) {
-            swal({
-                title: "Chỉnh sửa chi tiết chuyến xe nhân bản?",
-                icon: "warning",
-                buttons: true,
-            })
-                .then((isOk) => {
-                    if (!isOk) {
-                        swal({
-                            title: "Thêm chuyến xe thành công",
-                            icon: "success",
-                            buttons: "Xác nhận",
-                        })
-                        .then((formSubmitted) => {
-                            form.submit();
-                        })
-                    }
-                    else if(isOk){
-                        let tempID = form.id.value.split(",")[0];
-                        redirectToEditMulti(tempID);
-                    }
-                })
-            return false;
-        }
-    </script>
     <!-- endinject -->
     <!-- Custom js for this page-->
+    <script src="/js/file-upload.js"></script>
+    <script src="/js/typeahead.js"></script>
+    <script src="/js/select2.js"></script>
+    <script>
+        function checkValidStartEndDate() {
+            let start = Date.parse(document.getElementById("startDate").value)
+            let end = Date.parse(document.getElementById("endDate").value)
+
+            if (start >= end) {
+                alert("Ngày bắt đầu phải nhỏ hơn hoặc bằng ngày kết thúc")
+                return false;
+            }
+            return true;
+        }
+
+        function sendDataToServer(form) {
+
+            if (checkValidStartEndDate()){
+                if (confirm("Xác nhận thay đổi")) {
+                    form.submit()
+                }
+            }
+            
+            return false;
+        }
+
+        function redirectTo() {
+            window.location.href = "/dashboard/quanlychuyenxe/";
+        }
+    </script>
+
+    <script>
+        flatpickr("#datetimepicker", {
+            dateFormat: "d-m-Y",
+            locale: "vn",
+            disableMobile: "true",
+            // set today date
+            defaultDate: new Date()
+
+        });
+
+    </script>
     <!-- End custom js for this page-->
 </body>

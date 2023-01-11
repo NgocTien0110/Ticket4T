@@ -327,21 +327,65 @@ controller.addChuyenXe = async (req, res) => {
     res.redirect(req.get('referer'));
 }
 
-// function toLowerCaseNonAccentVietnamese(str) {
-//     str = str.toLowerCase();
+controller.editMultiChuyenXe = async (req, res) => {
+  const id = parseInt(req.params.id);
 
-//     str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
-//     str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
-//     str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
-//     str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
-//     str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
-//     str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
-//     str = str.replace(/đ/g, "d");
+  let details = await models.ChuyenXe.findOne({
+    where: { id: id },
+    include: [models.LoaiXe, models.NhaXe],
+  });
+  res.locals.chuyenxeDetails = details;
 
-//     str = str.replace(/\u0300|\u0301|\u0303|\u0309|\u0323/g, ""); // Huyền sắc hỏi ngã nặng 
-//     str = str.replace(/\u02C6|\u0306|\u031B/g, ""); // Â, Ê, Ă, Ơ, Ư
-//     return str;
-// }
+  res.render("thongtinMultichuyenxe");
+};
+
+controller.updateMultiChuyenXe = async (req, res) => {
+  let id = parseInt(req.params.id);
+
+  let [startDate, endDate, startTime, endTime] = [
+    req.body.startDate,
+    req.body.endDate,
+    req.body.startTime,
+    req.body.endTime,
+  ];
+
+  let numSeats = req.body.numSeats;
+
+  let tempStartDate = startDate.split("-");
+  startDate =
+    tempStartDate[2] + "-" + tempStartDate[1] + "-" + tempStartDate[0];
+
+  let tempEndDate = endDate.split("-");
+  endDate = tempEndDate[2] + "-" + tempEndDate[1] + "-" + tempEndDate[0];
+
+  let tempModel = await models.ChuyenXe.findOne({ where: { id: id } });
+
+  tempModel.startDate = startDate
+  tempModel.endDate = endDate
+  tempModel.startTime = startTime
+  tempModel.endTime = endTime
+  tempModel.numSeats = numSeats;
+
+  await models.ChuyenXe.create({
+    startProvince: tempModel.startProvince,
+    endProvince: tempModel.endProvince,
+    startLocation: tempModel.startLocation,
+    endLocation: tempModel.endLocation,
+    startDate: tempModel.startDate,
+    endDate: tempModel.endDate,
+    startTime: tempModel.startTime,
+    endTime: tempModel.endTime,
+    carId: tempModel.carId,
+    cateCarId: tempModel.cateCarId,
+    totalNumSeats: tempModel.totalNumSeats,
+    price: tempModel.price,
+    numSeats: tempModel.numSeats,
+    locationImage: tempModel.locationImage,
+  });
+
+  res.redirect("/dashboard/quanlychuyenxe");
+};
+
 
 controller.loginAdmin = (req, res, next) => {
     let email = req.body.email

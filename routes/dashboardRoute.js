@@ -22,7 +22,19 @@ Router.post(
 );
 Router.get('/quanlychuyenxe/:id', controller.isAdminLoggedIn, controller.editChuyenXe);
 Router.post('/quanlychuyenxe/:id', controller.isAdminLoggedIn, controller.updateChuyenXe);
+
 Router.post('/quanlychuyenxe/themchuyenxe/add', controller.isAdminLoggedIn, upload_cloud.single('image'), controller.addChuyenXe);
+
+Router.get(
+  "/quanlychuyenxe/editMultiplyChuyenXe/:id",
+  controller.isAdminLoggedIn,
+  controller.editMultiChuyenXe
+);
+Router.post(
+  "/quanlychuyenxe/editMultiplyChuyenXe/:id",
+  controller.isAdminLoggedIn,
+  controller.updateMultiChuyenXe
+);
 
 
 // nha xe
