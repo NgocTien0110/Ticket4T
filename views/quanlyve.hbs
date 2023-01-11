@@ -21,27 +21,8 @@
     <!-- endinject -->
     <link rel="shortcut icon" href="/images/favicon.png" />
     <link rel="stylesheet" href="/css/quanlyve.css">
-    <style>
-        #preloader {
-            height: 100vh;
-            width: 100vw;
-            background: #fff url("/images/loading/bus.gif") no-repeat center center;
-            position: fixed;
-            z-index: 100;
-
-
-        }
-    </style>
-    <script>
-        window.addEventListener('load', function () {
-            const preloader = document.querySelector('#preloader');
-            preloader.style.display = 'none';
-        })
-    </script>
-</head>
 
 <body>
-    <div id="preloader"></div>
     <div class="container-scroller">
         <!-- partial:/partials/_navbar.html -->
         {{>headerDashboard}}
