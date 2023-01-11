@@ -267,63 +267,63 @@ helper.ViewListTicketPagination = (page, totalPage, queryParams) => {
 helper.createChuyenXeManagementPagination = (totalPage, currentPage) => {
     let str = "<li class=\"page-item ";
 
-    if(currentPage == 1)
+    if (currentPage == 1)
         str += "disabled";
-    str += "\"><a class=\"page-link\" href=\"/dashboard/quanlychuyenxe?page=" + (parseInt(currentPage) - 1) 
+    str += "\"><a class=\"page-link\" href=\"/dashboard/quanlychuyenxe?page=" + (parseInt(currentPage) - 1)
         + "\">Previous</a></li>";
 
-    for(i = 1; i <= totalPage; ++i){
+    for (i = 1; i <= totalPage; ++i) {
         str += "<li class=\"page-item "
-        if(i == currentPage)
+        if (i == currentPage)
             str += "active";
         str += "\"><a class=\"page-link\" href=\""
             + "/dashboard/quanlychuyenxe?page=" + i
             + "\">"
             + i + " </a></li>"
     }
-   
+
     str += "<li class=\"page-item ";
-    if(currentPage == totalPage)
+    if (currentPage == totalPage)
         str += "disabled";
-    str += "\"><a class=\"page-link\" href=\"/dashboard/quanlychuyenxe?page=" + (parseInt(currentPage) + 1) 
+    str += "\"><a class=\"page-link\" href=\"/dashboard/quanlychuyenxe?page=" + (parseInt(currentPage) + 1)
         + "\">Next</a></li>";
 
     return str;
 }
 
 helper.createNhaXeManagementPagination = (totalPage, currentPage) => {
-  let str = '<li class="page-item ';
+    let str = '<li class="page-item ';
 
-  if (currentPage == 1) str += "disabled";
-  str +=
-    '"><a class="page-link" href="/dashboard/quanlynhaxe?page=' +
-    (parseInt(currentPage) - 1) +
-    '">Previous</a></li>';
-
-  for (i = 1; i <= totalPage; ++i) {
-    str += '<li class="page-item ';
-    if (i == currentPage) str += "active";
+    if (currentPage == 1) str += "disabled";
     str +=
-      '"><a class="page-link" href="' +
-      "/dashboard/quanlynhaxe?page=" +
-      i +
-      '">' +
-      i +
-      " </a></li>";
-  }
+        '"><a class="page-link" href="/dashboard/quanlynhaxe?page=' +
+        (parseInt(currentPage) - 1) +
+        '">Previous</a></li>';
 
-  str += '<li class="page-item ';
-  if (currentPage == totalPage) str += "disabled";
-  str +=
-    '"><a class="page-link" href="/dashboard/quanlynhaxe?page=' +
-    (parseInt(currentPage) + 1) +
-    '">Next</a></li>';
+    for (i = 1; i <= totalPage; ++i) {
+        str += '<li class="page-item ';
+        if (i == currentPage) str += "active";
+        str +=
+            '"><a class="page-link" href="' +
+            "/dashboard/quanlynhaxe?page=" +
+            i +
+            '">' +
+            i +
+            " </a></li>";
+    }
 
-  return str;
+    str += '<li class="page-item ';
+    if (currentPage == totalPage) str += "disabled";
+    str +=
+        '"><a class="page-link" href="/dashboard/quanlynhaxe?page=' +
+        (parseInt(currentPage) + 1) +
+        '">Next</a></li>';
+
+    return str;
 };
 
 helper.toDate = (dateString) => {
-    
+
     let temp = dateString.split('-');
 
     return temp[2] + '-' + temp[1] + '-' + temp[0]
@@ -334,11 +334,11 @@ helper.checkMinMaxPrice = (minPrice, maxPrice) => {
     minPrice = parseFloat(minPrice);
     maxPrice = parseFloat(maxPrice);
 
-    if(minPrice === maxPrice)
+    if (minPrice === maxPrice)
         str = "Giá vé: " + helper.formatPrice(minPrice) + "đ";
     else
-        str = "Giá vé: Từ " +  helper.formatPrice(minPrice) + "đ đến" + helper.formatPrice(maxPrice) + "đ";
-                                            
+        str = "Giá vé: Từ " + helper.formatPrice(minPrice) + "đ đến " + helper.formatPrice(maxPrice) + "đ";
+
     return str;
 }
 module.exports = helper;
