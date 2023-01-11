@@ -23,4 +23,11 @@ Router.get('/syncPassword', async (req, res) => {
     res.redirect("/");
 })
 
+Router.get('/createTables', (req, res) => {
+    let models = require('./models');
+    models.sequelize.sync().then(() => { //Tạo bảng ở trong postgres
+        res.send("tables created");
+    })
+})
+
 module.exports = Router;
