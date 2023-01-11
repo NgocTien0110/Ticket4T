@@ -1,5 +1,6 @@
 <header>
     <!-- place navbar here -->
+    <div id="preloader"></div>
     <nav class="navbar navbar-expand-md bg-header navbar-dark py-0">
         <div class="container">
             <a class="navbar-brand" href="/">
@@ -99,4 +100,21 @@
             </div>
         </div>
     </nav>
+    <style>
+        #preloader {
+            height: 100vh;
+            width: 100vw;
+            background: #fff url("/images/loading/bus.gif") no-repeat center center;
+            position: fixed;
+            z-index: 100;
+
+
+        }
+    </style>
+    <script>
+        window.addEventListener('load', function () {
+            const preloader = document.querySelector('#preloader');
+            preloader.style.display = 'none';
+        })
+    </script>
 </header>
