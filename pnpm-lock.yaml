@@ -642,7 +642,7 @@ packages:
       mariadb:
         optional: true
       mysql2:
-        optional: true
+        optional: false
       oracledb:
         optional: true
       pg:
