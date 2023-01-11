@@ -296,7 +296,7 @@ controller.showDetailsTicket = async (req, res) => {
 
     let veChuaHuy;
 
-    if (veDaDat.statusTicket != "Đã hủy" && (controller.compareTwoDate(today, chuyenXe.endDate) == false)) {
+    if (veDaDat.statusTicket == "Vừa đặt" && (controller.compareTwoDate(today, chuyenXe.endDate) == false)) {
         veChuaHuy = true;
     }
     else {

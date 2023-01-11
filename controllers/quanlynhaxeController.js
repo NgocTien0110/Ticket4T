@@ -301,11 +301,13 @@ controller.addNhaXe = async (req, res) => {
   let body = req.body;
   // console.log(img_array);
   let name = body.name;
-  let phoneNo = [body.phoneNo];
-  let address = [body.address];
-  let mainRoute = [body.mainRoute];
+  let phoneNo = body.phoneNo;
+  let address = body.address;
+  let mainRoute = body.mainRoute;
   let description = body.description;
   let policy = body.policy;
+
+  // console.log(name, phoneNo, address, mainRoute, description, policy);
 
   await models.NhaXe.create({
     name: name,

@@ -69,6 +69,11 @@ app.use((req, res, next) => {
   res.locals.fullName = req.session.user ? req.session.user.fullName : '';
   res.locals.isLoggedIn = req.session.user ? true : false;
   res.locals.avatar = req.session.user ? req.session.user.imageAccount : '';
+  if (req.session.user) {
+    if (req.session.user.isAdmin == false) {
+      res.locals.isUser = true;
+    }
+  }
   next();
 })
 
@@ -81,12 +86,12 @@ app.use('/nha-xe', require('./routes/nhaxeRoute'))
 app.use('/about', require('./routes/aboutRoute'))
 app.use('/dashboard', require('./routes/dashboardRoute'))
 
-
-app.get('/createTables', (req, res) => {
-  let models = require('./models');
-  models.sequelize.sync().then(() => { //Tạo bảng ở trong postgres
-    res.send("tables created");
-  })
+app.use((req, res, next) => {
+  res.status(404).render('error-404');
+})
+app.use((error, req, res, next) => {
+  console.log(error);
+  res.status(500).render('error-500');
 })
 
 app.set('port', process.env.PORT || 3000);

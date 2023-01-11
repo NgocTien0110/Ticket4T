@@ -8,6 +8,7 @@ paypal.configure({
     'client_secret': 'EFv47lw_xv0VI2-EO3-3-8r03UtkcVEMTOKrN3FcoeCCvmx41MnwbeQ-xAZzJdE5UjrEaXZ4aPuRCW4j'
 });
 let totalprice;
+let idTicket;
 controller.show = async (req, res) => {
     res.locals.name = req.query.name;
     res.locals.phone = req.query.phone;
@@ -52,8 +53,8 @@ controller.Paypal = (req, res, item, totalPrice, id) => {
             "payment_method": "paypal"
         },
         "redirect_urls": {
-            "return_url": "http://localhost:3000/search-trip/" + id + "/thanh-toan/thanhcong",
-            "cancel_url": "http://localhost:3000/search-trip/" + id + "/thanh-toan/thatbai"
+            "return_url": "https://project-ticket4t-nhom5.onrender.com/search-trip/" + id + "/thanh-toan/thanhcong",
+            "cancel_url": "https://project-ticket4t-nhom5.onrender.com/search-trip/" + id + "/thanh-toan/thatbai"
         },
         "transactions": [{
             "item_list": {
@@ -82,10 +83,10 @@ controller.Paypal = (req, res, item, totalPrice, id) => {
 }
 controller.Payment = async (req, res) => {
     let t = req.body.totalprice;
-    let totalPrice = t.slice(0, -4).replaceAll(".", "");
+    let totalPrice = t.slice(0, -4).split(".").join("");
     let accId = req.session.user.id;
     let price = req.body.price;
-    price = parseFloat(price.slice(0, -4).replaceAll(".", ""));
+    price = parseFloat(price.slice(0, -4).split(".").join(""));
     totalprice = parseFloat(totalPrice);
     price = (price * 0.042 / 1000).toFixed(2).toString();
     totalprice = (totalprice * 0.042 / 1000).toFixed(2).toString();
@@ -119,7 +120,7 @@ controller.Payment = async (req, res) => {
         {
             numSeats: req.body.ticket,
             totalPrice: totalPrice,
-            statusTicket: "Đã thanh toán",
+            statusTicket: "Vừa đặt",
             phoneNum: req.body.phone,
             email: req.body.email,
             jourId: parseInt(req.params.id),
@@ -128,6 +129,7 @@ controller.Payment = async (req, res) => {
         },
     ])
         .then((product) => {
+            idTicket = product[0].id;
             userController.sendEmailTicketOrder(user, chuyenxe, chuyenxe.NhaXe.name, req.body.ticket, totalPrice)
             chuyenxe.update({
                 numSeats: (chuyenxe.numSeats - req.body.ticket)
@@ -160,7 +162,7 @@ controller.Success = async (req, res) => {
                 statusTicket: "Đã thanh toán"
             }, {
                 where: {
-                    accId: req.session.user.id
+                    id: idTicket
                 }
             })
             res.render("thanhcong");
