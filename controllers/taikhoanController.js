@@ -3,7 +3,7 @@ const models = require('../models')
 const userController = require('../controllers/userController');
 let bcrypt = require('bcryptjs');
 
-controller.showUpdatePassword = async (req, res) => {
+controller.showUpdatePassword = async (req, res) => { //Hiển thị trang cập nhật mật khẩu
     let accId = req.session.user.id
 
     res.locals.infoAcc = await models.TaiKhoan.findOne({
@@ -15,7 +15,7 @@ controller.showUpdatePassword = async (req, res) => {
 }
 
 
-controller.updatePassword = async (req, res) => {
+controller.updatePassword = async (req, res) => { //Cập nhật mật khẩu
     let accId = req.session.user.id
     let oldPassword = req.body.oldPassword;
     let newPassword = req.body.newPassword;
@@ -31,8 +31,8 @@ controller.updatePassword = async (req, res) => {
         .getUserByEmail(infoAcc.email)
         .then(user => {
             if (user) {
-                if (userController.comparePassword(oldPassword, user.password)) {
-                    if (!newPassword.localeCompare(confirmNewPassword)) { //Cập nhật mật khẩu
+                if (userController.comparePassword(oldPassword, user.password)) { //Nếu nhập mật khẩu đúng
+                    if (!newPassword.localeCompare(confirmNewPassword)) { //Nếu xác nhận mật khẩu trùng với mật khẩu mới
                         var salt = bcrypt.genSaltSync(10);
                         newPassword = bcrypt.hashSync(newPassword, salt);
 
@@ -43,7 +43,7 @@ controller.updatePassword = async (req, res) => {
                             message: `Đổi mật khẩu thành công`,
                             type: 'alert-success', infoAcc
                         })
-                    } else {
+                    } else { //Không trùng nhau
                         return res.render('updatePassword', {
                             message: `Mật khẩu mới với xác nhận mật khẩu mới không trùng nhau!!!`,
                             type: 'alert-danger', infoAcc
@@ -60,7 +60,7 @@ controller.updatePassword = async (req, res) => {
         })
 }
 
-controller.showInfoAcc = async (req, res) => {
+controller.showInfoAcc = async (req, res) => { //Hiển thị thông tin tài khoản người dùng
     let accId = req.session.user.id
     res.locals.infoAcc = await models.TaiKhoan.findOne({
         where: {
@@ -70,7 +70,7 @@ controller.showInfoAcc = async (req, res) => {
     res.render('infoTaiKhoan')
 }
 
-controller.updateInfoAcc = async (req, res) => {
+controller.updateInfoAcc = async (req, res) => { //Cập nhật thông  tin tài khoản
     let dataFile = req.file;
     let accId = req.session.user.id
     let fullName = req.body.fullName;
@@ -80,7 +80,7 @@ controller.updateInfoAcc = async (req, res) => {
     let sex = req.body.sex;
     let isMale;
 
-    if (!sex.localeCompare("Nam")) {
+    if (!sex.localeCompare("Nam")) { //Kiểm tra xem giới tính có phải nam không
         isMale = true;
     } else {
         isMale = false;
@@ -95,7 +95,7 @@ controller.updateInfoAcc = async (req, res) => {
         .getUserByEmail(email)
         .then(user => {
             if (user) {
-                if (!user.email.localeCompare(infoAcc.email)) {
+                if (!user.email.localeCompare(infoAcc.email)) { //Nếu email đúng
                     infoAcc.update({
                         fullName: fullName,
                         phoneNum: phoneNum,
@@ -138,7 +138,7 @@ controller.updateInfoAcc = async (req, res) => {
 
 }
 
-controller.showMyTicket = async (req, res) => {
+controller.showMyTicket = async (req, res) => { //Hiển thị lịch sử vé
     let accId = req.session.user.id
     let statusTicket = req.query.statusTicket || 'Vừa đặt'
 
@@ -146,11 +146,11 @@ controller.showMyTicket = async (req, res) => {
     let statusThanhToan = false;
     let statusDaHuy = false;
 
-    if (!statusTicket.localeCompare('Đã thanh toán')) {
+    if (!statusTicket.localeCompare('Đã thanh toán')) { //Tình trạng vé là Đã thanh toán
         statusVuaDat = false;
         statusThanhToan = true;
     }
-    else if (!statusTicket.localeCompare('Đã hủy')) {
+    else if (!statusTicket.localeCompare('Đã hủy')) { //Tình trạng vé là Đã hủy
         statusVuaDat = false;
         statusDaHuy = true;
     }
@@ -169,7 +169,7 @@ controller.showMyTicket = async (req, res) => {
     let limit = 5;
     let offset = limit * (page - 1);
 
-    let vedadat = {
+    let vedadat = { //Phân trang
         where: {
             id: accId,
         },
@@ -228,7 +228,7 @@ controller.showMyTicket = async (req, res) => {
     res.render('myTicket')
 }
 
-controller.compareTwoDate = (date1, date2) => {
+controller.compareTwoDate = (date1, date2) => { //Hàm so sánh ngày tháng năm giữa 2 date
     const date1Temp = date1.split('-');
     const date2Temp = date2.split('-');
 
@@ -256,7 +256,7 @@ controller.compareTwoDate = (date1, date2) => {
     }
 }
 
-controller.showDetailsTicket = async (req, res) => {
+controller.showDetailsTicket = async (req, res) => { //Hiển thị thông tin chi tiết vé
     let accId = req.session.user.id
     let ticketId = req.params.ticketId;
 
@@ -296,7 +296,8 @@ controller.showDetailsTicket = async (req, res) => {
 
     let veChuaHuy;
 
-    if (veDaDat.statusTicket == "Vừa đặt" && (controller.compareTwoDate(today, chuyenXe.endDate) == false)) {
+    //Nếu tình trạng vé là vừa đặt và ngày hôm nay nhỏ hơn ngày khởi hành
+    if (veDaDat.statusTicket == "Vừa đặt" && (controller.compareTwoDate(today, chuyenXe.startDate) == false)) {
         veChuaHuy = true;
     }
     else {
@@ -308,7 +309,7 @@ controller.showDetailsTicket = async (req, res) => {
     res.render('xemChiTietVe')
 }
 
-controller.cancleTicket = async (req, res) => {
+controller.cancleTicket = async (req, res) => { //Hủy vé
     let ticketId = req.body.id;
     let accId = req.session.user.id;
 
@@ -337,10 +338,10 @@ controller.cancleTicket = async (req, res) => {
         }
     })
 
-    veDaDat.update({
+    veDaDat.update({ //Cập nhật tình trạng vé thành đã hủy
         statusTicket: 'Đã hủy'
     })
-    chuyenXe.update({
+    chuyenXe.update({ //Cập nhập số lượng ghế còn lại của chuyến xe
         numSeats: (chuyenXe.numSeats + veDaDat.numSeats)
     })
 

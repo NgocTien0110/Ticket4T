@@ -14,6 +14,7 @@ app.engine(
     helpers: {
       date: helper.date,
       date1: helper.date1,
+      date2: helper.date2,
       time: helper.time,
       totalTime: helper.totalTime,
       totalPrice: helper.totalPrice,

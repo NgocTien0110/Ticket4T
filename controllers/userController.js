@@ -10,17 +10,17 @@ const mailjet = Mailjet.apiConnect(
     process.env.MJ_APIKEY_PRIVATE || '81b78a49dfb2165685b478652db78aa4',
 );
 
-controller.showFormLogin = (req, res) => {
+controller.showFormLogin = (req, res) => {  //Hiển thị form đăng nhập
     req.session.returnURL = req.query.returnURL;
     res.render('login');
 }
 
-controller.showFormRegister = (req, res) => {
+controller.showFormRegister = (req, res) => { //Hiển thị form đăng ký
     req.session.returnURL = req.query.returnURL;
     res.render('register');
 }
 
-controller.login = (req, res, next) => {
+controller.login = (req, res, next) => { //Xử lý khi người dùng đăng nhập
     let email = req.body.email
     let password = req.body.password
 
@@ -28,6 +28,7 @@ controller.login = (req, res, next) => {
         .getUserByEmail(email)
         .then(user => {
             if (user) {
+                //Kiểm tra xem mật khẩu nhập có đúng không và đã xác thực tài khoản chưa
                 if (controller.comparePassword(password, user.password) == true && user.isVerified == true) {
                     req.session.user = user;
                     if (req.session.returnURL) {
@@ -56,8 +57,8 @@ controller.login = (req, res, next) => {
         })
 }
 
-controller.logout = (req, res, next) => {
-    req.session.destroy(error => {
+controller.logout = (req, res, next) => { //Đăng xuất
+    req.session.destroy(error => { //Hủy session id
         if (error) {
             return next(error);
         }
@@ -73,13 +74,13 @@ controller.getUserByEmail = (email) => {
     })
 }
 
-controller.createUser = (user) => {
+controller.createUser = (user) => { //Tạo tài khoản người dùng và mã hóa mật khẩu
     var salt = bcrypt.genSaltSync(10);
     user.password = bcrypt.hashSync(user.password, salt);
     return User.create(user);
 }
 
-controller.register = (req, res, next) => {
+controller.register = (req, res, next) => { //Xử lý đăng ký tài khoản
     let fullname = req.body.fullname
     let email = req.body.email
     let password = req.body.password
@@ -96,7 +97,7 @@ controller.register = (req, res, next) => {
     controller
         .getUserByEmail(email)
         .then(user => {
-            if (user) {
+            if (user) { //Nếu tìm được người dùng trong hệ thống
                 return res.render('register', {
                     message: `Email ${email} đã tồn tại, vui lòng nhập email khác để đăng ký!!!`,
                     type: 'alert-danger'
@@ -121,7 +122,7 @@ controller.register = (req, res, next) => {
                 .createUser(user)
                 .then(user => {
                     //req.session.user = user;
-                    if (req.session.returnURL) {
+                    if (req.session.returnURL) { //Kiểm tra người dùng đã từng truy xuất url trước đó không
                         return res.redirect(req.session.returnURL)
                     } else {
                         return res.render('register', {
@@ -135,11 +136,11 @@ controller.register = (req, res, next) => {
         })
 }
 
-controller.comparePassword = (password, hash) => {
+controller.comparePassword = (password, hash) => { //Kiểm tra mật khẩu với hash 
     return bcrypt.compareSync(password, hash);
 }
 
-controller.isLoggedIn = (req, res, next) => {
+controller.isLoggedIn = (req, res, next) => { //Kiểm tra xem đã đăng nhập hay chưa
     if (req.session.user) {
         next();
     } else {
@@ -147,7 +148,7 @@ controller.isLoggedIn = (req, res, next) => {
     }
 }
 
-controller.createJWTResetPassword = (email) => {
+controller.createJWTResetPassword = (email) => {  //Tạo jsontoken reset password về email
     return jwt.sign({
         email
     },
@@ -158,7 +159,7 @@ controller.createJWTResetPassword = (email) => {
     )
 }
 
-controller.createJWTVerifyAccount = (email) => {
+controller.createJWTVerifyAccount = (email) => { //Tạo jsontoken xác nhận tài khoản
     return jwt.sign({
         email
     },
@@ -166,7 +167,7 @@ controller.createJWTVerifyAccount = (email) => {
     )
 }
 
-controller.verifyJWT = (token) => {
+controller.verifyJWT = (token) => { //Xác thực jsontoken
     try {
         jwt.verify(token, SECRET_KEY);
         return true;
@@ -175,7 +176,7 @@ controller.verifyJWT = (token) => {
     }
 }
 
-controller.sendResetPasswordMail = (user, host, url) => {
+controller.sendResetPasswordMail = (user, host, url) => { //Gửi reset password email
     const request = mailjet
         .post('send', { version: 'v3.1' })
         .request({
@@ -211,7 +212,7 @@ controller.sendResetPasswordMail = (user, host, url) => {
     return request;
 }
 
-controller.sendVerifyUserEmail = (user, host, url) => {
+controller.sendVerifyUserEmail = (user, host, url) => {  //Gửi xác thực tài khoản email
     const request = mailjet
         .post('send', { version: 'v3.1' })
         .request({
@@ -244,6 +245,7 @@ controller.sendVerifyUserEmail = (user, host, url) => {
     return request;
 }
 
+//Gửi đặt vé email
 controller.sendEmailTicketOrder = (user, trip, tripCompName, numOfSeats, totalPrice, host, url) => {
     const request = mailjet
         .post('send', { version: 'v3.1' })
@@ -285,6 +287,7 @@ controller.sendEmailTicketOrder = (user, trip, tripCompName, numOfSeats, totalPr
     return request;
 }
 
+//Cập nhật mật khẩu
 controller.updatePassword = (user) => {
     var salt = bcrypt.genSaltSync(10);
     user.password = bcrypt.hashSync(user.password, salt);
