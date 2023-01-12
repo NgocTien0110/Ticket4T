@@ -28,7 +28,9 @@ controller.show = async (req, res) => {
       {
         model: models.NhaXe,
         include: [models.Review],
-        where: {},
+        where: {
+
+        },
       },
       {
         model: models.LoaiXe,
@@ -37,9 +39,9 @@ controller.show = async (req, res) => {
     ],
     order: [],
     where: {
-      // startTime: {
-      //   [sequelize.Op.gte]: dateTime.getHours() + ":" + dateTime.getMinutes(),
-      // },
+      numSeats: {
+        [sequelize.Op.gt]: 0,
+      },
     },
     limit: limit,
     offset: (page - 1) * limit,
