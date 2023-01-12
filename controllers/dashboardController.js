@@ -321,66 +321,66 @@ controller.addChuyenXe = async (req, res) => {
 }
 
 controller.editMultiChuyenXe = async (req, res) => {
-  const id = parseInt(req.params.id);
+    const id = parseInt(req.params.id);
 
-  let details = await models.ChuyenXe.findOne({
-    where: { id: id },
-    include: [models.LoaiXe, models.NhaXe],
-  });
-  res.locals.chuyenxeDetails = details;
+    let details = await models.ChuyenXe.findOne({
+        where: { id: id },
+        include: [models.LoaiXe, models.NhaXe],
+    });
+    res.locals.chuyenxeDetails = details;
 
-  res.render("thongtinMultichuyenxe");
+    res.render("thongtinMultichuyenxe");
 };
 
 controller.updateMultiChuyenXe = async (req, res) => {
-  let id = parseInt(req.params.id);
+    let id = parseInt(req.params.id);
 
-  let [startDate, endDate, startTime, endTime] = [
-    req.body.startDate,
-    req.body.endDate,
-    req.body.startTime,
-    req.body.endTime,
-  ];
+    let [startDate, endDate, startTime, endTime] = [
+        req.body.startDate,
+        req.body.endDate,
+        req.body.startTime,
+        req.body.endTime,
+    ];
 
-  let numSeats = req.body.numSeats;
+    let numSeats = req.body.numSeats;
 
-  let tempStartDate = startDate.split("-");
-  startDate =
-    tempStartDate[2] + "-" + tempStartDate[1] + "-" + tempStartDate[0];
+    let tempStartDate = startDate.split("-");
+    startDate =
+        tempStartDate[2] + "-" + tempStartDate[1] + "-" + tempStartDate[0];
 
-  let tempEndDate = endDate.split("-");
-  endDate = tempEndDate[2] + "-" + tempEndDate[1] + "-" + tempEndDate[0];
+    let tempEndDate = endDate.split("-");
+    endDate = tempEndDate[2] + "-" + tempEndDate[1] + "-" + tempEndDate[0];
 
-  let tempModel = await models.ChuyenXe.findOne({ where: { id: id } });
+    let tempModel = await models.ChuyenXe.findOne({ where: { id: id } });
 
-  tempModel.startDate = startDate
-  tempModel.endDate = endDate
-  tempModel.startTime = startTime
-  tempModel.endTime = endTime
-  tempModel.numSeats = numSeats;
+    tempModel.startDate = startDate
+    tempModel.endDate = endDate
+    tempModel.startTime = startTime
+    tempModel.endTime = endTime
+    tempModel.numSeats = numSeats;
 
-  await models.ChuyenXe.create({
-    startProvince: tempModel.startProvince,
-    endProvince: tempModel.endProvince,
-    startLocation: tempModel.startLocation,
-    endLocation: tempModel.endLocation,
-    startDate: tempModel.startDate,
-    endDate: tempModel.endDate,
-    startTime: tempModel.startTime,
-    endTime: tempModel.endTime,
-    carId: tempModel.carId,
-    cateCarId: tempModel.cateCarId,
-    totalNumSeats: tempModel.totalNumSeats,
-    price: tempModel.price,
-    numSeats: tempModel.numSeats,
-    locationImage: tempModel.locationImage,
-  });
+    await models.ChuyenXe.create({
+        startProvince: tempModel.startProvince,
+        endProvince: tempModel.endProvince,
+        startLocation: tempModel.startLocation,
+        endLocation: tempModel.endLocation,
+        startDate: tempModel.startDate,
+        endDate: tempModel.endDate,
+        startTime: tempModel.startTime,
+        endTime: tempModel.endTime,
+        carId: tempModel.carId,
+        cateCarId: tempModel.cateCarId,
+        totalNumSeats: tempModel.totalNumSeats,
+        price: tempModel.price,
+        numSeats: tempModel.numSeats,
+        locationImage: tempModel.locationImage,
+    });
 
-  res.redirect("/dashboard/quanlychuyenxe");
+    res.redirect("/dashboard/quanlychuyenxe");
 };
 
 
-controller.loginAdmin = (req, res, next) => {
+controller.loginAdmin = (req, res, next) => { //Xử lý đăng nhập vào dashboard admin
     let email = req.body.email
     let password = req.body.password
 
@@ -422,7 +422,7 @@ controller.loginAdmin = (req, res, next) => {
         })
 }
 
-controller.isAdminLoggedIn = (req, res, next) => {
+controller.isAdminLoggedIn = (req, res, next) => { //Kiểm tra xem tài khoản có phải admin hay không
     if (req.session.user) {
         if (req.session.user.isAdmin) {
             next();
@@ -434,7 +434,7 @@ controller.isAdminLoggedIn = (req, res, next) => {
     }
 }
 
-controller.logoutAdmin = (req, res, next) => {
+controller.logoutAdmin = (req, res, next) => { //Đăng xuất ở admin
     req.session.destroy(error => {
         if (error) {
             return next(error);
