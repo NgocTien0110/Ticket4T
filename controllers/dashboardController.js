@@ -307,14 +307,20 @@ controller.addChuyenXe = async (req, res) => {
     // imgPath = "/images/locationImages/" + imgPath.replace(' ', '-') + ".jpg";
 
     await models.ChuyenXe.create({
-        startProvince: startProvince, endProvince: endProvince,
-        startLocation: startLocation, endLocation: endLocation,
-        startDate: startDate, endDate: endDate,
-        startTime: startTime, endTime: endTime,
-        carId: carId.id, cateCarId: cateId.id,
-        totalNumSeats: totalNumSeats, price: price,
-        numSeats: 0,
-        locationImage: img.path
+      startProvince: startProvince,
+      endProvince: endProvince,
+      startLocation: startLocation,
+      endLocation: endLocation,
+      startDate: startDate,
+      endDate: endDate,
+      startTime: startTime,
+      endTime: endTime,
+      carId: carId.id,
+      cateCarId: cateId.id,
+      totalNumSeats: totalNumSeats,
+      price: price,
+      numSeats: totalNumSeats,
+      locationImage: img.path,
     });
 
     res.redirect("/dashboard/quanlychuyenxe");
